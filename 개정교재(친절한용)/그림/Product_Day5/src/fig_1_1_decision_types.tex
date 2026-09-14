@@ -1,0 +1,18 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\small,text=ink}]
+\node[title] at (-4.2,4.6) {프로젝트 PM — "어떻게"의 결정};
+\node[title] at (4.2,4.6) {프로덕트 PM — "무엇을"의 결정};
+\foreach \y/\g/\d in {3.6/무엇을 — 헌장·요구사항이 준다/WBS로 분해, 2.6/얼마를 — 예산이 준다/원가 기준선·EVM, 1.6/언제까지 — 마일스톤이 준다/CPM·버퍼, 0.6/편차 — 기준선 대비 잰다/예외 보고}{
+  \node[boxgrey, text width=32mm, anchor=east, font=\footnotesize] at (-4.4,\y) {\g};
+  \node[box, text width=28mm, anchor=west, font=\footnotesize] at (-4.0,\y) {\d};}
+\foreach \y/\q/\o in {3.6/발견 — 무엇을 만들 것인가/㉒·㉓, 2.6/범위 — 무엇을 만들지 않을 것인가/Day6 ㉖, 1.6/가격 — 무엇에 과금할 것인가/Day6 ㉘, 0.6/지표 — 무엇으로 성공을 잴 것인가(분모)/Day7 ㉜}{
+  \node[boxfill, text width=40mm, anchor=west, font=\footnotesize] at (1.4,\y) {\q};
+  \node[boxteal, text width=16mm, anchor=west, font=\footnotesize] at (6.1,\y) {\o};}
+\node[lbl, text width=50mm] at (-4.2,-0.6) {틀린 결정은 이번 달 편차로 드러난다};
+\node[lbl, text width=54mm] at (4.2,-0.6) {틀린 결정은 6~30개월 뒤 활성률·원가·딜에서 드러난다};
+\node[draw=teal,thick,fill=teallight,rounded corners=2pt, text width=86mm, align=center, font=\footnotesize] at (0,-1.7) {두 직무가 공유하는 문법 — 값·단위·출처·\textbf{분모} · 가정을 문서로 · 결정을 서면으로};
+\node[src] at (0,-2.6) {Day5 교재 1.1절. 프로덕트 관리의 도구는 대부분 "틀렸다는 것을 더 빨리 알기 위한 도구"다.};
+\end{tikzpicture}
+\end{document}

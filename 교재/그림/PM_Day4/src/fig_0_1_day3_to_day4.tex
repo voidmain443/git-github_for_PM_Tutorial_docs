@@ -1,0 +1,47 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[node distance=4mm]
+% 좌: Day3 통제 산출물
+\node[title, anchor=south west] at (0,0) {Day3 통제 산출물 (5) — 2026-09-30 → 종결};
+\node[boxgrey, text width=58mm, font=\scriptsize, anchor=north west, align=left] (c11) at (0,-2mm) {\textbf{⑪ 변경요청서 · CCB 의결서}\\CR-08 임시 연동(폐기 조건) · CR-09 22:00 조건 ①\\CR-11 5년 필터·아카이브 조건 ④ → CR-12\textasciitilde 14};
+\node[boxgrey, text width=58mm, font=\scriptsize, below=of c11, align=left, draw=rust, very thick] (c12) {\textbf{⑫ 성과보고 제9호 — EX-01 결정 10-16}\\대안 1 채택 → MG3 02-19 회복 · 창 02-26 유지\\EAC4 150.86 · 조기 신호 5 · 착시 5};
+\node[boxgrey, text width=58mm, font=\scriptsize, below=of c12, align=left] (c13) {\textbf{⑬ 이슈 로그 · 등록부 v1.2}\\이슈 미결 6 · R-14 두 번 컷오버 · R-12 분모\\IS-02 대기 비용 · 잔여 EMV 7.26};
+\node[boxgrey, text width=58mm, font=\scriptsize, below=of c13, align=left] (c14) {\textbf{⑭ 품질 통제 기록}\\심각도 1·2 미해결 0 조건(G3) · 감리 귀속 이의\\시험 노력 열 · 결함 밀도 전망 0.09};
+\node[boxgrey, text width=58mm, font=\scriptsize, below=of c14, align=left] (c15) {\textbf{⑮ 조달 · 계약 변경 기록}\\귀책 분해표(발주 7·동시 3·수행 3·회복 $-$3)\\동시 기록 · 하도급 5 · SLA 87\%};
+% 우: Day4
+\node[title, anchor=south west] at (100mm,0) {Day4 전환 · 종료 산출물 (5) — 2027-02 \textasciitilde{} 05-28};
+\node[boxfill, text width=66mm, font=\scriptsize, anchor=north west, align=left] (d16) at (100mm,-2mm) {\textbf{⑯ 컷오버 런북 · SAC} {\color{grey}제2·3장}\\38행 · 게이트 3 · PoNR 01:40 · 트리거 4(발동 0)\\SAC 12항목: 충족 11 · 조건부 1 · D+1 07:20 박준영 서명};
+\node[boxfill, text width=66mm, font=\scriptsize, below=of d16, align=left] (d17) {\textbf{⑰ 운영 이관 · SLA/OLA/UC · ELS} {\color{grey}제3장}\\문서 12종(조건부 1) · SLA 3층 서명 05-14 · ELS 8주\\KEDB 6 · P1-02 판단 기록 · 이슈 6건 종결/이관};
+\node[boxfill, text width=66mm, font=\scriptsize, below=of d17, align=left, draw=rust, very thick] (d18) {\textbf{⑱ 종료 보고서 · 이관 목록 · 계약 종결} {\color{grey}제4장}\\AC 151.95 · VAC $-$5.13 · CR-01\textasciitilde 14 · 컨틴전시 10.20\\이관 10건(승인 전 4) · 지체상금 0};
+\node[boxfill, text width=66mm, font=\scriptsize, below=of d18, align=left] (d19) {\textbf{⑲ 교훈 등록부} {\color{grey}제5장}\\L-01\textasciitilde 15 · 개정 요청 3건(관리 규정·내부통제·계약 문안)\\증빙 = 앞선 넷의 행 번호};
+\node[boxfill, text width=66mm, font=\scriptsize, below=of d19, align=left] (d20) {\textbf{⑳ 편익 실현 원장} {\color{grey}제5장}\\6항목$\times$6칸 · 판정 분모 A 91.3 · 온담 귀속 99.6\\ITO 서명 · G5 2028-03-31 · 운영 +12 / +24};
+% 입력 화살표
+\draw[arr] (c12.east) -- (d16.west);
+\draw[arr] (c14.east) -- (d16.west);
+\draw[arr] (c13.east) -- (d16.west);
+\draw[arrgrey] (c11.east) -- (d16.west);
+\draw[arr] (c13.east) -- (d17.west);
+\draw[arr] (c14.east) -- (d17.west);
+\draw[arr] (c15.east) -- (d17.west);
+\draw[arr] (c12.east) -- (d18.west);
+\draw[arr] (c11.east) -- (d18.west);
+\draw[arr] (c15.east) -- (d18.west);
+\draw[arrgrey] (c13.east) -- (d18.west);
+\draw[arr] (c12.east) -- (d19.west);
+\draw[arr] (c14.east) -- (d19.west);
+\draw[arr] (c15.east) -- (d19.west);
+\draw[arr] (c13.east) -- (d20.west);
+\draw[arrgrey] (c12.east) -- (d20.west);
+% 인계 관계 (우측 바깥)
+\draw[arrteal] (d16.east) -- ++(4mm,0) -- ($(d17.east)+(4mm,0)$) node[midway, right, font=\tiny, text=teal, align=left] {런북 D+1 행 = 이관 첫 행\\ELS 종료 04-23 = SAC 항목 12 증빙} -- (d17.east);
+\draw[arrteal] ($(d16.east)+(0,-3mm)$) -- ++(11mm,0) -- ($(d18.east)+(11mm,0)$) node[pos=0.85, right, font=\tiny, text=teal, align=left] {SAC 조건부 1 → 완료 기준 ①\\→ 이관 목록 1번} -- (d18.east);
+\draw[arrteal] ($(d18.east)+(0,-3mm)$) -- ++(4mm,0) -- ($(d20.east)+(4mm,0)$) node[pos=0.75, right, font=\tiny, text=teal, align=left] {이관 6번(검사기록)\\→ B-02 분모 B 조건 · BR-05} -- (d20.east);
+\draw[arrteal] ($(d17.east)+(0,-3mm)$) -- ++(20mm,0) -- ($(d19.east)+(20mm,0)$) node[pos=0.7, right, font=\tiny, text=teal, align=left] {P1-02 → L-14 · D$-$2 → L-09} -- (d19.east);
+% 되돌아가는 파선
+\draw[arrrust, dashed, very thick] (d16.north) ++(56mm,0) |- ++(0,14mm) -| node[lbl, font=\scriptsize, text=rust, pos=0.25, above] {G4 종결 기록: 등록부 v1.4 종결·RTM v1.4·성과보고 제17호 — 재기준선 아님, BL-02 고정} ($(c11.north)+(26mm,0)$);
+% 하단 메모
+\node[box, draw=navy, fill=navylight, text width=170mm, font=\scriptsize, anchor=north west, align=left] at (0,-84mm) {\textbf{읽는 법.} 실선 = 값이 입력으로 쓰이는 관계(EX-01 결정 → 런북 창 02-26, 심각도 1·2 미해결 0 → 게이트 조건, 귀책 분해표 → 지체상금 0, 편익 축 → 원장). 회색 = 조건·규칙이 쓰이는 관계(CR-08·09·11의 조건이 런북 행과 SAC 항목이 됨). 초록 = 다섯 산출물이 서로를 \textbf{인계}하는 관계 — Day1은 서로 고쳤고, Day2는 검산했고, Day3는 설명했고, Day4는 인계한다. 어느 행이 다른 넷에 인계되지 않으면 그 행은 프로젝트와 함께 사라진다.};
+\node[src, anchor=north west] at (0,-103mm) {출처: Day4 워크북 §0.2 20종 표·§0.4 Day3에서 가져오는 것·§6 상호 관계. 값은 §1\textasciitilde§5 완성 예시본.};
+\end{tikzpicture}
+\end{document}

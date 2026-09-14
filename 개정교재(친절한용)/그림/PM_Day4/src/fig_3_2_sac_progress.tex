@@ -1,0 +1,38 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (92,70) {SAC 12항목 — G3 사전 점검(2027-01-28, 미해소 7) → G4 판정(05-21, 충족 11 · 조건부 1)};
+% 열 헤더
+\node[font=\scriptsize\bfseries, text=navy, anchor=south] at (68,63) {01-28 사전 점검};
+\node[font=\scriptsize\bfseries, text=navy, anchor=south] at (170,63) {05-21 판정 (박준영)};
+\node[font=\scriptsize\bfseries, text=grey, anchor=south] at (119,63) {14주 사이의 해소 이벤트};
+% 행
+\foreach \i/\n/\sa/\ca/\ev/\sb/\cb in {
+ 0/1 운영 문서 12종/미해소 (8 중 12)/rust/문서 서명 05-14 (12 중 12)/충족/teal,
+ 1/2 모니터링·알림/미해소 (임계값 12)/rust/ELS 중 임계값 12 → 24 조정/충족/teal,
+ 2/3 백업·복구 (RPO 15분·RTO 4h)/미해소 (시험 미실시)/rust/DR 전환 시험 04-10 · RTO 3h 20m/충족/teal,
+ 3/4 보안 (High 0)/충족/teal/03-05 사건 후 이벤트 중복 검출 추가/충족/teal,
+ 4/5 교육/미해소 (데스크 6 중 11)/rust/데스크 11 중 11 · 직영 227 · 가맹 84\%/충족/teal,
+ 5/6 Known Error DB/해당 없음 (ELS 전)/grey/ELS 8주 → KE-01\textasciitilde 06 등재/충족/teal,
+ 6/7 SLA·OLA·UC 3층 서명/미해소 (UC 3PL 없음)/rust/UC ② 재협상 · ⑥ 최선 노력 강등 · 서명 05-14/충족/teal,
+ 7/8 인시던트·문제·CAB/미해소 (CAB 미실시)/rust/CAB 03-17부터 8회/충족/teal,
+ 8/9 소스·형상 인수/충족 (일 1회 동기화)/teal/클린 빌드 재현 100\% 05-12 · SBOM 312/충족/teal,
+ 9/10 인터페이스 운영 47본/문서 47 완료 · 폐기 대기(2차 후)/grey/임시 연동 2본 폐기 04-27 확인/충족/teal,
+ 10/11 라이선스·계약 이관/미해소/rust/정식 키 03-05 · 계약 4건 이관 · 아카이브 절차 재경 승인 대기/조건부 (기한 06-15 · 재경팀장)/rust,
+ 11/12 잔여 결함·ELS 종료/해당 없음/grey/ELS 종료 판정 04-23 · 심각도 3: 11 · 4: 27 서명/충족/teal} {
+  \pgfmathsetmacro{\yy}{58-\i*4.8}
+  \node[font=\tiny, anchor=east, text=ink] at (44,\yy) {\n};
+  \node[draw=\ca, fill=\ca!15, rounded corners=1pt, font=\tiny, text=\ca, minimum width=46mm, minimum height=3.8mm, inner sep=1pt] at (68,\yy) {\sa};
+  \draw[arrgrey, thin] (92,\yy) -- (146,\yy);
+  \node[font=\tiny, text=grey, fill=white, inner sep=1pt] at (119,\yy) {\ev};
+  \node[draw=\cb, fill=\cb!15, rounded corners=1pt, font=\tiny, text=\cb, minimum width=46mm, minimum height=3.8mm, inner sep=1pt] at (170,\yy) {\sb};
+}
+% 조건부 → 이관 1번
+\draw[arrrust, thick] (193,10) -- (200,10) |- (170,1.5);
+\node[boxrust, text width=60mm, font=\tiny, align=left, anchor=north] at (170,0.5) {\textbf{조건부 1건} → 헌장 §14 완료 기준 ① "미해소 0 또는 해소 기한·책임자 서명" 충족\\→ ⑱ 미해결 사항 이관 목록 \textbf{1번}(재경팀장, 06-15, 승인) · 승인 정미란 05-28};
+% 하단 카운트
+\node[boxgrey, text width=100mm, font=\tiny, align=left, anchor=north west] at (0,0.5) {\textbf{01-28}: 충족 2 · 미해소 7 · 해당 없음 2 · (항목 5 포함 미해소 8 중 항목 4·9만 충족) → G3 go는 SAC 미해소를 "G4까지 해소 계획 서명"으로 통과.\\\textbf{05-21}: 충족 11 · 조건부 1 · 미해소 0. 초안은 G1 2026-04-24 합의, 월 검토 9회 — 인수 거부권(박준영, RACI 22행)이 있었기 때문에 7건이 14주 안에 움직였다.};
+\node[src, anchor=north west] at (0,-14) {출처: Day4 워크북 ⑯ 항목 8(SAC v1.0 → 판정 표, 12행), ⑰ 항목 2(문서 12종)·4(SLA)·5(ELS), ⑱ 항목 1(완료 기준 ①)·6(이관 1번).};
+\end{tikzpicture}
+\end{document}

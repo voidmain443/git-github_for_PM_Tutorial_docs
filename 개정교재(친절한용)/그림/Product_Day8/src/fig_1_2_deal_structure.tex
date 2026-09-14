@@ -1,0 +1,21 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink},x=1mm,y=1mm]
+\node[title] at (75,62) {21억의 해부 — ARR인 줄은 하나뿐이다};
+% stacked bar of 21억 (height scale: 1억 = 2.2mm)
+\def\sc{2.2}
+\fill[rustlight,draw=rust,thick] (10,0) rectangle (30,{3.00*\sc}); \node at (20,{1.5*\sc}) {구축·이관 3.00};
+\fill[teallight,draw=teal,thick] (10,{3.00*\sc}) rectangle (30,{14.34*\sc}); \node[align=center] at (20,{8.67*\sc}) {라이선스 11.34\\연 \textbf{3.78 = ARR}};
+\fill[lightgrey,draw=grey,thick] (10,{14.34*\sc}) rectangle (30,{21*\sc}); \node[align=center] at (20,{17.67*\sc}) {온프렘 운영 6.66\\연 2.22 = 원가 통과};
+\node[above,font=\small\bfseries,text=navy] at (20,{21*\sc}) {21.00억 / 3년 · 청구 연 7.00};
+% right: annotations
+\node[boxrust,text width=44mm,anchor=west] (r1) at (40,{1.5*\sc}) {견적 3.00은 커버리지 95\% 가정.\\실측 61.4\% → 실소요 \textbf{6.12억}(E-03)\\= 스캔·OCR 2.35 + 엑셀 0.49 + 검증 0.60 + 매핑 0.48 + 미매핑 1.20 + PM 1.00};
+\node[boxteal,text width=44mm,anchor=west] (r2) at (40,{8.67*\sc}) {라인 환산 \textbf{70} × 45만 × 12 = 3.78억\\이천 12 / 안성 16 / 베이커리 12 / \textbf{61점 30}\\(2개점 = 1라인 — 정책 밖 임시 합의, ㉘)};
+\node[boxgrey,text width=44mm,anchor=west] (r3) at (40,{17.67*\sc}) {월 1,850만 = GPU 2대 상각 400 + 0.7 FTE 467\\+ 대기·릴리스 검증 333 + 회선·전력 150 + 예비 500\\(E-05·14, [추가 설정])};
+\draw[arrrust] (30,{1.5*\sc}) -- (r1.west); \draw[arrteal] (30,{8.67*\sc}) -- (r2.west); \draw[arrgrey] (30,{17.67*\sc}) -- (r3.west);
+% bottom: ARR three values
+\node[boxfill,text width=100mm,anchor=north west] at (10,-13) {IR 덱 ARR \textbf{18.9} = 11.9 + 7.0(연 청구 전액) · 검산 \textbf{15.68} = 11.9 + 3.78(라이선스만) · 온담 제외 11.9 — 계약 주체 2법인(홀딩스 54라인 / 푸드시스템 16라인)};
+\node[src,anchor=west,text width=120mm] at (8,-27) {정본 §5.2 · E-01\textasciitilde05 · E-03. 실소요 분해·운영 분해는 day8\_enterprise.py [추가 설정].};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,36 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[node distance=4mm]
+% 좌: Day1 문서
+\node[title, anchor=south west] at (0,0) {Day1 착수 문서 (5)};
+\node[boxgrey, text width=48mm, font=\scriptsize, anchor=north west, align=left] (bc) at (0,-2mm) {\textbf{① 비즈니스 케이스}\\§5 비용 내역 8개 · 3층 예산\\168.0 / 156.0 / 145.8 · 손익분기 66\%};
+\node[boxgrey, text width=48mm, font=\scriptsize, below=of bc, align=left] (ch) {\textbf{② 프로젝트 헌장 v1.0}\\§4 상위 요구 8개(제공자 실명) · §5 범위 5+7+4\\§6 산출물 8종 · §7 마일스톤 G0\textasciitilde G5·외부 고정 4\\§9 제약(성수기 창) · §13 우선순위};
+\node[boxgrey, text width=48mm, font=\scriptsize, below=of ch, align=left] (tdr) {\textbf{③ 방법론 선택(TDR)}\\하이브리드 — 스프린트 2주×36 + 게이트};
+\node[boxgrey, text width=48mm, font=\scriptsize, below=of tdr, align=left] (gov) {\textbf{④ 거버넌스·RACI}\\§4 허용범위 초안 7축×3계층\\RACI 19행(컨틴전시)·20행(관리예비비)};
+\node[boxgrey, text width=48mm, font=\scriptsize, below=of gov, align=left] (risk) {\textbf{⑤ 초기 리스크 13+2건}\\원인·사건·영향·소유자·트리거·근접성\\R-01·R-10의 근접성};
+% 우: Day2 산출물
+\node[title, anchor=south west] at (92mm,0) {Day2 계획 산출물 (5)};
+\node[boxfill, text width=56mm, font=\scriptsize, anchor=north west, align=left] (s6) at (92mm,-2mm) {\textbf{⑥ 범위 기술서 · WBS · WBS 사전}\\포함 5개 산출물 = WBS 레벨 2 · 인수 기준 실명\\{\color{grey}제2장}};
+\node[boxfill, text width=56mm, font=\scriptsize, below=of s6, align=left] (s7) {\textbf{⑦ RTM 골격}\\상위 요구 8 → StRS 214 → SyRS 396 → SRS 570\\MoSCoW · 릴리스 열 {\color{grey}제2장}};
+\node[boxfill, text width=56mm, font=\scriptsize, below=of s7, align=left] (s8) {\textbf{⑧ 일정 기준선}\\스프린트×게이트 달력 · CPM · 제약 일자 · 버퍼\\{\color{grey}제3장}};
+\node[boxfill, text width=56mm, font=\scriptsize, below=of s8, align=left] (s9) {\textbf{⑨ 원가 기준선 · 예비비 구조}\\145.8 월별 PV · 컨틴전시 10.2 · 관리예비비 12.0\\{\color{grey}제4장}};
+\node[boxfill, text width=56mm, font=\scriptsize, below=of s9, align=left] (s10) {\textbf{⑩ 리스크 등록부(정량) · 허용범위 격자}\\EMV · 잔여 노출 vs 허용범위 8억 · 7축×3계층 확정\\{\color{grey}제5장}};
+% 화살표
+\draw[arr] (ch.east) -- (s6.west);
+\draw[arr] (ch.east) -- (s7.west);
+\draw[arr] (ch.east) -- (s8.west);
+\draw[arrgrey] (tdr.east) -- (s8.west);
+\draw[arrgrey] (risk.east) -- (s8.west);
+\draw[arr] (bc.east) -- (s9.west);
+\draw[arrgrey] (gov.east) -- (s9.west);
+\draw[arr] (risk.east) -- (s10.west);
+\draw[arrgrey] (gov.east) -- (s10.west);
+\draw[arrgrey] (bc.east) -- (s10.west);
+% 되돌아가는 화살표
+\draw[arrrust, dashed, very thick] (s6.north) ++(20mm,0) |- ++(0,11mm) -| node[lbl, font=\scriptsize, text=rust, pos=0.25, above] {오늘 만든 것이 헌장 v1.0을 고친다 → G1(2026-04-30) v1.1 확정} ($(ch.north)+(20mm,0)$);
+% 하단 메모
+\node[box, draw=navy, fill=navylight, text width=146mm, font=\scriptsize, anchor=north west, align=left] at (0,-85mm) {\textbf{읽는 법.} 실선 = 값이 그대로 옮겨지는 입력(헌장 §5 산출물 5개 → WBS 레벨 2, BC §5 → 원가 기준선). 회색 = 규칙·구조가 옮겨지는 입력(허용범위 초안, RACI의 A, 리스크 근접성). 워크북의 어느 칸이 막히면 대개 왼쪽의 해당 항목이 비어 있거나 모호한 것이 원인이다. 숫자의 규칙은 오늘도 같다 — 값·단위·출처·분모.};
+\node[src, anchor=north west] at (0,-104mm) {출처: Day1 워크북 §7 "다음 날로 이어지는 것"과 교재 서문의 입력 관계표를 재구성.};
+\end{tikzpicture}
+\end{document}

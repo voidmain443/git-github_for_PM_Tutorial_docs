@@ -1,0 +1,18 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\footnotesize,text=ink}]
+\node[boxgrey, text width=30mm, minimum height=16mm] (old) at (-5.2,0) {현 방식\\{\scriptsize 종이 일지 · 카톡 · 엑셀\\퇴근 전 전기}};
+\node[boxfill, text width=30mm, minimum height=16mm] (new) at (5.2,0) {새 방식\\{\scriptsize 사진·음성 → 기록\\GAUGE}};
+\draw[arrteal, line width=1.6pt] (old.east) -- (new.west);
+\node[boxteal, text width=46mm, align=left, anchor=south] at (-1.6,1.4) {\textbf{push} — 현 상황의 불만\\{\scriptsize "적는 게 일이지 검사가 일이 아니에요"(I-01) · 페널티 1,200만(I-19) · "세 번 옮기면 한 번은 틀려요"(I-25)}};
+\node[boxteal, text width=46mm, align=left, anchor=south] at (3.4,1.4) {\textbf{pull} — 새 해법의 매력\\{\scriptsize "사진은 찍어요, 그다음이 문제죠"(I-24) · "그거 되면 제일 먼저 씁니다"(I-16)}};
+\node[boxrust, text width=46mm, align=left, anchor=north] at (-1.6,-1.4) {\textbf{anxiety} — 새 것에 대한 불안\\{\scriptsize "다 해봤어요"(I-02) · 판정이 기록으로 남는 것에 대한 침묵(박선재) · "도면이 나가면 잘립니다"(I-27) · "우리 규모에 시스템은 사치"(I-14)}};
+\node[boxrust, text width=46mm, align=left, anchor=north] at (3.4,-1.4) {\textbf{habit} — 현 방식의 관성\\{\scriptsize 종이 일지는 라인 옆에 · 전기는 퇴근 전 습관 · 카톡 → 엑셀 개인 폴더 · 감사용 MES + 우리용 엑셀(I-21)}};
+\draw[arrteal] (-1.6,1.4) -- (-1.6,0.35);
+\draw[arrteal] (3.4,1.4) -- (3.4,0.35);
+\draw[arrrust] (-1.6,-1.4) -- (-1.6,-0.35);
+\draw[arrrust] (3.4,-1.4) -- (3.4,-0.35);
+\node[src, anchor=west] at (-7.2,-4.2) {Moesta(2020) 네 가지 힘. 딥게이지 인용은 Day5 워크북 §2.5·§5.5. 막는 힘 쪽이 길다 — 그것이 정직한 문서다.};
+\end{tikzpicture}
+\end{document}

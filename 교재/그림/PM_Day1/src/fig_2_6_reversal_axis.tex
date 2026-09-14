@@ -1,0 +1,29 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}
+\def\W{150mm}
+% 축
+\draw[grey, very thick, {Stealth[length=3mm]}-{Stealth[length=3mm]}] (0,0) -- (\W,0);
+\node[lbl, anchor=north west, font=\small\bfseries, text=teal] at (0,-2mm) {되돌림 비용 낮음\\→ 빨리 결정하고 틀리면 고친다\\→ 실험 · 반복 (적응형)};
+\node[lbl, anchor=north east, font=\small\bfseries, text=rust, align=right] at (\W,-2mm) {되돌림 비용 높음\\→ 결정 전에 최대한 안다\\→ 앞단(front-end) · 동결 (예측형)};
+\node[lbl, anchor=north, font=\small\bfseries, text=navy] at (\W/2,-2mm) {하이브리드 — 어느 결정을 언제까지\\되돌릴 수 있게 남기고, 어느 결정을 언제 동결하는가};
+% P1
+\draw[teal, line width=3pt, opacity=0.5] (5mm,18mm) -- (60mm,18mm);
+\node[boxteal, anchor=south west, text width=62mm, font=\footnotesize] at (5mm,21mm) {\textbf{P1 플랫폼 (소프트웨어) — 하이브리드}\\스프린트 1회 $\approx$ 1.41억 (44명 $\times$ 0.5개월 $\times$ 640만 원)\\→ 잘못된 결정 하나의 되돌림 비용 1.4\textasciitilde 2.8억: 실험 가능\\2주 스프린트 36회 · 요구사항 월 1회 동결};
+\fill[teal] (60mm,18mm) circle (1.2mm);
+% P1 안의 되돌릴 수 없는 두 지점
+\node[rust, font=\small] at (108mm,18mm) {$\blacktriangle$};
+\node[lbl, text=rust, anchor=south, align=center, font=\scriptsize] at (108mm,21mm) {P1 안의 예외 ①\\G2 데이터 전환 정본 결정\\(2026-11-27; 되돌리면\\610개 테이블 재매핑 3.8억·6주)};
+\node[rust, font=\small] at (135mm,18mm) {$\blacktriangle$};
+\node[lbl, text=rust, anchor=south, align=center, font=\scriptsize] at (135mm,21mm) {P1 안의 예외 ②\\G3 컷오버\\(34시간, 615개 매장\\펌웨어 일괄배포)};
+\draw[teal, dashed] (60mm,18mm) -- (108mm,18mm); \draw[teal, dashed] (108mm,18mm) -- (135mm,18mm);
+\node[lbl, font=\scriptsize, anchor=north, text=rust] at (121mm,17mm) {이 두 지점 앞은 예측형으로: 리허설 3회 · 롤백 검증 · point of no return 명시};
+% P2
+\draw[rust, line width=3pt, opacity=0.5] (95mm,-27mm) -- (\W-5mm,-27mm);
+\fill[rust] (128mm,-27mm) circle (1.2mm);
+\node[boxrust, anchor=north east, text width=66mm, font=\footnotesize] at (\W-5mm,-30mm) {\textbf{P2 물류 자동화 설비 — 예측형}\\AS/RS 12,400 로케이션 · 셔틀 42대\\설비 발주 확정(T0, 2026-04-24) 후 선급금 29.6억 잠김,\\리드타임 34주(41주 가능성)는 압축되지 않는다\\→ 처리량 4,200 케이스/시간 사양을 발주 \textbf{전}에 확정. 스프린트 무의미};
+\node[lbl, anchor=north west, text width=66mm, align=left] at (0,-30mm) {같은 프로그램 안의 두 프로젝트가 축의 반대편에 있다.\\→ 프로그램 하나에 방법론 하나를 강제하면 안 된다.\\[3pt]ONE ONDAM의 다섯 리듬:\\P1 하이브리드 / P2 예측형 /\\P3 파일럿 후 확대(적응형 요소) /\\P4 규제 예측형(기한 고정) /\\P5 운영 이관 예측형(SAC 기준)};
+\node[src, anchor=north west] at (0,-64mm) {출처: 교재 2.6절 "되돌림 비용이 방법을 결정한다"의 서술과 사례 문서 수치를 바탕으로 재구성. 축 위 위치는 상대적 개념도.};
+\end{tikzpicture}
+\end{document}

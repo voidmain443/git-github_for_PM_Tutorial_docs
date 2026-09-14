@@ -1,0 +1,25 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[node distance=7mm]
+\node[boxgrey, text width=24mm, minimum height=16mm] (in) {\textbf{입력}\\Input\\{\footnotesize 자원·예산·인력}};
+\node[boxfill, text width=26mm, minimum height=16mm, right=of in] (tr) {\textbf{변환}\\Transform\\{\footnotesize 프로젝트 활동}};
+\node[boxfill, text width=28mm, minimum height=16mm, right=of tr] (out) {\textbf{산출물}\\Output\\{\footnotesize 사양·일정·예산 안에서\\인도되는 것}};
+\node[boxteal, text width=26mm, minimum height=16mm, right=of out] (ut) {\textbf{활용}\\Utilisation\\{\footnotesize 산출물이 실제로\\쓰이게 하는 것}};
+\node[boxteal, text width=28mm, minimum height=16mm, right=of ut] (oc) {\textbf{성과 · 편익}\\Outcome\\{\footnotesize 측정 가능한 가치}};
+\draw[arr] (in) -- (tr); \draw[arr] (tr) -- (out); \draw[arrteal] (out) -- (ut); \draw[arrteal] (ut) -- (oc);
+% 책임 구분 브레이스
+\draw[decorate, decoration={brace, amplitude=4pt, mirror}, navy, thick] ($(in.south west)+(0,-3mm)$) -- ($(out.south east)+(0,-3mm)$) node[midway, below=2mm, font=\small\bfseries, text=navy] {PM의 책임 — 산출물까지};
+\draw[decorate, decoration={brace, amplitude=4pt, mirror}, teal, thick] ($(ut.south west)+(0,-3mm)$) -- ($(oc.south east)+(0,-3mm)$) node[midway, below=2mm, font=\small\bfseries, text=teal, align=center] {사업 오너(project owner)의 책임\\스폰서 또는 현업 책임자 = PRINCE2 Senior User};
+\draw[rust, very thick, dashed] ($(out.east)!0.5!(ut.west)+(0,14mm)$) -- ($(out.east)!0.5!(ut.west)+(0,-22mm)$);
+\node[font=\small\bfseries, text=rust, anchor=south] at ($(out.east)!0.5!(ut.west)+(0,14mm)$) {책임의 분리선};
+% 온담 예시
+\node[boxteal, text width=124mm, anchor=north west, font=\footnotesize, align=left] (ex) at ($(in.south west)+(0,-24mm)$) {\textbf{온담 P1의 편익 오너 (교재 3.1절)}\\
+ · 폐기율 절감 43억 → 영업본부장 오정근 (구매·매장 운영 책임, Senior User) — P1 PM이 아니다\\
+ · 물류 처리량 절감 96억 → 물류본부장 한동석\\
+ · 매장 인건비율 38억 → 영업본부\\
+ · 측정 시점 G5(2028-03-31)는 프로젝트 종료 후 → 측정 책임자는 반드시 \textbf{상설 조직의 실명}. 부서명을 쓰면 6개월 안에 유령이 된다};
+\node[box, draw=rust, fill=rustlight, text width=124mm, anchor=north west, font=\footnotesize, align=left, below=3mm of ex.south west, anchor=north west] (wr) {\textbf{한국 기업에서 가장 자주 잘못 설계되는 지점} — benefit owner를 PM·PMO장으로 지정. PM은 통제 불가능한 것에 책임을 지게 되고, 범위 방어와 책임 회피가 합리적 행동이 된다. 편익 오너의 이름이 없는 편익은 착수 시점에 이미 실현되지 않기로 결정된 편익이다.};
+\node[src, below=3mm of wr.south west, anchor=north west] {출처: Zwikael \& Smyrk (2011), Project Management for the Creation of Organisational Value, Springer의 ITO 모델을 바탕으로 재구성.};
+\end{tikzpicture}
+\end{document}

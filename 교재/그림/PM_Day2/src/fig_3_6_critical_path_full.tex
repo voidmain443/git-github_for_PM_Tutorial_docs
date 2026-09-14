@@ -1,0 +1,74 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (125,52) {온담 P1 착수 → G4 요약 네트워크 (20 활동) — 임계경로 3구간과 P2 T0(납품 기한)·MC(입력 기한)의 위치};
+\tikzset{
+ an/.style={draw=navy, thick, fill=white, inner sep=0pt, minimum width=21mm, minimum height=10.5mm},
+ cr/.style={draw=rust, very thick, fill=rustlight},
+ nc/.style={draw=teal, thick, fill=teallight},
+ ms/.style={diamond, draw=rust, very thick, fill=rustlight, inner sep=0.5pt, font=\tiny, align=center, aspect=2.4},
+}
+\def\act#1#2#3#4#5#6#7#8#9{\node[an, #2] (#1) at (#3,#4) {\begin{tabular}{@{}c@{}}{\tiny #6\ \ #7}\\{\tiny\bfseries #5}\\{\tiny #8\ \ #9}\end{tabular}};}
+\def\tf#1#2#3{\node[font=\tiny, text=#3, anchor=south] at (#1.north) {TF #2};}
+\act{A01}{cr}{0}{0}{A01 설계 S1–S6 · 60}{0}{60}{0}{60} \tf{A01}{0}{rust}
+\act{A04}{}{25}{34}{A04 기준선·FP → G1 · 20}{60}{80}{64}{84} \tf{A04}{4}{teal}
+\act{A02}{nc}{25}{17}{A02 인터페이스 47본 · 50}{10}{60}{15}{65} \tf{A02}{5}{teal}
+\act{A03}{nc}{25}{-17}{A03 조달 · 45}{25}{70}{30}{75} \tf{A03}{5}{teal}
+\act{A05}{cr}{50}{0}{A05 구현 R1 S7–S12 · 60}{60}{120}{60}{120} \tf{A05}{0}{rust}
+\act{A09}{nc}{50}{17}{A09 데이터 매핑 1,842T · 150}{60}{210}{65}{215} \tf{A09}{5}{teal}
+\act{A06}{cr}{75}{0}{A06 구현 R2 S13–S18 · 60}{120}{180}{120}{180} \tf{A06}{0}{rust}
+\act{A08}{}{75}{-17}{A08 3PL API·폴백 · 40}{120}{160}{140}{180} \tf{A08}{20}{navy}
+\act{A10}{cr}{100}{0}{A10 구현 R3 S19–S24 · 60}{180}{240}{180}{240} \tf{A10}{0}{rust}
+\act{A11}{nc}{100}{17}{A11 정본 판정 → G2 · 20}{210}{230}{215}{235} \tf{A11}{5}{teal}
+\act{A07}{cr}{100}{-17}{A07 개인정보 검증 · 15}{165}{180}{165}{180} \tf{A07}{0 (FNLT)}{rust}
+\act{A14}{cr}{125}{0}{A14 통합·성능·보안 · 30}{240}{270}{240}{270} \tf{A14}{0}{rust}
+\act{A13}{nc}{125}{17}{A13 리허설 1~3회차 · 45}{230}{275}{235}{280} \tf{A13}{5}{teal}
+\act{A12}{}{125}{-17}{A12 구현 R4 S25–S26 · 20}{240}{260}{250}{270} \tf{A12}{10}{navy}
+\act{A16}{cr}{150}{0}{A16 UAT·리허설·롤백 · 24}{270}{294}{270}{294} \tf{A16}{0}{rust}
+\act{A15}{cr}{150}{-17}{A15 P2 I/F 시험 · 5}{289}{294}{289}{294} \tf{A15}{0 (SNET)}{rust}
+\node[ms] (MG3) at (175,0) {MG3 G3\\02-19}; \node[font=\tiny, text=rust, anchor=west] at ($(MG3.east)+(0,3)$) {TF 0};
+\act{A17}{cr}{200}{0}{A17 컷오버 실행 · 1}{299}{300}{299}{300} \tf{A17}{0}{rust}
+\act{A18}{cr}{225}{0}{A18 안정화 S31–S34 · 40}{300}{340}{300}{340} \tf{A18}{0}{rust}
+\act{A19}{nc}{225}{-17}{A19 이연 릴리스 R5 · 25}{310}{335}{315}{340} \tf{A19}{5}{teal}
+\act{A20}{cr}{250}{0}{A20 이관·인수 → G4 · 25}{340}{365}{340}{365} \tf{A20}{0}{rust}
+% 임계경로
+\foreach \a/\b in {A01/A05,A05/A06,A06/A10,A10/A14,A14/A16,A16/MG3,MG3/A17,A17/A18,A18/A20} \draw[arrrust, very thick] (\a.east) -- (\b.west);
+% 그 밖의 의존 (직각 경로)
+\draw[arr] (A01.east) -- ++(2,0) |- (A02.west); \node[font=\tiny, text=grey, anchor=west] at (12.5,10) {SS+10};
+\draw[arr] (A01.east) -- ++(2,0) |- (A04.west);
+\draw[arr] (A01.east) -- ++(2,0) |- (A03.west); \node[font=\tiny, text=grey, anchor=west] at (12.5,-10) {SS+25};
+\draw[arr] (A03.east) -- ++(2,0) |- ($(A05.west)+(0,-3)$); \node[font=\tiny, text=grey, anchor=west] at (37.5,-10) {SS+30};
+\draw[arr] (A02.east) -- (A09.west);
+\draw[arr] (A05.east) -- ++(2,0) |- (A08.west);
+\draw[arr] (A06.east) -- ++(2,0) |- (A07.west); \node[font=\tiny, text=grey, anchor=west] at (87.5,-10) {FF};
+\draw[arr] (A08.east) -- ++(2,0) |- ($(A10.west)+(0,-3)$);
+\draw[arr] (A09.east) -- (A11.west);
+\draw[arr] (A11.east) -- (A13.west);
+\draw[arr] (A10.east) -- ++(2,0) |- (A12.west);
+\draw[arr] (A12.east) -- ++(2,0) |- ($(A16.west)+(0,-3)$);
+\draw[arrrust] (A14.east) -- ++(2,0) |- (A15.west);
+\draw[arr] (A13.east) -- ++(2,0) -- (162.5,9) -- (175,9) -- (MG3.north);
+\draw[arrrust, very thick] (A15.east) -- ++(2,0) -- (162.5,-9) -- (175,-9) -- (MG3.south);
+\draw[arr] (A07.south) -- ++(0,-4) -| (170,-9);
+\draw[arr] ($(A18.south)+(-6,0)$) |- (A19.west); \node[font=\tiny, text=grey, anchor=east] at (218,-11) {SS+10};
+\draw[arr] (A19.east) -- ++(2,0) |- ($(A20.west)+(0,-3)$);
+% 외부 마일스톤·제약 주석
+\node[font=\tiny, text=rust, align=center, anchor=north] at (0,-7) {\textbf{P2 T0 04-24 (FNLT)}\\1.3.1 규격 전달 = \textbf{납품 기한}};
+\node[font=\tiny, text=navy, align=left, anchor=west] at (36.5,34) {G1 04-30\\앞 4일};
+\node[font=\tiny, text=navy, align=center, anchor=south] at (100,26) {G2 11-27 앞 5일};
+\node[font=\tiny, text=rust, align=left, anchor=north west] at (102,-27.5) {규제① 09-11 (FNLT)\\= 제약이 만든 TF 0};
+\node[font=\tiny, text=rust, align=center, anchor=north] at (150,-28) {\textbf{P2 MC 02-12 (SNET)} = \textbf{입력 기한}\\MC 하루 지연 = G3 하루 지연 (R-01)};
+\node[font=\tiny, text=rust, align=center, anchor=north] at (200,-7) {컷오버 창 02-26 (SNET)\\G3 뒤 대기 4일 = 여유 아닌 제약};
+\node[font=\tiny, text=navy, align=center, anchor=north] at (250,-7) {G4 05-28 당일 종료\\G4 앞 여유 0};
+\node[font=\tiny, text=navy, align=center, anchor=north] at (186,-14) {합류 버퍼 15영업일\\(→ 03-12, 프로그램)};
+% 구간 괄호
+\draw[decorate, decoration={brace, amplitude=3pt}, navy, thick] (-11,45) -- (37,45) node[midway, above=3pt, font=\scriptsize\bfseries, text=navy] {구간 1 요구 확정·인터페이스 → G1};
+\draw[decorate, decoration={brace, amplitude=3pt}, navy, thick] (38,45) -- (112,45) node[midway, above=3pt, font=\scriptsize\bfseries, text=navy] {구간 2 구현 → 마스터 정본 G2};
+\draw[decorate, decoration={brace, amplitude=3pt}, navy, thick] (113,45) -- (261,45) node[midway, above=3pt, font=\scriptsize\bfseries, text=navy] {구간 3 리허설·UAT·P2 합류 → G3 → 컷오버 → G4};
+% 범례·해설
+\node[lbl, font=\tiny, anchor=north west, align=left] at (-11,-42) {노드: 위 ES EF / 아래 LS LF — 작업일 번호\\(0 = 2026-01-05, 영업일, 공휴일 미반영)\\{\color{rust}\rule{6mm}{1.2pt}} 임계 (TF 0)\\{\color{teal}\rule{6mm}{1.2pt}} 근접 임계 (TF ≤ 5)\\{\color{navy}\rule{6mm}{1.2pt}} 그 밖 (TF 10·20)};
+\node[box, draw=navy, fill=navylight, text width=190mm, font=\tiny, align=left, anchor=north west] at (58,-42) {\textbf{임계경로} A01→A05→A06→A10→A14→A16→MG3→A17→A18→A20 = 360영업일 + 컷오버 창 대기 5 = 365 = G4 05-28, G4 앞 여유 0. 제약이 만든 두 번째 임계 사슬: A15(SNET P2 MC)와 A07(FNLT 규제①). 근접 임계(TF 5): 데이터 경로 A02→A09→A11→A13 — R-10(정본 후 마스터 변경)이 소비한다. 의존 27 = FS 22 / SS 4 / FF 1, 하드 제약 9/21 = 43\%(DCMA 5번 미달 — 전부 외부 고정이며 출처를 명시). \textbf{T0와 MC 사이 41주는 P1이 통제하지 못하는 시간}이다 — P1이 할 수 있는 것은 T0 전에 규격을 넘기는 것과 분리 컷오버를 설계해 두는 것뿐.};
+\node[src, anchor=north west] at (-11,-60) {출처: 워크북 §3 완성 예시본 "일정 기준선 — ONE ONDAM P1" 항목 4\textasciitilde 6(요약 활동 네트워크·CPM 계산표·임계경로) [추가 설정]의 값을 그대로 옮겨 그림. 교재 3.2절의 G2→G3 상세 네트워크(그림 3-2)는 같은 구간 3을 활동 수준으로 확대한 것.};
+\end{tikzpicture}
+\end{document}

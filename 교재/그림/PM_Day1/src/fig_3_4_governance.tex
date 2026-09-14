@@ -1,0 +1,30 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[node distance=5mm]
+% 계층
+\node[boxfill, text width=70mm, font=\footnotesize] (board) at (0,0) {\textbf{프로그램 이사회} — 분기 1회 + 게이트(G0\textasciitilde G5)\\의장 김선호 대표 · 사외이사 1인\\{\scriptsize 게이트 최종 승인 · 이사회 승인 조건 5개항}};
+\node[boxfill, text width=70mm, font=\footnotesize, below=of board] (sc) {\textbf{프로그램 운영위원회} — 월 1회\\스폰서(정미란 CFO) + 프로그램 PMO장 + 5개 PM\\{\scriptsize 결정 기관 — "결정 요청 사항"이 없는 운영위는 열지 않는다}};
+\node[boxteal, text width=70mm, font=\footnotesize, below=of sc] (sp) {\textbf{스폰서 / Executive} — 정미란 CFO (한 명, 위원회 불가)\\{\scriptsize 비즈니스 케이스 책임 · 관리예비비 12.0억 결재 · 허용범위 위임}\\{\scriptsize Project Board: Senior User 오정근 · Senior Supplier 박세연}};
+\node[box, draw=grey, fill=lightgrey, text width=70mm, font=\footnotesize, below=14mm of sp] (pm) {\textbf{P1 PM} — 산출물 인도 책임\\{\scriptsize 허용범위 안에서 결정: 원가 +6\%(10.08억) · 일정 +15영업일 · 범위 ±35건}\\{\scriptsize PM 통제 컨틴전시 10.2억}};
+\node[boxgrey, text width=30mm, font=\footnotesize, right=8mm of sc] (pmo) {\textbf{PMO}\\프로그램 PMO 4명\\P1 PMO 3명 (상주 24개월)\\{\scriptsize 표준·도구·보고·형상관리·QA}\\{\scriptsize 결정하지 않는다 —\\결정을 준비하고 기록한다}};
+\draw[arrgrey, dashed] (pmo.west) -- (sc.east);
+\draw[arrgrey, dashed] (pmo.south) |- (sp.east);
+% 결정 흐름 (위임 ↓ / 예외 ↑)
+\draw[arrteal, very thick] ($(board.south)+(-20mm,0)$) -- ($(sc.north)+(-20mm,0)$);
+\draw[arrteal, very thick] ($(sc.south)+(-20mm,0)$) -- ($(sp.north)+(-20mm,0)$);
+\draw[arrteal, very thick] ($(sp.south)+(-20mm,0)$) -- node[lbl, right, font=\scriptsize, text=teal, align=left, pos=0.5] {\ 허용범위(tolerance) 위임 ↓} ($(pm.north)+(-20mm,0)$);
+\draw[arrrust, very thick] ($(pm.north)+(20mm,0)$) -- node[lbl, right, font=\scriptsize, text=rust, align=left, pos=0.5] {\ Exception Report = 권한 반납 ↑\\\ (벗어날 것이 \textbf{예측}되는 순간)} ($(sp.south)+(20mm,0)$);
+\draw[arrrust, very thick] ($(sp.north)+(20mm,0)$) -- ($(sc.south)+(20mm,0)$);
+\draw[arrrust, very thick] ($(sc.north)+(20mm,0)$) -- ($(board.south)+(20mm,0)$);
+% 변경 통제 3층 (좌)
+\node[font=\small\bfseries, text=navy, anchor=north east, align=right] (h) at (-42mm,2mm) {변경 통제 3층\\{\footnotesize\mdseries (어느 변경이 어느 층으로 가는가 — Day3)}};
+\node[boxrust, text width=40mm, font=\scriptsize, anchor=north east] (ccb) at (-42mm,-8mm) {\textbf{사내 CCB} (7인)\\월 1회 셋째 목요일 · 정족수 5인\\반대의견 실명 기재};
+\node[boxrust, text width=40mm, font=\scriptsize, below=3mm of ccb] (cc) {\textbf{계약상 변경협의체}\\발주사 3 + 수행사 3 · 격주 수요일};
+\node[boxrust, text width=40mm, font=\scriptsize, below=3mm of cc] (bl) {\textbf{기준선 재확인 절차}\\분기 1회 또는 FP 누적 변동 ±3\% 초과 시};
+\node[lbl, font=\scriptsize, anchor=north east, text width=40mm, align=right, below=3mm of bl.south east, anchor=north east] {PMBOK CCB(권한 위로 회수)와 PRINCE2 Change Authority(권한 아래로 위임)를 의도적으로 섞은 구조};
+% 하단
+\node[box, draw=navy, fill=navylight, text width=150mm, font=\footnotesize, anchor=north] at (10mm,-80mm) {\textbf{거버넌스는 조직도가 아니라 결정의 흐름이다} — 어떤 종류의 결정이 어디서 얼마 안에 내려지는가. 이 그림의 화살표(위임 ↓ / 예외 ↑)가 상자보다 중요하다. 검증 두 가지: ① 원가 허용범위 10.08억 vs 본부장 위임전결 한도 5억 — 사내 규정과 맞는가 ② 편익 $-$5\%p 허용범위(≈10.7억) — Business Case의 편익 민감도와 맞는가};
+\node[src, anchor=north west] at (-84mm,-98mm) {출처: 사례 문서 『㈜온담F\&B홀딩스』 §4.1·§5.6과 PRINCE2 7의 Manage by Exception을 교재 3.4절에 따라 재구성.};
+\end{tikzpicture}
+\end{document}

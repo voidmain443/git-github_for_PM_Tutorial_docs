@@ -1,0 +1,27 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (95,52) {D$-$2 라이선스 사건의 인과 사슬 — 세 개의 정상적인 결정이 14개월 뒤 컷오버 창 앞에서 만난다};
+% 세 원인
+\node[boxgrey, text width=44mm, font=\tiny, align=left] (c1) at (24,38) {\textbf{2026-02-16 재무본부 내부통제 지침 시행}\\단일 건 5,000만 원 이상 → CFO 직접 결재\\(2020 감사 지적 대응 — 정상적인 통제 강화)};
+\node[boxgrey, text width=44mm, font=\tiny, align=left] (c2) at (24,22) {\textbf{2026-03-13 라이선스 지급 50/50 계약 변경}\\IS-01 · R-04 대응 — 운영 환경 2차분은\\통합시험 통과 후 별도 발주(Day3 ⑮ 계약 변경 1번)};
+\node[boxgrey, text width=44mm, font=\tiny, align=left] (c3) at (24,6) {\textbf{G3 자료 조달 상태 표(⑮ 항목 8)}\\라이선스 2차분 = "계약 내"로 표기\\→ 발주·결재 단계가 추적되지 않음};
+% 합류
+\node[boxrust, text width=40mm, font=\tiny, align=left] (m) at (84,22) {\textbf{2027-02-13 발주서 결재 대기}\\소관 본부장(박세연) 결재 후 CFO 결재함 정체\\02-16\textasciitilde 23 정미란 G3 준비 · 해외 출장\\구매팀: "결재 완료 후 발주"가 절차};
+\draw[arr] (c1.east) -- (m.west); \draw[arr] (c2.east) -- (m.west); \draw[arrgrey] (c3.east) -- (m.west);
+% 발견
+\node[boxrust, text width=34mm, font=\tiny, align=left, draw=rust, very thick] (f) at (130,22) {\textbf{02-24(수) 14:30 발견}\\컨트롤룸 사전 점검 중 벤더 조회\\→ "발주서 미접수"\\영향: 운영 API GW 기동 불가 → 창 이탈};
+\draw[arrrust, very thick] (m.east) -- (f.west);
+% 선택지
+\node[boxgrey, text width=40mm, font=\tiny, align=left] (o1) at (170,38) {① 결재 대기 — 정미란 복귀 02-25 → 발주 → 키 발급 5영업일 → \textbf{03-04}: 창 이탈};
+\node[boxteal, text width=40mm, font=\tiny, align=left, draw=teal, very thick] (o2) at (170,22) {\textbf{② 벤더 임시 라이선스 30일} 수수료 0.02억(미배정 풀) · 만료 03-26 · \textbf{채택} P1 PM·강현도 02-24 17:00 → 임시 키 02-25 10:00};
+\node[boxgrey, text width=40mm, font=\tiny, align=left] (o3) at (170,6) {③ 개발 키 운영 사용 — 계약 위반, 기각};
+\draw[arrgrey] (f.east) -- (o1.west); \draw[arrteal] (f.east) -- (o2.west); \draw[arrgrey] (f.east) -- (o3.west);
+% 사후
+\node[font=\tiny, text=teal, align=left, anchor=north west, text width=66mm] at (124,-2) {사후: 정미란 결재 02-25 → 발주 02-26 → 정식 키 \textbf{03-05} 적용(만료 전) · 런북 v1.1 게이트 1 조건 ③ "임시 라이선스 유효" 추가 · CCB 03-18 사후 보고};
+% 교훈
+\node[box, draw=navy, fill=navylight, text width=118mm, font=\tiny, align=left, anchor=north west] (l) at (0,-8) {\textbf{원인 = 담당자 실수가 아니라 절차의 부작용.} 통제 강화(지침)·리스크 대응(50/50)·상태 표기 관행이 각각 옳았고, 셋의 교차점 — "컷오버 창 앞 4주의 5,000만 원 이상 발주"를 사전 결재하는 규칙 — 이 어디에도 없었다.\\\textbf{L-09}(⑲) → 개정 요청 2 「내부통제 지침: 게이트·컷오버 창 앞 4주 발주 예정 건은 사전 결재 목록으로 CFO 일괄 결재, 결재 대기 5영업일 초과 시 재경팀이 PM에 통보」(2027-08) + 개정 요청 3 ③ 「조달 상태 양식에 발주·결재 단계 열」(2027-09)};
+\node[src, anchor=north west] at (0,-24) {출처: Day4 워크북 ⑯ 항목 9(D$-$2 사건 기록), ⑲ L-09·개정 요청 2·3, ⑱ 항목 4(미배정 풀 0.02). 내부통제 지침·50/50 변경은 Day1 회사 정본·Day3 ⑮.};
+\end{tikzpicture}
+\end{document}

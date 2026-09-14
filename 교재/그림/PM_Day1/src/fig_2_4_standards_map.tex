@@ -1,0 +1,26 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}
+% 축: x = "지식체계(무엇을 알아야) ↔ 방법론(누가 결정)"; y = "계약·거버넌스 층 ↔ 인도 팀 층"
+\def\W{170mm}\def\H{110mm}
+\draw[grey!40] (0,0) rectangle (\W,\H);
+\draw[grey!40] (\W/2,0) -- (\W/2,\H); \draw[grey!40] (0,\H/2) -- (\W,\H/2);
+\node[lbl, anchor=north, font=\small\bfseries, text=navy] at (\W/4,-2mm) {지식체계 · 지침 — "무엇을 알아야 하는가"};
+\node[lbl, anchor=north, font=\small\bfseries, text=navy] at (3*\W/4,-2mm) {방법론 · 프레임워크 — "누가 무엇을 결정하는가"};
+\node[lbl, anchor=south, font=\small\bfseries, text=navy, rotate=90] at (-2mm,3*\H/4) {계약 · 거버넌스 층};
+\node[lbl, anchor=south, font=\small\bfseries, text=navy, rotate=90] at (-2mm,\H/4) {인도(delivery) 팀 층};
+% 노드들
+\node[boxfill, text width=40mm, font=\footnotesize] at (24mm,92mm) {\textbf{ISO 21502:2020}\\계약서·RFP가 인용하는 중립 지침\\(21500:2021은 개념 문서, 21506은 용어)};
+\node[boxfill, text width=34mm, font=\footnotesize] at (24mm,68mm) {\textbf{ISO 21505:2017}\\거버넌스 — 이사회·오너 계층의 책무};
+\node[boxfill, text width=40mm, font=\footnotesize] at (66mm,52mm) {\textbf{PMBOK Guide 8판}\\6 원칙 / 7 도메인 / 40 프로세스\\예측형·애자일·하이브리드 모두 적용};
+\node[boxteal, text width=40mm, font=\footnotesize] at (108mm,92mm) {\textbf{PRINCE2 7}\\Project Board · 허용범위 격자\\Product-Based Planning · Business Case};
+\node[boxteal, text width=36mm, font=\footnotesize] at (112mm,66mm) {\textbf{PRINCE2 Agile}\\게이트 유지 + 인도 계층만 애자일화\\Agilometer · MoSCoW};
+\node[boxfill, text width=36mm, font=\footnotesize] at (28mm,28mm) {\textbf{Agile Practice Guide}\\PMI + Agile Alliance 공동 저작\\Suitability Filter};
+\node[boxfill, text width=34mm, font=\footnotesize] at (66mm,12mm) {\textbf{Disciplined Agile}\\process goal + decision points\\+ options (테일러링 카탈로그)};
+\node[boxteal, text width=36mm, font=\footnotesize] at (142mm,32mm) {\textbf{SAFe}\\여러 애자일 팀의 정렬 — PI 리듬\\조직 구조 변경 요구};
+\node[boxteal, text width=30mm, font=\footnotesize] at (102mm,12mm) {\textbf{Scrum · Kanban · XP}\\실행 프레임워크};
+\node[box, draw=grey, fill=sand, text width=36mm, font=\scriptsize, anchor=south east] at (\W-2mm,\H/2+2mm) {PRINCE2 stage 경계 = "계속할 것인가"의 승인 게이트\\SAFe PI 경계 = 팀 간 의존성 정렬 리듬\\→ 1:1 매핑 금지};
+\node[src, anchor=north west] at (0,-9mm) {출처: 교재 2.1\textasciitilde 2.5절의 서술을 바탕으로 재구성. 위치는 상대적 성격을 나타내는 개념도.};
+\end{tikzpicture}
+\end{document}

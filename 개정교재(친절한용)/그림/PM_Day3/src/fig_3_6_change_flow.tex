@@ -1,0 +1,25 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (100,50) {변경 4건이 같은 문을 통과하는 흐름 — 접수에서 BL-02까지 (2026-09-16 → 10-23)};
+\tikzset{st/.style={box, text width=25mm, font=\tiny, align=center, minimum height=22mm}}
+\node[st] (a) at (0,30) {\textbf{① 접수}\\09-16 CR-08 (정미란)\\09-17 CR-09 (서정필)\\09-18 CR-10 (P1 PM)\\09-22 CR-11 (박세연·재경)\\FZ-10 접수 마감 10-14 전};
+\node[st] (b) at (32,30) {\textbf{② 6축 영향 분석}\\범위 · 일정 · 원가 · 품질 · 리스크 · 계약/편익\\FP 산정서 부록 v1.1\\CPM TF · 자금원 · EMV Δ\\타 프로젝트 · 운영 영향 칸};
+\node[st, draw=rust] (c) at (64,30) {\textbf{③ 처리 경로 판정 (규칙 ①\textasciitilde ⑥)}\\CR-08·11: 헌장 §5 문언 → ②\\CR-09: 운영 영향 → ② + ④\\CR-10: 헌장 §12 문언 → ② + 스폰서\\허용범위 내라도 문언 변경은 CCB};
+\node[st, draw=teal, fill=teallight] (d) at (96,30) {\textbf{④ 변경협의체 (계약, 09-30)}\\수행사 FP 확인 · 대가 합의\\CR-08 +0.495 / CR-09 +0.1925\\CR-11 $-$0.33 (이의 없음)\\CR-10은 수행사 무관 → 생략};
+\node[st] (e) at (128,30) {\textbf{⑤ 운영위 보고 (10-08)}\\CR-09만 — 물류본부 야간조\\3PL 배송 출발 시각(한동석)\\CR-10 규정 해석 첨부\\(프로그램 PMO장)};
+\node[st, draw=navy, very thick] (f) at (160,30) {\textbf{⑥ CCB 제10차 (10-15, 7/7)}\\승인 2 (CR-08 조건 4 · CR-11)\\조건부 1 (CR-09 파라미터)\\거버넌스 1 (CR-10)\\반대의견 1 (한동석, CR-09)};
+\node[st, draw=teal, fill=teallight] (g) at (192,30) {\textbf{⑦ 계약 서면 (10-23)}\\SI 변경 합의서 6호\\CR-07·08·09·11 = +105 FP\\+0.5775억 · DT-01 $-$2.0\\협의회 회신 10-23 (오정근)};
+\node[st, draw=navy, fill=navylight] (h) at (192,2) {\textbf{⑧ BL-02 발행 (10-23)}\\FP 12,585 · PMB 146.82\\집행 한도 156.00 불변\\RTM v1.2 · WBS v1.1 · 등록부 v1.2\\헌장 v1.1 확정본 서명};
+\foreach \p/\q in {a/b, b/c, c/d, d/e, e/f, f/g} \draw[arr, thick] (\p.east) -- (\q.west);
+\draw[arr, thick] (g.south) -- (h.north) node[midway, right, font=\tiny, text=navy] {CCB 후 5영업일 내 (규칙 ⑥)};
+% CR-07 전결 경로 (가는 선)
+\node[boxgrey, text width=52mm, font=\tiny, align=left, anchor=west] (cr7) at (0,2) {\textbf{대조 — CR-07 (PM 전결 경로, 규칙 ①)}\\인터페이스 미등재 2본 추가 · FP +40 · 0.22억 (IS-03)\\6축 모두 허용범위 내 · 헌장 문언 불변 · 타 프로젝트 영향 없음\\→ 09-16 변경협의체 → \textbf{09-17 P1 PM 전결} → 10-15 CCB 사후 보고 (이의 없음) → BL-02 편입};
+\draw[arrgrey, thin] (cr7.east) -- ++(6,0) |- ($(f.south)+(0,-1)$) node[pos=0.75, below, font=\tiny, text=grey] {사후 보고};
+\draw[arrgrey, thin] (cr7.east) ++(6,0) -- (h.west);
+% 하단 규칙 요약
+\node[box, text width=120mm, font=\tiny, align=left, anchor=north west] at (60,-10) {\textbf{처리 경로 규칙 (변경 관리 계획 v1.0 §3, G1 확정 [추가 설정]).} ① 6축 모두 허용범위 내 · 헌장 §5/§12/§13 문언 불변 · 타 프로젝트·운영 영향 없음 → P1 PM 전결, 다음 CCB 사후 보고 / ② 헌장 문언 변경 또는 어느 축 초과 → CCB(수행사 FP 영향 시 변경협의체 선행) / ③ 관리예비비 필요 → 스폰서 결재 / ④ 타 프로젝트·운영 영향 → 운영위 보고 병행 / ⑤ 릴리스 이연(R5) → 헌장 §13, CCB / ⑥ 승인 후 5영업일 내 BL 번호 갱신.};
+\node[src, anchor=north west] at (-12,-24) {출처: Day3 워크북 ⑪ 완성 예시본(처리 경로 규칙, CR-08\textasciitilde 11 항목 7, 항목 8 CCB 의결서, 항목 9·10), ⑮ 항목 2·7. 교재 3.3절·3.6절.};
+\end{tikzpicture}
+\end{document}

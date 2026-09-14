@@ -1,0 +1,20 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink}]
+\node[boxgrey, text width=26mm] (in1) at (-6.4,2.2) {㉒ 27건\\{\tiny 역할군 5 · 괴리 4}};
+\node[boxgrey, text width=26mm] (in2) at (-6.4,0.6) {㉓ 트리\\{\tiny 우선순위 1~5 · 기각 4}};
+\node[boxgrey, text width=26mm] (in3) at (-6.4,-1.0) {㉔ 실험 3\\{\tiny 불확정·실패·성공}};
+\node[boxfill, text width=62mm, align=left] (dx) at (-1.2,2.2) {\textbf{진단} — 기록은 이미 만들어지고 있다(사진·종이·카톡). 문제는 기록이 세 번 옮겨지며 근거를 잃는 것이고, 그 비용(31분·11.5h·"누가 봤냐")은 나뉘어 아무도 합산하지 않는다};
+\node[boxfill, text width=62mm, align=left] (pol) at (-1.2,0.6) {\textbf{추진 방침} — 검사원의 행동을 바꾸지 않는다. 이미 찍는 사진과 한마디에서 기록·근거·통보를 만들어 \textbf{팀장에게 판다}. 판정을 대신하지 않고 근거를 남긴다. 클라우드 가능 1,247에서 시작해 1차사 채널로};
+\node[boxfill, text width=62mm, align=left] (act) at (-1.2,-1.2) {\textbf{일관된 행동} — ① 첫 6개월 기록 생성 + 부적합 패키지만(판정 초안은 오전 베타) ② 라인 단위·좌석 무제한 ③ 온프렘·커스텀은 문서로 보류(Won't) ④ 판정 로그를 모든 기록에};
+\draw[arr] (in1) -- (dx); \draw[arr] (in2) -- (pol); \draw[arr] (in3) -- (pol); \draw[arr] (dx) -- (pol); \draw[arr] (pol) -- (act);
+\node[boxteal, text width=24mm] (o1) at (4.6,-0.4) {Day6 ㉖ 범위};
+\node[boxteal, text width=24mm] (o2) at (4.6,-1.2) {Day6 ㉘ 가격};
+\node[boxteal, text width=24mm] (o3) at (4.6,-2.0) {Day6 ㉙ Won't};
+\node[boxteal, text width=24mm] (o4) at (4.6,-2.8) {Day6 ㉗ 판정 로그};
+\foreach \o in {o1,o2,o3,o4} \draw[arrteal] (act.east) -- (\o.west);
+\node[draw=grey, fill=lightgrey, rounded corners=2pt, text width=112mm, align=left] at (-1.0,-4.0) {\textbf{하지 않는 것(대가)} — 온프렘(903개사·동보프레스) · 자동차 밖(확장 SAM 인바운드) · 판정 대체("AI 검사" 문구) · 공장 문서 관리(OP-06 요청) · 컨설팅(초기 매출 느림)};
+\node[src, anchor=west] at (-7.8,-5.0) {Rumelt(2011) 커널 위에 Day5 워크북 §5.5 항목 4·6. 세 줄이 27건·트리·실험에서 연역되지 않으면 커널이 아니라 슬로건이다.};
+\end{tikzpicture}
+\end{document}

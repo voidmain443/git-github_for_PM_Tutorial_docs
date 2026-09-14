@@ -1,0 +1,32 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}
+\def\R{42mm}
+\coordinate (P) at (0,26mm);           % Power (위)
+\coordinate (L) at (-25mm,-15mm);      % Legitimacy (좌하)
+\coordinate (U) at (25mm,-15mm);       % Urgency (우하)
+\fill[navy, opacity=0.12] (P) circle (\R);
+\fill[teal, opacity=0.12] (L) circle (\R);
+\fill[rust, opacity=0.12] (U) circle (\R);
+\draw[navy, thick] (P) circle (\R); \draw[teal, thick] (L) circle (\R); \draw[rust, thick] (U) circle (\R);
+\node[font=\small\bfseries, text=navy, anchor=south, align=center] at (0,70mm) {권력 Power\\{\footnotesize\mdseries 자기 의지를 관철할 수단 (강제적·물질적·규범적)}};
+\node[font=\small\bfseries, text=teal, anchor=north east, align=right] at (-42mm,-46mm) {정당성 Legitimacy\\{\footnotesize\mdseries 요구가 사회적·조직적으로}\\{\footnotesize\mdseries 정당하다고 인정되는가}};
+\node[font=\small\bfseries, text=rust, anchor=north west, align=left] at (42mm,-46mm) {긴급성 Urgency\\{\footnotesize\mdseries 즉각적 대응을 요구하는가}\\{\footnotesize\mdseries (시간 민감성 + 중대성)}};
+% 7 유형
+\node[align=center, font=\footnotesize] at (0,50mm) {\textbf{1 Dormant}\\{\scriptsize 힘은 있지만 지금은 무관심}\\{\scriptsize 깨어나면 위험}};
+\node[align=center, font=\footnotesize] at (-46mm,-24mm) {\textbf{2 Discretionary}\\{\scriptsize 정당하지만 힘도}\\{\scriptsize 긴급성도 없음}\\[2pt]{\scriptsize\color{teal} 강윤지 지역매니저}};
+\node[align=center, font=\footnotesize] at (46mm,-24mm) {\textbf{3 Demanding}\\{\scriptsize 시끄럽지만 힘도}\\{\scriptsize 정당성도 없음}};
+\node[align=center, font=\footnotesize] at (-24mm,16mm) {\textbf{4 Dominant}\\{\scriptsize 권력 + 정당성}\\[1pt]{\scriptsize\color{navy} 박세연 IT본부장}\\{\scriptsize\color{navy} 윤태호 감사팀장}\\{\scriptsize\color{navy} 이재현 수행사 PM}\\{\scriptsize\color{navy} 오정근 영업본부장}};
+\node[align=center, font=\footnotesize] at (24mm,16mm) {\textbf{5 Dangerous}\\{\scriptsize 권력 + 긴급성}\\{\scriptsize 정당성 없는 힘, 강제적 수단}};
+\node[align=center, font=\footnotesize] at (0,-26mm) {\textbf{6 Dependent}\\{\scriptsize 정당성 + 긴급성, 힘 없음}\\[1pt]{\scriptsize\color{rust} 서정필 협의회장}\\{\scriptsize\color{rust} 김미르 노조지부장}\\{\scriptsize\color{rust} 최영주 CPO}\\{\scriptsize\color{rust} 박준영 서비스운영팀장}};
+\node[align=center, font=\footnotesize] at (0,-2mm) {\textbf{7 Definitive}\\{\scriptsize 셋 다 — 최우선}\\[1pt]{\scriptsize\color{navy} 정미란 CFO}\\{\scriptsize\color{navy} 김선호 대표}};
+% 이동 화살표
+\draw[arrrust, dashed, thick] (-12mm,-22mm) to[bend left=25] node[lbl, font=\scriptsize, text=rust, left, align=right, pos=0.5] {Dominant와\\연합하면 →\\Definitive\ } (-8mm,-8mm);
+\draw[arrrust, dashed, thick] (14mm,-24mm) to[bend right=30] node[lbl, font=\scriptsize, text=rust, right, align=left, pos=0.5] {\ 권력 획득 →\\\ Dangerous} (22mm,6mm);
+% 우측 설명
+\node[box, draw=grey, fill=sand, text width=56mm, font=\footnotesize, anchor=north west, align=left] at (72mm,66mm) {\textbf{Power/Interest 격자의 세 한계}\\(a) 긴급성 축이 없다\\(b) 정당성 없는 권력자와 정당성만 있는 약자를 같은 칸에 넣는다\\(c) 정적이다 — 연합과 속성 이동을 담지 못한다};
+\node[box, draw=rust, fill=rustlight, text width=56mm, font=\footnotesize, anchor=north west, align=left] at (72mm,30mm) {\textbf{P1의 가장 위험한 이해관계자}는 권력자가 아니라 정당성·긴급성은 있지만 권력이 없어 \textbf{연합할 동기}가 있는 Dependent들(가맹·노조·매장)이다. 2019년 스마트오더 중단은 이들이 연합했을 때 일어났다.\\[3pt]속성은 획득되고 상실된다 — 게이트마다 재배치한다.};
+\node[src, anchor=north west] at (-68mm,-66mm) {출처: Mitchell, Agle \& Wood (1997), Toward a Theory of Stakeholder Identification and Salience, Academy of Management Review 22(4)를 바탕으로 재구성.\\온담 인물 배치는 교재 3.3절의 예시 판단이며 워크북에서 다시 한다.};
+\end{tikzpicture}
+\end{document}

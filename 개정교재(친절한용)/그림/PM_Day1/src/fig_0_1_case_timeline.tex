@@ -1,0 +1,22 @@
+\documentclass[tikz,border=4pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=0.62cm,y=1cm,font=\small]
+\draw[very thick,navy] (0,0) -- (27.5,0);
+\foreach \m/\l in {0/2026-01,3/04,6/07,9/10,12/2027-01,15/04,18/07,21/10,24/2028-01,26/03}{\draw[navy] (\m,0.1)--(\m,-0.1); \node[below,grey,font=\footnotesize] at (\m,-0.1) {\l};}
+\foreach \a/\b in {6/8,11/12,18/20,23/24}{\fill[rustlight] (\a,0.06) rectangle (\b,0.4);}
+\node[rust,font=\footnotesize] at (7,0.58) {성수기 잠금};\node[rust,font=\footnotesize] at (11.5,0.58) {12월};\node[rust,font=\footnotesize] at (19,0.58) {성수기};
+\foreach \m/\l/\d in {0.15/G0 착수/01-05, 3.95/G1 기획 완료/04-30, 10.9/G2 중간·데이터 정본/11-27, 16.9/G4 운영 이관 완료/05-29, 26.0/G5 편익 검토/2028-03-31}{
+  \draw[navy,thick] (\m,0) -- (\m,1.15); \node[navy,above,align=center,font=\footnotesize] at (\m,1.15) {\textbf{\l}\\\d};}
+\draw[navy,thick] (13.6,0) -- (13.6,2.05); \node[navy,above,align=center,font=\footnotesize] at (13.6,2.05) {\textbf{G3 컷오버 승인}\\02-19};
+\draw[rust,thick] (8.35,0) -- (8.35,-1.1); \node[rust,below,align=center,font=\footnotesize] at (8.35,-1.1) {\textbf{개인정보 보호법 대응}\\2026-09-11};
+\draw[rust,thick] (13.85,0) -- (13.85,-2.0); \node[rust,below,align=center,font=\footnotesize] at (13.85,-2.0) {\textbf{컷오버 주말 34h}\\2027-02-26\textasciitilde 28};
+\draw[rust,thick] (15.6,0) -- (15.6,-1.1); \node[rust,below,align=center,font=\footnotesize] at (15.6,-1.1) {\textbf{전자금융업 등록}\\2027-03-31};
+\draw[teal,thick] (3.8,-4.0) -- (3.8,-3.65); \node[teal,below,font=\footnotesize,align=center] at (3.8,-4.0) {P2 설비 발주 T0\\2026-04-24};
+\draw[teal,thick] (13.4,-4.0) -- (13.4,-3.65); \node[teal,below,font=\footnotesize,align=center] at (13.4,-4.0) {P2 기계적 준공\\2027-02-12 (34→41주 위험)};
+\draw[teal,dashed] (3.8,-3.65) -- (13.4,-3.65); \node[teal,font=\footnotesize,above] at (8.6,-3.65) {P2 이천 물류센터 자동화 194억 (통제 밖)};
+\fill[navylight] (0,3.0) rectangle (14,3.35); \node[navy,font=\footnotesize] at (7,3.17) {스프린트 36회 — 설계 S1\textasciitilde6 · 구현 S7\textasciitilde26 · 통합·시험 S27\textasciitilde36};
+\fill[teal!20] (17,3.0) rectangle (18.6,3.35); \node[teal,font=\footnotesize,right] at (18.7,3.17) {ELS 8주 → 운영(P5 · 박준영)};
+\node[src,anchor=north west] at (0,-5.1) {사례 §3.4·§3.5·§5.4. 붉은색 = 협상 불가능한 외부 기한(컷오버 창은 IPO 2027-3Q 예비심사에서 역산).};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,227 @@
+% 04_body.tex — 산출물 4/5 거버넌스 구조와 RACI 초안 (빈 템플릿 / 완성 예시 공용 본문, A4 가로)
+% 드라이버: 04_거버넌스RACI_빈템플릿.tex (\wbblanktrue) / 04_거버넌스RACI_완성예시.tex (\wbblankfalse)
+% 내용 출처: PM트랙/Day1_워크북.md §4.3(항목 가이드) §4.4(빈 템플릿) §4.5(온담 P1 완성 예시본)
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper,landscape,margin=14mm,top=12mm,bottom=18mm]{geometry}
+\def\DocNum{4}
+\def\DocTitle{거버넌스 구조와 RACI 초안}
+\def\DocSub{Governance Structure \& RACI}
+\def\DocVariant{\B{빈 템플릿}{온담 P1 완성 예시}}
+\usepackage{wbstyle}
+\begin{document}
+
+\docheader
+ {\Bg{[정식 명칭과 코드]}{차세대 주문·재고 통합 플랫폼 구축 (ONE ONDAM P1)}}
+ {\Bg{[v1.x / 판정 시점]}{v1.0 / G0 2026-01-05}}
+ {\Bg{[PM 직책·실명]}{P1 PM\rd{7mm}}}
+ {\Bg{[스폰서 직책·실명]}{정미란 CFO (헌장 항목 12 승인자)\rd{7mm}}}
+
+% ------------------------------------------------------------------ 1
+\secbar{1. 의사결정체 (Decision Bodies)}
+\guide{이사회·스폰서·운영위·CCB·계약상 협의체·기준선 재확인 절차까지 모두. 구성은 실명, 정족수와 반대의견 기록 방식, \textbf{무엇을 결정하는가}. 사내 회의체와 계약상 회의체의 선후 관계를 한 줄로.}
+{\scriptsize
+\begin{tabularx}{\linewidth}{|L{26mm}|Y|L{18mm}|L{26mm}|L{28mm}|Y|L{26mm}|}\hline
+\hd{의사결정체} & \hd{구성(실명)} & \hd{의장} & \hd{주기} & \hd{정족수 · 의결} & \hd{결정 권한 (무엇을 결정하는가)} & \hd{기록} \\ \hline
+\ifwbblank
+\rd{7mm}\g{[이사회 / 스폰서 / 운영위 / CCB / 계약상 협의체 / 기준선 재확인 …]} & \g{[실명]} & & \g{[월·분기·격주, 게이트]} & \g{[정족수, 반대의견 기재]} & & \g{[회의록·의결서·합의서]} \\ \hline
+\rd{7mm} & & & & & & \\ \hline
+\rd{7mm} & & & & & & \\ \hline
+\rd{7mm} & & & & & & \\ \hline
+\rd{7mm} & & & & & & \\ \hline
+\rd{7mm} & & & & & & \\ \hline
+\rd{7mm} & & & & & & \\ \hline
+\else
+프로그램 이사회 & 김선호 CEO, 정미란 CFO, 오정근·박세연·한동석·나영선 본부장, 사외이사 1 & 김선호 & 분기 1회 + 게이트(G0~G5) & 과반 출석, 의장 결정 & 게이트 판정(Go/Hold/재정의), 관리예비비 24억 집행, 프로그램 재정의·중단 & 이사회 의사록, 게이트 판정서 \\ \hline
+프로그램 스폰서 (Executive) & 정미란 & — & 상시 (주간 1:1) & 단독 & P1 예산 층 간 이동, 프로젝트 계층 허용범위 초과 승인, 관리예비비 12억(P1 유보분) 집행, 예외 보고 결정(10영업일), 중단 부의 & 결재 문서, 예외 보고 회신 \\ \hline
+프로그램 운영위 & 스폰서 + 프로그램 PMO장 + 5개 프로젝트 PM & 정미란 & 월 1회 & 과반 & 프로젝트 간 일정·자원 조정, 게이트 준비 상태 확인, 프로그램 리스크 & 운영위 회의록 \\ \hline
+변경통제위원회 (CCB) & 정미란(위원장), 박세연, 오정근, 나영선, 최영주, 프로그램 PMO장, 재경팀장 (7인) & 정미란 & 월 1회 셋째 목요일 + 임시 & 정족수 5, 반대의견 실명 기재 의무 & 사내 변경 승인(범위·원가·일정 기준선 변경), 컨틴전시 집행 사후 심의, 요구사항 베이스라인 동결 확인 & CCB 의결서 \\ \hline
+변경협의체 (계약) & 발주사 3(P1 PM, PMO장, 강현도 구매팀장) + 수행사 3(이재현 PM 외 2) & 공동 & 격주 수요일 14:00 & 양측 합의 & 변경대가 산정, FP 재산정 트리거 판정, 발주사 결정 지연 대기 비용 판정 & 변경협의 합의서 \\ \hline
+기준선 재확인 & P1 PM, 이재현 PM, 발주사 형상관리 담당 & — & 분기 1회 또는 FP 누적 변동 ±3\% 초과 시 & 3인 서명 & FP 기준선 확인서, RTM 대조 결과, 미해결 변경 목록 3종 확정 & 기준선 확인서 \\ \hline
+운영 CAB (이관 후) & 박준영 서비스운영팀장 주관 & 박준영 & 주 1회 수요일 & — & 이관 후 운영 변경 & P5 소관, G4 이후 \\ \hline
+\fi
+\end{tabularx}}
+\begin{fieldbox}
+\textbf{사내 회의체와 계약상 회의체의 선후 관계} \guide{(어느 쪽이 선행하는가, 무엇 없이 무엇을 하지 않는가)}
+\ifwbblank
+\lines{2}{7.5mm}
+\else
+변경 요청은 ① 변경협의체에서 변경대가·FP 영향 합의 → ② 허용범위 내면 P1 PM 승인·CCB 사후 보고, 초과면 CCB 승인 → ③ 계약 변경 서면. 변경협의체 합의 없이 CCB에 올리지 않고, CCB 승인 없이 계약 변경을 서명하지 않는다.
+\fi
+\end{fieldbox}
+
+% ------------------------------------------------------------------ 2
+\secbar[100mm]{2. 3역할과 핵심 직위 (Executive / Senior User / Senior Supplier / PM / PMO)}
+\guide{PRINCE2 3역할의 실명과 책무 한 줄, PM·PMO·수행사 PM의 위치를 조직도와 표로. 겸임과 이해 충돌을 기록한다. Senior Supplier가 발주사 IT본부장인지 수행사 PM인지 분명히 할 것(수행사 PM은 Senior Supplier 아래의 공급자).}
+\noindent
+\begin{minipage}[t]{0.45\linewidth}
+\vspace{0pt}
+\ifwbblank
+\begin{fieldboxu}
+\g{조직도 — 이사회 / 스폰서 / 3역할 / PM·PMO / 수행사 / 벤더·감리를 상자와 선으로 그린다}
+\blankarea{78mm}
+\end{fieldboxu}
+\else
+\begin{fieldboxu}
+\centering
+\begin{tikzpicture}[
+  node distance=3.2mm and 4mm,
+  box/.style={draw,rounded corners=1pt,align=center,font=\scriptsize,inner sep=2pt,minimum height=6.5mm,text width=#1},
+  box/.default=44mm,
+  ln/.style={draw,-{Latex[length=1.6mm]},thin}]
+\node[box=50mm,fill=thead](board){프로그램 이사회\\(의장 김선호)};
+\node[box=50mm,fill=thead,below=of board](exec){프로그램 스폰서 / Executive\\정미란 CFO};
+\node[box=34mm,below left=3.2mm and -12mm of exec](su){Senior User\\오정근 영업본부장 (P1·P3 겸임)};
+\node[box=34mm,below right=3.2mm and -12mm of exec](ss){Senior Supplier\\박세연 IT본부장};
+\node[box=40mm,below=12mm of exec](pm){P1 PM (발주사 IT본부)};
+\node[box=30mm,right=3mm of pm](pmo){P1 PMO 3명\\(기준선·형상·품질)};
+\node[box=50mm,below=of pm](vendor){수행사 ㈜한빛디지털 PM 이재현\\피크 61명};
+\node[box=58mm,below=of vendor](sub){상용SW 벤더 3사 (7명) · 데이터 전환 용역사 ·\\감리법인(정하늘)};
+\path[ln] (board)--(exec);
+\path[ln] (exec.south)--++(0,-1.6mm)-|(su.north);
+\path[ln] (exec.south)--++(0,-1.6mm)-|(ss.north);
+\path[ln] (exec.south)--(pm.north);
+\path[draw,thin] (pm)--(pmo);
+\path[ln] (pm)--(vendor);
+\path[ln] (vendor)--(sub);
+\end{tikzpicture}
+\end{fieldboxu}
+\fi
+\end{minipage}\hfill
+\begin{minipage}[t]{0.535\linewidth}
+\vspace{0pt}
+{\scriptsize
+\begin{tabular}{|L{20mm}|L{26mm}|L{42mm}|L{42mm}|}\hline
+\hd{역할} & \hd{직책·실명} & \hd{책무 한 줄} & \hd{겸임 · 이해충돌} \\ \hline
+\ifwbblank
+\rd{10mm}Executive & & 사업 정당성 유지, 허용범위 초과 승인 & \\ \hline
+\rd{10mm}Senior User & & 요구사항 대표, 편익 실현 & \\ \hline
+\rd{10mm}Senior Supplier & & 공급 측 자원·기술 승인 & \\ \hline
+\rd{10mm}PM & & 허용범위 내 일상 관리 & \\ \hline
+\rd{10mm}PMO & & 기준선·형상·보고 & \\ \hline
+\rd{10mm}수행사 PM & & 작업패키지 계층 관리 & \\ \hline
+\else
+Executive & 정미란 CFO & 사업 정당성 유지(66\% 손익분기 감시), 허용범위 초과 승인, 관리예비비 & CCB 위원장 겸임 — 변경 승인과 예산 통제가 한 사람에게 집중되나 프로그램 규정상 의도된 구조 \\ \hline
+Senior User & 오정근 영업본부장 & 요구사항(StRS 214건) 대표, 편익 118억 중 5개 항목 실현 책임, 가맹 협상 & P3 Senior User 겸임 — 교육과 시스템의 정합에 유리. 가맹 재계약률 KPI와 P1 배포 범위 사이의 이해 충돌은 기록 \\ \hline
+Senior Supplier & 박세연 IT본부장 & 아키텍처·인터페이스 최종 승인, 발주사 인력 14명 배정, 소스·형상 인수 & OD-POS 원 설계자 — 레거시 평가에 대한 이해 충돌 가능성 기록, 데이터 전환 정본 판정에는 감리 확인 병행 \\ \hline
+P1 PM & 발주사 IT본부 & 허용범위 내 일상 관리, 예외 보고, 컨틴전시 10.2억 집행 & — \\ \hline
+P1 PMO (3명) & 기준선·형상·품질 담당 & FP 기준선, RTM, 형상관리, 감리 대응 & — \\ \hline
+수행사 PM & 이재현 & 작업패키지 계층 허용범위 내 관리, 61명 자원 & 손익률 6.5\% 목표 — 변경대가 유인 기록 \\ \hline
+\fi
+\end{tabular}}
+\end{minipage}
+
+% ------------------------------------------------------------------ 3
+\secbar[60mm]{3. 에스컬레이션 경로와 시한 (Escalation Path \& Timelines)}
+\guide{사다리 3~4단계(작업패키지 → PM → 스폰서 → 프로그램 이사회)와 단계별 제출·응답 시한(영업일). 결정 지연이 변경대가 대상인 계약이면 발주사 결정 시한을 명시. 수행사의 경로와 통제 밖 협상(3PL·가맹·벤더)의 경로도 적는다. “필요 시 보고”는 경로가 아니다.}
+{\scriptsize
+\begin{tabularx}{\linewidth}{|L{14mm}|L{50mm}|Y|L{34mm}|L{50mm}|}\hline
+\hd{단계} & \hd{누가 → 누구에게} & \hd{조건} & \hd{제출 시한} & \hd{응답 시한} \\ \hline
+\ifwbblank
+\rd{9mm}1 & \g{[수행사 PM → PM]} & \g{[작업패키지 허용범위 초과 예상]} & \g{[인지 후 n영업일]} & \g{[n영업일]} \\ \hline
+\rd{9mm}2 & \g{[PM → 스폰서]} & \g{[프로젝트 허용범위 초과 예상 — 예외 보고]} & & \\ \hline
+\rd{9mm}3 & \g{[스폰서 → 이사회]} & & & \\ \hline
+\rd{9mm}병행 & \g{[수행사 → 변경협의체]} & \g{[발주사 결정 지연]} & & \\ \hline
+\rd{9mm}병행 & \g{[PM → 소관 임원]} & \g{[통제 밖 협상 교착]} & & \\ \hline
+\else
+1 & 수행사 PM → P1 PM & 작업패키지 허용범위(원가 +2\%, 일정 +5영업일) 초과 예상 & 인지 후 2영업일 & 3영업일 \\ \hline
+2 & P1 PM → 스폰서 정미란 & 프로젝트 허용범위 초과 예상 (예외 보고: 원인·영향·대안 3·권고) & 인지 후 5영업일 & 10영업일 (초과 시 프로그램 이사회 자동 부의) \\ \hline
+3 & 스폰서 → 프로그램 이사회 & 프로그램 허용범위 초과, 관리예비비 24억, 중단 & 즉시 & 임시 소집 10영업일 \\ \hline
+병행 & 수행사 → 변경협의체 & 발주사 결정 요청에 P1이 5영업일 내 미응답 & 6영업일째 & 다음 변경협의체에서 대기 비용 판정 \\ \hline
+병행 & P1 PM → 소관 임원 & 통제 밖 협상 교착(3PL: 한동석 / 가맹: 오정근 / 앱 벤더: 박세연) & 교착 인지 후 5영업일 & 소관 임원이 스폰서에 보고 \\ \hline
+\fi
+\end{tabularx}}
+
+% ------------------------------------------------------------------ 4
+\secbar[75mm]{4. 허용범위 위임 격자 (Tolerance Delegation — 초안, Day2 확정)}
+\guide{7축(편익·원가·일정·품질·범위·지속가능성·리스크) × 3계층(작업패키지=수행사 PM / 프로젝트=PM / 프로그램=스폰서). 빈 칸은 “미정(Day2)”. 허용범위는 비즈니스 케이스의 편익 민감도(손익분기 실현률)에서 역산한다 — 모든 프로젝트에 같은 ±10\%를 쓰지 말 것. 사내 전결과 충돌하는 칸에 주석.}
+{\scriptsize
+\begin{tabularx}{\linewidth}{|L{22mm}|L{40mm}|L{40mm}|L{40mm}|Y|}\hline
+\hd{축} & \hd{작업패키지 (수행사 PM)} & \hd{프로젝트 (PM)} & \hd{프로그램 (스폰서)} & \hd{사내 규정과의 관계} \\ \hline
+\ifwbblank
+\rd{7mm}편익 & & \g{[−n\%p]} & & \g{[판정 권한]} \\ \hline
+\rd{7mm}원가 & \g{[+n\%]} & \g{[+n\% (금액)]} & & \g{[전결 한도와의 충돌]} \\ \hline
+\rd{7mm}일정 & \g{[+n영업일]} & & & \\ \hline
+\rd{7mm}품질 & \g{[결함밀도 등]} & & & \\ \hline
+\rd{7mm}범위 & \g{[±n\%]} & \g{[±n\% (건수)]} & & \\ \hline
+\rd{7mm}지속가능성 & \g{[0 — 안전·환경 사고]} & & & \\ \hline
+\rd{7mm}리스크 & \g{[EMV n억]} & & & \\ \hline
+\else
+편익 & — & −5\%p & −10\%p & 판정 권한 재무본부 \\ \hline
+원가 & +2\% & +6\% (10.08억) & +12\% & 5억 초과 단일 건은 CFO 병행 결재, 5,000만 원 이상 내부통제 지침 \\ \hline
+일정 & +5영업일 & +15영업일 & +30영업일 & — \\ \hline
+품질 & 결함밀도 0.13건/FP & 0.4건/FP & 0.8건/FP & 감리 지적 시정조치는 허용범위와 무관하게 이행 \\ \hline
+범위 & ±1\% & ±3\% (±35건) & ±6\% & 변경협의체 합의 필요 \\ \hline
+지속가능성 & 0 (안전·환경 사고) & 0 & 0 & — \\ \hline
+리스크 & EMV 2.7억 & EMV 8억 & EMV 16억 & 이사회 부의 금액 \\ \hline
+\fi
+\end{tabularx}}
+
+% ------------------------------------------------------------------ 5
+
+\secbar[\B{150mm}{60mm}]{5. RACI 매트릭스 — 착수·기획 단계 주요 결정과 산출물}
+\guide{행 = 결정과 산출물(15~25행, 활동이 아니다), 열 = 역할·개인(8~12열). \textbf{행마다 A는 정확히 한 명.} 결정 행(승인·판정)과 산출물 행(작성·인수)을 구분하고, 통제 밖 결정(3PL 협상, 가맹 배포 범위, P2 규격)의 A가 프로젝트 밖의 임원임을 드러낸다. 표 아래에 검산을 적는다.}
+\B{}{\small 열: \textbf{정미란}(Exec) / \textbf{오정근}(SU) / \textbf{박세연}(SS) / \textbf{한동석} / \textbf{최영주} / \textbf{박준영} / \textbf{P1 PM} / \textbf{이재현} / \textbf{PMO장}(프로그램) / \textbf{CCB} / \textbf{이사회} / \textbf{재경팀장}\par}
+{\scriptsize
+\setlength{\tabcolsep}{2pt}\renewcommand{\arraystretch}{1.4}
+\begin{longtable}{|C{6mm}|L{67mm}|*{12}{C{14.5mm}|}}\hline
+\hd{\#} & \hd{결정 · 산출물} &
+\ifwbblank
+\hd{\g{[역할 1]}} & \hd{\g{[역할 2]}} & \hd{\g{[역할 3]}} & \hd{\g{[역할 4]}} & \hd{\g{[역할 5]}} & \hd{\g{[역할 6]}} & \hd{\g{[PM]}} & \hd{\g{[수행사 PM]}} & \hd{\g{[역할 9]}} & \hd{\g{[위원회]}} & \hd{\g{[이사회]}} & \hd{\g{[역할 12]}} \\ \hline \endhead
+\rd{4.8mm}1 & \g{[결정 행 — 승인·판정]} & & & & & & & & & & & & \\ \hline
+\rd{4.8mm}2 & & & & & & & & & & & & & \\ \hline
+\rd{4.8mm}3 & & & & & & & & & & & & & \\ \hline
+\rd{4.8mm}4 & & & & & & & & & & & & & \\ \hline
+\rd{4.8mm}5 & & & & & & & & & & & & & \\ \hline
+\rd{4.8mm}6 & & & & & & & & & & & & & \\ \hline
+\rd{4.8mm}7 & & & & & & & & & & & & & \\ \hline
+\rd{4.8mm}8 & & & & & & & & & & & & & \\ \hline
+\rd{4.8mm}9 & & & & & & & & & & & & & \\ \hline
+\rd{4.8mm}10 & & & & & & & & & & & & & \\ \hline
+\rd{4.8mm}11 & \g{[산출물 행 — 작성·인수]} & & & & & & & & & & & & \\ \hline
+\rd{4.8mm}12 & & & & & & & & & & & & & \\ \hline
+\rd{4.8mm}13 & & & & & & & & & & & & & \\ \hline
+\rd{4.8mm}14 & & & & & & & & & & & & & \\ \hline
+\rd{4.8mm}15 & & & & & & & & & & & & & \\ \hline
+\else
+\hd{정미란} & \hd{오정근} & \hd{박세연} & \hd{한동석} & \hd{최영주} & \hd{박준영} & \hd{P1 PM} & \hd{이재현} & \hd{PMO장} & \hd{CCB} & \hd{이사회} & \hd{재경} \\ \hline \endhead
+1 & 비즈니스 케이스 요약 v1.0 확정 (G1) & \textbf{A} & C & C & C & I & I & R & I & C & I & I & C \\ \hline
+2 & 프로젝트 헌장 승인 & \textbf{A} & C & C & I & I & I & R & I & C & I & I & I \\ \hline
+3 & 3역할 실명 지명 & C & I & I & I & I & I & R & I & C & I & \textbf{A} & I \\ \hline
+4 & 편익 항목별 책임자·분모 확정 & \textbf{A} & R & C & R & I & I & R & I & C & I & I & C \\ \hline
+5 & 요구사항 베이스라인 v1.0 확정 (StRS 214) & I & \textbf{A} & C & C & C & C & R & R & I & I & I & I \\ \hline
+6 & 월 요구사항 동결 (매월 마지막 수) & I & C & C & I & I & I & \textbf{A} & R & I & I & I & I \\ \hline
+7 & 아키텍처·인터페이스 설계 승인 & I & C & \textbf{A} & C & C & C & R & R & I & I & I & I \\ \hline
+8 & 규제 요건 해석 의견 (142개 처리항목·망분리) & I & I & C & I & \textbf{A} & I & R & C & I & I & I & I \\ \hline
+9 & P2 설비 인터페이스 규격 전달 (T0 전) & I & I & R & C & I & I & R & C & \textbf{A} & I & I & I \\ \hline
+10 & 3PL WMS 연동 계약 변경 협상 & I & I & C & \textbf{A} & C & I & R(명세) & I & I & I & I & I \\ \hline
+11 & 가맹 SW 배포 범위·단말 비용 부담 결정 & C & \textbf{A} & C & I & C & I & R(옵션) & I & I & C & I & C \\ \hline
+12 & 자사앱 소스 인수 조항 계약 변경 & I & C & \textbf{A} & I & C & I & R & I & I & I & I & I \\ \hline
+13 & 온담푸드시스템 별도 법인 연동 계약 구조 & C & I & R & I & \textbf{A} & I & R & I & I & I & I & I \\ \hline
+14 & 원가·일정 기준선 확정 (G1) & C & C & C & I & I & I & R & R & R & I & \textbf{A} & C \\ \hline
+15 & FP 기준선 확인서 서명 & I & I & I & I & I & I & \textbf{A} & R & I & I & I & I \\ \hline
+16 & 허용범위 내 변경 승인 & I & C & C & I & I & I & \textbf{A} & R & I & I(사후) & I & I \\ \hline
+17 & 허용범위 초과 변경 승인 & R & C & C & C & C & I & R & C & C & \textbf{A} & I & C \\ \hline
+18 & 변경대가·FP 재산정 트리거 판정 & I & I & I & I & I & I & \textbf{A} & R & I & I & I & I \\ \hline
+19 & 컨틴전시 10.2억 집행 (건별) & I & I & C & I & I & I & \textbf{A} & I & I & I(월 보고) & I & C \\ \hline
+20 & 관리예비비 12억 집행 & \textbf{A} & I & I & I & I & I & R & I & C & I & I & C \\ \hline
+21 & 예외 보고 결정 (허용범위 초과 예상) & \textbf{A} & C & C & I & I & I & R & I & C & I & I & C \\ \hline
+22 & 서비스 인수 기준(SAC) 초안 합의 (G1) & I & C & C & I & I & \textbf{A} & R & C & I & I & I & I \\ \hline
+23 & 데이터 전환 정본 판정 (G2) & C & C & R & C & I & I & R & R & C & I & \textbf{A} & I \\ \hline
+24 & 컷오버 go/no-go (G3) & \textbf{A} & C & C & C & C & C & R & R & C & I & I & I \\ \hline
+25 & 조기 종료 부의·손실 확정 & \textbf{A} & C & C & I & I & I & R & I & C & I & I(결정) & R \\ \hline
+26 & 이해관계자 등록부·리스크 등록부 갱신 (게이트마다) & I & C & C & C & C & C & \textbf{A} & C & I & I & I & I \\ \hline
+\fi
+\end{longtable}}
+\begin{fieldbox}
+\textbf{검산} \guide{— A 없는 행 [\ ], A 둘 이상인 행 [\ ], PM이 A인 행 [n / 전체]. 나머지 행의 A가 어디에 있는지가 “PM 권한”의 실제 크기다.}\par
+\ifwbblank
+\lines{1}{7mm}
+\else
+A 없는 행 0, A 둘 이상인 행 0. P1 PM이 A인 행 8 / 26 — 나머지 18행의 A는 P1 밖에 있다. 이것이 헌장 항목 12의 “PM 권한”의 실제 크기다.
+\fi
+\end{fieldbox}
+
+
+
+
+\end{document}

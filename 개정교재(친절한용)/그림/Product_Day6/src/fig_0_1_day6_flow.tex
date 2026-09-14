@@ -1,0 +1,37 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink},node distance=4mm]
+\node[title] at (3.2,5.0) {Day6 다섯 산출물의 입력 관계 — 사건 셋이 v1.1을 만든다};
+% Day5 inputs
+\node[boxgrey,text width=26mm] (t23) at (-3.6,3.6) {㉓ 트리\\항목 4 우선순위 · 7 기각};
+\node[boxgrey,text width=26mm] (t24) at (-3.6,2.3) {㉔ 가정·실험\\X-01 불확정 · X-02 조도};
+\node[boxgrey,text width=26mm] (t25) at (-3.6,1.0) {㉕ 커널\\행동 2 라인 · 하지 않는 것 5};
+\node[boxgrey,text width=26mm] (t21) at (-3.6,-0.3) {㉑ 합의서\\항목 3 옵션풀 · 8 런웨이};
+% Day6 docs
+\node[boxfill,text width=30mm] (d26) at (1.6,3.6) {㉖ 범위 결정서\\41 → 24 → 17 · Won't};
+\node[boxfill,text width=30mm] (d27) at (1.6,2.3) {㉗ Eval·오류 예산·HITL\\FN ≤ 8.0 on DS-v1 · 162만};
+\node[boxfill,text width=30mm] (d28) at (1.6,1.0) {㉘ 프라이싱·UE v1\\라인 45만 · 4{,}860 vs 6{,}060};
+\node[boxfill,text width=30mm] (d29) at (1.6,-0.3) {㉙ PR/FAQ·사전등록\\미확정 4 · X-04~07};
+\node[boxfill,text width=30mm] (d30) at (1.6,-1.6) {㉚ 텀시트·캡테이블\\4{,}800원 · 참가적 9.6억};
+% events
+\node[boxrust,text width=22mm] (e230) at (7.0,3.6) {D+230 퇴사\\→ ㉖ v1.1};
+\node[boxrust,text width=22mm] (e280) at (7.0,1.0) {D+280 청구서 780만\\→ ㉘ v1.1};
+\node[boxrust,text width=22mm] (e186) at (7.0,-1.6) {D+186 조항 부재\\→ ㉚ 부속 메모};
+% arrows Day5 -> Day6
+\draw[arr] (t23) -- node[lbl,above,sloped]{유일한 상위 문서} (d26);
+\draw[arr] (t24) -- (d27); \draw[arr] (t24.east) -- ++(0.5,0) |- (d29.west);
+\draw[arr] (t25) -- (d28); \draw[arr] (t21) -- ++(1.2,0) |- (d30.west);
+% within Day6
+\draw[arrteal] (d26.south) -- node[lbl,right]{항목 6 DoD 인용} (d27.north);
+\draw[arrteal] (d27.south) -- node[lbl,right]{계약 문구 복사} (d28.north);
+\draw[arrteal] (d26.east) -- ++(0.3,0) -- node[lbl,right,pos=0.55,text width=11mm]{게이트\\같은 숫자} ++(0,-3.9) -- (d29.east);
+% events -> v1.1
+\draw[arrrust] (e230) -- (d26); \draw[arrrust] (e280) -- (d28); \draw[arrrust] (e186) -- (d30);
+% out to Day7/8
+\node[boxgrey,text width=17mm,font=\tiny] (o29) at (4.7,-0.3) {Day7 ㉛\\판독 규율}; \draw[arrgrey,dashed] (d29.east) ++(0.45,0) -- (o29.west);
+\node[boxgrey,text width=17mm,font=\tiny] (o27) at (4.7,2.3) {Day7 ㉞ · Day8 ㊵\\데이터셋 정의}; \draw[arrgrey,dashed] (d27.east) ++(0.45,0) -- (o27.west);
+\node[boxgrey,text width=17mm,font=\tiny] (o30) at (4.7,-2.7) {Day8 ㊴\\1.29\%p}; \draw[arrgrey,dashed] (d30.south) -- ++(0,-0.55) -| (o30.north);
+\node[src,anchor=west] at (-4.9,-3.5) {Day6 워크북 §6. 실선 — 입력. 청록 — 같은 문장·같은 숫자를 한 곳에서 복사. 붉은색 — 사건이 v1.1을 만든다. 파선 — Day7·8로.};
+\end{tikzpicture}
+\end{document}

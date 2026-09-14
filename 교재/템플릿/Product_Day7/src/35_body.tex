@@ -1,0 +1,148 @@
+% 35_body.tex — 산출물 ㉟ 제품 로드맵 Now/Next/Later · 예산 3분리 · CR 신청 진술 (빈 템플릿 / 완성 예시 공용 본문) — gen_product_templates.py 가 Product_specs.py 에서 생성
+% 드라이버: 35_로드맵예산3분리_빈템플릿.tex (\wbblanktrue) / 35_로드맵예산3분리_완성예시.tex (\wbblankfalse — 워크북 §X.5 확정 후)
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper,margin=16mm,top=14mm,bottom=20mm]{geometry}
+\def\DocNum{35}\def\DocDay{7}\def\DocIdx{5}
+\def\DocTitle{제품 로드맵 Now/Next/Later · 예산 3분리 · CR 신청 진술}
+\def\DocSub{Roadmap, Budget Split \& Change Request Statement}
+\def\DocVariant{\B{빈 템플릿}{딥게이지 완성 예시}}
+\usepackage{wbstyle}
+\def\DocCirc{㉟}   % newunicodechar(㉛~㊵ 폴백) 뒤에 정의해야 활성 문자로 읽힌다
+\begin{document}
+\docheader
+ {\Bg{[회사명 · 제품명]}{딥게이지 · GAUGE}}
+ {\Bg{[v1.x / D+600]}{v1.0 / D+600 (2027-Q4)}}
+ {\Bg{[작성자 — CPO]}{윤하경 CPO\rd{7mm}}}
+ {\Bg{[승인자 — CEO·CTO]}{강민수 · 오세진\rd{7mm}}}
+
+%% ------------------------------------------------------------------ 1
+\secbar{1. 전제}
+\guide{Appetite · 인원 21(개발 11) · 가용 공수 · 사고 후 신뢰 복구 요구 · TIPS·시리즈A 시계.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{36mm}|Y|L{40mm}|}\hline
+\hd{항목} & \hd{값} & \hd{출처} \\ \hline
+\ifwbblank
+\rd{8mm}기간(분기) &  &  \\ \hline
+\rd{8mm}개발 가용 공수(mm) &  &  \\ \hline
+\rd{8mm}외부 시계 &  &  \\ \hline
+\rd{8mm}제약(온프렘·보안 요구) &  &  \\ \hline
+\else
+기간(분기) & 2027-Q4(D+600~690) & — \\ \hline
+개발 가용 공수(mm) & 개발 11명 × 3개월 = 33 mm · 예비 25\% = 8.25 · 배분 24.75 & G-01 · ㉖ 규칙 \\ \hline
+외부 시계 & 시리즈A 클로징 목표 D+900 · 런웨이 11개월(브릿지 필요) · 세영 갱신 12월 · TIPS 2차년도 평가 & ㉝ 항목 5 \\ \hline
+제약(온프렘·보안 요구) & 사고 후 신뢰 복구 요구(세영·H사) · 온프렘 요구 7사 · 시리즈A 실사 보안 문서 & ㉞ · CR-044 \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 2
+\landscapeon
+\secbar{2. Now / Next / Later}
+\guide{항목·기회 노드(OP-ID)·근거 실험(X-ID)·크기(S/M/L). 날짜를 쓰지 않는다 — 순서와 조건만.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{18mm}|Y|L{18mm}|L{22mm}|L{14mm}|Y|}\hline
+\hd{구간} & \hd{항목} & \hd{OP-ID} & \hd{근거 실험} & \hd{크기} & \hd{조건(무엇이 되면 다음으로)} \\ \hline
+\ifwbblank
+\rd{9mm} &  &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  &  \\ \hline
+\else
+Now & DS-v2 오후 조도 세트 + 오후 라인 재측정 & OP-05 / A-02 & X-07 · INC-01 & M & 합격 전 오후 초안 OFF 유지 \\ \hline
+Now & 수정 로그 감시 대시보드 — 미감시 표기 · 생략률 & OP-04 & INC-01 & S & 전 라인 주간 리포트 \\ \hline
+Now & 온보딩 개선 — 100건 알림 · 현장 2회 · 마스터 3주 & A-08 / OP-01 & X-06 · 이탈 미온보딩 2 & S & 27Q3 M2 ≥ 90\% \\ \hline
+Now & 사용량 계측(재촬영·재시도·배치 태그) & ㉘ 항목 4 & 청구서 780만 & S & 1월 데이터로 H1~H4 판별 \\ \hline
+Next & 공정 사용 조항 시행 + 경고 임계값 & ㉘ 항목 4 & 계측 결과 & S & H1~H4 판별 후 \\ \hline
+Next & Flow 애드온 확장(8D D4 · 포털 K사) & OP-02·03 & NDR 확장 중 Flow 60 & M & 활성률 55\% 도달 후 \\ \hline
+Next & 자동판정 ON 조건 재정의 — FP ≤ 15\% 라인만 & OP-05 & eval v2 FP 21.3 & S & FP 충족 라인 5개 이상 \\ \hline
+Later & 온프렘 배포 패키지 — CR-044 & OP-07 & B-18 조건 충족(D+360) & L & CR-044 판정 · 시리즈A 후 \\ \hline
+Later & MES 연동 · 검사원 교육 모드 & OP-01 / A-01 & — & M & 다음 사이클 \\ \hline
+\fi
+\end{tabularx}}
+\landscapeoff
+
+%% ------------------------------------------------------------------ 3
+\secbar{3. 예산 3분리 — 차별화 / 위생 / 신뢰 복구}
+\guide{비율과 근거. 사고 후 '신뢰 복구'(로그 감시·HITL 개선·eval 확장)를 별도 예산으로 두는 이유.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{30mm}|L{18mm}|Y|Y|}\hline
+\hd{구분} & \hd{비율(\%)} & \hd{포함 항목} & \hd{근거} \\ \hline
+\ifwbblank
+\rd{10mm}차별화 &  &  &  \\ \hline
+\rd{10mm}위생(기술 부채·보안·온프렘) &  &  &  \\ \hline
+\rd{10mm}신뢰 복구 &  &  &  \\ \hline
+\rd{10mm}계 &  &  &  \\ \hline
+\else
+차별화 & 35 & Flow 애드온 확장 · 포털 규격 2종 · 사용량 계측 → 공정 사용 & NDR 확장의 원천 · 청구서 780만의 답 \\ \hline
+위생(기술 부채·보안·온프렘) & 30 & 기술 부채 · ISMS 준비 · 온프렘 설계 검토(CR-044) · 2-pass 조건부 & AI 원가율 42.3 → 32\% 목표(㉝ 항목 8) \\ \hline
+신뢰 복구 & 35 & DS-v2 · 감시 대시보드 · 미감시 표기 · HITL 재설계 · 온보딩 · 신입 4주 & ㉞ 항목 8 재발 방지 6건 ≈ 8 mm · FP 예산 초과 상태 \\ \hline
+계 & 100 & 24.75 mm 배분 + 예비 8.25 & 사고 후 분기 — 차별화가 처음으로 과반이 아니다 \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 4
+\secbar{4. 하지 않을 것 — Won't 갱신}
+\guide{㉖ 항목 5의 Won't 중 상태가 바뀐 것과 새로 추가된 것.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{14mm}|Y|L{30mm}|Y|}\hline
+\hd{B-ID} & \hd{항목} & \hd{상태(유지·승격·삭제)} & \hd{사유·재검토 조건} \\ \hline
+\ifwbblank
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\else
+B-17 & 자동판정 모드 & 승격(D+410) — 재검토 조건 미충족 상태에서 출시. 사후 기록 & 조건(합격 기준 충족 \& X-04 회피 < 10\%) 둘 다 미충족. 근거는 IR 스토리·세일즈 요청 — 이 표를 거치지 않음. 정정: 기본 OFF 고정, ON은 FP ≤ 15\% 라인(㉞ 항목 7) \\ \hline
+B-18 & 온프렘 배포 & 재검토 → CR-044(항목 5) & 유료 5개사 달성(D+360) 충족. 판정 보류 \\ \hline
+B-21 & MES 연동 & 유지 & 이탈 1건 사유이나 '둘 중 하나' 구조 — 조건 미충족 \\ \hline
+B-22 & 관리자 대시보드 & 승격 → Now(감시 대시보드로 재정의) & INC-01 재발 방지 — 엑셀 내보내기로는 감시 불가 \\ \hline
+신규 & 오후 조도 판정 초안 & Won't(DS-v2 합격 전) & INC-01 · ㉗ 여집합 첫 줄 \\ \hline
+신규 & 'AI 검사' 마케팅 문구 & Won't 유지 — 사고 후 재확인 & ㉕ 항목 6-3. D+410의 IR 스토리가 흔들었다 \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 5
+\secbar{5. 변경요청 진술 패킷 — CR-044 검사 AI 온프렘 전환}
+\guide{실험 근거 · 편익 영향(어느 고객·어느 지표) · 포기 항목 후보(무엇을 빼야 들어가는가) · 요청 결정. PM 트랙 ⑪의 형식을 신청자 쪽에서 쓴다.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{36mm}|Y|}\hline
+\hd{항목} & \hd{내용} \\ \hline
+\ifwbblank
+\rd{10mm}요청 내용 &  \\ \hline
+\rd{10mm}실험·데이터 근거 &  \\ \hline
+\rd{10mm}편익 영향(지표·분모) &  \\ \hline
+\rd{10mm}원가·공수 영향 &  \\ \hline
+\rd{10mm}포기 항목 후보 &  \\ \hline
+\rd{10mm}요청하는 결정과 시한 &  \\ \hline
+\else
+요청 내용 & H사 계열 협력사 3사 + 1차사 채널 계약을 위한 온프렘 배포 패키지(B-18) — 요청자 박정우(세일즈) · [H사] 김도윤 SQE(공문) \\ \hline
+실험·데이터 근거 & 파이프라인 40사 중 온프렘 요구 12 · 도면 미업로드 모드로 해소 5 · 잔여 7(1차사 채널 조건 '온프렘 또는 전용망'). 실험 없음 — 세일즈 데이터 \\ \hline
+편익 영향(지표·분모) & 7사 × 3라인 × 실효 34.1만 × 12 = 순 SaaS ARR +8,600만(현 3.8억의 23\%) · 채널 CAC 90만(blended 620 → 450 경로). 분모: 계약 라인 — 실사용 미지 \\ \hline
+원가·공수 영향 & B-18 6.0 mm(배분 24.75의 24\%) + 운영 0.7 FTE(연 5,600만) + GPU 2대 + 릴리스 분기 1회 → ARR 8,600만에 운영 원가 5,600만 — 공헌이익률 SaaS의 절반 이하 \\ \hline
+포기 항목 후보 & 차별화 35\%(8.7 mm)에서 Flow 애드온 확장(M, 4 mm) 전부 + 포털 규격 2종(2 mm) — 6.0 mm는 차별화 예산의 70\% \\ \hline
+요청하는 결정과 시한 & 보류 — 시리즈A 클로징 후 재검토. 단 1차사 채널 계약서(H사) 서명 시 즉시 착수(조건부 승인). 시한 D+660. 기각 아님: 조건 충족·편익 실재. 승인 아님: 사고 후 분기에 차별화 70\%를 한 채널에 못 건다 \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 6
+\secbar{6. 로드맵 커뮤니케이션 규칙}
+\guide{고객·투자자에게 무엇을 어디까지 보여 주는가. 날짜 약속 금지, Later는 공개하지 않음 등 5줄.}
+\begin{fieldbox}
+\ifwbblank
+\lines{5}{9.5mm}
+\else
+1. 고객·투자자에게 날짜를 약속하지 않는다 — Now의 조건과 Next의 조건만.
+2. Later는 공개하지 않는다 — Later를 들은 고객은 Next로 기억한다(태산정밀 62항목).
+3. 사고 조치(Now 1·2)는 증빙과 함께 공개 — ㉞ 항목 8의 증빙 열이 고객 리포트.
+4. IR 덱에는 Now/Next만, 예산 3분리 비율과 함께 — '신뢰 복구 35\%'를 숨기지 않는다(실사에서 나온다).
+5. Won't는 재검토 조건 그대로 — '검토 중' 금지. 온프렘은 'CR-044 보류, 채널 계약 시 착수'.
+\fi
+\end{fieldbox}
+
+\end{document}

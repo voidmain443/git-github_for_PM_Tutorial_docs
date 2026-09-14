@@ -1,0 +1,19 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\footnotesize,text=ink}]
+\node[title] at (-3.4,4.2) {말한 것 (자기 보고)};
+\node[title] at (3.4,4.2) {본 것 (관찰)};
+\foreach \y/\id/\s/\o/\a in {
+ 3.0/I-02 박선재/"다 해봤어요. 결국 종이에 써요"/배석 전후 발언 변화 · 오후분 종이 메모 별도 보관/A-05,
+ 1.8/I-10 한빛금속/"입력이 종이보다 느렸어요"/태블릿이 서랍에 — 배터리 없음 · 충전 담당 없음/A-09,
+ 0.6/I-18 대양정밀/"괜찮아요{,} 할 만해요"/팀장 배석 · 발언 12분 — 관찰 불가/—,
+ -0.6/I-24 미래오토/"사진은 찍어요. 그다음이 문제죠"/검사 중 폰 촬영 → 카톡 → 팀장/A-01}{
+  \node[boxgrey, text width=44mm, align=left, anchor=east] at (-0.6,\y) {\textbf{\id}\\ \s};
+  \node[boxteal, text width=48mm, align=left, anchor=west] at (0.6,\y) {\o};
+  \node[boxfill, text width=10mm, anchor=west, font=\scriptsize] at (6.2,\y) {\a};}
+\node[lbl, anchor=west] at (6.2,4.2) {→ 가정};
+\node[draw=rust,thick,fill=rustlight,rounded corners=2pt,text width=124mm,align=left,font=\scriptsize] at (1.4,-1.9) {괴리는 거짓말이 아니다 — 자기 평균을 모르고, 듣는 사람에 맞춰 말하고, 말하기 어려운 것은 말하지 않는다. 괴리가 있는 인터뷰가 가장 좋은 인터뷰이며, 괴리는 가정(A-05)이 되어 실험(X-01)으로 간다. 박선재의 두려움(촉탁직 재계약)은 33개월 동안 한 번도 말로 나오지 않는다 — 행동으로만.};
+\node[src, anchor=west] at (-5.2,-2.9) {Day5 워크북 §2.5 항목 6. 정본 §2.3(박선재).};
+\end{tikzpicture}
+\end{document}

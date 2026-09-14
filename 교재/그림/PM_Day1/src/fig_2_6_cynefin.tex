@@ -1,0 +1,20 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}
+\def\S{52mm}
+% 네 도메인 (Snowden 배치: 우측 = 질서, 좌측 = 무질서)
+\node[boxteal, minimum width=\S, minimum height=\S, anchor=south east, text width=46mm, align=left, font=\footnotesize] (cx) at (-2mm,2mm) {\textbf{Complex (복잡)}\\인과관계는 사후에만 알 수 있다\\[3pt]\textbf{probe → sense → respond}\\안전한 실험(safe-to-fail probes), 창발\\[4pt]{\scriptsize P1 예: "가맹점주가 실시간 판매 데이터 연동에 어떻게 반응할 것인가" → 파일럿 12개점이라는 probe를 먼저 던진다}};
+\node[boxfill, minimum width=\S, minimum height=\S, anchor=south west, text width=46mm, align=left, font=\footnotesize] (cd) at (2mm,2mm) {\textbf{Complicated (난해)}\\인과관계는 존재하지만 분석이 필요하다\\[3pt]\textbf{sense → analyze → respond}\\전문가 분석, 좋은 사례(good practice)\\[4pt]{\scriptsize P1 예: "SAP 애드온으로 ECC와 연결한다" → 전문가가 분석하면 답이 나온다}};
+\node[boxrust, minimum width=\S, minimum height=\S, anchor=north east, text width=46mm, align=left, font=\footnotesize] (ch) at (-2mm,-2mm) {\textbf{Chaotic (혼돈)}\\인과관계가 없다\\[3pt]\textbf{act → sense → respond}\\일단 행동해 안정화, 분석은 나중에\\[4pt]{\scriptsize P1 예: "OD-POS 서버 OS 지원 종료 후 보안 사고가 나면" → 일단 행동해 안정화}};
+\node[box, draw=grey, fill=lightgrey, minimum width=\S, minimum height=\S, anchor=north west, text width=46mm, align=left, font=\footnotesize] (cl) at (2mm,-2mm) {\textbf{Clear / Obvious (명백)}\\인과관계가 명백하고 누구나 안다\\[3pt]\textbf{sense → categorize → respond}\\모범 사례(best practice) 적용\\[4pt]{\scriptsize 예: 표준 절차가 그대로 적용되는 반복 작업}};
+% 중앙 disorder
+\node[circle, draw=grey, fill=white, thick, minimum size=17mm, font=\scriptsize, align=center] at (0,0) {Disorder\\(무질서)\\어느 도메인인지\\모르는 상태};
+% 상단 라벨
+\node[lbl, anchor=south, font=\small\bfseries, text=navy] at (-\S/2-2mm,\S+3mm) {비질서(unordered) — 창발적 실무};
+\node[lbl, anchor=south, font=\small\bfseries, text=navy] at (\S/2+2mm,\S+3mm) {질서(ordered) — 인과관계 분석 가능};
+% 하단 경고
+\node[box, draw=rust, fill=rustlight, text width=104mm, font=\footnotesize, anchor=north] at (0,-\S-6mm) {\textbf{오용 경고} — "우리 프로젝트는 complex하니까 애자일"은 틀렸다.\\① Cynefin의 처방은 방법론 선택이 아니라 \textbf{의사결정 순서의 전환}이다.\\② 도메인 판정은 \textbf{사후적}이다 — 사전에 프로젝트 전체에 라벨을 붙이지 말고, \textbf{결정 하나하나}에 적용한다.\\하나의 프로젝트 안에 네 도메인이 공존한다.};
+\node[src, anchor=north west] at (-\S-2mm,-\S-30mm) {출처: Snowden \& Boone (2007), A Leader's Framework for Decision Making, Harvard Business Review를 바탕으로 재구성. P1 예시는 교재 2.6절.};
+\end{tikzpicture}
+\end{document}

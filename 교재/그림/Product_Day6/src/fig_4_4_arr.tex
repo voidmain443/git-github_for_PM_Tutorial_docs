@@ -1,0 +1,22 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink},y=0.9mm]
+\node[title] at (3.2,68) {4{,}860과 6{,}060 — 구축비 1{,}200만이 들어가면 분모가 바뀐다};
+% left bar: 3 x 1620
+\foreach \i/\n in {0/세영정공,1/태산정밀,2/동보프레스}{\draw[fill=navylight,draw=navy] (-1.2,\i*16.2) rectangle (1.2,\i*16.2+16.2); \node at (0,\i*16.2+8.1) {\n\ 1{,}620};}
+\node[above,font=\footnotesize\bfseries,text=navy] at (0,49) {순 SaaS ARR 4{,}860만 (G-05)};
+\node[lbl,below] at (0,-1) {3사 × 라인 3.0 × 45만 × 12};
+% right bar
+\foreach \i/\n in {0/세영정공,1/태산정밀,2/동보프레스}{\draw[fill=navylight,draw=navy] (4.3,\i*16.2) rectangle (6.7,\i*16.2+16.2); \node at (5.5,\i*16.2+8.1) {\n\ 1{,}620};}
+\foreach \i/\n in {0/세영 300,1/태산 400,2/동보 500}{\draw[fill=rustlight,draw=rust] (4.3,48.6+\i*4) rectangle (6.7,52.6+\i*4); \node[font=\tiny] at (5.5,50.6+\i*4) {\n};}
+\node[above,font=\footnotesize\bfseries,text=rust] at (5.5,61.5) {계약 총액 6{,}060만 (G-03 "계약 ARR")};
+\node[lbl,below] at (5.5,-1) {+ 구축비 1{,}200 (G-04, 일회성)};
+\draw[arrrust] (1.4,24) -- node[above,font=\tiny,text=rust]{+25\%} (4.1,24);
+% right notes
+\node[box,text width=38mm,align=left,anchor=west] at (7.6,40) {같은 원가 210만의 두 분모\\AI 원가율 210 ÷ 405 = \textbf{51.9\%}(순SaaS)\\210 ÷ 505 = \textbf{41.6\%}(계약) — G-09};
+\node[box,text width=38mm,align=left,anchor=west] at (7.6,22) {ACV 1{,}620 vs 2{,}020 (G-07)\\GM 41\%(계약·예상 원가) / 26\%(순SaaS) / $-$72\%(12월 실제 청구서)};
+\node[boxrust,text width=38mm,align=left,anchor=west] at (7.6,5) {D+300 투자자 월간 보고에 적힌 것은 오른쪽이다 — 이 규칙(㉘ 항목 6)을 쓴 사람이 보고서를 썼다};
+\node[src,anchor=west] at (-1.4,-9) {정본 G-03~10 D+300 열 · §3.2 "ARR 오염의 시작" · 워크북 ㉘ 항목 6·§3.6. 방어는 하나 — 보고서에 두 숫자를 다 쓴다.};
+\end{tikzpicture}
+\end{document}

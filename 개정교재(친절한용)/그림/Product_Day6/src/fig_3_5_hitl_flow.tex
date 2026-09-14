@@ -1,0 +1,25 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink}]
+\node[title] at (2.2,4.9) {HITL 승인 흐름 — 촬영에서 로그까지, 자동판정은 없다};
+\node[box,text width=17mm] (s1) at (-3.6,2.8) {① 촬영\\사진·음성};
+\node[boxfill,text width=26mm] (s2) at (-0.6,2.8) {② 초안 카드\\값 · 양/불 · 신뢰도 · 근거 영역};
+\node[boxteal,text width=17mm] (s3a) at (2.6,3.5) {③ [승인] 1탭};
+\node[boxteal,text width=24mm] (s3b) at (2.9,2.1) {③ [수정] + 사유 1탭\\조도·각도·기준서·기타};
+\node[box,text width=22mm] (s4) at (6.2,2.8) {④ 판정 로그(B-12)\\누가·언제·사진·기준 버전·초안 여부·수정 사유};
+\node[boxgrey,text width=20mm] (s5) at (6.2,0.9) {⑤ 부적합이면\\NCR 패키지(B-07)};
+\draw[arr] (s1) -- (s2); \draw[arr] (s2) -- (s3a); \draw[arr] (s2) -- (s3b); \draw[arr] (s3a) -- (s4); \draw[arr] (s3b) -- (s4); \draw[arrgrey] (s4) -- (s5);
+% gate condition
+\node[draw=rust,fill=rustlight,rounded corners=2pt,text width=40mm,align=left,anchor=north] at (-0.6,1.75) {초안 카드는 세 조건이 \textbf{모두} 참일 때만: 베타 라인(세영 오전 1) · 신뢰도 ≥ 0.85 · 오류 예산 미소진. 아니면 "판정 보류 — 직접 판정"};
+% auto judge crossed
+\node[boxgrey,text width=22mm,text=grey] (auto) at (6.6,4.2) {자동판정 모드 — 만들지 않았다(B-17 Won't)};
+\draw[grey,thick] (auto.north west) -- (auto.south east); \draw[grey,thick] (auto.north east) -- (auto.south west);
+% two phrases
+\node[boxteal,text width=36mm,align=left] at (-2.2,-0.6) {\textbf{화면 문구}(검사원에게): "판정 초안은 참고용입니다. 최종 판정은 검사원이 합니다."};
+\node[box,text width=36mm,align=left] at (2.6,-0.6) {\textbf{계약 문구}(고객사에게, ㉘ 항목 6): "판정 초안의 오류로 인한 당사 책임은 연 계약액의 10\%(162만)를 상한으로"};
+\node[lbl,text=rust] at (0.2,-1.45) {두 문장은 같은 화면에 두지 않는다};
+\node[boxgrey,text width=38mm,align=left] at (6.4,-0.6) {에스컬레이션: 불일치 연속 3건 → 팀장(당일) · 예산 소진 → CTO(자동 OFF) · 클레임 → 대표+팀장 48시간};
+\node[src,anchor=west] at (-4.6,-2.1) {워크북 ㉗ 항목 6 [추가 설정]. 수정 사유 1탭과 "수정 건수 = 모델 품질 지표" 표기가 있어야 수정 로그가 살고, 그래야 항목 5 오류 예산의 측정 원천이 산다.};
+\end{tikzpicture}
+\end{document}

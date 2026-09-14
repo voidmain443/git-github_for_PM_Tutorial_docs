@@ -1,0 +1,28 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[node distance=5mm]
+\node[title, anchor=west] (t1) at (0,0) {네 가지 구조 개념 (4T) — 임시조직을 정의한다};
+\node[boxfill, text width=36mm, minimum height=20mm, below=4mm of t1.west, anchor=north west] (a1) {\textbf{시간 Time}\\[2pt]{\footnotesize 끝이 있다. 시간은 흐르는 것이\\아니라 소모되는 것}};
+\node[boxfill, text width=36mm, minimum height=20mm, right=of a1] (a2) {\textbf{과업 Task}\\[2pt]{\footnotesize 특정 과업 때문에 존재.\\과업이 끝나면 존재 이유 소멸}};
+\node[boxfill, text width=36mm, minimum height=20mm, right=of a2] (a3) {\textbf{팀 Team}\\[2pt]{\footnotesize 과업을 위해 모이고 흩어진다.\\소속감은 과업에 묶여 있다}};
+\node[boxfill, text width=36mm, minimum height=20mm, right=of a3] (a4) {\textbf{전환 Transition}\\[2pt]{\footnotesize 이전 상태 $\rightarrow$ 이후 상태로\\바꾸기 위해 존재}};
+
+\node[title, below=8mm of a1.south west, anchor=west] (t2) {네 가지 행위 개념 — 임시조직의 행위를 시퀀싱한다};
+\node[boxteal, text width=36mm, minimum height=22mm, below=4mm of t2.west, anchor=north west] (b1) {\textbf{행위 기반 기업가정신}\\{\footnotesize action-based\\entrepreneurialism}\\[2pt]{\footnotesize "이 일을 하자" — 착수는\\분석이 아니라 행위의 결과}};
+\node[boxteal, text width=36mm, minimum height=22mm, right=of b1] (b2) {\textbf{몰입 형성을 위한 단편화}\\{\footnotesize fragmentation for\\commitment-building}\\[2pt]{\footnotesize WBS는 계획 도구이기 전에\\몰입 도구}};
+\node[boxteal, text width=36mm, minimum height=22mm, right=of b2] (b3) {\textbf{계획된 고립}\\{\footnotesize planned isolation}\\[2pt]{\footnotesize 모조직의 일상적 간섭에서\\의도적으로 격리 — 별도\\사무실·예산·보고선}};
+\node[boxteal, text width=36mm, minimum height=22mm, right=of b3] (b4) {\textbf{제도화된 종료}\\{\footnotesize institutionalized\\termination}\\[2pt]{\footnotesize 종료 보고서, 해산,\\인력의 복귀}};
+\draw[arrteal] (b1) -- (b2); \draw[arrteal] (b2) -- (b3); \draw[arrteal] (b3) -- (b4);
+
+% 설명되는 현상
+\node[title, below=9mm of b1.south west, anchor=west, text=rust] (t3) {실무 현상과의 연결 — 이름 없던 현상에 이름을 붙인다};
+\node[boxrust, text width=36mm, minimum height=16mm, below=4mm of t3.west, anchor=north west] (c1) {{\footnotesize 착수 결정은 왜\\분석적이지 않은가}\\[1pt]{\scriptsize 김선호 대표의 "매장 615개를\\하나의 채널처럼"이 먼저 있었다}};
+\node[boxrust, text width=36mm, minimum height=16mm, right=of c1] (c2) {{\footnotesize 왜 종료 직전에\\인력이 빠지는가}\\[1pt]{\scriptsize 팀 개념: 소속은 과업에 묶여 있다\\— 개인의 배신이 아닌 정상 작동}};
+\node[boxrust, text width=36mm, minimum height=16mm, right=of c2] (c3) {{\footnotesize 왜 프로젝트는\\모조직과 싸우는가}\\[1pt]{\scriptsize IT본부 47명 중 14명 투입 →\\남은 33명이 시스템 6종 운영}};
+\node[boxrust, text width=36mm, minimum height=16mm, right=of c3] (c4) {{\footnotesize 왜 교훈(lessons learned)은\\항상 실패하는가}\\[1pt]{\scriptsize 배워야 할 조직이 종료와 함께\\해체된다 — 스마트오더 보고서 세 줄}};
+\draw[arrgrey, dashed] (b1) -- (c1); 
+\draw[arrgrey, dashed] (b3) -- (c3); \draw[arrgrey, dashed] (b4) -- (c4);
+\node[src, below=4mm of c1.south west, anchor=north west] {출처: Lundin \& Söderholm (1995), A theory of the temporary organization, Scandinavian Journal of Management 11(4)를 바탕으로 재구성.};
+\end{tikzpicture}
+\end{document}

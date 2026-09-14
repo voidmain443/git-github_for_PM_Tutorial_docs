@@ -1,0 +1,28 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}
+% 상단: 세 기능
+\node[title] at (64mm,6mm) {계획의 세 기능 — 예측이 아니라 합의};
+\node[boxteal, text width=36mm, font=\scriptsize, align=left] (f1) at (0,-6mm) {\textbf{① 합의 (agreement)}\\스폰서·사용자·공급자·PM이 같은 문장에 서명\\{\color{grey}가치 = 서명자의 수와 무게}};
+\node[boxteal, text width=36mm, font=\scriptsize, align=left] (f2) at (64mm,-6mm) {\textbf{② 통제 기준 (baseline)}\\실적을 비교하는 자(尺)\\{\color{grey}자가 없으면 편차가 없고, 편차가 없으면 통제가 없다}};
+\node[boxteal, text width=36mm, font=\scriptsize, align=left] (f3) at (128mm,-6mm) {\textbf{③ 의사소통}\\82명이 같은 그림을 보게 하는 도구\\{\color{grey}WBS = "내 조각이 무엇인가"}};
+\node[lbl, font=\scriptsize, text=rust, text width=52mm] at (30mm,-20mm) {"계획이 틀렸으니 소용없다"\\= ①과 ②의 혼동 (기준선은 틀리기 위해 있다)};
+\node[lbl, font=\scriptsize, text=rust, text width=52mm] at (90mm,-20mm) {"계획을 바꾸면 안 된다"\\= ②와 ③의 혼동 (눈금은 변경 통제로 바뀐다)};
+% 중단: 세 기준선
+\node[title] at (64mm,-30mm) {세 기준선 — 따로 만들지만 따로 존재하지 않는다};
+\node[boxfill, text width=36mm, font=\scriptsize, align=left] (b1) at (0,-42mm) {\textbf{범위 기준선}\\범위 기술서 + WBS + WBS 사전\\{\color{grey}P1: FP 기준선 확인서 (12,400점 ↔ 1,180건)}};
+\node[boxfill, text width=36mm, font=\scriptsize, align=left] (b2) at (64mm,-42mm) {\textbf{일정 기준선}\\승인된 일정 모델\\{\color{grey}P1: 36 스프린트 + G0\textasciitilde G5 + 제약 일자}};
+\node[boxfill, text width=36mm, font=\scriptsize, align=left] (b3) at (128mm,-42mm) {\textbf{원가 기준선}\\시간대별 배분 예산 (관리예비비 제외)\\{\color{grey}P1: 145.8의 월별 PV, BAC 156.0}};
+\draw[arr, <->] (b1.east) -- node[lbl, font=\scriptsize, above] {작업패키지\\→ 활동} (b2.west);
+\draw[arr, <->] (b2.east) -- node[lbl, font=\scriptsize, above] {활동 × 자원\\→ 월별 원가} (b3.west);
+% 하단: PMB
+\node[box, draw=navy, very thick, fill=white, text width=120mm, font=\footnotesize, align=center] (pmb) at (64mm,-64mm) {\textbf{성과 측정 기준선 PMB (performance measurement baseline)}\\{\scriptsize 작업패키지 → 활동 → 시간대별 원가, \textbf{같은 코드 체계}(P1.3.2.4 = 활동 P1.3.2.4-01 = 원가 계정 P1.3.2.4)로 한 구조 — Day3 EVM의 전제}};
+\draw[arr] (b1.south) -- ($(pmb.north)+(-45mm,0)$);
+\draw[arr] (b2.south) -- (pmb.north);
+\draw[arr] (b3.south) -- ($(pmb.north)+(45mm,0)$);
+% 세 속성
+\node[boxrust, text width=120mm, font=\scriptsize, align=left] at (64mm,-80mm) {\textbf{기준선의 세 속성} — ① 승인된 것(초안·백로그는 기준선이 아니다: 매월 마지막 수요일 동결 = 승인) · ② 버전이 있다(v1.0 G1 → v1.1 변경 승인 → v2.0 재기준선; 재기준선은 이전 편차를 흡수한다) · ③ 변경 통제 아래 있다(허용범위 안 = PM, 밖 = 예외 보고). 작업 계획(working plan)은 PM이 매주 바꾸지만 기준선은 아니다.};
+\node[src, anchor=north west] at (-20mm,-92mm) {출처: PMBOK 8판 Planning Focus Area·Scope/Schedule/Finance 성과영역, ISO 21502:2020 §7.2, PRINCE2 7 Plans practice를 교재 1.1절에 따라 재구성.};
+\end{tikzpicture}
+\end{document}

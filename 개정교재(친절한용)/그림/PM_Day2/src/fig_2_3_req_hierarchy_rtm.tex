@@ -1,0 +1,30 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}
+\node[title] at (60mm,30mm) {요구사항 계층 (ISO/IEC/IEEE 29148)과 RTM의 양방향 추적};
+% 계층 피라미드 (좌)
+\node[boxgrey, text width=40mm, font=\scriptsize, align=center] (hr) at (0,20mm) {\textbf{헌장 §4 상위 요구 8개}\\{\color{grey}요구 제공자 실명 — 박세연·오정근·서정필·박준영·최영주·한동석}};
+\node[boxfill, text width=52mm, font=\scriptsize, align=center] (strs) at (0,6mm) {\textbf{StRS 214건} — 이해관계자의 언어\\{\color{grey}기능 115 / 비기능 99 (거의 절반이 비기능)}};
+\node[boxfill, text width=64mm, font=\scriptsize, align=center] (syrs) at (0,-8mm) {\textbf{SyRS 396건} — 시스템의 경계·인터페이스에서\\{\color{grey}1 : 1.85}};
+\node[boxfill, text width=76mm, font=\scriptsize, align=center] (srs) at (0,-22mm) {\textbf{SRS 570건} — 기능·데이터·화면·비기능\\{\color{grey}1 : 2.66. G1 FP 확인서가 계수하는 층 → 12,400점 ±3\%}};
+\draw[arr] (hr.south) -- (strs.north); \draw[arr] (strs.south) -- (syrs.north); \draw[arr] (syrs.south) -- (srs.north);
+\node[lbl, font=\scriptsize, text=rust, text width=40mm, align=left, anchor=west] at (48mm,10mm) {한국 SI의 "요구사항정의서"는 어느 층인가 — RFP는 StRS+SyRS 혼합, 수행사 정의서는 SRS. 둘의 대응을 아무도 안 만든다 → 감리 RTM 커버리지 지적};
+\node[lbl, font=\scriptsize, text width=40mm, align=left, anchor=west] at (48mm,-24mm) {NFR은 모든 층에 걸친다 — 8개 상위 요구 중 5개가 비기능. FP로 안 재지고, 시험이 늦게 만들어지고, 다대다로 추적된다 (ISO/IEC 25010 + fit criterion)};
+% RTM 행 (하단)
+\node[title] at (40mm,-38mm) {RTM 한 행 — 앞으로(요구→시험) / 뒤로(시험→요구)};
+\def\cell#1#2#3{\node[box, draw=navy, fill=white, text width=16mm, minimum height=13mm, font=\tiny, align=center] (#1) at (#2,-54mm) {#3};}
+\cell{c1}{-40mm}{\textbf{요구 ID}\\StRS-031\\{\color{grey}상위 요구 1}}
+\cell{c2}{-18mm}{\textbf{출처·우선순위}\\박세연 (실명)\\Must · 컷오버 릴리스}
+\cell{c3}{4mm}{\textbf{WBS 작업패키지}\\P1.3.1 재고 원장\\{\color{grey}WBS 사전 역방향}}
+\cell{c4}{26mm}{\textbf{설계 요소 · FP}\\테이블·API ID\\FP n점}
+\cell{c5}{48mm}{\textbf{시험 케이스}\\단위·통합·UAT\\TC-xxx}
+\cell{c6}{70mm}{\textbf{검수 확인}\\문서·일자·확인자\\{\color{grey}Day4}}
+\cell{c7}{92mm}{\textbf{상태}\\확정 / 변경 중\\/ 이연 / 삭제}
+\foreach \a/\b in {c1/c2,c2/c3,c3/c4,c4/c5,c5/c6,c6/c7} \draw[arr, thin] (\a.east) -- (\b.west);
+\draw[arrteal, very thick] ($(c1.north)+(0,4mm)$) -- node[lbl, font=\scriptsize, text=teal, above] {앞으로: "모든 요구가 시험되었는가" — 헌장 §3 RTM 커버리지 100\% (동결 범위)} ($(c6.north)+(0,4mm)$);
+\draw[arrrust, very thick] ($(c5.south)+(0,-4mm)$) -- node[lbl, font=\scriptsize, text=rust, below] {뒤로: "모든 시험·설계가 어느 요구에 근거하는가" — 매이지 않은 설계 요소 = gold plating의 증거. 감리는 양방향을 본다} ($(c1.south)+(0,-4mm)$);
+\node[box, draw=navy, fill=navylight, text width=124mm, font=\tiny, align=left] at (26mm,-82mm) {\textbf{두 번째 기능 — 변경 영향 분석.} 요구 하나가 바뀌면 어느 설계·작업패키지·시험 케이스·FP가 영향받는지를 RTM이 즉시 보여 준다. Day3의 변경요청서 영향 분석은 RTM 없이는 감으로 하는 것이다. MoSCoW: Must ≤ 60\%(R-07 완화), Won't를 명시(헌장 §13 이연 가능 항목 = Should/Could 경계). 29148의 좋은 요구 특성 중 가장 자주 무너지는 것: \textbf{검증 가능성}과 \textbf{단일성}.};
+\node[src, anchor=north west] at (-50mm,-93mm) {출처: ISO/IEC/IEEE 29148:2018의 StRS/SyRS/SRS 계층과 RTM 열 구성을 사례 문서(요구사항 1,180건 = 214/396/570, 헌장 §4)에 대입해 교재 2.3절에 따라 재구성. StRS 배분 건수는 [추가 설정].};
+\end{tikzpicture}
+\end{document}

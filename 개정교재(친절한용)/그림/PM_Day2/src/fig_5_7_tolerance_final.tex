@@ -1,0 +1,30 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}
+\node[title] at (0,63mm) {허용범위 격자 7축 × 3계층 확정본 — 계획 단계의 숫자로 검증해 확정한다 (온담 P1, v1.0 G1 제출)};
+\matrix (m) [matrix of nodes, nodes in empty cells, row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+  nodes={draw=grey!60, minimum height=12mm, text width=28mm, align=center, font=\tiny, anchor=center, fill=white},
+  column 1/.style={nodes={fill=navylight, font=\tiny\bfseries, text=navy, text width=16mm}},
+  column 3/.style={nodes={text width=40mm, align=left}},
+  column 5/.style={nodes={text width=52mm, align=left}},
+  column 6/.style={nodes={text width=30mm, font=\tiny\bfseries, align=left}},
+  row 1/.style={nodes={fill=navy, text=white, font=\tiny\bfseries}}] {
+  성과목표축 & 작업패키지 (수행사 PM / 패키지 담당) & 프로젝트 P1 (P1 PM) & 프로그램 (스폰서) & 확정 근거 — 무엇과 맞물리는가 & 초안 대비 변경 \\
+  원가 & 발주 집행 패키지 +2\% / SI 패키지 FP ±1\% & |[fill=teallight]| \textbf{+10.2억 = 컨틴전시 전액}\newline{}= 계획 원가 145.8의 \textbf{+7.0\%} & +12.0억 = 관리예비비 (= 승인 예산 168.0) & 계획 원가 + 허용범위 = 집행 한도 156.0으로 층이 맞물린다. 초안 +6\%(10.08, 승인 예산 기준)는 155.88 ≠ 156.0. 측정 = EAC(Day3) 기준 집행 한도 초과 \textbf{예상} 시 & |[text=rust]| 값 변경 (분모: 승인 예산 → 계획 원가). 단일 건 5억 초과 CFO 병행 (헌장 §12) \\
+  일정 & +5영업일 (패키지 완료일) & |[fill=teallight]| G4 기준 \textbf{+15영업일}\newline{}\textbf{컷오버 창·규제 기한 0}\newline{}G1·G2·리허설 3회차 +5 (보고) & +30영업일 (G3 합류 버퍼 15 포함) & 프로젝트 = 합류 버퍼 15영업일. 창 이탈은 15일이 아니라 6개월(다음 창)이므로 허용범위 개념이 성립하지 않는다 — 제약 일자마다 예외 & |[text=rust]| 마일스톤별 예외 추가 \\
+  범위 & ±1\% (패키지 FP) & |[fill=teallight]| \textbf{±3\% = ±35건} (1,180 기준)\newline{}\textbf{및 FP ±372점} & ±6\% & FP 재산정 트리거(계약 부속서 1, FP 누적 ±3\%)와 일치. 건수만으로는 계약과 어긋난다 & |[text=rust]| FP 기준 병기 \\
+  품질 & 0.13건/FP (패키지 통합시험) & |[fill=teallight]| \textbf{0.4건/FP} = 통합시험\textasciitilde UAT 발견 결함 ÷ 12,400\newline{}\textbf{+ 심각도 1·2 미해결 0건 (G3)} & 0.8건/FP & 정의 없는 0.4는 판정 불가 — 미해결 기준이면 4,960건이 되어 무의미. 발견 밀도 + 미해결 0건으로 분리 & |[text=rust]| 측정 정의 추가 \\
+  리스크 & 잔여 EMV 2.7억 (패키지 합) & |[fill=teallight]| \textbf{잔여 위협 EMV 합 8억} (현재 6.78, 여유 1.22)\newline{}\textbf{+ 단일 리스크 잔여 EMV 2억 초과 시 스폰서 보고} & 16억 & 대응 전 17.44는 어느 프로젝트나 넘는다. 잔여 기준이어야 대응의 가치가 보이고, 단일 건 기준이 없으면 R-04(3.00)가 합계 안에 숨는다. 컨틴전시·관리예비비 대상 합산 & |[text=rust]| "잔여" 명시, 단일 건 기준 추가 \\
+  편익 & — & |[fill=teallight]| \textbf{$-$5\%p} (G1·G2·G4 시점 실현률 전망, 직접 편익 118억 기준) & $-$10\%p & 손익분기 66\% → 34\%p 여지 중 5 + 10 = 15, 나머지 19\%p는 이사회. 66\% 미만 전망은 허용범위가 아니라 중단 조건(헌장 §14). 5\%p ≈ 5.9억/년 & |[text=rust]| 값 유지, 측정 시점 추가 \\
+  지속가능성 & 0 & |[fill=teallight]| \textbf{0} = 개인정보 유출 사고 0\newline{}보안진단 High 미조치 0 (G3)\newline{}안전·환경 사고 0 & 0 & SI 프로젝트에서 "안전·환경"만으로는 측정 대상이 없음. 규제 축(HR-06)과 연결 & |[text=rust]| 정의 추가 \\
+};
+\node[lbl, font=\tiny, anchor=south, text=teal, align=center, text width=44mm] at (m-1-3.north) {\textbf{P1 PM} — 묻지 않고 결정하는 폭\\= 그 계층이 흡수하기로 한 리스크 노출};
+\node[lbl, font=\tiny, anchor=south] at (m-1-4.north) {스폰서 · 프로그램 운영위};
+\node[lbl, font=\tiny, anchor=south] at (m-1-2.north) {팀 리더 · 수행사 PL};
+% 아래 메모
+\node[box, draw=navy, fill=navylight, text width=96mm, font=\tiny, align=left, anchor=north west] at ($(m-8-1.south west)+(0,-3mm)$) {\textbf{Day1 초안과 무엇이 달라졌는가.} 초안은 거버넌스 문서(PM이 묻지 않고 결정할 수 있는 폭)였고, 오늘은 그 폭을 리스크 노출·컨틴전시·버퍼·FP 트리거·손익분기라는 계획 단계의 숫자와 대조했다. 일곱 축 중 여섯은 숫자가 초안의 값을 뒷받침하되 측정 정의·예외·병기 기준을 더했고, 하나(원가)는 분모를 바꿔 값을 다시 정의했다 — 허용범위는 PM이 보고 없이 쓰는 돈이어야 하고 그것이 곧 컨틴전시다(계획 원가 145.8 + 10.2 = 집행 한도 156.0). 리스크 축은 8억을 유지하되 "잔여" 기준과 단일 건 2억 기준을 명시한다. 이 변경 목록이 헌장 v1.1 수정 요청 4·5·6번이며 G1 기준선 패키지의 일부이고, 스폰서가 서명하면 격자는 초안에서 확정본이 된다.};
+\node[box, draw=rust, fill=rustlight, text width=78mm, font=\tiny, align=left, anchor=north west] at ($(m-8-1.south west)+(100mm,-3mm)$) {\textbf{읽는 규칙.} 허용범위는 안심의 기준이 아니라 \textbf{보고의 기준}이다 — 잔여 6.78이 8억 "이내"여도 여유 1.22는 R-01 잔여(1.20) 하나와 같다. 초과 \textbf{예상} 시점에 5영업일 내 예외 보고(헌장 §12 형식), 창 이탈 예상은 즉시. 기회 EMV($-$1.00)로 위협을 상쇄해 "안"이라고 보고하지 않는다 — O-02와 R-02는 같은 원인이다. 관리예비비 대상 리스크(R-01·R-04)의 트리거 발동은 즉시 스폰서·프로그램 PMO장 보고.};
+\node[src, anchor=north west, text width=178mm] at ($(m-8-1.south west)+(0,-26mm)$) {출처: PRINCE2 7의 7 성과목표축 × 3 계층 허용범위에 Day1 워크북 §6 초안과 워크북 §5 완성 예시본 항목 7·8(허용범위 격자 확정본, Day1 초안 대비 변경)의 확정 논리(컨틴전시 10.2·합류 버퍼 15·FP ±372·잔여 EMV 6.78·손익분기 66\%)를 대입해 재구성. Day1 그림 3-6의 확정본.};
+\end{tikzpicture}
+\end{document}

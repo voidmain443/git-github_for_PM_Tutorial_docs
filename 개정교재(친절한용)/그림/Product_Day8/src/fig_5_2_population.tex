@@ -1,0 +1,14 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink},x=1mm,y=1mm]
+\node[title] at (80,52) {FN 2.4\%의 모집단 — 측정된 것(자동차 60건)과 측정되지 않은 것(온담 80건 계획)};
+% left: measured
+\node[boxfill,anchor=north west,text width=56mm,minimum height=44mm,align=left] (L) at (0,44) {\textbf{V-07 — 자동차 3세트 60건(측정됨)}\\[3pt]세트 A 절삭 · B 프레스 · C 사출 — 오전 조도\\[2pt]FN \textbf{2.4\%} · OCR 95.2\% · FP 21.3\% · F1 0.84\\합격 기준 v1 FN ≤ 8.0(㉗, D+137) → v2 FN ≤ 3.0(㉞, D+540)\\[3pt]\textbf{기준은 두 번 바뀌었고 모집단은 한 번도 안 바뀌었다}\\사고 조건(오후 조도)조차 세트에 없다(DS-v2 진행)};
+% right: planned
+\node[boxrust,anchor=north west,text width=72mm,minimum height=44mm,align=left] (R) at (84,44) {\textbf{온담 4세트 80건(계획 — ㊵ 항목 4)}\\[3pt]D-1 이천 냉장 20 — in-range 판정 정확도 ≥ 99\%(OCR 없음)\\D-2 61점 HACCP 20 — '개선조치 필요' 재현율 ≥ 97\%\\D-3 입고 성적서 20 — OCR ≥ 90\% \& FN ≤ 5\%\\D-4 안성 납품 20 — OCR ≥ 90\% \& FN ≤ 5\%\\[3pt]라벨 판정자 = 정본 판정자(나영선) · 서명 후 8주 · \textbf{1,200만 딥게이지 부담}\\측정 전: 자동판정 OFF·초안만 · 임시 기준 최장 서명 + 12주 · 확정 나영선·오세진};
+\draw[arrrust,line width=1.4pt] (L.east) -- node[above,font=\tiny\bfseries,text=rust,text width=18mm,align=center]{옮겨지지\\않는다} node[below,font=\tiny,text=rust,text width=18mm,align=center]{다시 잰다 —\\지표도 바뀐다} (R.west);
+\node[boxgrey,anchor=north west,text width=150mm,align=left] at (0,-2) {같은 문장, 8일 전: 재고 정확도 91.3\%는 순환실사 SKU(69\%)의 값이고 전체 SKU에서는 84.6\%였다(PM Day3 ⑫). 그때 여러분은 감사자였고, 지금은 ㊵ 항목 4 첫 행을 쓰는 사람이다. \textbf{모집단 없는 fit criterion은 무효다.}};
+\node[src,anchor=west] at (0,-15) {정본 §7.3 V-01\textasciitilde{}07 · ㊵ 항목 4(워크북 §5.5) [추가 설정] · §9 최종 명제.};
+\end{tikzpicture}
+\end{document}

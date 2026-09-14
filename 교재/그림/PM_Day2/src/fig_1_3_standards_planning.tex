@@ -1,0 +1,21 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}
+\node[title] at (70mm,6mm) {세 표준이 계획을 어떻게 구조화하는가};
+% PMBOK 8
+\node[boxfill, text width=44mm, font=\scriptsize, anchor=north, align=left] (pm) at (0,0) {\textbf{PMBOK 8판 (2025)}\\6 원칙 + 7 성과영역 + 5 Focus Area / 40 프로세스\\[3pt]\textbf{Planning Focus Area}\\{\color{grey}(6판 Planning 24개 프로세스의 압축·재배치)}\\[3pt]Day2 = 네 성과영역\\· \textbf{Scope} — 요구사항 수집, QC 포함 → 인수 기준은 범위의 일부\\· \textbf{Schedule} — CPM과 릴리스·반복 계획을 한 도메인에\\· \textbf{Finance} — Cost → Finance 개칭, 자금 조달·현금흐름 명시\\· \textbf{Risk} — 7판 Uncertainty에서 회귀\\[3pt]{\color{rust}조달은 Appendix X4로 — 계약 유형·변경 대가는 계약 실무에서 배운다}};
+% PRINCE2 7
+\node[boxteal, text width=44mm, font=\scriptsize, anchor=north, align=left] (p2) at (52mm,0) {\textbf{PRINCE2 7 (2023)}\\\textbf{Plans practice} — 3수준 + 예외 계획\\Project Plan → Stage Plan → Team Plan\\{\color{grey}승인 단위 = 단계(stage). 게이트 G1·G2·G3 = 단계 경계}\\[3pt]\textbf{Product-Based Planning}};
+\node[box, draw=teal, text width=40mm, font=\scriptsize, anchor=north, align=left] (ppd) at ([yshift=-3mm]p2.south) {① \textbf{PPD} 프로젝트 산출물 기술서\\{\color{grey}"가동 중인 통합 플랫폼 + 운영 인수 상태"}};
+\node[box, draw=teal, text width=40mm, font=\scriptsize, below=2mm of ppd, align=left] (pbs) {② \textbf{PBS} 산출물 분해 (명사만)\\{\color{grey}관리 산출물 / 전문 산출물 구분}};
+\node[box, draw=teal, text width=40mm, font=\scriptsize, below=2mm of pbs, align=left] (pd) {③ \textbf{PD} 산출물별 품질 기준·책임자\\{\color{grey}≈ WBS 사전 + RTM 인수 기준 열}};
+\node[box, draw=teal, text width=40mm, font=\scriptsize, below=2mm of pd, align=left] (pfd) {④ \textbf{PFD} 산출물 흐름도\\{\color{grey}→ 활동 네트워크의 뼈대}};
+\draw[arrteal] (p2.south) -- (ppd.north); \draw[arrteal] (ppd.south) -- (pbs.north); \draw[arrteal] (pbs.south) -- (pd.north); \draw[arrteal] (pd.south) -- (pfd.north);
+% ISO 21502
+\node[boxgrey, text width=44mm, font=\scriptsize, anchor=north, align=left] (iso) at (104mm,0) {\textbf{ISO 21502:2020}\\§6 통합 실무(착수·지휘·통제·종료)\\§7 관리 실무 17개 중 Day2 해당:\\· §7.2 planning — \textbf{통합}된 계획\\· §7.4 scope · §7.5 resources\\· §7.6 schedule · §7.7 cost\\· §7.8 risk · §7.17 procurement\\{\color{grey}(조항 번호는 인쇄 전 원문 대조)}\\[3pt]계획에 관해 요구하는 것 셋:\\\textbf{통합} · \textbf{기준선 승인} · \textbf{변경 통제}\\§7.7: 컨틴전시와 관리예비비를 \textbf{구분}해 포함\\[3pt]{\color{rust}한국 SI 계약서·RFP가 "ISO 21502에 따라"라고 인용할 때 기대하는 것이 이 셋이다}};
+% 공통 메시지
+\node[box, draw=navy, fill=navylight, text width=148mm, font=\scriptsize, anchor=north, align=left] at (52mm,-80mm) {\textbf{세 표준이 함께 말하는 것} — 계획은 산출물에서 시작하고(PBS를 WBS의 상위 레벨로), 세 기준선은 하나의 구조로 통합되며, 예비비는 구분한다. \textbf{어느 표준도 컨틴전시의 크기를 정해 주지 않는다} — "표준에 따라 10\%"는 없는 문장이다. PMBOK 8판 프로세스 개수(19 또는 20)는 2차 출처 간 불일치가 있으므로 판서하지 말라.};
+\node[src, anchor=north west] at (-22mm,-97mm) {출처: PMI, PMBOK Guide 8th ed. (2025); Axelos/PeopleCert, Managing Successful Projects with PRINCE2 7th ed. (2023); ISO 21502:2020을 교재 1.3절에 따라 대조·재구성.};
+\end{tikzpicture}
+\end{document}

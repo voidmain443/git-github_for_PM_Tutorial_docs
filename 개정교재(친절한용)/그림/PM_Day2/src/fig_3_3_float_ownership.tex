@@ -1,0 +1,21 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}
+\node[title] at (70mm,30mm) {리허설 사슬의 총여유 10영업일은 누구의 것인가 — 세 입장과 SCL Protocol의 답};
+% 세 입장
+\node[boxgrey, text width=40mm, font=\scriptsize, align=left] (a) at (0,18mm) {\textbf{수행사 (이재현 PM)}\\"우리 일정에 여유가 있으니 인력을 다른 사업에 잠시 돌리겠다"\\{\color{grey}여유 = 수행사의 것 → 발주사가 쓰면 보상 청구}};
+\node[boxgrey, text width=40mm, font=\scriptsize, align=left] (b) at (48mm,18mm) {\textbf{발주사 PM}\\"그 여유는 발주사 미결정 대기를 흡수하기 위한 것이니 건드리지 말라"\\{\color{grey}여유 = 발주사의 것}};
+\node[boxgrey, text width=40mm, font=\scriptsize, align=left] (c) at (96mm,18mm) {\textbf{프로그램 PMO장}\\"P2가 늦으면 그 여유를 P2에 준다"\\{\color{grey}여유 = 프로그램의 것}};
+% SCL
+\node[boxfill, text width=136mm, font=\scriptsize, align=left] (scl) at (48mm,0mm) {\textbf{SCL Delay and Disruption Protocol 2판 (2017) Core Principle 8} — 별도의 계약 약정이 없으면 float는 \textbf{프로젝트의 공용 자원}이며 \textbf{먼저 쓰는 쪽이 쓴다}(first come, first served). 발주사 사유로 여유가 소진되어도 종료일이 늦어지지 않는 한 시공자는 EOT를 받지 못하고, 그 뒤 시공자 사유의 지연은 여유가 없으므로 시공자 책임. {\color{rust}공정해 보이지 않는다면 그것이 계약 문안으로 달리 정할 이유다.}};
+\foreach \n in {a,b,c} \draw[arrgrey] (\n.south) -- (\n.south |- scl.north);
+% 여유 vs 버퍼
+\node[font=\footnotesize\bfseries, text=navy, anchor=west] at (-20mm,-14mm) {여유(float)와 버퍼(buffer)는 다른 것이다};
+\node[box, draw=teal, text width=64mm, font=\tiny, align=left, anchor=north west] (fl) at (-20mm,-18mm) {\textbf{여유 (float)} = 네트워크 계산의 \textbf{결과}. 경로 위 활동들이 공유한다\\· 리허설 사슬 TF 10영업일 — 소유자 미정 (그래서 분쟁)\\· 워크북 기준선 문안: "R-10과 발주사 데이터 정제 지연을 흡수하기 위한 것"으로 \textbf{위치와 목적을 명시}};
+\node[box, draw=rust, text width=64mm, font=\tiny, align=left, anchor=north west] (bf) at (52mm,-18mm) {\textbf{버퍼 (buffer)} = 의도적으로 넣은 시간. \textbf{소유자가 명시}된다\\· G3 합류 버퍼 15영업일 (02-19 → 03-12) — 프로그램 PMO장\\· 규제 버퍼 22영업일 (09-11 앞) — P4 최영주\\· CCPM은 여유를 걷어 버퍼로 모으는 방법 (3.4절)};
+% 발주사 PM이 할 수 있는 셋
+\node[box, draw=navy, fill=navylight, text width=136mm, font=\tiny, align=left, anchor=north west] at (-20mm,-35mm) {\textbf{한국 SI 계약에는 float 조항이 거의 없다} — "발주사 사유 = 공기 연장 / 그 밖 = 지체상금"의 이분법뿐. 발주사 PM이 할 수 있는 것 셋: ① 일정 기준선 서명 시 각 경로의 총여유와 그것이 흡수할 리스크를 문서로 남긴다 ② 여유와 버퍼를 구분하고 버퍼의 소유자를 정한다 ③ 변경협의체 의결서에 "이 변경은 여유 N일을 소진하며, 소진 후 지연은 어느 쪽 사유로 보는가"를 함께 적는다. 동시 지연(concurrent delay)은 SCL이 좁게 정의한다 — "둘 다 늦었으니 반반"이 아니다.};
+\node[src, anchor=north west] at (-20mm,-50mm) {출처: Society of Construction Law, Delay and Disruption Protocol, 2nd ed. (2017) Core Principle 8; AACE RP 29R-03을 참조. 교재 3.3절의 온담 예시(리허설 사슬 TF 10·합류 버퍼 15·규제 버퍼 22)에 대입해 재구성.};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,25 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[node distance=3mm]
+\def\W{150mm}
+% 헤더
+\node[lbl, anchor=west] at (34mm,15mm) {프로젝트 시간축 $\longrightarrow$ \quad (▲ 되돌릴 수 없는 결정 지점 · 진한 색 = 되돌림 비용이 급등한 구간)};
+% 행 그리기 매크로: 이름, y, 낮은 구간 끝 비율, 높은 구간 시작 비율, 마커들
+\newcommand{\row}[7]{%
+  \node[font=\small\bfseries, text=navy, anchor=east, align=right, text width=30mm] at (30mm,#2) {#1};
+  \fill[navylight] (34mm,#2-4mm) rectangle (34mm+#3*\W,#2+4mm);
+  \fill[navy!70] (34mm+#3*\W,#2-4mm) rectangle (34mm+\W,#2+4mm);
+  \node[font=\scriptsize, text=navy, anchor=west] at (35mm,#2) {#4};
+  \node[font=\scriptsize, text=white, anchor=west] at (35mm+#3*\W,#2) {#5};
+  #6
+  \node[lbl, anchor=west, align=left, text width=62mm] at (34mm+\W+3mm,#2) {#7};
+}
+\newcommand{\mk}[3]{\node[rust, font=\small] at (34mm+#1*\W,#2+5.5mm) {$\blacktriangle$}; \node[font=\scriptsize, text=rust, anchor=south, align=center] at (34mm+#1*\W,#2+7mm) {#3};}
+\row{SI\\(정보시스템)}{0mm}{0.72}{코드는 고칠 수 있다 — 요구사항이 계약 후에도 움직인다 → 반복}{데이터 전환·컷오버}{\mk{0.72}{0mm}{G2 데이터 전환 정본\\(되돌리면 3.8억·6주)}\mk{0.93}{0mm}{G3 컷오버\\(34시간, 615개 매장)}}{되돌림 비용 낮음\textasciitilde 중간.\\두 지점 앞에만 게이트를 두고\\그 앞은 반복적으로 일한다}
+\row{건설·EPC}{-24mm}{0.30}{설계 성숙도(AACE Class)를 올리는 앞단}{기초 타설 후 설계 변경 = 철거}{\mk{0.30}{-24mm}{계약(LSTK)·발주\\P2: 설비 발주 T0 2026-04-24,\\선급금 29.6억·리드타임 34주}}{매우 높음.\\결정 전에 최대한 알아야 하므로\\앞단(front-end)에 시간을 쓴다}
+\row{제조 NPD}{-48mm}{0.45}{Gate 1\textasciitilde 2 kill 가능 · EVT(기능 동결)}{금형 후 변경 = 주 단위 재작업 · 양산 후 = 리콜}{\mk{0.45}{-48mm}{금형 제작 착수\\DVT(설계 동결)}\mk{0.80}{-48mm}{PVT\\(공정 동결)}}{높음.\\세 개의 동결 단계로 리듬을 짠다 —\\"무엇을 더 이상 안 바꾸기로 하는가"}
+\row{제약\\임상·규제}{-72mm}{0.55}{임상 프로토콜 승인 시점에 범위 사실상 고정}{제출 후 문서 세트 잠김 · 심사 시계는 상대가 통제}{\mk{0.55}{-72mm}{규제 제출\\(IND/NDA, 510(k), 기술문서)}}{극단적.\\추가자료 라운드를 0회로 가정하지\\말고 reference class에서 분포로 놓는다}
+\node[src, anchor=north west] at (0,-84mm) {출처: 교재 1.5절 분야별 대조표(SI·EPC·NPD·제약)와 Merrow(IPA), Cooper(Stage-Gate), AACE 추정 등급을 바탕으로 재구성. 구간 비율은 개념도이며 실측이 아니다.};
+\end{tikzpicture}
+\end{document}

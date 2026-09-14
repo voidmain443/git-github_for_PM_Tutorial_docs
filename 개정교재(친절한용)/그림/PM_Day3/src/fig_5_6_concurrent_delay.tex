@@ -1,0 +1,59 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (118,86) {R2 지연 +10영업일의 귀책 분해 — 발주 7 + 동시 3 + 수행 3 $-$ 회복 3 = 10 (임계경로 TF 0, 2026-09-30)};
+% 축
+\draw[grey, thick] (20,20) -- (20,72);
+\foreach \v in {0,2,4,6,8,10,12,14} { \draw[grey, thin] (19,{20+\v*3.6}) -- (20,{20+\v*3.6}); \node[font=\tiny, text=grey, anchor=east] at (18.5,{20+\v*3.6}) {\v}; }
+\node[font=\tiny, text=grey, rotate=90, anchor=south] at (12,46) {누적 지연 (영업일)};
+% 폭포 막대: x 위치, 시작, 높이, 색, 라벨
+% 발주 7: 0→7
+\fill[rust!80] (26,20) rectangle (40,{20+7*3.6});
+\node[font=\tiny, text=white, align=center] at (33,{20+3.5*3.6}) {발주사 단독\\\textbf{+7}};
+\node[font=\tiny, text=ink, align=center, anchor=north, text width=25mm] at (33,18) {S10 POS 화면 승인 대기 SLA 초과분\\판정 완료 07-15 · 대기 비용 0.42 지급};
+% 동시 3: 7→10
+\draw[grey, dotted] (40,{20+7*3.6}) -- (52,{20+7*3.6});
+\fill[pattern=north east lines, pattern color=rust] (52,{20+7*3.6}) rectangle (66,{20+10*3.6});
+\fill[pattern=north west lines, pattern color=navy] (52,{20+7*3.6}) rectangle (66,{20+10*3.6});
+\draw[grey, thin] (52,{20+7*3.6}) rectangle (66,{20+10*3.6});
+\node[font=\tiny, text=ink, align=center, fill=white, inner sep=1pt] at (59,{20+8.5*3.6}) {동시\\\textbf{+3}};
+\node[font=\tiny, text=ink, align=center, anchor=north, text width=25mm] at (59,18) {S18 규제 해석 추가 2(최영주 09-01) + R2 결함 마무리 3 겹침\\10-14 확인 예정};
+% 수행 3: 10→13
+\draw[grey, dotted] (66,{20+10*3.6}) -- (78,{20+10*3.6});
+\fill[navy!80] (78,{20+10*3.6}) rectangle (92,{20+13*3.6});
+\node[font=\tiny, text=white, align=center] at (85,{20+11.5*3.6}) {수행사 단독\\\textbf{+3}};
+\node[font=\tiny, text=ink, align=center, anchor=north, text width=25mm] at (85,18) {S10 승인 후 재작업 중 수행사 결함 재시험\\§18 지체 일수 · 유보 → G4 정산};
+% 회복 -3: 13→10
+\draw[grey, dotted] (92,{20+13*3.6}) -- (104,{20+13*3.6});
+\fill[teal!80] (104,{20+10*3.6}) rectangle (118,{20+13*3.6});
+\node[font=\tiny, text=white, align=center] at (111,{20+11.5*3.6}) {회복\\\textbf{$-$3}};
+\node[font=\tiny, text=ink, align=center, anchor=north, text width=25mm] at (111,18) {S12–S17 속도 640(초과 근무, 수행사 부담)\\수행사 단독 3에서 우선 상계 주장 가능};
+% 순 지연 10
+\draw[grey, dotted] (118,{20+10*3.6}) -- (130,{20+10*3.6});
+\fill[ink!85] (130,20) rectangle (144,{20+10*3.6});
+\node[font=\tiny, text=white, align=center] at (137,{20+5*3.6}) {순 지연\\(임계경로)\\\textbf{10}};
+\node[font=\tiny, text=ink, align=center, anchor=north, text width=25mm] at (137,18) {A10 착수 09-28 = 작업일 190\\G4 +10 → EX-01로 0 목표};
+% 병행 8일 (임계 영향 0) — 옆에 회색 점선 막대
+\draw[grey, dashed, thick] (158,20) rectangle (172,{20+8*3.6});
+\node[font=\tiny, text=grey, align=center] at (165,{20+4*3.6}) {발주사 단독\\(R2 FP 12\% 한정)\\\textbf{8}\\임계 영향 0};
+\node[font=\tiny, text=ink, align=center, anchor=north, text width=28mm] at (165,18) {AF-1-03·04 귀속 정리 09-28~10-08\\병행 가능 → 대기 아님\\대기 기록 10-09 → 판정 10-14};
+% 기준선 TF 0 주석
+\draw[rust, dashed] (20,20) -- (176,20); \node[font=\tiny, text=rust, anchor=south west, text width=44mm, align=left] at (20.5,64) {기준선 TF 0 — 지연은 여유에 흡수되지 않고 그대로 G4를 민다};
+% 오른쪽: SCL 원칙 10 표 + 지체상금 산식
+\node[box, text width=48mm, font=\tiny, align=left, anchor=north west] at (182,76) {%
+\textbf{동시 지연 — SCL 프로토콜 2판 핵심 원칙 10}\par
+겹친 기간에 대해:\par
+· 공기 연장(EOT) — \textbf{인정}\par
+· 연장 비용·대기 비용 — \textbf{불인정}\par
+· 지체상금 — \textbf{불인정}\par
+"진정한 동시성"만 — S18의 2일(발주)과 3일(수행)은 같은 3주 구간에서 실제로 겹쳤다(Day2 3.3절 정의). 변경협의체 07-15 합의 → §14·§18 해석 기준 → Day2 여유 소유권 문안 갱신(⑥ 12번).};
+\node[boxrust, text width=48mm, font=\tiny, align=left, anchor=north west] at (182,42) {%
+\textbf{지체상금은 산식이어야 감정이 아니다}\par
+수행사 단독 3일 × 1/1000 × 지연 부분 계약금(R2 FP 3,720 × 55만 원 = 20.46억) = \textbf{0.0614억(614만 원)} [§18 요율·산정 기준 추가 설정]\par
+회복 계획이 성공해 G4가 기준선과 같아지면 "지연"이 성립하지 않아 소멸 — 그것도 산식으로 말한다. EOT 청구 09-30 현재 없음(회복 계획 동의).};
+\node[boxgrey, text width=48mm, font=\tiny, align=left, anchor=north west] at (182,14) {%
+\textbf{G4 정산 원칙.} 최종 완료일 기준 순 지연 확정 → 귀책 분해표(매월 한 행씩 누적) 적용 → 동시 구간 상계 → 대기 비용 기지급분 정산. 지금 분해할 수 있는 이유는 각 구간의 회의록·통지·판정이 있기 때문이다 — G4에는 "복합 원인"이 된다.};
+\node[src, anchor=north west] at (0,-2) {출처: Day3 워크북 ⑮ 완성 예시본 항목 6(지연 귀책 분해표·지체상금 산식), ⑬ IS-02, ⑫ 항목 8(A10 TF $-$10). 교재 5.6절 표. SCL Delay and Disruption Protocol 2nd ed.(2017) Core Principle 10.};
+\end{tikzpicture}
+\end{document}

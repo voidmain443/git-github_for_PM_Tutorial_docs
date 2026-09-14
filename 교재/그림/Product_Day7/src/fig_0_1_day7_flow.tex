@@ -1,0 +1,27 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink}]
+\node[title] at (3.0,5.2) {Day7 다섯 산출물의 입력 관계 — 사고 하나가 셋을 고치고, 분모 하나가 넷을 관통한다};
+\node[boxgrey,text width=27mm] (t29) at (-3.8,3.8) {㉙ 사전등록\\분모를 먼저 · 결과 전에 기준};
+\node[boxgrey,text width=27mm] (t28) at (-3.8,2.4) {㉘ 프라이싱·UE v1\\구축비 분리 · 두 열 · 계측 먼저};
+\node[boxgrey,text width=27mm] (t27) at (-3.8,1.0) {㉗ Eval·예산·HITL\\여집합 · 개정 절차 · 놓치는 FN · 문구 둘};
+\node[boxgrey,text width=27mm] (t26) at (-3.8,-0.4) {㉖ 범위 결정서\\Won't 재검토 조건 · Could 12};
+\node[boxfill,text width=31mm] (d31) at (1.4,3.8) {㉛ 코호트 판독\\3장 · 봉인 · 배분};
+\node[boxfill,text width=31mm] (d32) at (1.4,2.4) {㉜ North Star\\후보 3 · 상호 공격 · 입력 트리};
+\node[boxfill,text width=31mm] (d33) at (1.4,1.0) {㉝ UE v2\\4{,}083 / 3{,}167 · 5.8 / 1.9 / 1.12 · 22 / 14 / 38};
+\node[boxfill,text width=31mm] (d34) at (1.4,-0.4) {㉞ 사고 보고서·eval v2\\8D · FP → 채택률 · drift · 미감시};
+\node[boxfill,text width=31mm] (d35) at (1.4,-1.8) {㉟ 로드맵·예산 3분리\\Now/Next/Later · 신뢰 복구 35 · CR-044};
+\node[boxrust,text width=22mm] (e520) at (6.6,-0.4) {D+520 사고\\INC-01};
+\node[boxrust,text width=22mm] (e598) at (6.6,1.0) {D+330 · D+598\\서영채 메일 둘};
+\node[boxrust,text width=22mm] (e560) at (6.6,2.4) {D+560 강지우\\분모 3종};
+\draw[arr] (t29) -- (d31); \draw[arr] (t28) -- (d33); \draw[arr] (t27) -- (d34); \draw[arr] (t26) -- ++(1.4,0) |- (d35.west);
+\draw[arrteal] (d31.south) -- (d32.north);
+\draw[arrteal] (d31.east) -- ++(0.3,0) -- node[lbl,right,pos=0.5,text width=13mm]{활성 계정 =\\같은 트릭} ++(0,-2.8) -- (d33.east);
+\draw[arrteal] (d34.south) -- (d35.north);
+\draw[arrrust] (e520) -- (d34); \draw[arrrust] (e598) -- (d33); \draw[arrrust] (e560) -- ++(-1.2,0) |- (d33.east);
+\node[boxgrey,text width=20mm,font=\tiny] (o33) at (4.6,-2.9) {Day8 ㊳ 재무모델\\분모 두 열}; \draw[arrgrey,dashed] (d33.east) -- ++(0.9,0) |- (o33.west);
+\node[boxgrey,text width=22mm,font=\tiny] (o34) at (7.4,-2.9) {Day8 ㊲ 제218문항\\· ㊵ 데이터셋 문장}; \draw[arrgrey,dashed] (d34.east) -- ++(0.5,0) |- (o34.west);
+\node[src,anchor=west,text width=118mm] at (-5.2,-3.9) {Day7 워크북 §6. 실선 — 입력(㉗의 네 문장 전부 → ㉞). 청록 — 오늘의 문서끼리(㉛ 이탈 유형 → ㉜ 온보딩·㉝ 수명 / ㉞ 재발 방지 6 → ㉟ 신뢰 복구 / ㉞ FP → 채택률 → ㉜ 가드레일). 붉은색 — 사건. 파선 — Day8로.};
+\end{tikzpicture}
+\end{document}

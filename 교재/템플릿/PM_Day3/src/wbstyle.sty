@@ -1,0 +1,125 @@
+% wbstyle.sty — 온담F&B PM 특강 Day3 워크북 산출물 템플릿 공통 스타일
+% 사용: \usepackage{wbstyle}  (article 클래스, XeTeX/tectonic)
+% 문서마다 정의해야 하는 매크로: \DocNum (1~5, Day3 산출물 ⑪~⑮), \DocTitle, \DocSub, \DocVariant (빈 템플릿 / 완성 예시)
+\NeedsTeXFormat{LaTeX2e}
+\ProvidesPackage{wbstyle}[2026/09/12 Ondam workbook template style]
+
+\RequirePackage{fontspec}
+\setmainfont{Apple SD Gothic Neo}
+\setsansfont{Apple SD Gothic Neo}
+\setmonofont{Menlo}
+\XeTeXlinebreaklocale "ko"
+\XeTeXlinebreakskip = 0pt
+
+\RequirePackage[table]{xcolor}
+\RequirePackage{array,tabularx,longtable,booktabs,multirow}
+
+\RequirePackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\RequirePackage{fancyhdr,lastpage}
+\RequirePackage{enumitem}
+% 가로 페이지 전환 (pdflscape 대신 실제 용지 회전 — 머리·꼬리가 제자리에 놓인다)
+\newcommand{\landscapeon}{\clearpage
+  \setlength{\paperwidth}{297mm}\setlength{\paperheight}{210mm}%
+  \pdfpagewidth=297mm \pdfpageheight=210mm
+  \newgeometry{textwidth=269mm,textheight=178mm,left=14mm,top=12mm,footskip=9mm}\setlength{\linewidth}{\textwidth}\setlength{\columnwidth}{\textwidth}}
+\newcommand{\landscapeoff}{\clearpage
+  \setlength{\paperwidth}{210mm}\setlength{\paperheight}{297mm}%
+  \pdfpagewidth=210mm \pdfpageheight=297mm
+  \restoregeometry\setlength{\linewidth}{\textwidth}\setlength{\columnwidth}{\textwidth}}
+\RequirePackage{tikz}
+\usetikzlibrary{positioning,arrows.meta,calc}
+\RequirePackage{parskip}
+\RequirePackage{needspace}
+\RequirePackage[hidelinks]{hyperref}
+
+% ---- 색 ----
+\definecolor{bar}{RGB}{38,58,88}        % 항목 제목 바
+\definecolor{thead}{RGB}{232,236,241}   % 표 머리
+\definecolor{guide}{RGB}{120,120,120}   % 회색 안내문
+\definecolor{rule}{RGB}{90,90,90}
+\definecolor{fill}{RGB}{0,0,0}          % 완성 예시의 기입 내용 (실무 문서처럼 검정)
+
+% ---- 표 기본 ----
+\renewcommand{\arraystretch}{1.25}
+\setlength{\LTleft}{0pt}\setlength{\LTright}{\fill}\setlength{\LTpre}{2pt}\setlength{\LTpost}{4pt}
+\setlength{\tabcolsep}{3.5pt}
+\newcolumntype{Y}{>{\raggedright\arraybackslash}X}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcommand{\hd}[1]{\cellcolor{thead}\textbf{\footnotesize #1}}   % 표 머리 셀
+\newcommand{\rh}[1]{\rule[-3mm]{0pt}{#1}}                          % 빈 행 높이(기준선 아래 3mm)
+\newcommand{\rd}[1]{\rule[-#1]{0pt}{#1}}                            % 셀 깊이 확보(글은 위에, 빈칸은 아래)
+\RequirePackage{newunicodechar}
+\newunicodechar{−}{-}
+\newunicodechar{～}{~}
+% ---- 빈 템플릿 / 완성 예시 분기 ----
+% 드라이버 파일에서 \wbblanktrue 또는 \wbblankfalse 를 지정한 뒤 본문을 \input 한다.
+\@ifundefined{ifwbblank}{\newif\ifwbblank}{}
+\newcommand{\B}[2]{\ifwbblank #1\else #2\fi}      % \B{빈 템플릿 내용}{완성 예시 내용}
+\newcommand{\Bg}[2]{\ifwbblank\g{#1}\else\fillin{#2}\fi}  % 안내문 / 기입 내용
+
+% ---- 안내문 · 빈칸 ----
+\newcommand{\guide}[1]{\textcolor{guide}{\small #1}\par}   % 항목 안내문(문단으로 끝난다 — 뒤의 표가 같은 문단에 붙지 않게)
+\newcommand{\g}[1]{\textcolor{guide}{\scriptsize #1}}               % 표 안 안내문
+\newcommand{\blankarea}[1]{\vspace*{#1}}
+\newcommand{\lines}[2]{% #1 줄 수, #2 줄 간격
+  \begingroup\parindent0pt\foreach \i in {1,...,#1}{\rule{0pt}{#2}\hrulefill\par}\endgroup}
+\newcommand{\fillin}[1]{\textcolor{fill}{#1}}                      % 완성 예시 기입 내용
+
+% ---- 항목 제목 바 ----
+% \secbar[필요 공간]{제목} — 필요 공간이 남지 않으면 쪽을 넘긴다(표가 머리만 남고 갈라지는 것을 막음)
+\newcommand{\secbar}[2][40mm]{%
+  \par\needspace{#1}\vspace{4mm}\noindent
+  \begin{tcolorbox}[enhanced,colback=bar,colframe=bar,coltext=white,
+     boxrule=0pt,arc=1pt,left=3mm,right=3mm,top=1.2mm,bottom=1.2mm,
+     fontupper=\bfseries\normalsize,nobeforeafter,width=\linewidth]
+  #2\end{tcolorbox}\par\nobreak\vspace{1.2mm}}
+
+% ---- 텍스트 칸 (제목 없는 상자) ----
+% 상자를 쪽 넘김 없이 한 덩이로 두려면 직전에 \fieldunbreakable 을 쓴다(한 번만 적용).
+\tcbset{fieldextra/.style={}}
+\newcommand{\fieldunbreakable}{\tcbset{fieldextra/.style={unbreakable}}}
+\newenvironment{fieldbox}{\par\noindent%
+  \begin{tcolorbox}[enhanced,breakable,colback=white,colframe=rule,boxrule=0.5pt,arc=1pt,
+     left=2.5mm,right=2.5mm,top=2mm,bottom=2mm,nobeforeafter,width=\linewidth,fieldextra]\setlength{\parskip}{0.7em}}%
+  {\end{tcolorbox}\par\tcbset{fieldextra/.style={}}}
+
+% 쪽 넘김 없는 칸 (minipage 안에서는 이것을 쓴다 — breakable 상자는 minipage 안에서 깨진다)
+\newenvironment{fieldboxu}{\par\noindent%
+  \begin{tcolorbox}[enhanced,colback=white,colframe=rule,boxrule=0.5pt,arc=1pt,
+     left=2.5mm,right=2.5mm,top=2mm,bottom=2mm,nobeforeafter,width=\linewidth]\setlength{\parskip}{0.7em}}%
+  {\end{tcolorbox}\par}
+
+% ---- 문서 머리 (문서명·프로젝트명·버전·작성자·승인자) ----
+% \docheader{프로젝트명}{버전/기준일}{작성자}{승인자}
+\newcommand{\docheader}[4]{%
+  \noindent\begin{minipage}[b]{0.72\linewidth}
+    {\fontsize{19}{23}\selectfont\bfseries \DocTitle}\\[1mm]
+    {\large \DocSub}
+  \end{minipage}\hfill
+  \begin{minipage}[b]{0.26\linewidth}\raggedleft
+    {\small 온담F\&B 특강 워크북 · Day3}\\
+    {\small 산출물 \DocNum/5 · \DocVariant}
+  \end{minipage}
+  \par\vspace{2mm}
+  {\footnotesize
+  \begin{tabularx}{\linewidth}{|L{30mm}|Y|L{30mm}|L{30mm}|L{30mm}|}\hline
+   \hd{문서명} & \hd{프로젝트명} & \hd{버전 / 기준일} & \hd{작성자 (서명)} & \hd{승인자 (서명)} \\ \hline
+   \DocTitle\rd{9mm} & #1 & #2 & #3 & #4 \\ \hline
+  \end{tabularx}}
+  \par\vspace{1mm}}
+
+% ---- 머리·꼬리 ----
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0.4pt}
+\fancyfoot[L]{\footnotesize 온담F\&B 특강 워크북 · Day3 · 산출물 \DocNum/5 — \DocTitle\ (\DocVariant)}
+\fancyfoot[R]{\footnotesize \thepage\ / \pageref{LastPage}}
+\setlength{\headheight}{14pt}
+
+% ---- 잡다 ----
+\setlist{nosep,leftmargin=*}
+\AtBeginDocument{\catcode`\~=12 }   % ASCII 물결표를 글자로 출력 (7~8월)
+\endinput

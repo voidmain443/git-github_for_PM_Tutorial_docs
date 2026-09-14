@@ -1,0 +1,22 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink},y=1.5mm]
+\node[title] at (5.0,50) {같은 원가, 두 분모 — 4{,}083과 3{,}167};
+% left bar contract
+\draw[fill=navylight,draw=navy] (-1.0,0) rectangle (1.0,31.67); \node[align=center] at (0,8) {순 SaaS\\3{,}167};
+\draw[fill=rustlight,draw=rust] (-1.0,31.67) rectangle (1.0,40.83); \node[font=\tiny,align=center] at (0,36.2) {구축비·컨설팅\\917};
+\node[above,font=\footnotesize\bfseries,text=rust] at (0,41.5) {계약 MRR 4{,}083};
+% right bar saas
+\draw[fill=navylight,draw=navy] (3.0,0) rectangle (5.0,31.67); \node[align=center] at (4,8) {순 SaaS\\3{,}167};
+\node[above,font=\footnotesize\bfseries,text=navy] at (4,32.4) {순 SaaS MRR 3{,}167};
+% COGS line
+\draw[rust,thick,dashed] (-1.2,15.9) -- (5.2,15.9); \node[lbl,text=rust,anchor=west] at (5.3,17.4) {같은 COGS 1{,}590 (AI 1{,}340 + 기타 250)};
+\draw[grey,dashed] (-1.2,13.4) -- (5.2,13.4); \node[lbl,anchor=west] at (5.3,11.9) {같은 AI 원가 1{,}340};
+% results
+\node[box,text width=40mm,align=left,anchor=west] at (7.4,40) {GM = (4{,}083 $-$ 1{,}590) ÷ 4{,}083 = \textbf{61\%}\\GM = (3{,}167 $-$ 1{,}590) ÷ 3{,}167 = \textbf{49.8\%}};
+\node[box,text width=40mm,align=left,anchor=west] at (7.4,28) {AI 원가율 1{,}340 ÷ 4{,}083 = 32.8\%\\1{,}340 ÷ 3{,}167 = \textbf{42.3\%}};
+\node[boxgrey,text width=40mm,align=left,anchor=west] at (7.4,4) {ACV 1{,}226 = 3.0라인 × \textbf{34.1만} × 12\\명목 45만의 76\% — 할인 24\%\\(프로모션 30 · 추천 15 · 선납 10)};
+\node[src,anchor=west] at (-1.2,-8) {정본 §3.3·G-06~10 · 실효 단가·COGS 내역은 워크북 ㉝ 항목 1·2 [추가 설정]. 둘 다 산수로 맞다 — 분모가 다를 뿐.};
+\end{tikzpicture}
+\end{document}

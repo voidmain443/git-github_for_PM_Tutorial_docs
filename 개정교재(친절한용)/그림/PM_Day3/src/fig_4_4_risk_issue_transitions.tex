@@ -1,0 +1,49 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (90,112) {리스크 등록부 v1.0(15행) → v1.2의 상태 전이와 이슈 로그 11건의 출처};
+\node[font=\scriptsize\bfseries, text=grey] at (18,105) {v1.0 (2026-03-27) 잔여 EMV};
+\node[font=\scriptsize\bfseries, text=navy] at (92,105) {v1.2 (2026-09-30) 잔여 EMV · 근거};
+\node[font=\scriptsize\bfseries, text=rust] at (155,105) {이슈 로그 (실현·발동)};
+\tikzset{l/.style={boxgrey, text width=32mm, font=\tiny, align=left, anchor=west, minimum height=5.5mm}, r/.style={boxfill, text width=62mm, font=\tiny, align=left, anchor=west, minimum height=5.5mm}, i/.style={boxrust, text width=40mm, font=\tiny, align=left, anchor=west, minimum height=5.5mm}}
+\foreach \y/\id/\lv/\rv/\kind/\col in {
+ 99/R-01 P2 리드타임/1.20 (v1.1 0.80)/\textbf{0.60} — T0 04-24 리드타임 38주 → MC 03-05 · 분리 의결 · 관리예비비/트리거 발동 → 대응 → 하락/teal,
+ 92/R-02 가맹 동의/0.60/\textbf{0.60} — 동의 276점(71\%) · P↑ 영향↓/유지/navy,
+ 85/R-03 3PL 거부/0.48/\textbf{종결 (0)} — 07-08 폴백 확정 · 08-21 시험 통과 · 0.50 집행 → R-16/발동 → 완료 → 종결 + 2차/teal,
+ 78/R-04 1차연도 삭감/1.00/\textbf{실현 (0)} — 02-20 확정 · 지급 조건 변경으로 흡수 → R-17/실현 → IS-01 + 2차/rust,
+ 71/R-05 겸임 인력 대기/0.60/\textbf{0.50} — 05-12 실현 · 0.42 집행 · 같은 번호 유지(재발)/실현 → IS-02 → 유지/rust,
+ 64/R-06 OD-POS 개발자/0.30/\textbf{0.15} — 13본 복원 03-25 (O-01)/하락/navy,
+ 57/R-07 동결 직전 집중/0.40/\textbf{0.40} — FZ-05 +41 발동 · 0.15 집행/발동 → 유지/navy,
+ 50/R-08 앱 벤더/0.60/\textbf{0.50} — 04-22 계약 변경 · 단가 인상은 R-18/하락 + 2차/navy,
+ 43/R-09 별도 법인 규제/0.30/\textbf{종결 (0)} — P4 위탁 06-12 서명/종결/grey,
+ 36/R-10 G2 후 마스터 변경/0.38/\textbf{0.76} — 변경 요구 2건 접수(9월) · P 10 → 20/상승 ↑/rust,
+ 29/R-11 SAC 미합의/0.40/\textbf{0.30} — SAC 초안 G1 합의/하락/navy,
+ 22/R-12 편익 분모/0.20/\textbf{이관 (0)} — 04-28 두 분모 병기 → Day4 ⑳/이관/grey,
+ 15/R-13 구형 단말/0.32/\textbf{0.32} — 32점 (8.2\%) 트리거 10\% 미발동/유지/navy,
+ 8/O-01 문서화 조기 완료/$-$0.40/\textbf{종결 (0)} — 03-25 실현/기회 실현/teal,
+ 1/O-02 포털 선행 릴리스/$-$0.60/\textbf{$-$0.70} — 시연 설문 4.2점 · 12-04 예정/기회 상승/teal}{
+  \node[l] (L\y) at (0,\y) {\textbf{\id} · \lv};
+  \node[r, draw=\col] (R\y) at (58,\y) {\rv};
+  \draw[-{Stealth[length=2mm]}, thick, \col] (L\y.east) -- (R\y.west) node[midway, above, font=\tiny, text=\col, inner sep=0.5pt] {\kind};
+}
+% 이슈 로그 연결
+\node[i] (I1) at (128,78) {\textbf{IS-01} 02-20 R-04 실현 → 종결 03-13 (SW-01\textasciitilde 03)};
+\node[i] (I2) at (128,71) {\textbf{IS-02} 05-12 R-05 실현 → 종결 07-15 (대기 0.42)};
+\node[i] (I5) at (128,85) {\textbf{IS-05} 06-30 R-03 트리거 → 종결 08-21 (0.50)};
+\draw[arrrust, thin] (R78.east) -- (I1.west); \draw[arrrust, thin] (R71.east) -- (I2.west); \draw[arrteal, thin] (R85.east) -- (I5.west);
+\node[i, draw=grey, fill=lightgrey] (I3) at (128,60) {\textbf{IS-03} 03-18 인터페이스 13본 실체 → CR-07 {\color{grey}(신규)}};
+\node[i, draw=grey, fill=lightgrey] (I4) at (128,53) {\textbf{IS-04} 08-31 슈퍼유저 11명 이탈 {\color{grey}(프리모템 13번)}};
+\node[i, draw=grey, fill=lightgrey] (I6) at (128,46) {\textbf{IS-06} 08-14 부속서 동의 71\% {\color{grey}(R-02 관련 · 외부)}};
+\node[i, draw=grey, fill=lightgrey] (I7) at (128,39) {\textbf{IS-07} 09-25 감리 8건 귀속 이의 → R-20 {\color{grey}(감리)}};
+\node[i, draw=grey, fill=lightgrey] (I8) at (128,32) {\textbf{IS-08} 09-08 보안 High 2건 {\color{grey}(프리모템 12번)}};
+\node[i, draw=grey, fill=lightgrey] (I9) at (128,25) {\textbf{IS-09} 09-17 서정필 22:00 요구 → CR-09 {\color{grey}(외부)}};
+\node[i, draw=grey, fill=lightgrey] (I10) at (128,18) {\textbf{IS-10} 07-31 클라우드 0.4 → 0.5 {\color{grey}(신규)}};
+\node[i, draw=grey, fill=lightgrey] (I11) at (128,11) {\textbf{IS-11} 07-20 인터페이스 PL 교체 {\color{grey}(프리모템 6번)}};
+% 2차·신규 상자
+\node[boxrust, text width=112mm, font=\tiny, align=left, anchor=north west] at (58,-4) {\textbf{2차·신규 리스크 7건 정식 등재 (v1.2) — 출처와 자금원}\\R-14 두 번 컷오버 0.80 ← R-01 분리 대응(G1 의결) · \textbf{관리예비비} · 프로그램 PMO장 \quad R-15 선행 릴리스 결함 0.24 ← R-02·O-02 · 오정근\\R-16 폴백 배치 부하 0.24 (CR-09 시 0.36) ← R-03 대응 · 한동석 \quad R-17 2027 자금 집중 0.80 ← IS-01(R-04 대응) · \textbf{관리예비비} · 정미란\\R-18 앱 벤더 단가 인상 0.15 ← R-08 계약 변경 · 박세연 \quad R-19 R4 압축 결함 유출 0.60 ← ⑫ 회복 계획 EX-01 · P1 PM \quad R-20 감리 귀속 분쟁 0.30 ← ⑭ IS-07 · P1 PM\\신규 7건 중 5건(R-14\textasciitilde 18)은 대응이 만든 2차 리스크 — 대응은 노출을 없애지 않고 자리를 옮긴다. 잔여 위협 합 7.26 (16건), 기회 $-$0.70.};
+% 이슈 출처 띠
+\node[box, text width=54mm, font=\tiny, align=left, anchor=north west] at (0,-4) {\textbf{이슈 11건의 출처.} 등록부 리스크 전환 3 (IS-01·02·05) / 프리모템 원문에 있었으나 리스크로 승격되지 않은 것 3 (IS-04·08·11) / 완전 신규 5 (IS-03·06·07·09·10) → Day4 ⑲ 교훈 등록부 입력. 원인이 남으면 같은 번호(R-05), 원인이 다르면 다른 번호(R-03 → R-16).};
+\node[src, anchor=north west] at (0,-26) {출처: Day3 워크북 ⑬ 완성 예시본 항목 2(이슈 로그)·항목 3(전환 규칙)·항목 4(재평가 v1.1 → v1.2)·항목 5(2차·신규 7건). v1.0 값은 Day2 워크북 §5 등록부.};
+\end{tikzpicture}
+\end{document}

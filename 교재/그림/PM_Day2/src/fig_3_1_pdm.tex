@@ -1,0 +1,42 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}
+\node[title] at (66mm,30mm) {PDM 의존 4종과 lead / lag — 온담 P1의 예};
+\tikzset{act/.style={draw=navy, thick, fill=white, minimum height=8mm, text width=22mm, align=center, font=\tiny, inner sep=2pt}}
+% FS
+\node[act] (fs1) at (0,20mm) {리허설 1회차 종료};
+\node[act] (fs2) at (32mm,20mm) {결함 수정 시작};
+\draw[arr] (fs1.east) -- (fs2.west);
+\node[lbl, font=\scriptsize, anchor=east, text=navy, align=right] at (-14mm,20mm) {\textbf{FS} finish-to-start\\{\tiny 선행이 끝나야 후행 시작}};
+% SS
+\node[act] (ss1) at (0,8mm) {UAT 실행 시작};
+\node[act] (ss2) at (32mm,8mm) {UAT 결함 트리아지 시작};
+\draw[arr] (ss1.west) -- ++(-3mm,0) |- ($(ss2.north west)+(-3mm,2.5mm)$) -| (ss2.west);
+\node[lbl, font=\scriptsize, anchor=east, text=navy, align=right] at (-14mm,8mm) {\textbf{SS} start-to-start\\{\tiny 선행이 시작해야 후행 시작}};
+% FF
+\node[act] (ff1) at (0,-4mm) {전환 검증 6종 완료};
+\node[act] (ff2) at (32mm,-4mm) {리허설 3회차 보고서 완료};
+\draw[arr] (ff1.east) -- ++(3mm,0) |- ($(ff2.south east)+(3mm,-2.5mm)$) -| (ff2.east);
+\node[lbl, font=\scriptsize, anchor=east, text=navy, align=right] at (-14mm,-4mm) {\textbf{FF} finish-to-finish\\{\tiny 선행이 끝나야 후행이 끝남}};
+% SF
+\node[act, draw=rust] (sf1) at (0,-16mm) {새 POS 가동 시작};
+\node[act, draw=rust] (sf2) at (32mm,-16mm) {OD-POS 병행 운영 종료};
+\draw[arrrust] (sf1.west) -- ++(-3mm,0) |- ($(sf2.south east)+(3mm,-2.5mm)$) -| (sf2.east);
+\node[lbl, font=\scriptsize, anchor=east, text=rust, align=right] at (-14mm,-16mm) {\textbf{SF} start-to-finish\\{\tiny 거의 안 씀 — 전환 상황(컷오버의 정의)뿐}};
+% lead / lag
+\node[font=\footnotesize\bfseries, text=navy, anchor=west] at (66mm,24mm) {Lead와 Lag — 대기가 사실은 활동이라면 활동으로 적어야 소유자가 생긴다};
+\draw[grey!60] (68mm,17mm) -- (130mm,17mm);
+\foreach \x in {0,10,...,60} \draw[grey!60] (68mm+\x mm,17mm) -- ++(0,-1mm);
+\node[lbl, font=\tiny, anchor=north] at (98mm,15.5mm) {시간 →};
+\fill[navylight, draw=navy] (68mm,8mm) rectangle (98mm,13mm); \node[font=\tiny] at (83mm,10.5mm) {선행 활동 A};
+\fill[teallight, draw=teal] (93mm,1mm) rectangle (118mm,6mm); \node[font=\tiny] at (105.5mm,3.5mm) {후행 B (FS$-$5d, lead)};
+\draw[arrteal, densely dashed] (98mm,8mm) -- (98mm,6mm); \draw[<->, teal, thin] (93mm,0mm) -- (98mm,0mm) node[midway, below, font=\tiny, text=teal] {lead 5d = 사실상 fast tracking};
+\fill[rustlight, draw=rust] (101mm,-13mm) rectangle (126mm,-8mm); \node[font=\tiny] at (113.5mm,-10.5mm) {후행 C (FS+3d, lag)};
+\draw[arrrust, densely dashed] (98mm,8mm) -- (98mm,-8mm) -- (101mm,-8mm); \draw[<->, rust, thin] (98mm,-15mm) -- (101mm,-15mm) node[midway, below, font=\tiny, text=rust] {lag 3d = 물리적 대기만 정당 (양생·벤더 회신·심사)};
+\node[lbl, font=\tiny, anchor=north west, text width=62mm, align=left] at (66mm,-21mm) {DCMA: lead 0\%, lag ≤ 5\%, FS ≥ 90\%. "대성로지스 서면 회신 대기 10일"은 lag가 아니라 "협상 라운드 1" 활동의 기간이다.};
+% 의존의 근거
+\node[box, draw=navy, fill=navylight, text width=126mm, font=\tiny, align=left, anchor=north west] at (-32mm,-32mm) {\textbf{의존의 근거 4종 — 압축 때 무엇을 풀 수 있는가} · \textbf{필수}(mandatory: 정본 확정 → 전환 프로그램 최종화) 못 푼다 · \textbf{임의}(discretionary: 리허설 3회 순차) fast tracking 가능 · \textbf{외부}(external: P2 MC 후 물류 인터페이스 시험) 못 푼다 · \textbf{내부}(internal: 발주사 인력 가용성) 자원 결정으로 푼다. 근거를 안 적으면 압축 요구가 왔을 때 무엇을 풀 수 있는지 모른다.};
+\node[src, anchor=north west] at (-32mm,-46mm) {출처: PMBOK 8판 Schedule 성과영역의 PDM 의존 유형과 DCMA 14-Point Schedule Assessment의 lead/lag/FS 임계치를 교재 3.1절의 온담 예시에 대입해 재구성.};
+\end{tikzpicture}
+\end{document}

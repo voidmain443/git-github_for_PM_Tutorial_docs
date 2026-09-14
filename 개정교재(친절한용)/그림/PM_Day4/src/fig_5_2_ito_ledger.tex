@@ -1,0 +1,31 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (100,66) {ITO 모형(Zwikael \& Smyrk)의 책무 분리와 편익 원장의 여섯 칸 — output 서명은 G4로 끝나고 outcome 서명은 2029-05까지 산다};
+% ITO 사슬
+\node[boxgrey, minimum width=24mm, minimum height=10mm, font=\scriptsize] (in) at (14,46) {\textbf{Input}\\AC 151.95 · 17개월};
+\node[boxgrey, minimum width=24mm, minimum height=10mm, font=\scriptsize] (tr) at (44,46) {\textbf{Transform}\\P1 프로젝트};
+\node[boxfill, minimum width=28mm, minimum height=10mm, font=\scriptsize] (out) at (78,46) {\textbf{Output}\\플랫폼 인도 (G4 인수)};
+\node[boxteal, minimum width=28mm, minimum height=10mm, font=\scriptsize] (ut) at (120,46) {\textbf{Utilisation}\\업무 변화 · 사용};
+\node[boxrust, minimum width=28mm, minimum height=10mm, font=\scriptsize] (oc) at (160,46) {\textbf{Outcome}\\지표 달성 (G5까지)};
+\draw[arr] (in) -- (tr); \draw[arr] (tr) -- (out); \draw[arrteal] (out) -- (ut); \draw[arrrust] (ut) -- (oc);
+% 책임 분리선
+\draw[rust, very thick, dashed] (98,20) -- (98,56);
+\node[font=\tiny\bfseries, text=rust, anchor=south, align=center] at (98,56.5) {책임 분리선 — 여기까지 PM · 수행사\\여기부터 프로젝트 소유자 · 운영};
+% 서명자 열
+\node[font=\tiny, align=center, text=navy, anchor=north] at (78,40) {\textbf{P1 PM · 이재현}(수행사)\\재고 원장 · 주문 허브 · POS\\포털 · 두 분모 리포트 · R5\\서명 서명 05-26 → \textbf{G4 인수로 종결}\\(G5 판정에 책임 없음)};
+\node[font=\tiny, align=center, text=teal, anchor=north] at (120,40) {매장운영팀장 · \textbf{강현도}(폐기집계)\\인사본부 급여 담당 · 마케팅\\실사 담당 · \textbf{나영선}(검사기록 전제)\\\textbf{박준영}(P5 포털 로그) · P3 PM · 3PL\\서명 완료 · 2029-05까지 유효};
+\node[font=\tiny, align=center, text=rust, anchor=north] at (160,40) {\textbf{오정근} — B-04·05·07·03·08 (5) · \textbf{한동석} — B-02 (1)\\판정 \textbf{재무본부}(정미란·재경팀장)\\원장 정본 관리 재경팀장\\서명자 변경 시 후임 재서명(BR-04)};
+% 원장 6칸
+\node[font=\scriptsize\bfseries, text=navy, anchor=west] at (0,16) {편익 원장 6칸 (B-04 폐기율 행)};
+\foreach \i/\k/\v/\c in {0/측정식/월 폐기 금액 ÷ 취급원가(C-15) · 수량 기준 병기/navy, 1/기준값/3.9\% (2025 · 취급원가 2{,}530억)/navy, 2/목표값/2.2\% (M+24 2028-01)/navy, 3/측정 시점/첫 2027-06 · G5 · M+12 · M+24/navy, 4/측정 책임자 실명/\textbf{오정근} · 강현도(집계) — 서명란/rust, 5/미달 시 조치/output → 하자보수 · outcome → 오정근 개선 계획 · utilisation → P3/teal} {
+  \pgfmathsetmacro{\xx}{\i*33+16.5}
+  \node[draw=\c, fill=\c!10, text width=30mm, minimum height=13mm, font=\tiny, align=center, inner sep=2pt, thick] at (\xx,7) {\textbf{\k}\\\v};
+}
+\draw[arrrust, very thick] (148.5,13.5) to[out=90, in=-90] (160,22);
+\node[font=\tiny, text=rust, align=left, anchor=west] at (163,17.5) {⑤ 칸이 \"부서명\"이면 ITO 서명표는 서명할 사람이 없다\\— Day1 BC §4의 \"측정 책임자\" 열이 여기서 서명란이 된다};
+\node[boxgrey, text width=194mm, font=\tiny, align=left, anchor=north west] at (0,-2) {\textbf{읽는 법.} Output(플랫폼 인도)의 책임은 PM·수행사에게 있고 G4 인수(SAC 판정·검수 확인서)로 종결된다. Outcome(폐기율 2.2\%)과 Utilisation(매장 발주 가이드 준수·폐기집계)은 프로젝트 소유자(오정근·한동석)와 운영 조직에 있으며, 판정은 재무본부가 G5(2028-03-31)에 한다. 세 서명이 한 표에 있어야 "편익 미달"이 났을 때 누가 무엇을 하는지(⑥ 칸)가 정해진다. 직접 편익 118억 / 온담 귀속 99.6억(B-05 가맹점주 몫 18.4 분리).};
+\node[src, anchor=north west] at (0,-16) {출처: Zwikael \& Smyrk(2011) ITO 모형; Day4 워크북 ⑳ 완성 예시본 항목 1(편익 6칸 — B-04 행)·항목 5(ITO 책무 분리 서명표 05-21)·항목 6(BR-04). 측정 책임자는 Day1 ① BC §4.};
+\end{tikzpicture}
+\end{document}

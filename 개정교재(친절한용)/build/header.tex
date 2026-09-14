@@ -1,0 +1,100 @@
+% header.tex — pandoc 책 빌드 공통 프리앰블 (한글 폰트는 build.sh 의 -V 옵션이 설정)
+\usepackage{fancyhdr}
+\usepackage{caption}
+\usepackage{float}
+\usepackage{xcolor}
+\usepackage{etoolbox}
+\usepackage{pdflscape}   % 열이 많은 표는 가로 쪽에 (book.lua 가 landscape 환경으로 감쌈)
+
+% ── 그림 캡션: md 원문에 "그림 1-1." 번호가 이미 있으므로 LaTeX 라벨은 숨김
+\captionsetup{labelformat=empty,font=small,labelfont=bf,skip=4pt,width=.92\textwidth}
+\floatplacement{figure}{!htbp}
+
+% ── 표: 행 간격 조금 넓게, 표 안 글자 살짝 작게
+\renewcommand{\arraystretch}{1.18}
+\AtBeginEnvironment{longtable}{\renewcommand{\arraystretch}{1.15}}
+
+% ── 머리글/꼬리글
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\chaptermark}[1]{\markboth{#1}{}}
+\renewcommand{\sectionmark}[1]{\markright{#1}}
+\fancyhead[L]{\small\textcolor{gray}{\bookheader}}
+\fancyhead[R]{\small\textcolor{gray}{\nouppercase{\leftmark}}}
+\fancyfoot[C]{\small\thepage}
+\fancypagestyle{plain}{\fancyhf{}\fancyfoot[C]{\small\thepage}\renewcommand{\headrulewidth}{0pt}}
+
+% ── 장 제목 여백 축소, 절 제목 크기
+\usepackage{titlesec}
+\titleformat{\chapter}[block]{\normalfont\huge\bfseries}{}{0pt}{}
+\titlespacing*{\chapter}{0pt}{20pt}{28pt}
+
+% ── 인용 블록(md의 >): 왼쪽 회색 선
+\usepackage{framed}
+\definecolor{quotebar}{gray}{0.55}
+\definecolor{quotebg}{gray}{0.96}
+\renewenvironment{quote}{\def\FrameCommand{{\color{quotebar}\vrule width 2.5pt}\hspace{8pt}}\MakeFramed{\advance\hsize-\width\FrameRestore}\small}{\endMakeFramed}
+
+% ── 링크 색
+\AtBeginDocument{\hypersetup{urlcolor=blue!60!black,linkcolor=blue!40!black}}
+
+% ── 긴 URL·코드 줄바꿈
+\usepackage{xurl}
+\setlength{\emergencystretch}{3em}
+\providecommand{\bookheader}{}
+
+% ── 머리말(목차 앞) 영역
+\newcommand{\prefacestart}{\clearpage\thispagestyle{plain}\markboth{}{}\vspace*{1em}}
+\newcommand{\prefaceend}{\clearpage}
+
+% ── 표지: 제목/부제(md 첫 줄 " — " 기준으로 book.lua 가 분리) + 과정 표시(\booktag: hdr_*.tex 에서 정의)
+\providecommand{\booktag}{}
+\makeatletter
+\renewcommand{\maketitle}{%
+  \begin{titlepage}
+    \thispagestyle{empty}
+    \vspace*{0.16\textheight}
+    {\color{gray}\large\booktag\par}
+    \vspace{10pt}
+    {\color{gray!70}\rule{\textwidth}{1.2pt}\par}
+    \vspace{22pt}
+    {\raggedright\Huge\bfseries\@title\par}
+    \vfill
+    {\color{gray}\small\@date\par}
+    \vspace{6pt}
+    {\color{gray}\small\bookheader\par}
+  \end{titlepage}
+}
+\makeatother
+
+% ── 한글: xeCJK 로 코드/고정폭 영역의 한글도 본문 한글 폰트로 출력, 단어 사이 공백 유지
+\xeCJKsetup{CJKspace=true, PunctStyle=plain, CJKecglue={}, Verb=false}   % Verb=false: 코드 안 한글 글자 간격 벌어짐 방지
+
+% ── 코드 블록(md ``` 펜스 = 워크북 빈 템플릿 원문): 긴 줄 자동 줄바꿈 + 왼쪽 회색 선
+\usepackage{fvextra}
+\RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines=true,breakanywhere=true,breaksymbolleft={},breakindent=1.5em,fontsize=\small,frame=leftline,framerule=1.5pt,rulecolor=\color{gray!60},framesep=8pt}
+
+% ── 그림 최대 높이: 본문 높이의 62% (큰 그림이 한 쪽을 통째로 차지하지 않게)
+\makeatletter
+\ifdefined\pandocbounded
+\renewcommand*\pandocbounded[1]{%
+  \sbox\pandoc@box{#1}%
+  \Gscale@div\@tempa{0.62\textheight}{\dimexpr\ht\pandoc@box+\dp\pandoc@box\relax}%
+  \Gscale@div\@tempb{\linewidth}{\wd\pandoc@box}%
+  \ifdim\@tempb\p@<\@tempa\p@\let\@tempa\@tempb\fi%
+  \ifdim\@tempa\p@<\p@\scalebox{\@tempa}{\usebox\pandoc@box}%
+  \else\usebox{\pandoc@box}%
+  \fi%
+}
+\fi
+\makeatother
+
+% ---- ㉛~㊵ (U+325B~325F, U+32B1~32B5) 는 Apple SD Gothic Neo 에 없다 → Hiragino Sans 로 대체 (Product 트랙 산출물 번호)
+\makeatletter
+\@ifpackageloaded{xeCJK}{\xeCJKDeclareCharClass{Default}{"325B->"325F,"32B1->"32B5}}{}
+\makeatother
+\usepackage{newunicodechar}
+\newfontfamily\circfont{Hiragino Sans W3}
+\newunicodechar{㉛}{{\circfont\mdseries ㉛}}\newunicodechar{㉜}{{\circfont\mdseries ㉜}}\newunicodechar{㉝}{{\circfont\mdseries ㉝}}\newunicodechar{㉞}{{\circfont\mdseries ㉞}}\newunicodechar{㉟}{{\circfont\mdseries ㉟}}
+\newunicodechar{㊱}{{\circfont\mdseries ㊱}}\newunicodechar{㊲}{{\circfont\mdseries ㊲}}\newunicodechar{㊳}{{\circfont\mdseries ㊳}}\newunicodechar{㊴}{{\circfont\mdseries ㊴}}\newunicodechar{㊵}{{\circfont\mdseries ㊵}}

@@ -1,0 +1,37 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (98,66) {Syllk의 여섯 층과 교훈의 여섯 칸 — "적용 대상 · 소유자" 칸이 시스템 층으로 가는 문이다};
+% 좌: 여섯 층 (세로)
+\node[font=\scriptsize\bfseries, text=navy, anchor=south] at (22,58) {Syllk 6층 (Duffield \& Whitty 2015)};
+\foreach \i/\n/\d/\c in {0/learning/회고 워크숍 · 개인의 깨달음/grey, 1/culture/"말해도 되는" 분위기 · 실패 보고/grey, 2/social/PM 커뮤니티 · 구전/grey, 3/technology/저장소 · 검색 · 교훈 DB/navy, 4/process/규정 · 양식 · 계약 문안 · 착수 패키지/navy, 5/infrastructure/CCB 안건 자동 생성 · 결재 시스템 연동/navy} {
+  \pgfmathsetmacro{\yy}{52-\i*8.5}
+  \node[draw=\c, fill=\c!12, rounded corners=2pt, text width=40mm, font=\tiny, align=left, inner sep=3pt, thick] (L\i) at (22,\yy) {\textbf{\n}\\\d};
+}
+\draw[decorate, decoration={brace, amplitude=1.5mm}, grey] (0,56) -- (0,32) node[midway, left=2mm, font=\tiny, text=grey, align=right] {사람 층\\(임시조직과\\함께 해산)};
+\draw[decorate, decoration={brace, amplitude=1.5mm}, navy] (0,30.5) -- (0,6.5) node[midway, left=2mm, font=\tiny, text=navy, align=right] {시스템 층\\(영구조직의\\제도)};
+\draw[rust, very thick, dashed] (-2,31.2) -- (46,31.2);
+\node[font=\tiny\bfseries, text=rust, anchor=west] at (47,31.2) {← 6개월 뒤 소멸선 (Williams 2008)};
+% 가운데: 교훈 한 건의 여섯 칸 (L-09)
+\node[font=\scriptsize\bfseries, text=navy, anchor=south] at (100,58) {교훈 한 건의 여섯 칸 — L-09 (D$-$2 라이선스)};
+\foreach \i/\k/\v/\c in {0/① 상황/02-24 발주가 CFO 결재 대기(02-13\textasciitilde)로 발견 → 임시 라이선스 0.02억/grey, 1/② 원인/지침에 창 앞 사전 결재 규정 없음 · 조달 상태 표 "계약 내"만 표기/grey, 2/③ 교훈/창 앞 4주의 5{,}000만 원 이상 발주는 사전 결재 목록으로 일괄 결재/grey, 3/④ 적용 대상/\textbf{STD ② 내부통제 지침} · STD ① 조달 상태 양식/rust, 4/⑤ 소유자/\textbf{재경팀장 · 정미란} · 강현도/rust, 5/⑥ 증빙/⑯ 항목 9 (사건 기록 표) · 임시 키 적용 02-25 10:00/grey} {
+  \pgfmathsetmacro{\yy}{52-\i*8.5}
+  \node[font=\tiny\bfseries, text=\c, anchor=east] at (70,\yy) {\k};
+  \node[draw=\c, fill=white, rounded corners=1pt, text width=56mm, font=\tiny, align=left, inner sep=2.5pt] (K\i) at (102,\yy) {\v};
+}
+% 문: 적용 대상·소유자 → process/infrastructure
+\draw[arrrust, very thick] (58,26.5) -- (52,26.5) |- (L4.east);
+\draw[arrrust, very thick] (58,18) -- (49,18) |- (L5.east);
+\node[font=\tiny, text=rust, align=center] at (56,1.5) {④⑤가 비면 교훈은\\사람 층에서 멈춘다};
+% 우: 개정 요청 3건 → 문 통과
+\node[font=\scriptsize\bfseries, text=teal, anchor=south] at (166,58) {문을 통과한 것 — 개정 요청 3건 (06-04 발송)};
+\node[boxteal, text width=50mm, font=\tiny, align=left] (R1) at (166,47) {\textbf{1 프로젝트 관리 규정·양식집}(프로그램 PMO)\\성과보고·헌장·원가 기준선·품질 기록·컨틴전시·리스크 계획·컷오버 표준·BC 편익 표 — 8개 양식\\L-01·02·03·04·05·10·11·12·13·15 → \textbf{07월 운영위}};
+\node[boxteal, text width=50mm, font=\tiny, align=left] (R2) at (166,29) {\textbf{2 재무본부 내부통제 지침}(재경팀장·정미란)\\창 앞 4주 사전 결재 목록 · 대기 5영업일 통보 + 개인정보 사건 판단 시한\\L-09 · L-14 → \textbf{08월 지침 개정}};
+\node[boxteal, text width=50mm, font=\tiny, align=left] (R3) at (166,12) {\textbf{3 구매 계약 표준 문안}(강현도·최영주)\\SI §14 여유 소유권·동시 지연·대기 기록 / 감리 부속서 3 귀속 기준 / 조달 상태 양식\\L-06·07·08·09 → \textbf{09월 P2 후속 계약부터}};
+\draw[arrteal, very thick] (K3.east) -- (R2.west);
+\draw[arrteal] (132,47) -- (R1.west); \draw[arrteal] (132,12) -- (R3.west);
+\node[font=\tiny, text=teal, align=center, anchor=north] at (166,3) {개정 요청서는 교훈 등록부의 부속이 아니라 \textbf{결과물}\\Lessons log 41 → 15 정리(CIR 12 · P3·P4 9 · 제외 5)};
+\node[src, anchor=north west] at (-12,-4) {출처: Duffield \& Whitty(2015) Syllk 6층; Williams(2008) — 절차로 흡수되지 않은 교훈의 소멸. 값은 Day4 워크북 ⑲ 완성 예시본 항목 1(L-09 행)·2(개정 요청 3건)·3(착수 패키지 양식). 6개월은 교재 5.1절의 표현.};
+\end{tikzpicture}
+\end{document}

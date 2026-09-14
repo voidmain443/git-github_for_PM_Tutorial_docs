@@ -1,0 +1,22 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[node distance=6mm]
+\node[title] (t) at (0,0) {두 개의 별개 관찰 — iron law와 곱셈 구조};
+% 관찰 1
+\node[boxrust, text width=64mm, below=6mm of t, xshift=-40mm] (law) {\textbf{관찰 1 — iron law of megaprojects}\\[2pt] 대형 프로젝트 열 중 아홉은 원가를 초과한다\\{\footnotesize "Over budget, over time, over and over again"}};
+% 관찰 2
+\node[title, font=\small\bfseries, below=6mm of t, xshift=40mm, text=navy] (t2) {관찰 2 — 세 차원의 곱셈 구조};
+\node[boxfill, text width=17mm, below=4mm of t2, xshift=-24mm] (c) {원가\\{\footnotesize on budget}};
+\node[boxfill, text width=17mm, right=4mm of c] (s) {일정\\{\footnotesize on time}};
+\node[boxfill, text width=17mm, right=4mm of s] (b) {편익\\{\footnotesize on benefits}};
+\node[font=\large, text=navy] at ($(c.east)!0.5!(s.west)$) {$\times$};
+\node[font=\large, text=navy] at ($(s.east)!0.5!(b.west)$) {$\times$};
+\node[lbl, below=2mm of c] {1/10}; \node[lbl, below=2mm of s] {1/10}; \node[lbl, below=2mm of b] {1/10};
+\node[box, text width=58mm, below=10mm of s, fill=sand, draw=grey] (r1) {각 1/10이면 셋 동시 만족 $\approx$ \textbf{1/1,000}\\관대하게 각 2/10이어도 $\approx$ \textbf{8/1,000}};
+% 하단 함의
+\node[boxteal, text width=150mm, below=8mm of r1.south, anchor=north, xshift=-40mm] (imp) {\textbf{함의} — 조직은 대개 한 차원(대개 일정)만 관리하면서 프로젝트를 성공이라 부른다.\\온담 2019년 스마트오더: 34억을 예산 안에서 썼으나 8개월 만에 중단 → 원가 차원 성공, 편익 차원 실패.};
+\draw[arrgrey] (r1.south) -- ($(r1.south)+(0,-8mm)$);
+\node[src, below=3mm of imp.south west, anchor=north west] {출처: Flyvbjerg (2014), What You Should Know About Megaprojects and Why, Project Management Journal 45(2)를 바탕으로 재구성.};
+\end{tikzpicture}
+\end{document}

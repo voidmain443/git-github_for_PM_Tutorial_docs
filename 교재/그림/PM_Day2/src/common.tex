@@ -1,0 +1,33 @@
+% 공통 프리앰블 — PM Day2 교재 그림 (TikZ standalone)
+\usepackage{fontspec}
+\setmainfont{Apple SD Gothic Neo}
+\setsansfont{Apple SD Gothic Neo}
+\setmonofont{Menlo}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc,shapes.geometric,fit,backgrounds,matrix,decorations.pathreplacing}
+\definecolor{navy}{HTML}{1F3A5F}
+\definecolor{teal}{HTML}{2A7F62}
+\definecolor{rust}{HTML}{C8553D}
+\definecolor{sand}{HTML}{E8E1D5}
+\definecolor{ink}{HTML}{222222}
+\definecolor{grey}{HTML}{7A7A7A}
+\definecolor{lightgrey}{HTML}{EFEFEF}
+\definecolor{navylight}{HTML}{DCE6F2}
+\definecolor{teallight}{HTML}{DDF0E8}
+\definecolor{rustlight}{HTML}{F6E0DA}
+\tikzset{
+  every node/.style={font=\small, text=ink},
+  box/.style={draw=navy, thick, rounded corners=2pt, align=center, inner sep=5pt, fill=white},
+  boxfill/.style={box, fill=navylight},
+  boxteal/.style={draw=teal, thick, rounded corners=2pt, align=center, inner sep=5pt, fill=teallight},
+  boxrust/.style={draw=rust, thick, rounded corners=2pt, align=center, inner sep=5pt, fill=rustlight},
+  boxgrey/.style={draw=grey, thick, rounded corners=2pt, align=center, inner sep=5pt, fill=lightgrey},
+  arr/.style={-{Stealth[length=2.5mm]}, thick, navy},
+  arrteal/.style={-{Stealth[length=2.5mm]}, thick, teal},
+  arrrust/.style={-{Stealth[length=2.5mm]}, thick, rust},
+  arrgrey/.style={-{Stealth[length=2.5mm]}, thick, grey},
+  lbl/.style={font=\footnotesize, text=grey, align=center},
+  src/.style={font=\scriptsize, text=grey, align=left},
+  title/.style={font=\normalsize\bfseries, text=navy, align=center},
+}

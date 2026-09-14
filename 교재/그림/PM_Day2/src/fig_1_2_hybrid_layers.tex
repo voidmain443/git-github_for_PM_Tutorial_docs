@@ -1,0 +1,29 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}
+\node[title] at (40mm,8mm) {하이브리드 계획의 층 — 어느 층을 예측형으로, 어느 층을 적응형으로};
+% 열 머리
+\node[font=\footnotesize\bfseries, text=navy] at (-32mm,0) {계획의 층};
+\node[font=\footnotesize\bfseries, text=navy] at (18mm,0) {형태 · 정밀도};
+\node[font=\footnotesize\bfseries, text=navy] at (80mm,0) {온담 P1에서 미리 정하는 것};
+\node[font=\footnotesize\bfseries, text=navy] at (132mm,0) {누가 바꾸는가};
+\def\row#1#2#3#4#5#6{%
+  \node[#6, text width=34mm, font=\scriptsize, anchor=north west, minimum height=11mm] at (-50mm,#1) {\textbf{#2}};
+  \node[#6, text width=36mm, font=\scriptsize, anchor=north west, minimum height=11mm] at (-14mm,#1) {#3};
+  \node[#6, text width=76mm, font=\scriptsize, anchor=north west, minimum height=11mm, align=left] at (24mm,#1) {#4};
+  \node[#6, text width=26mm, font=\scriptsize, anchor=north west, minimum height=11mm] at (102mm,#1) {#5};}
+\row{-3mm}{게이트 · 마일스톤}{예측형 (고정) · 날짜 단위}{G0\textasciitilde G5, 외부 고정 4개(규제 09-11·03-31, P2 T0 04-24·MC 02-12), 컷오버 창 02-26\textasciitilde 28}{프로그램 이사회}{boxfill}
+\row{-15mm}{범위 기준선 (계약)}{예측형 (고정, 변경 통제) · FP 단위}{FP 12,400점 = 요구사항 1,180건, 매월 마지막 수요일 동결, ±3\%(±35건) 재산정 트리거}{변경협의체 + CCB}{boxfill}
+\row{-27mm}{스프린트 케이던스}{예측형 (고정 리듬) · 2주}{36회의 시작·종료일 (설계 S1\textasciitilde 6 / 구현 S7\textasciitilde 26 / 통합·시험 S27\textasciitilde 36), 게이트는 스프린트 경계에}{바꾸지 않는다}{boxfill}
+\row{-39mm}{원가 기준선}{예측형 (시간대별 배분) · 월 단위}{145.8의 월별 PV. 계획 패키지 수준에서도 배분한다 — Day3 PV의 전제}{CCB (재기준선)}{boxfill}
+\row{-51mm}{릴리스 계획}{예측형 + 적응형 · 분기 단위}{릴리스 3개: 가맹 포털 선행(2026-Q4, O-02) / 컷오버(02-26\textasciitilde 28) / 컷오버 후(옴니채널 고도화·BI, 헌장 §13 이연 가능)}{PM + 스폰서}{boxteal}
+\row{-63mm}{스프린트 내용}{적응형 · 백로그 항목}{스프린트 계획 회의에서 결정. 게이트 준비("G2 게이트 패키지")도 백로그에 들어간다}{팀 (스프린트마다)}{boxteal}
+% 좌측 괄호
+\draw[decorate, decoration={brace, amplitude=3pt, mirror}, navy, thick] (-52mm,-49mm) -- (-52mm,-3mm) node[midway, left=4pt, font=\scriptsize\bfseries, text=navy, align=center] {고정\\(예측형)};
+\draw[decorate, decoration={brace, amplitude=3pt, mirror}, teal, thick] (-52mm,-73mm) -- (-52mm,-51mm) node[midway, left=4pt, font=\scriptsize\bfseries, text=teal, align=center] {열림\\(적응형)};
+% rolling wave 띠
+\node[boxrust, text width=178mm, font=\scriptsize, anchor=north west, align=left] at (-50mm,-78mm) {\textbf{Rolling wave.} G0 시점 상세 계획 = 설계 스프린트 6회(\textasciitilde 2026-03-27)뿐. 그 뒤는 계획 패키지 — 구현 20회(FP 약 7,400점 [추가 설정]) / 통합·시험 10회(리허설 3·UAT·컷오버). G1에서 구현 구간을, G2에서 통합·시험 구간을 상세화한다. "계획을 안 한다"가 아니라 "정보가 있을 때 정밀도를 올린다". 케이던스는 고정하고 내용은 열어 둔다 — 둘을 섞으면 "계획 없는 애자일" 또는 "2주마다 재계획하는 폭포수"가 된다.};
+\node[src, anchor=north west] at (-50mm,-95mm) {출처: PMBOK 8판 Planning Focus Area의 예측형·적응형 계획 구분과 PRINCE2 7 Stage Plan 개념을 사례 문서 §5.4(스프린트 36회·게이트)에 대입해 교재 1.2절에 따라 재구성. 스프린트 날짜는 [추가 설정].};
+\end{tikzpicture}
+\end{document}

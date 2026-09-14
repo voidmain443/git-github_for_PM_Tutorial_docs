@@ -1,0 +1,35 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (90,58) {PRINCE2 7 Closing a Project — 5활동 · 4산출물 → Day4 ⑯\textasciitilde⑳};
+% 활동 (상단 행 4 + 조기 종료 별도)
+\node[boxfill, text width=30mm, font=\scriptsize, minimum height=16mm] (a1) at (16,42) {\textbf{Prepare planned closure}\\완료 기준 대비 확인\\산출물 상태 확인};
+\node[boxfill, text width=30mm, font=\scriptsize, minimum height=16mm] (a3) at (70,42) {\textbf{Hand over products}\\운영 · 유지보수 조직의\\공식 수용, 편익 리뷰 계획 인계};
+\node[boxfill, text width=30mm, font=\scriptsize, minimum height=16mm] (a4) at (115,42) {\textbf{Evaluate the project}\\PID 대비 성과\\교훈};
+\node[boxfill, text width=30mm, font=\scriptsize, minimum height=16mm] (a5) at (160,42) {\textbf{Recommend project closure}\\프로젝트 이사회에\\종료 승인 요청};
+\node[boxrust, text width=30mm, font=\scriptsize, minimum height=14mm] (a2) at (16,22) {\textbf{Prepare premature closure}\\중단 시 인계 가능한 것 확보\\손실 확정};
+\draw[arr] (a1) -- node[midway, above, font=\tiny, text=navy] {계획된 종료} (a3);
+\draw[arr] (a3) -- (a4); \draw[arr] (a4) -- (a5);
+\draw[arrrust, dashed] (a2.east) -- node[midway, below, sloped, font=\tiny, text=rust] {조기 종료} (a3.south west);
+\node[font=\tiny, text=rust, align=left, anchor=north west, text width=48mm] at (0,14) {정규 활동 — 헌장 §14 중단 조건(손익분기 66\% 미만 · 창 2회 연속 이탈), 손실 확정 재경팀장 30일 내. 온담 P1: \textbf{미발동}(기록 자체가 보고서에)};
+% 산출물 4개
+\node[boxgrey, text width=36mm, font=\scriptsize] (p1) at (22,-2) {\textbf{End Project Report}\\PID 대비 성과 · 편익 리뷰 계획\\교훈 · 후속 조치 권고 포함};
+\node[boxgrey, text width=36mm, font=\scriptsize] (p2) at (66,-2) {\textbf{Follow-on Action Recommendations}\\미해결 사항 · 미완 작업\\잔여 리스크의 이관 목록};
+\node[boxgrey, text width=36mm, font=\scriptsize] (p3) at (110,-2) {\textbf{Lessons Report}\\Lessons log에서 정리};
+\node[boxgrey, text width=36mm, font=\scriptsize] (p4) at (154,-2) {\textbf{Benefits Management Approach}\\갱신본을 인계};
+\draw[arrgrey] (a4.south) -- (p1.north); \draw[arrgrey] (a5.south) -- (p1.north);
+\draw[arrgrey] (a1.south east) -- (p2.north); \draw[arrgrey] (a3.south) -- (p2.north);
+\draw[arrgrey] (a4.south) -- (p3.north);
+\draw[arrgrey] (a3.south) -- (p4.north);
+% Day4 산출물
+\node[boxteal, text width=36mm, font=\scriptsize] (d18) at (22,-26) {\textbf{⑱ 종료 보고서} (항목 1\textasciitilde 5·8)\\BL-02 대비 4축 · 변경 · 예비비 총괄\\재기준선 0회 · 정미란 승인 05-28};
+\node[boxteal, text width=36mm, font=\scriptsize] (d18b) at (66,-26) {\textbf{⑱ 이관 목록 · 잔여 리스크} (항목 5·6)\\10건(승인 6 · 승인 전 4)\\R-13→KE-01 · R-16→KE-02 · R-12→BR-01};
+\node[boxteal, text width=36mm, font=\scriptsize] (d19) at (110,-26) {\textbf{⑲ 교훈 등록부}\\Lessons log 41 → 15 정리\\개정 요청 3건 = 결과물};
+\node[boxteal, text width=36mm, font=\scriptsize] (d20) at (154,-26) {\textbf{⑳ 편익 실현 원장}\\6항목$\times$6칸 · ITO 서명\\G5 2028-03-31 · 운영 +12/+24};
+\draw[arrteal] (p1) -- (d18); \draw[arrteal] (p2) -- (d18b); \draw[arrteal] (p3) -- (d19); \draw[arrteal] (p4) -- (d20);
+\node[boxteal, text width=56mm, font=\scriptsize, anchor=north] (d16) at (88,-40) {\textbf{⑯ 런북 D+1 서명 · SAC 판정 / ⑰ 총괄 인수 서명}\\= Hand over products의 "공식 수용" 기록\\박준영 03-01 07:20 · 05-21 (프로젝트 관리자의 선언이 아님)};
+\draw[arrteal] (a3.east) -- ++(4mm,0) |- (d16.east);
+\node[src, anchor=north west] at (0,-56) {출처: PRINCE2 7(2023) Closing a Project 활동·관리 산출물 명칭; 대응은 Day4 워크북 §0.2 20종 표·§3.2·§4.2·§5.2 표준에서의 위치. 헌장 §14는 Day1 워크북 ②.};
+\end{tikzpicture}
+\end{document}

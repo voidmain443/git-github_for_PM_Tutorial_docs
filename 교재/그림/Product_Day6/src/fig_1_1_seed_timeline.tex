@@ -1,0 +1,37 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink},x=1.25mm,y=1mm]
+\node[title] at (210,60) {시드 6개월의 시간표 — 결정 다섯과 사건 셋 (D+120 → D+300)};
+\draw[very thick,navy] (120,0) -- (300,0);
+\foreach \d in {120,150,180,210,240,270,300}{\draw[navy] (\d,-1.5) -- (\d,1.5); \node[below=2pt] at (\d,-1.5) {D+\d};}
+\node[below=11pt,text=grey] at (120,-1.5) {06-30}; \node[below=11pt,text=grey] at (180,-1.5) {08-29}; \node[below=11pt,text=grey] at (240,-1.5) {10-28}; \node[below=11pt,text=grey] at (300,-1.5) {12-27};
+% docs above
+\node[boxfill,text width=16mm,anchor=south] (a) at (130,20) {㉖ v1.0 D+130\\41 → 24};
+\node[boxfill,text width=16mm,anchor=south] (b) at (137,33) {㉘ v1.0 D+137\\라인 45만};
+\node[boxfill,text width=16mm,anchor=south] (c) at (151,20) {㉗ v1.0 D+151\\eval·HITL};
+\node[boxfill,text width=16mm,anchor=south] (d) at (158,33) {㉙ D+158\\PR/FAQ·사전등록};
+\node[boxfill,text width=16mm,anchor=south] (e) at (172,20) {㉚ v1.0 D+172\\협상 요청 3};
+\foreach \n/\x in {a/130,b/137,c/151,d/158,e/172}{\draw[navy,thin] (\n.south) -- (\x,2);}
+\node[boxteal,text width=15mm,anchor=south] (g1) at (200,20) {알파\\D+200};
+\node[boxteal,text width=15mm,anchor=south] (g2) at (240,20) {베타\\D+240};
+\node[boxteal,text width=15mm,anchor=south] (g3) at (300,20) {GA\\D+300};
+\foreach \n/\x in {g1/200,g2/240,g3/300}{\draw[teal,thin] (\n.south) -- (\x,2);}
+\node[boxfill,text width=24mm,anchor=south,draw=navy,dashed] (v1) at (235,33) {㉖ v1.1 D+235\\24 → 17};
+\node[boxfill,text width=24mm,anchor=south,draw=navy,dashed] (v2) at (284,33) {㉘ v1.1 D+284\\가설 4 · 계측 먼저};
+\node[boxfill,text width=24mm,anchor=south,draw=navy,dashed] (v3) at (196,46) {㉚ 부속 메모 D+186\\구두 합의는 조항이 아니다};
+% events below
+\node[boxrust,text width=22mm,anchor=north] (s1) at (150,-14) {D+150 선투자 2억\\전날 잔액 1{,}505만};
+\node[boxrust,text width=22mm,anchor=north] (s2) at (180,-27) {D+180 클로징\\RCPS 12억};
+\node[boxrust,text width=22mm,anchor=north] (s3) at (186,-40) {D+186 조항 부재\\발견};
+\node[boxrust,text width=22mm,anchor=north] (s4) at (230,-14) {D+230 조현우\\퇴사};
+\node[boxrust,text width=22mm,anchor=north] (s5) at (280,-27) {D+280 청구서\\210 → 780만};
+\node[boxgrey,text width=22mm,anchor=north] (s6) at (217,-40) {D+217 TIPS 선정\\유료 5개사(D+360)};
+\foreach \n/\x in {s1/150,s2/180,s3/186,s4/230,s5/280,s6/217}{\draw[grey,thin] (\n.north) -- (\x,-2);}
+% event -> v1.1 arrows
+\draw[arrrust] (s4.north) -- ++(0,4) -| (v1.south);
+\draw[arrrust] (s5.north) -- ++(0,4) -| (v2.south);
+\draw[arrrust] (s3.west) -- ++(-6,0) |- (v3.west);
+\node[src,anchor=west] at (118,-58) {Day6 워크북 §0.3 [추가 설정] · 정본 §4.2~4.4. 위 — 문서와 게이트, 아래 — 사건. 붉은 화살표가 v1.1을 만든다.};
+\end{tikzpicture}
+\end{document}

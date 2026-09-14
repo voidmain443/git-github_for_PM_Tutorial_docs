@@ -1,0 +1,38 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (85,84) {감리 1차(중간) 지적 8건의 귀속 — 감리 기재와 발주사 판정 (통보 09-25 · 이의 09-29 · 회신 요청 10-08)};
+\node[font=\scriptsize\bfseries, text=grey] at (22,76) {감리 기재 귀속 (수행사 6 · 발주사 2)};
+\node[font=\scriptsize\bfseries, text=navy] at (110,76) {발주사 판정 귀속 (수행사 3 · 발주사 4 · 공동 1)};
+\tikzset{it/.style={text width=50mm, font=\tiny, align=left, anchor=west, minimum height=7mm}, gr/.style={font=\tiny, text=grey, anchor=east}}
+\foreach \y/\id/\g/\txt/\lc/\rc/\rtxt/\bold in {
+ 68/AF-1-01/보통/RTM 하위 분해 88\% · 시험 연결 76\%/수행사/공동/P1 PMO(요구사항) + 수행 설계 리더 · FZ-11 11-25/0,
+ 60/AF-1-02/보통/인터페이스 설계문서 9본 양식 미충족/수행사/수행사/수행 인터페이스팀(신임 PL) · 10-30/0,
+ 52/AF-1-03/중대/P2 설비 인터페이스 규격 설비측 확인 서명 부재 — "수행사 설계 미흡"/수행사/발주사 (프로그램)/프로그램 PMO장 → P2 PM 회신 10-16 · 규격서 v1.1 10-23/1,
+ 44/AF-1-04/보통/가맹 SW 배포 범위(1.1.6) 설계 미확정 — "수행사 설계 미흡"/수행사/발주사 (영업본부)/오정근 대응안 결정 G2 11-27 · 패키지 설계 S25/1,
+ 36/AF-1-05/경미/결함 심각도 분류 기준 문서 부재/수행사/수행사/기준서 v1.0 09-28 완료 · 재분류 10-09/0,
+ 28/AF-1-06/경미/파기 주기 증적 11건 형식 불일치/수행사/수행사/수행 통합팀(최영주 확인) · 10-16 · D-0915/0,
+ 20/AF-1-07/경미/형상 동기화 주 1회 → 일 1회 권고/발주사/발주사 (PMO)/P1 PMO 형상 담당 · 완료 10-02/0,
+ 12/AF-1-08/보통/컨틴전시 R-03 0.50 CCB 보고 누락/발주사/발주사 (P1 PM)/10-15 CCB 소급 보고 · 안건 자동 등재 절차/0}{
+  \node[gr] at (-4,\y) {\g};
+  \ifnum\bold=1
+    \node[it, boxrust, very thick] (L\y) at (-2,\y) {\textbf{\id} \txt\\{\color{grey}기재: \lc}};
+    \node[it, boxfill, draw=rust, very thick] (R\y) at (86,\y) {\textbf{→ \rc} · \rtxt};
+    \draw[arrrust, very thick] (L\y.east) -- (R\y.west);
+  \else
+    \node[it, boxgrey] (L\y) at (-2,\y) {\textbf{\id} \txt\\{\color{grey}기재: \lc}};
+    \node[it, boxfill] (R\y) at (86,\y) {\textbf{→ \rc} · \rtxt};
+    \draw[arrgrey] (L\y.east) -- (R\y.west);
+  \fi
+}
+\node[font=\tiny, text=grey, anchor=east, align=right] at (-4,74.5) {등급};
+% 말풍선 근거
+\node[boxrust, text width=56mm, font=\tiny, align=left, anchor=west] (b3) at (140,52) {\textbf{AF-1-03 근거:} 규격은 WBS 1.3.1 \textbf{발주 담당}(범위 기술서 §8 담당 열) · P2 전달 RACI 9행 \textbf{A = 프로그램 PMO장} · 04-17 전달 완료 · 타케다 05-29 변경 요청 2건에 프로그램 PMO 회신 미결(06-05·07-10·08-21 요청) · 수행사 미결 통지 06-08·08-24};
+\node[boxrust, text width=56mm, font=\tiny, align=left, anchor=west] (b4) at (140,40) {\textbf{AF-1-04 근거:} 1.1.6 대응안 결정은 WBS \textbf{발주 담당} · RACI 11행 \textbf{A = 오정근} · 04-30 조사 보고에 대응안 3개 제시 · 05-08 "부속서 협상 후로 유보" 회신 · WBS 사전 1.1.6 카드 외부 의존 조항(결정 후 착수)};
+\draw[arrrust, thin] (b3.west) -- (R52.east); \draw[arrrust, thin] (b4.west) -- (R44.east);
+% 아래: 귀속이 정하는 것
+\node[box, draw=navy, text width=190mm, font=\tiny, align=left, anchor=north west] at (-12,4) {\textbf{귀속이 정하는 것 세 가지.} ① 조치 담당·기한 — 발주사 귀속 4건은 발주사가 고친다(프로그램 PMO장 10-16 · 오정근 11-27 · PMO 10-02 · P1 PM 10-15). ② 검수 조건부 합격의 조건 — 수행사 귀속 3건(02·05·06)만 R2 검수 조건이 된다(⑮ 회신 3항). ③ 대기 비용 판정 — 발주사 귀속 2건의 정리 기간 09-28\textasciitilde 10-08 = 발주사 사유 8영업일(R2 FP 12\%)이 §14 대기의 근거가 된다(⑮ 회신 4항, 변경협의체 10-14). \textbf{등급은 시정 기한을 정하고(중대 10-16 / 보통 10-30·11-27 / 경미 다음 감리 전), 귀속은 책임을 정한다.} 이의 서면은 지적의 내용·등급을 다투지 않는다 — 귀속 두 글자만 다툰다.};
+\node[src, anchor=north west] at (-12,-14) {출처: Day3 워크북 ⑭ 완성 예시본 항목 6(감리 지적사항 대응 관리대장 · 이의 제기 서면), ⑮ 항목 4(검수 회신)·6(지연 귀책). 근거는 Day1 RACI 9·11행, Day2 WBS 담당 열·사전 카드.};
+\end{tikzpicture}
+\end{document}

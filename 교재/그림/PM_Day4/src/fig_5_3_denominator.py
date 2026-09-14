@@ -1,0 +1,38 @@
+from mplcommon import *
+import numpy as np
+fig, (ax, ax2) = plt.subplots(1, 2, figsize=(10.4, 5.4), gridspec_kw={"width_ratios": [1.25, 1.0]})
+# 좌: 두 분모 막대
+x = [0, 1]
+ax.bar(0, 91.3, width=0.5, color=NAVY, alpha=0.85); ax.bar(0, 98.5 - 91.3, bottom=91.3, width=0.5, color=NAVY, alpha=0.3, hatch="//", edgecolor=NAVY)
+ax.bar(1, 84.6, width=0.5, color=RUST, alpha=0.85); ax.bar(1, 98.5 - 84.6, bottom=84.6, width=0.5, color=RUST, alpha=0.2, hatch="//", edgecolor=RUST)
+ax.text(0, 91.3 - 1.2, "91.3%", ha="center", va="top", fontsize=11, color="white", fontweight="bold")
+ax.text(1, 84.6 - 1.2, "84.6%", ha="center", va="top", fontsize=11, color="white", fontweight="bold")
+ax.text(0, 98.5 + 0.4, "목표 98.5% (승인본 · 판정)", ha="center", fontsize=8.5, color=NAVY, fontweight="bold")
+ax.text(1, 98.5 + 0.4, "98.5%로 두면 — 미설정", ha="center", fontsize=8.5, color=RUST)
+ax.annotate("", xy=(0.33, 98.5), xytext=(0.33, 91.3), arrowprops=dict(arrowstyle="<->", color=NAVY, lw=1.3))
+ax.text(0.37, 94.9, "개선 7.2%p\n(P1이 약속한 것)", fontsize=7.8, color=NAVY, va="center")
+ax.annotate("", xy=(1.33, 98.5), xytext=(1.33, 84.6), arrowprops=dict(arrowstyle="<->", color=RUST, lw=1.3))
+ax.text(1.37, 91.5, "13.9%p\n= 1.93배\n(약속하지\n않은 것)", fontsize=7.8, color=RUST, va="center")
+ax.axhline(98.5, color=GREY, lw=0.8, ls=":")
+ax.set_xticks(x); ax.set_xticklabels(["분모 A — 순환실사 SKU\n(전체의 69%: 매장 완제품 · 센터 회전 SKU)\n2025 순환실사 보고 O-08", "분모 B — 전체 SKU\n(100%: 비순환 31% 포함)\n2026-12-18 StRS-034 첫 리포트"], fontsize=7.8)
+ax.set_ylim(78, 101.5); ax.set_ylabel("재고 정확도 (실사 일치 SKU ÷ 실사 대상 SKU, %)"); ax.set_xlim(-0.45, 1.85)
+ax.text(1, 80.2, "비순환 31%: 이천센터·안성 원료공장의\n원료·반제품·포장재 — 입고 검수·검사기록이\n종이·엑셀, P1 범위 밖(헌장 §5)\n2025-11 이사회 반려(34억 SI 견적)", ha="center", va="bottom", fontsize=7, color="white", bbox=dict(boxstyle="round,pad=0.3", fc=RUST, ec="none", alpha=0.9))
+ax.set_title("판정 기준값의 확정 — 승인된 목표는 승인된 분모로 판정한다", fontsize=9.6, color=NAVY)
+# 우: 흐름
+ax2.set_xlim(0, 10); ax2.set_ylim(0, 10); ax2.axis("off")
+def box(y, t, c, solid=False, h=1.5):
+    ax2.add_patch(plt.Rectangle((0.3, y - h / 2), 9.4, h, facecolor=c if solid else "white", edgecolor=c, lw=1.4, alpha=0.9 if solid else 1))
+    ax2.text(5, y, t, ha="center", va="center", fontsize=7.4, color="white" if solid else c)
+box(9.0, "판정 A: 91.3 → 98.5%  — 합의 서명 05-21\n한동석 · 나영선 · 재경팀장 (사본 윤태호) · 이사회 보고 06월 \"두 분모 병기 · 판정은 A\"", NAVY, True, 1.7)
+ax2.annotate("", xy=(5, 7.3), xytext=(5, 8.1), arrowprops=dict(arrowstyle="->", color=GREY, lw=1.2))
+box(6.5, "B 목표 설정 조건 = 검사기록 디지털화 과제의 이사회 재검토\n→ ⑱ 이관 목록 6번 (소유자 나영선 · 2027-09 이사회 부의 · 승인 전)", RUST, False, 1.7)
+ax2.annotate("", xy=(2.5, 4.9), xytext=(4.0, 5.6), arrowprops=dict(arrowstyle="->", color=TEAL, lw=1.2))
+ax2.annotate("", xy=(7.5, 4.9), xytext=(6.0, 5.6), arrowprops=dict(arrowstyle="->", color=RUST, lw=1.2))
+ax2.add_patch(plt.Rectangle((0.3, 3.0), 4.4, 1.9, facecolor="white", edgecolor=TEAL, lw=1.3)); ax2.text(2.5, 3.95, "재검토 가결\n→ 운영 +12 리뷰 2028-05\n(원장 v2)에서 B 목표 설정", ha="center", va="center", fontsize=7, color=TEAL)
+ax2.add_patch(plt.Rectangle((5.3, 3.0), 4.4, 1.9, facecolor="white", edgecolor=RUST, lw=1.3)); ax2.text(7.5, 3.95, "부결 (BR-05, P 50%)\n→ B 목표는 \"A와 같은 방법으로\n측정 가능한 범위\"로 한정", ha="center", va="center", fontsize=7, color=RUST)
+ax2.text(5, 1.9, "Day3 R-12 M+3 합의 → Day4 원장 항목 2 확정 → BR-01 분모 분쟁(P 30%)은 G5 검토", ha="center", fontsize=7.2, color=GREY)
+ax2.text(5, 0.9, "논리 ①: 승인된 목표는 승인된 분모로  ②: 분모를 바꾸면 약속하지 않은 것을 약속한 것이 된다\n③: 분모 B의 정확도는 P1 밖의 전제(검사기록) 위에 있다", ha="center", fontsize=7, color=NAVY)
+ax2.set_title("분모 B의 목표는 언제 · 누가 · 어떤 조건에서 정하는가", fontsize=9.6, color=NAVY)
+fig.suptitle("분모 정치 — 91.3 (순환 SKU) vs 84.6 (전체 SKU): Day3의 정정은 편익 판정권의 문제였다", fontsize=10.5, color=NAVY, y=0.995)
+fig.tight_layout()
+save(fig, "fig_5_3_denominator", "Day4 워크북 ⑳ 항목 2(분모 정치 — 재고 정확도 기준값의 확정)·항목 6(BR-01·BR-05), ⑱ 항목 6 이관 6번, src/day4_closing.py §4. 84.6%는 [추가 설정].")

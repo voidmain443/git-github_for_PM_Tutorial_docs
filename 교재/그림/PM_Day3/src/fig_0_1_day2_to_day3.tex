@@ -1,0 +1,43 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[node distance=4mm]
+% 좌: Day2 기준선
+\node[title, anchor=south west] at (0,0) {Day2 계획 기준선 (5)};
+\node[boxgrey, text width=50mm, font=\scriptsize, anchor=north west, align=left] (s6) at (0,-2mm) {\textbf{⑥ 범위 기술서 · WBS · WBS 사전}\\WBS L2 6 · WP 43 · FP 12,400 · 담당 열(발주/수행/공동)\\사전 카드의 외부 의존 조항};
+\node[boxgrey, text width=50mm, font=\scriptsize, below=of s6, align=left] (s7) {\textbf{⑦ RTM v1.1}\\StRS 214 → SyRS 396 → SRS 570\\변경 이력 열 · 시험 열 · 검수 열};
+\node[boxgrey, text width=50mm, font=\scriptsize, below=of s7, align=left] (s8) {\textbf{⑧ 일정 기준선 v1.0}\\CPM 20활동 · TF · 합류 버퍼 15 · 스프린트 달력\\여유 소유권 문안(SCL 8)};
+\node[boxgrey, text width=50mm, font=\scriptsize, below=of s8, align=left] (s9) {\textbf{⑨ 원가 기준선 BL-01}\\월별 PV 17개월(145.8) · 컨틴전시 10.2 · 관리예비비 12.0\\Rules of Credit · 벤더 견적 55만 원/FP};
+\node[boxgrey, text width=50mm, font=\scriptsize, below=of s9, align=left] (s10) {\textbf{⑩ 리스크 등록부 v1.1 · 허용범위 격자}\\잔여 EMV 6.78 · 트리거 · 2차 리스크 후보\\격자 7축$\times$3계층(품질 0.4·0.13, 리스크 8억)};
+% 우: Day3 통제 산출물
+\node[title, anchor=south west] at (96mm,0) {Day3 통제 산출물 (5) — 2026-09-30};
+\node[boxfill, text width=62mm, font=\scriptsize, anchor=north west, align=left] (c11) at (96mm,-2mm) {\textbf{⑪ 변경요청서 · 6축 영향 · CCB 의결서}\\CR-08\textasciitilde 11 · 변경 로그 +185 FP · BL-02 10-23 {\color{grey}제3장}};
+\node[boxfill, text width=62mm, font=\scriptsize, below=of c11, align=left, draw=rust, very thick] (c12) {\textbf{⑫ 성과보고 제9호 — EVM · Earned Schedule}\\SPI 0.943 / SPI(t) 0.920 / CPI 1.032 / EAC4 150.86\\A10 TF $-$10 → 예외 보고 EX-01 {\color{grey}제2장}};
+\node[boxfill, text width=62mm, font=\scriptsize, below=of c12, align=left] (c13) {\textbf{⑬ 이슈 로그 v1.0 · 등록부 v1.2}\\이슈 11건 · 잔여 EMV 7.26 · 2차 리스크 R-14\textasciitilde R-20 {\color{grey}제4장}};
+\node[boxfill, text width=62mm, font=\scriptsize, below=of c13, align=left] (c14) {\textbf{⑭ 품질 통제 기록}\\결함 1,140/1,024/116 · 밀도 0.132 · 감리 지적 8건 귀속 {\color{grey}제4장}};
+\node[boxfill, text width=62mm, font=\scriptsize, below=of c14, align=left] (c15) {\textbf{⑮ 조달 · 계약 변경 기록}\\변경 대가 1.4375 · SLA 87\% · 검수 보류 회신 · 동시 지연 {\color{grey}제5장}};
+% 입력 화살표 (실선 = 값, 회색 = 규칙)
+\draw[arr] (s6.east) -- (c11.west);
+\draw[arr] (s7.east) -- (c11.west);
+\draw[arrgrey] (s10.east) -- (c11.west);
+\draw[arr] (s9.east) -- (c12.west);
+\draw[arr] (s8.east) -- (c12.west);
+\draw[arr] (s10.east) -- (c13.west);
+\draw[arr] (s7.east) -- (c14.west);
+\draw[arrgrey] (s10.east) -- (c14.west);
+\draw[arr] (s9.east) -- (c15.west);
+\draw[arr] (s6.east) -- (c15.west);
+\draw[arrgrey] (s8.east) -- (c15.west);
+\draw[arrgrey] (s10.east) -- (c12.west);
+% 산출물 사이 (우측 바깥, 세로 구간에 라벨)
+\draw[arrteal] (c12.east) -- ++(4mm,0) -- ($(c13.east)+(4mm,0)$) node[midway, right, font=\tiny, text=teal, align=left] {SV 음수의 이유\\→ IS-02(R-05 실현)} -- (c13.east);
+\draw[arrteal] ($(c12.east)+(0,-2.5mm)$) -- ++(11mm,0) -- ($(c15.east)+(11mm,0)$) node[pos=0.75, right, font=\tiny, text=teal, align=left] {CV 양수의 이유\\→ ⑮ 계약 변경 1번} -- (c15.east);
+\draw[arrteal] ($(c11.east)+(0,-2.5mm)$) -- ++(18mm,0) -- ($(c12.east)+(18mm,2.5mm)$) node[midway, right, font=\tiny, text=teal, align=left] {⑪ 변경 로그 → ⑫ ETC 입력} -- ($(c12.east)+(0,2.5mm)$);
+\draw[arrteal] (c14.east) -- ++(25mm,0) -- ($(c12.east)+(25mm,-5mm)$) node[pos=0.8, right, font=\tiny, text=teal, align=left] {⑭ 8월 결함 평탄\\→ ⑫ SPI 정체} -- ($(c12.east)+(0,-5mm)$);
+% 되돌아가는 파선
+\draw[arrrust, dashed, very thick] (c11.north) ++(52mm,0) |- ++(0,17mm) -| node[lbl, font=\scriptsize, text=rust, pos=0.25, above] {BL-02(2026-10-23): 승인된 변경만 Day2 문서 12건에 편입 — 재기준선 0회} ($(s6.north)+(25mm,0)$);
+% 하단 메모
+\node[box, draw=navy, fill=navylight, text width=150mm, font=\scriptsize, anchor=north west, align=left] at (0,-88mm) {\textbf{읽는 법.} 실선 = 값이 자로 쓰이는 입력(PV 곡선 → ⑫의 SV·SPI, CPM TF → ⑫·⑮의 지연 귀책, 등록부 잔여 EMV → ⑬). 회색 = 규칙·정의가 쓰이는 입력(격자 허용범위 → ⑪·⑫·⑬·⑭ 판정, 여유 소유권 문안 → ⑮ 동시 지연). 초록 = 다섯 산출물이 서로를 설명하는 관계 — ⑫가 중심이고 나머지 넷이 그 각주다. 지연(A10 $-$10)과 초과(밀도 0.132)는 기준선에 들어가지 않고 편차로 남는다.};
+\node[src, anchor=north west] at (0,-110mm) {출처: Day3 워크북 §0.4 "Day2에서 가져오는 것"·§6 "산출물 5종의 상호 관계"의 표를 재구성.};
+\end{tikzpicture}
+\end{document}

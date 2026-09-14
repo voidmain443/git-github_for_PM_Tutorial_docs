@@ -1,0 +1,33 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (96,62) {P1-02 포인트 이중차감의 72시간 — 조문은 단정하고, 적용은 단정하지 않고, 시한은 단정한다};
+% 시간축: 03-05 14:20 = 0h, 1h = 2.5mm → 72h = 180mm
+\draw[grey, thick] (0,30) -- (185,30);
+\foreach \h/\t in {0/03-05 14:20, 24/03-06 14:20, 48/03-07 14:20, 72/03-08 14:20}
+  \draw[grey] (2.5*\h,29) -- (2.5*\h,31) node[below=1.5mm, font=\tiny, text=grey, align=center] {\t};
+\foreach \h in {6,12,18,30,36,42,54,60,66} \draw[grey, thin] (2.5*\h,29.4) -- (2.5*\h,30.6);
+\draw[rust, very thick] (180,22) -- (180,48); \node[font=\scriptsize\bfseries, text=rust, anchor=south, align=center] at (180,48.5) {시한 72h\\03-08 14:20};
+\fill[rustlight, opacity=0.4] (0,31) rectangle (180,46);
+% 사건 마커 (위/아래 번갈아)
+\foreach \h/\l/\pa/\ys/\cc in {
+ 0/인지 14:20 (기산점)\\데스크 동일 유형 문의 31건 → P1 선언\\티켓 ELS-0417/south/2.5mm/rust,
+ 5.67/20:00 보안 로그 확인\\외부 접근·유출 정황 없음/north/-2.5mm/grey,
+ 20.67/03-06 11:00 CPO 최영주 서면 (20h 40m)\\'훼손' 해당 가능성 배제 불가\\→ 보수적 신고 권고/south east/2.5mm/navy,
+ 23.67/14:00 결정 회의\\정미란·최영주·박준영·P1 PM/north/-2.5mm/navy,
+ 27.67/18:00 통지·복구 완료 (27h 40m)\\회원 2{,}987명 푸시·문자 · 1{,}284만 포인트 자동 복구/south west/2.5mm/teal,
+ 49.67/03-07 16:00 보호위 신고 (49h 40m)\\여유 22h 20m/north/-2.5mm/rust,
+ 72/03-08 협의회(서정필) 서면 설명/south/2.5mm/grey} {
+  \fill[color=\cc] (2.5*\h,30) circle (1.3);
+  \node[font=\tiny, text=\cc, align=center, anchor=\pa, yshift=\ys] at (2.5*\h,30) {\l};
+}
+\draw[decorate, decoration={brace, amplitude=1.5mm}, teal] (0,47.5) -- (69.2,47.5) node[midway, above=1.8mm, font=\tiny, text=teal] {통지·복구는 규제 해당 여부와 무관하게 즉시};
+\draw[decorate, decoration={brace, mirror, amplitude=1.5mm}, rust] (0,14) -- (124.2,14) node[midway, below=1.8mm, font=\tiny, text=rust] {신고 판단 49h 40m — 단정할 수 없으므로 시한 안에 보수적으로};
+% 세 층
+\node[boxfill, text width=58mm, font=\tiny, align=left, anchor=north west] at (0,4) {\textbf{조문 — 단정}\\개인정보 보호법(법률 제21445호, 2026-03-10 공포 · \textbf{2026-09-11 시행}): 통지·신고 대상 '유출등'에 분실·도난·유출 외 \textbf{위조·변조·훼손} 포함. 알게 된 때부터 \textbf{72시간} 이내 정보주체 통지·보호위 신고(규모 요건은 시행령·고시)};
+\node[boxrust, text width=62mm, font=\tiny, align=left, anchor=north west] at (62,4) {\textbf{적용 — 단정하지 않음 (쟁점 ①②③)}\\① 시스템 오류로 포인트 잔액이 사실과 다르게 기록된 것이 '훼손'인가 — 개정법 시행 후 해석례·결정례 부재\\② 해당한다면 2,987명이 신고 규모 요건에 드는가(시행령 확인)\\③ 복구 완료 후에도 신고 의무가 유지되는가};
+\node[boxteal, text width=58mm, font=\tiny, align=left, anchor=north west] at (128,4) {\textbf{시한 — 단정 (L-14 → 운영 문서 8종)}\\인지 시각 기록 → CPO \textbf{24h} 내 의견 → 통지 즉시 → 신고 판단 \textbf{48h} 내. 규제 적용을 단정하지 않되 시한은 단정한다. 재발 방지: 멱등 키 핫픽스 03-12(KE-03), 중복 검출 배치. 사본 윤태호(내부감사)};
+\node[src, anchor=north west] at (0,-22) {출처: Day4 워크북 ⑰ 항목 7(개인정보 사건 판단 기록 — 사실·적용 조문·쟁점·검토 의견·결정·근거), ⑲ L-14. 법률 제21445호 공포·시행일은 웹 확인; 조문 적용은 사례 설정이며 법률 자문이 아니다.};
+\end{tikzpicture}
+\end{document}

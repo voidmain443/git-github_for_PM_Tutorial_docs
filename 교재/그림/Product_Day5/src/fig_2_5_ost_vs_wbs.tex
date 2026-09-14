@@ -1,0 +1,23 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink}, level distance=11mm, sibling distance=17mm]
+\node[title] at (-4.6,2.4) {WBS (Day2) — 정해진 것을 쪼갠다};
+\node[boxgrey, text width=26mm] at (-4.6,1.4) {최종 산출물\\(정해짐)}
+  child{node[boxgrey, text width=13mm]{1.1}
+    child{node[boxgrey,text width=10mm]{1.1.1} } child{node[boxgrey,text width=10mm]{1.1.2}}}
+  child{node[boxgrey, text width=13mm]{1.2}
+    child{node[boxgrey,text width=10mm]{1.2.1}} child{node[boxgrey,text width=10mm]{1.2.2}}};
+\node[lbl, text width=44mm] at (-4.6,-2.9) {100\% 규칙 — 빠짐없이, 전부 만든다\\검증 = 완료 정의 · 변경 = CCB};
+\node[title] at (4.8,2.4) {기회-해법 트리 (Day5) — 정하지 않은 것을 나열한다};
+\node[boxfill, text width=30mm] at (4.8,1.4) {제품 결과\\(고객 행동의 변화)}
+  child{node[box, text width=14mm]{기회 A}
+    child{node[boxteal,text width=9mm]{해법 a}} child{node[boxteal,text width=9mm,draw=teal,dashed]{해법 b}} child{node[boxgrey,text width=9mm]{해법 c}}}
+  child{node[box, text width=14mm]{기회 B}
+    child{node[boxteal,text width=9mm]{해법 a}} child{node[boxgrey,text width=9mm]{해법 b}} child{node[boxgrey,text width=9mm]{해법 c}}};
+\node[boxrust, text width=9mm, font=\tiny] at (4.8,-2.3) {실험};
+\node[lbl, text width=54mm] at (4.8,-2.9) {기회마다 해법 셋 이상 — 대부분 만들지 않는다\\검증 = 실험 · 실험 결과가 잎의 순서를 바꾼다};
+\draw[arrgrey, dashed, line width=1.2pt] (1.4,-1.2) -- node[lbl,above,text width=30mm]{Day6: 트리의 잎이 백로그가 되어 WBS의 자리로} (-1.4,-1.2);
+\node[src, anchor=west] at (-7.0,-3.8) {Torres(2021) OST와 PM 트랙 Day2 2.2절 WBS를 대조. 같은 모양, 반대 방향.};
+\end{tikzpicture}
+\end{document}

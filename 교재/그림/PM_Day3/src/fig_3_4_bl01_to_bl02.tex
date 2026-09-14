@@ -1,0 +1,31 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (80,74) {BL-01(G1 2026-04-30) → BL-02(2026-10-23) — 기준선 갱신은 승인된 변경만 옮긴다};
+\node[font=\scriptsize\bfseries, text=grey] at (30,66) {BL-01 (G1)};
+\node[font=\scriptsize\bfseries, text=navy] at (130,66) {BL-02 (CCB 제10차 10-15 → 발행 10-23)};
+\node[font=\scriptsize\bfseries, text=rust] at (80,66) {변동 · 근거};
+\foreach \y/\l/\r/\d/\c in {
+ 58/FP 기준선 12{,}400/\textbf{12{,}585}/+185 (CR-03 +22 · CR-06 +58 · CR-07 +40 · CR-08 +90 · CR-09 +35 · CR-11 $-$60)/navy,
+ 50/SI 계획 원가 68.20/\textbf{69.22}/+1.02 (185 $\times$ 0.0055 = 1.0175 → 반올림)/navy,
+ 42/PMB = BAC 145.80/\textbf{146.82}/+1.02 — 컨틴전시 미배정 풀 → 기준선 이동/navy,
+ 34/컨틴전시 잔여 8.79 (10.20 $-$ 집행 1.41)/\textbf{7.77}/$-$1.02 (배정 이동 · 집행 1.41은 별도)/navy,
+ 26/집행 한도 156.00/\textbf{156.00 — 불변}/컨틴전시 내 이동이므로 예외 기준 불변/rust,
+ 18/PV 곡선 17개월 (09 누적 77.83)/2026-12 +0.33 · 2027-01 +0.69 → 146.82/갱신 월만 (A12 · S23 배분)/navy,
+ 10/일정 기준선 v1.0/\textbf{v1.0 유지}/A12 25일 · A09 140일 — 활동 내 흡수 · 마일스톤 불변/teal,
+ 2/RTM v1.1 · WBS v1.0 · 등록부 v1.1/RTM v1.2 · WBS v1.1 · 등록부 v1.2/StRS 215 · SyRS 399 · SRS 575 · R-19 등재 · 헌장 v1.1 확정본/navy}{
+  \node[boxgrey, text width=44mm, font=\tiny, align=center, anchor=west] (L\y) at (6,\y) {\l};
+  \node[boxfill, text width=48mm, font=\tiny, align=center, anchor=west, draw=\c] (R\y) at (104,\y) {\r};
+  \draw[arrgrey] (L\y.east) -- ($(R\y.west)-(0,0)$);
+  \node[font=\tiny, text=\c, align=center, text width=42mm, fill=white, inner sep=1.2pt] at (80,\y) {\d};
+}
+% 가운데 컨틴전시 → PMB 이동 화살표 강조 (중앙 열 오른쪽 가장자리, 텍스트 밖)
+\draw[arrteal, line width=1.4pt] (103,31.5) -- (103,44.5);
+\node[font=\tiny, text=teal, rotate=90, anchor=south] at (102.6,38) {1.02 이동};
+% 붉은 주석
+\node[boxrust, text width=150mm, font=\scriptsize, align=left, anchor=north west] at (6,-6) {\textbf{A10 $-$10은 어느 열에도 없다 — 편차로 남음.} 지연(A10 착수 09-28 = 작업일 190, MG3 as-is 03-05)은 BL-02에 들어가지 않고 성과보고의 편차(TF $-$10, SPI(t) 0.920)와 예외 보고 EX-01로 남는다. 밀도 0.132도 마찬가지다. 편차가 줄어드는 갱신은 갱신이 아니라 재기준선이다.};
+\node[box, text width=150mm, font=\tiny, align=left, anchor=north west] at (6,-24) {\textbf{재기준선의 조건 (Day2 §3.5 항목 10 · 헌장 §12):} ① CCB + 프로그램 이사회 의결 ② 프로젝트 기간 중 최대 2회 ③ 최초 기준선 대비 편차 이력을 보존(BL-01 대비 열을 성과보고에 유지) — 온담은 2026-09-30 현재 재기준선 0회.};
+\node[src, anchor=north west] at (6,-36) {출처: Day3 워크북 ⑪ 완성 예시본 항목 9(기준선 갱신 기록)·항목 10(변경 로그), ⑬ 항목 7(컨틴전시 잔여), ⑫ 항목 8(A10 TF). 교재 3.4절.};
+\end{tikzpicture}
+\end{document}

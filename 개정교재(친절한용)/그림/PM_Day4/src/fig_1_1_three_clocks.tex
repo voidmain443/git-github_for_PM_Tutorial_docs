@@ -1,0 +1,46 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (95,64) {세 개의 시계 — 프로젝트 · 운영 · 편익 (온담 P1)};
+% 시간축 (비선형: 2027-02 ~ 2029-05 을 구간별로 압축)
+% 구간 1: 2027-02-19 ~ 2027-06 (x 0~110), 구간 2: 2027-06 ~ 2029-05 (x 110~185)
+\draw[grey, thin] (0,50) -- (185,50);
+\foreach \x/\t in {0/02-19, 10/02-26, 49/03-27, 79/04-23, 105/05-28, 118/2027-09, 140/2028-03, 150/2028-05, 182/2029-05}
+  \draw[grey] (\x,49) -- (\x,51) node[above, font=\tiny, text=grey] {\t};
+\draw[grey, dashed] (110,8) -- (110,52);
+\node[font=\tiny, text=grey, anchor=south west] at (111,53) {← 축 압축 →};
+% 프로젝트 시계 (y=40)
+\node[font=\small\bfseries, text=navy, anchor=east] at (-2,40) {프로젝트 시계};
+\draw[navy, very thick] (0,40) -- (105,40);
+\foreach \x/\l/\p in {0/G3 go/above, 10/1차 컷오버/below, 49/2차 컷오버/below, 79/ELS 종료/above, 88/이관 착수 04-26/below, 105/G4/above}
+  \filldraw[navy] (\x,40) circle (1.2) node[\p=1.5, font=\tiny, text=navy, align=center] {\l};
+\draw[navy, thick, -{Stealth}] (105,40) -- (108,40);
+\node[font=\tiny, text=navy, align=left, anchor=west] at (109,40) {끝 — 팀 해산 06-01\\하자보수만 남음};
+% 오픈 표시
+\draw[rust, very thick] (14,22) -- (14,44);
+\node[font=\scriptsize\bfseries, text=rust, anchor=south west, align=left] at (14.5,44) {오픈 02-28 06:00};
+\node[font=\tiny, text=rust, align=left, anchor=north west] at (15,23) {프로젝트 시계의 한 점과 운영 시계의 시작이 겹치는 곳 — 세 시계가 만나는 점이 아니다};
+% 운영 시계 (y=28)
+\node[font=\small\bfseries, text=teal, anchor=east] at (-2,28) {운영 시계};
+\draw[teal, very thick] (15,28) -- (185,28);
+\foreach \x/\l/\p in {15/ELS 착수 03-01 07:20 서명/above, 30/03-17 첫 CAB/below, 79/ELS 종료/below, 100/SLA 서명 05-14/above, 108/하자보수 시작 05-29/below, 150/하자보수 종료 2028-05-28/above}
+  \filldraw[teal] (\x,28) circle (1.2) node[\p=1.5, font=\tiny, text=teal, align=center] {\l};
+\node[font=\tiny, text=teal, anchor=west, align=left] at (160,25) {월 단위 반복: 가용성 ·\\인시던트 · CAB 수요일};
+\draw[teal, thick, -{Stealth}] (185,28) -- (188,28);
+\node[font=\tiny, text=teal, anchor=west] at (189,28) {끝 없음};
+% 편익 시계 (y=14)
+\node[font=\small\bfseries, text=rust, anchor=east] at (-2,14) {편익 시계};
+\draw[rust, very thick, dashed] (60,14) -- (118,14);
+\draw[rust, very thick] (118,14) -- (185,14);
+\foreach \x/\l/\p in {60/첫 측정 04월 B-08 13.6h/below, 88/06월 B-04·02·03/above, 118/09월 B-05·07/below, 140/G5 2028-03-31 판정/above, 150/운영+12 원장 v2/below, 182/운영+24 원장 v3/above}
+  \filldraw[rust] (\x,14) circle (1.2) node[\p=1.5, font=\tiny, text=rust, align=center] {\l};
+\node[font=\tiny, text=rust, anchor=west, align=left] at (0,9) {오픈 시점에는 아직 시작하지 않았다\\(첫 측정까지 5주, 판정까지 13개월)};
+% 산출물 구간 (하단 괄호)
+\draw[decorate, decoration={brace, mirror, amplitude=2mm}, navy] (10,3) -- (14,3) node[midway, below=2.5mm, font=\tiny, text=navy, align=center] {⑯ 런북\\34h};
+\draw[decorate, decoration={brace, mirror, amplitude=2mm}, navy] (15,3) -- (104,3) node[midway, below=2.5mm, font=\tiny, text=navy, align=center] {⑰ ELS · 이관 체크리스트 · SAC (13주)};
+\draw[decorate, decoration={brace, mirror, amplitude=2mm}, navy] (104.5,3) -- (106.5,3) node[midway, below=2.5mm, font=\tiny, text=navy, align=center] {⑱ 종료 보고서\\G4 하루};
+\draw[decorate, decoration={brace, mirror, amplitude=2mm}, rust] (108,3) -- (185,3) node[midway, below=2.5mm, font=\tiny, text=rust, align=center] {⑲ 교훈 등록부(개정 요청 07\textasciitilde 09월) · ⑳ 편익 원장(G5 · +12 · +24)};
+\node[src, anchor=north west] at (-20,-10) {출처: Day4 워크북 ⑯ 항목 1·10, ⑰ 항목 1·5, ⑱ 항목 1·7·8, ⑳ 항목 4(편익 리뷰 두 시계). 가로축은 2027-06 이후를 압축.};
+\end{tikzpicture}
+\end{document}

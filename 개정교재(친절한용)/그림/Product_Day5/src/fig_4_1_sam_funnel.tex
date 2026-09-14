@@ -1,0 +1,16 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\footnotesize,text=ink}]
+\fill[lightgrey] (-6,3.2) rectangle (6,4.2); \node at (0,3.7) {국내 자동차부품 2·3차 협력사 \textbf{4,300개사}};
+\fill[navylight] (-4,1.9) rectangle (4,2.9); \node at (0,2.4) {종업원 30~300인 = 초기 SAM \textbf{2,150} (G-32)};
+\fill[teallight] (-2.6,0.6) rectangle (2.6,1.6); \node at (0,1.1) {클라우드 도입 가능 \textbf{1,247} (58\%, 추정)};
+\draw[arr] (0,3.2) -- (0,2.9); \draw[arr] (0,1.9) -- (0,1.6);
+\node[boxrust, text width=34mm, align=left, anchor=west] at (4.4,1.1) {\textbf{회피} 903 — 도면 클라우드 금지 1차사 계열(온프렘 전용) · 30인 미만(라인 과금 불성립)};
+\draw[arrrust] (2.6,1.1) -- (4.4,1.1);
+\node[lbl, text width=44mm, anchor=east] at (-2.8,1.1) {ICP: 라인 2~5 · MES 없음/엑셀 병행 · 1차사 포털 제출 의무 · IT 담당 없음};
+\draw[navy, dashed, thick] (-7,-0.8) rectangle (7,-0.1); \node at (0,-0.45) {확장 SAM \textbf{11,800} — 전자·사출·프레스·일반 제조 (2027~) · Day8 온담 딜이 그 1호(제조사도 아니다)};
+\node[boxteal, text width=54mm, align=left] at (0,-1.8) {재검토 조건 — 유료 5개사 후, 또는 1차사 채널 계약 시(김도윤의 "340개사 한 화면") · 판정 라벨·마스터 구조가 같은 도메인부터};
+\node[src, anchor=west] at (-7,-2.7) {Day5 워크북 §5.5 항목 1. 58\%·1,247은 [추가 설정] — 분모(1차사 도면 통제 밖)가 추정임을 문서에 적는다.};
+\end{tikzpicture}
+\end{document}

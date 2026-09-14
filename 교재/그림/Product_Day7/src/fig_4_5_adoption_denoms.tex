@@ -1,0 +1,18 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink}]
+\node[title] at (2.8,4.6) {같은 분자, 세 분모 — 22 / 14 / 38};
+% nested rectangles (denominators)
+\draw[fill=lightgrey,draw=grey] (-4.2,-1.6) rectangle (3.0,3.6); \node[anchor=north west,text=grey] at (-4.15,3.55) {㉯ 전체 검사기록 건 — 보류·오프라인·OFF 라인 포함 → \textbf{14\%}};
+\draw[fill=navylight,draw=navy] (-3.6,-1.2) rectangle (2.0,2.6); \node[anchor=north west,text=navy] at (-3.55,2.55) {㉮ AI 노출 건 — 초안·자동판정이 표시된 건 → \textbf{22\%}};
+\draw[fill=teallight,draw=teal] (-3.0,-0.8) rectangle (0.6,1.6); \node[anchor=north west,text=teal,text width=34mm] at (-2.95,1.55) {㉰ 활성 계정 처리 건 → \textbf{38\%}};
+\draw[fill=rust,draw=rust] (-2.4,-0.4) rectangle (-0.6,0.5); \node[text=white,font=\scriptsize\bfseries] at (-1.5,0.05) {분자 — 채택 건};
+\node[font=\tiny,text=rust] at (-1.5,-0.62) {절대 건수 미공개(F-08)};
+% right notes
+\node[box,text width=40mm,align=left,anchor=west] at (3.4,2.6) {같은 분자 ÷ 넓은 분모 = 낮은 비율. 셋 다 계산 오류가 아니다(정본 §3.3)};
+\node[boxteal,text width=40mm,align=left,anchor=west] at (3.4,1.0) {\textbf{대외} ㉮ 22\% — 각주에 ㉯·㉰ 병기\\\textbf{내부 결정} ㉯ 14\% — 가장 넓은 분모 = 제품이 실제로 놓인 자리};
+\node[boxrust,text width=40mm,align=left,anchor=west] at (3.4,-0.7) {㉰의 "활성 계정"은 오늘 오전 익명 A의 리텐션 분모와 같은 트릭 — 남에게 물은 것을 자기에게};
+\node[src,anchor=west] at (-4.2,-2.2) {G-20·20b·20c · 정본 §4.8 강지우 메일 · 워크북 ㉝ 항목 6 [추가 설정 — 대외/내부 선택]. 31개사 중 24개사 자동판정 OFF.};
+\end{tikzpicture}
+\end{document}

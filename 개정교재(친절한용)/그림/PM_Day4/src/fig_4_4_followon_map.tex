@@ -1,0 +1,34 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (100,70) {미해결 사항 이관 10건 — 출처 → 소유자 실명 · 기한 → 수신 조직 (승인 6 실선 · 승인 전 4 파선)};
+% 출처 열 (좌)
+\node[font=\scriptsize\bfseries, text=grey, anchor=south] at (22,63) {출처 (프로젝트 문서)};
+\foreach \i/\n in {0/SAC 항목 11 조건부 · CR-11 조건 ④, 1/CR-14 · IS-06 · R-13 → KE-01, 2/CR-09 조건 ① · CCB 01-21, 3/IS-05 · SLA ⑥ 강등 · KE-02, 4/R-18 · UC ⑦, 5/편익 원장 B-02 분모 B · R-12 · 헌장 §5 제외 범위, 6/회사 정본 §3.2 · KE-04, 7/IS-10 · 컨틴전시 유보 3.0, 8/회사 정본 §3.4 · SAC 항목 4, 9/Day2 조정표 PMO 유보 3.0} {
+  \pgfmathsetmacro{\yy}{58-\i*6}
+  \node[boxgrey, text width=42mm, font=\tiny, align=left, anchor=east, inner sep=2pt] (s\i) at (44,\yy) {\n};
+}
+% 이관 항목 열 (중앙)
+\node[font=\scriptsize\bfseries, text=navy, anchor=south] at (100,63) {이관 항목 · 소유자(실명) · 기한};
+\foreach \i/\n/\st in {0/\textbf{1} 아카이브 접근 절차 재경 승인 — \textbf{재경팀장} · 06-15/navy, 1/\textbf{2} 가맹 잔여 9점 단말 교체·2차 배포 — \textbf{오정근} · 07-31/navy, 2/\textbf{3} 22:00 운용 전환 CAB 재상정 — \textbf{한동석} · 2027-09/rust, 3/\textbf{4} 3PL 준실시간 재협상 — \textbf{한동석} · 06-30/navy, 4/\textbf{5} 앱 벤더 계약 갱신(월 3{,}600만 원) — \textbf{오정근·박세연} · 06-30/navy, 5/\textbf{6} 입고 검수·검사기록 디지털화 재검토(2025-11 반려 34억) — \textbf{나영선} · 2027-09 이사회/rust, 6/\textbf{7} SAP ECC 2027-12 EoM 대응 계획 — \textbf{박세연} · 08-31/rust, 7/\textbf{8} 클라우드 사이징·P5 운영비 반영 — \textbf{박준영·재경팀장} · 06-30/navy, 8/\textbf{9} ISMS-P 증적 제출 — \textbf{최영주} · 06-30/navy, 9/\textbf{10} 하자보수기 PMO 잔류 1명 1.05 — \textbf{프로그램 PMO장} · 06-01 운영위/rust} {
+  \pgfmathsetmacro{\yy}{58-\i*6}
+  \node[draw=\st, fill=\st!8, rounded corners=2pt, text width=66mm, font=\tiny, align=left, inner sep=2pt, thick] (m\i) at (100,\yy) {\n};
+}
+% 수신 열 (우)
+\node[font=\scriptsize\bfseries, text=teal, anchor=south] at (170,63) {수신 (영구 조직)};
+\foreach \i/\n in {0/재무본부 · P5, 1/영업본부 · P3, 2/물류본부 · P2 · CAB, 3/물류본부 · P5, 4/영업본부 · IT본부, 5/품질안전본부 · 프로그램 이사회, 6/IT본부 · 프로그램 이사회, 7/P5 · 재무본부, 8/P4 · 준법지원팀, 9/프로그램 PMO · 재무본부} {
+  \pgfmathsetmacro{\yy}{58-\i*6}
+  \node[boxteal, text width=36mm, font=\tiny, align=left, anchor=west, inner sep=2pt] (r\i) at (150,\yy) {\n};
+}
+% 화살표
+\foreach \i in {0,1,3,4,7,8} { \draw[arr] (s\i.east) -- (m\i.west); \draw[arrteal] (m\i.east) -- (r\i.west); }
+\foreach \i in {2,5,6,9} { \draw[arrrust, dashed] (s\i.east) -- (m\i.west); \draw[arrrust, dashed] (m\i.east) -- (r\i.west); }
+% 6번 강조
+\draw[rust, very thick, rounded corners=2pt] (66,24.5) rectangle (190,31.5);
+\node[font=\tiny, text=rust, anchor=west, align=left] at (191,28) {→ ⑳ B-02 분모 B\\목표 조건 · BR-05 (P 50\%)};
+% 하단
+\node[boxgrey, text width=186mm, font=\tiny, align=left, anchor=north west] at (5,-4) {\textbf{승인 6 · 승인 전 4}(3·6·7·10). "승인 전"은 이관이 안 된 것이 아니라 \textbf{수신 조직의 의사결정이 남은 것}이며, 소유자 실명과 기한(회의체)이 있으므로 소멸하지 않는다. 소유자가 부서명이면 그 항목은 3개월 뒤 아무의 것도 아니다 — 열 개 모두 실명(직책은 미명명 인물만: 재경팀장 · 프로그램 PMO장). 종료 보고서 발행 06-04, 사본 윤태호(내부감사).};
+\node[src, anchor=north west] at (5,-15) {출처: Day4 워크북 ⑱ 항목 6(미해결 사항 이관 목록 — 내용·출처·소유자·기한·승인 여부·수신 열). 6번의 원문은 Day1 회사 정본 §4.2·헌장 §5 제외 범위.};
+\end{tikzpicture}
+\end{document}

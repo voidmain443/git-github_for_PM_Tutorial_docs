@@ -1,0 +1,21 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink},x=1.7mm,y=1mm]
+\node[title] at (508,64) {INC-01 타임라인 — 사고 두 달 전부터 eval v2까지};
+\draw[very thick,navy] (465,0) -- (552,0);
+\foreach \d in {470,480,500,520,540}{\draw[navy] (\d,-1.5) -- (\d,1.5); \node[below=2pt] at (\d,-1.5) {D+\d};}
+\node[boxrust,text width=22mm,anchor=south] (a) at (470,12) {D+470 (06-15)\\박선재 구두 보고\\"오후 3시 이후 크랙"\\\textbf{기록 없음}};
+\node[boxgrey,text width=18mm,anchor=south] (b) at (481,30) {D+480 라인 2\\신입 검사원 입사};
+\node[boxrust,text width=24mm,anchor=south,line width=1.4pt] (c) at (520,12) {\textbf{D+520 08-11 15:40}\\초안 '양품' 0.87 ≥ 0.85\\조도 경고 → 생략(1탭) → 승인\\17:10 출하 2{,}400개};
+\node[boxrust,text width=20mm,anchor=south] (d) at (521,36) {D+521 09:30 H사 발견\\11:00 정미영 전화\\14:00 로그 · 16:00 임시 조치};
+\node[boxrust,text width=18mm,anchor=south] (e) at (536,12) {D+525 청구 2{,}700\\+ 해지 통보\\책임 한계 162};
+\node[boxfill,text width=18mm,anchor=south] (f) at (547,30) {D+540 eval v2\\FN 2.4 · FP 21.3\\기준 개정};
+\foreach \n/\x in {a/470,b/480,c/520,d/521,e/525,f/540}{\draw[grey,thin] (\n.south) -- (\x,2);}
+% below: FN signal line 2
+\draw[grey,thin] (465,-14) -- (545,-14); \node[lbl,anchor=east] at (464,-14) {라인 2 FN 신호};
+\draw[teal,line width=1.6pt] (465,-14) -- (520,-14); \node[lbl,text=teal] at (492,-11) {3개월 0건 — 리포트 표시 "예산 여유"};
+\node[boxrust,text width=30mm,anchor=north] at (492,-17) {무신호 ≠ 안전 — 검사원이 초안을 한 번도 뒤집지 않은 라인 = \textbf{미감시}(㉗ 항목 5 근거 열 "검사원도 놓친 FN은 여기 없다")};
+\node[src,anchor=west] at (463,-40) {정본 §4.6·§2.3·G-36·G-40 · 시각·신뢰도·경고 생략·무신호는 워크북 ㉞ 항목 1·2 [추가 설정].};
+\end{tikzpicture}
+\end{document}

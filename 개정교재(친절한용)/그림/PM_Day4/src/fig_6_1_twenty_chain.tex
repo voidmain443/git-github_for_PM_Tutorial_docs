@@ -1,0 +1,48 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (104,88) {20종 산출물의 사슬을 거꾸로 — ⑳에서 ①로 거슬러 가는 여섯 가닥, 고리가 비면 끊기는 지점};
+% 열 헤더
+\foreach \x/\t/\d in {20/Day1 착수 (①\textasciitilde⑤)/서로 고쳤다, 76/Day2 계획 (⑥\textasciitilde⑩)/검산했다, 132/Day3 통제 (⑪\textasciitilde⑮)/설명했다, 188/Day4 전환·종료 (⑯\textasciitilde⑳)/인계한다}
+  \node[font=\scriptsize\bfseries, text=navy, align=center, anchor=south] at (\x,77) {\t\\{\color{grey}\d}};
+% 문서 노드: 열 x, 행 y = 66,50,34,18,2
+\foreach \i/\n in {0/① 비즈니스 케이스 — §4 편익 표(측정 책임자·산출 분모) · A3 · §6 손익분기 66\%, 1/② 프로젝트 헌장 — §3 성공 기준 · §5 제외 범위 · §7 컷오버 창 · §14 완료·중단, 2/③ 이해관계자 등록부 — 강윤지 · 서정필 · 나영선, 3/④ 거버넌스 · RACI — 편익 책임(BC §9) · go/no-go A · SAC A, 4/⑤ 프리모템 · 초기 리스크 — F3 · 승격 기준}
+  { \pgfmathsetmacro{\yy}{66-\i*16} \node[boxgrey, text width=40mm, font=\tiny, align=left, inner sep=2.5pt] (d\i) at (20,\yy) {\n}; }
+\foreach \i/\n in {5/⑥ 범위 · WBS — 담당 열 · 전환 1{,}842테이블, 6/⑦ RTM — StRS-034 두 분모 리포트(Must) · 검수 열, 7/⑧ 일정 기준선 — 컷오버 창 허용범위 0 · 여유 소유권 문안(SCL 8), 8/⑨ 원가 기준선 — PV 145.80 · 컨틴전시 10.2 · 관리예비비 12.0, 9/⑩ 리스크 등록부 · 격자 — R-14 두 번 컷오버 · R-12 분모}
+  { \pgfmathsetmacro{\yy}{66-(\i-5)*16} \node[boxgrey, text width=40mm, font=\tiny, align=left, inner sep=2.5pt] (d\i) at (76,\yy) {\n}; }
+\foreach \i/\n in {10/⑪ 변경요청 · CCB — CR-08 · 09 · 11 조건, 11/⑫ 성과보고 — EAC4 150.86 · EX-01 · 착시(라이선스 4.70), 12/⑬ 이슈 · 등록부 — IS-02 · R-12 M+3 합의, 13/⑭ 품질 통제 — 심각도 1·2 미해결 0 · 감리 귀속, 14/⑮ 조달 · 계약 변경 — 귀책 분해표 · 동시 기록 · 계약 구조표}
+  { \pgfmathsetmacro{\yy}{66-(\i-10)*16} \node[boxgrey, text width=40mm, font=\tiny, align=left, inner sep=2.5pt] (d\i) at (132,\yy) {\n}; }
+\foreach \i/\n in {15/⑯ 런북 · SAC — PoNR 01:40 · 트리거 4 · SAC 12, 16/⑰ 이관 · SLA 3층 · ELS — 315 > 120 · KEDB 6, 17/⑱ 종료 보고서 — AC 151.95 · 지체상금 0 · 이관 6번, 18/⑲ 교훈 등록부 — L-01\textasciitilde 15 · 개정 요청 3, 19/⑳ 편익 원장 — 6칸 · 측정 책임자 실명 · 분모 A · 66\% · ITO}
+  { \pgfmathsetmacro{\yy}{66-(\i-15)*16} \node[boxfill, text width=40mm, font=\tiny, align=left, inner sep=2.5pt] (d\i) at (188,\yy) {\n}; }
+% 번호 원
+\newcommand{\num}[3]{\node[circle, draw=#3, fill=white, text=#3, font=\tiny\bfseries, inner sep=0.6pt, minimum size=3.6mm] at (#1) {#2};}
+% 1 측정 책임자 실명: ⑳ ← ① §4 (위쪽 바깥 경로)
+\draw[arrrust, very thick] (168,4) -- (164.5,4) -- (164.5,73) -- (20,73) -- (d0.north);
+\num{164.5,20}{1}{rust}
+% 2 분모: ⑳ ← ⑦ ← ① A3
+\draw[arrrust, thick] (168,1) -- (162,1) -- (162,42) -- (102,42) -- (102,51) -- (d6.east |- 0,51);
+\draw[arrrust, thick] (56,51) -- (48,51) -- (48,64) -- (d0.east |- 0,64);
+\num{162,26}{2}{rust}
+% 3 손익분기: ⑳ ← ① §6 (아래쪽 바깥 경로)
+\draw[arrrust, thick, dashed] (d19.south) -- (188,-7) -- (-4,-7) -- (-4,66) -- (d0.west);
+\num{100,-7}{3}{rust}
+% 4 AC: ⑱ ← ⑫ ← ⑨
+\draw[arr, very thick] (168,35) -- (157,35) -- (157,50) -- (d11.east |- 0,50);
+\draw[arr, very thick] (112,49) -- (104,49) -- (104,18) -- (d8.east |- 0,18);
+\num{157,42}{4}{navy}
+% 5 지체상금 0: ⑱ ← ⑮ ← ⑧
+\draw[arrteal, very thick] (168,32) -- (154.5,32) -- (154.5,2) -- (d14.east |- 0,2);
+\draw[arrteal, very thick] (112,1) -- (100,1) -- (100,34) -- (d7.east |- 0,34);
+\num{154.5,16}{5}{teal}
+% 6 PoNR·트리거: ⑯ ← ⑩ ← ②
+\draw[arrgrey, very thick] (168,65) -- (159.5,65) -- (159.5,10) -- (106,10) -- (106,4) -- (d9.east |- 0,4);
+\draw[arrgrey, very thick] (56,4) -- (46,4) -- (46,48) -- (d1.east |- 0,48);
+\num{159.5,58}{6}{grey}
+% 범례
+\node[box, draw=navy, text width=196mm, font=\tiny, align=left, anchor=north west] at (0,-11) {\textbf{여섯 가닥과 고리가 비면 끊기는 지점.} {\color{rust}\textbf{1}} 측정 책임자 실명: ⑳ ← ① §4 — 부서명이면 ITO 서명할 사람이 없다 \quad {\color{rust}\textbf{2}} 분모: ⑳ ← ⑦ 두 분모 리포트(Must) ← ① A3 — Must가 아니었으면 분모 정치는 G5에서 처음 터진다 \quad {\color{rust}\textbf{3}} 손익분기 66\%: ⑳ ← ① §6 — 할인율·기간이 BC에 없으면 재확인 불가 \quad {\color{navy}\textbf{4}} AC 151.95: ⑱ ← ⑫ EAC4 ← ⑨ PV — 착시 4.70을 걷지 않았으면 "예상 못 한 10.7 초과" \quad {\color{teal}\textbf{5}} 지체상금 0: ⑱ ← ⑮ 귀책 분해표 ← ⑧ 여유 소유권 문안 — 문안이 없으면 동시 지연은 분쟁 \quad {\color{grey}\textbf{6}} PoNR·트리거: ⑯ ← ⑩ R-14 ← ② §7 컷오버 창(허용범위 0) — 창이 헌장에 없으면 롤백 시한이 없다};
+% 하단
+\node[boxgrey, text width=196mm, font=\tiny, align=left, anchor=north west] at (0,-27) {\textbf{읽는 법.} 20종은 스무 개의 문서가 아니라 하나의 사슬이다. 여섯 가닥은 각각 Day4의 숫자 하나(측정 책임자·분모·66\%·151.95·지체상금 0·PoNR)가 어느 앞 문서의 어느 칸에서 왔는지를 잇는다. 고리가 비면 그 자리에서 숫자가 끊긴다 — Day1에 측정 책임자를 부서명으로 적었다면 ⑳의 ITO 서명표는 서명할 사람이 없고, Day2에 두 분모 리포트를 Must로 두지 않았다면 ⑳의 분모 정치는 G5에서 처음 터지며, Day3에 라이선스 4.70의 착시를 걷어 내지 않았다면 ⑱의 최종 AC는 "예상 못 한 초과"로 기록되었을 것이다. Day1은 서로 고쳤고 · Day2는 검산했고 · Day3는 설명했고 · Day4는 인계한다.};
+\node[src, anchor=north west] at (0,-41) {출처: Day4 교재 "PM 트랙을 마치며 — 20종의 사슬을 거꾸로"; Day4 워크북 §0.2 20종 표·§6. 각 노드의 값은 해당 일차 워크북 완성 예시본.};
+\end{tikzpicture}
+\end{document}

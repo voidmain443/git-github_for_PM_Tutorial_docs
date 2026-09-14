@@ -1,0 +1,51 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[level distance=11mm, every node/.style={font=\scriptsize, text=ink}]
+% ---- 좌: 산출물 지향 WBS 트리 ----
+\node[title, anchor=west] at (-4mm,26mm) {산출물 지향 WBS — 100\% 규칙과 레벨의 의미};
+\node[boxfill, text width=30mm, font=\scriptsize\bfseries] (l1) at (34mm,16mm) {L1 프로젝트 = 범위 100\%};
+\node[box, text width=22mm, font=\scriptsize] (l2a) at (6mm,2mm) {L2 산출물 A\\{\color{grey}POS·매장 운영}};
+\node[box, text width=22mm, font=\scriptsize] (l2b) at (34mm,2mm) {L2 산출물 B\\{\color{grey}통합 재고}};
+\node[boxgrey, text width=22mm, font=\scriptsize] (l2c) at (62mm,2mm) {L2 관리 산출물\\{\color{grey}PMO·형상·게이트}};
+\node[box, draw=teal, text width=14mm, font=\tiny] (l3a) at (-8mm,-13mm) {L3\\구성 산출물};
+\node[box, draw=teal, text width=14mm, font=\tiny] (l3b) at (12mm,-13mm) {L3\\구성 산출물};
+\node[box, draw=teal, text width=14mm, font=\tiny] (l3c) at (34mm,-13mm) {L3\\구성 산출물};
+\node[box, draw=teal, text width=14mm, font=\tiny] (l3d) at (62mm,-13mm) {L3\\구성 산출물};
+\node[boxteal, text width=13mm, font=\tiny] (wp1) at (-14mm,-27mm) {작업패키지\\WP};
+\node[boxteal, text width=13mm, font=\tiny] (wp2) at (4mm,-27mm) {작업패키지\\WP};
+\node[boxteal, text width=13mm, font=\tiny] (wp3) at (22mm,-27mm) {작업패키지\\WP};
+\node[boxteal, text width=13mm, font=\tiny] (wp4) at (40mm,-27mm) {작업패키지\\WP};
+\node[boxteal, text width=13mm, font=\tiny] (wp5) at (62mm,-27mm) {작업패키지\\WP};
+\foreach \c in {l2a,l2b,l2c} \draw[arrgrey,-] (l1.south) -- (\c.north);
+\draw[arrgrey,-] (l2a.south) -- (l3a.north); \draw[arrgrey,-] (l2a.south) -- (l3b.north);
+\draw[arrgrey,-] (l2b.south) -- (l3c.north); \draw[arrgrey,-] (l2c.south) -- (l3d.north);
+\draw[arrgrey,-] (l3a.south) -- (wp1.north); \draw[arrgrey,-] (l3a.south) -- (wp2.north);
+\draw[arrgrey,-] (l3b.south) -- (wp3.north); \draw[arrgrey,-] (l3c.south) -- (wp4.north); \draw[arrgrey,-] (l3d.south) -- (wp5.north);
+% 통제 계정 표시
+\node[draw=rust, dashed, thick, rounded corners=3pt, fit=(l3a)(wp1)(wp2), inner sep=2pt] (ca) {};
+\node[lbl, font=\tiny, text=rust, anchor=north] at (ca.south) {통제 계정 (control account)\\CAM 1명이 PV·EV·AC에 책임};
+% 활동은 WP 아래
+\node[lbl, font=\tiny, anchor=north, text width=30mm] at ($(wp4.south)+(0,-1mm)$) {활동(동사)은 WP 아래, 일정 모델에서 붙는다\\{\color{teal}8/80 규칙 ≈ P1에서는 "스프린트 하나 안에 끝나는 크기"}};
+% 100% 규칙 괄호
+\draw[decorate, decoration={brace, amplitude=3pt}, navy, thick] (-26mm,8mm) -- (-26mm,-31mm) node[midway, left=3pt, font=\tiny, text=navy, align=center] {100\% 규칙\\하위의 합 =\\상위의 100\%\\{\color{rust}밖 = 범위 밖}\\{\color{rust}안 = 반드시 어딘가}};
+% 코드 체계
+\node[box, draw=navy, text width=68mm, font=\tiny, align=left, anchor=north west] at (-16mm,-42mm) {\textbf{코드 체계 — 세 기준선이 같은 뿌리를 갖는다}\\WBS \texttt{P1.3.2.4} = 일정 활동 \texttt{P1.3.2.4-01, -02} = 원가 계정 \texttt{P1.3.2.4} = 형상 항목 태그 \texttt{P1.3.2.4}\\{\color{grey}1.1절의 "세 기준선을 따로 만드는 오류"의 기술적 방어}};
+% ---- 우: 활동 지향 대조 ----
+\node[title, anchor=west] at (90mm,26mm) {활동 지향 WBS — 왜 권장하지 않는가};
+\node[boxrust, text width=30mm, font=\scriptsize\bfseries] (r1) at (122mm,16mm) {프로젝트};
+\node[box, draw=rust, text width=18mm, font=\scriptsize] (r2a) at (98mm,2mm) {설계};
+\node[box, draw=rust, text width=18mm, font=\scriptsize] (r2b) at (122mm,2mm) {개발};
+\node[box, draw=rust, text width=18mm, font=\scriptsize] (r2c) at (146mm,2mm) {시험};
+\foreach \c in {r2a,r2b,r2c} \draw[arrgrey,-] (r1.south) -- (\c.north);
+\foreach \c/\x in {r2a/98mm,r2b/122mm,r2c/146mm} {
+  \node[box, draw=grey, text width=16mm, font=\tiny] (\c a) at (\x,-11mm) {POS 부분};
+  \node[box, draw=grey, text width=16mm, font=\tiny] (\c b) at (\x,-19mm) {재고 부분};
+  \node[box, draw=grey, text width=16mm, font=\tiny] (\c c) at (\x,-27mm) {포털 부분};
+  \draw[arrgrey,-] (\c.south) -- (\c a.north);
+}
+\node[lbl, font=\tiny, text=rust, text width=66mm, align=left, anchor=north west] at (90mm,-33mm) {"시험" 상자 하나에 모든 산출물의 시험이 섞인다 → "POS의 결제 모듈이 \textbf{끝났다}"를 말할 수 없다 → Day3의 EV를 측정할 수 없다. 조직도형 WBS(IT본부 몫 / 영업본부 몫 / 수행사 몫)도 같은 결함 — 조직이 바뀌면 WBS가 바뀌고, 걸치는 산출물은 아무도 소유하지 않는다.};
+\node[box, draw=navy, fill=navylight, text width=66mm, font=\tiny, align=left, anchor=north west] at (90mm,-50mm) {\textbf{PBS → WBS 결합 순서} ① 헌장 §6 산출물(명사)로 L1\textasciitilde 2 ② 구성 산출물로 L3 ③ L3 아래 작업패키지(8/80) ④ WBS 사전(인수 기준·CAM·요구 ID·원가) ⑤ 산출물 의존(PFD) → 활동 네트워크. \textbf{활동은 마지막에 온다.}};
+\node[src, anchor=north west] at (-26mm,-64mm) {출처: ISO 21511:2018, MIL-STD-881F의 WBS 원칙(100\% 규칙·산출물 지향)과 PRINCE2 7 PBS를 교재 2.2절에 따라 재구성. 8/80은 경험칙이며 "보고 주기의 1\textasciitilde 2배" 원리의 표현이다.};
+\end{tikzpicture}
+\end{document}

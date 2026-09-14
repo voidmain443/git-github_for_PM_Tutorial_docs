@@ -1,0 +1,32 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (95,58) {ITIL Version 5(현행)의 상위 구조와 이 교재가 고정한 practice 어휘 — practice 이름은 판본이 바뀌어도 같다};
+% 좌: v5 구조
+\node[font=\small\bfseries, text=navy, anchor=west] at (0,50) {ITIL Version 5 (PeopleCert, Foundation 2026-02-12)};
+\node[boxfill, text width=92mm, font=\tiny, align=left, anchor=north west] at (0,47) {\textbf{ITIL Value System} (← Service Value System) · 프레이밍: Digital Product and Service Management\\유지: \textbf{34 practices}(14 general + 17 service + 3 technical) · \textbf{7 guiding principles} · \textbf{4 dimensions}(organizations and people에 AI 명시)};
+\node[font=\scriptsize\bfseries, text=navy, anchor=west] at (0,32) {Product and Service Lifecycle 8활동 (← Service Value Chain 6활동)};
+\foreach \i/\n in {0/Discover, 1/Design, 2/Acquire, 3/Build, 4/Transition, 5/Operate, 6/Deliver, 7/Support} {
+  \pgfmathsetmacro{\xx}{\i*11.5+5.5}
+  \node[box, minimum width=10.5mm, minimum height=8mm, font=\tiny, inner sep=1pt] (a\i) at (\xx,24) {\n};
+}
+\foreach \i [evaluate=\i as \j using int(\i+1)] in {0,...,6} \draw[arr, thin] (a\i) -- (a\j);
+% ELS 경계
+\draw[rust, very thick] (57.25,17) -- (57.25,30);
+\node[font=\tiny\bfseries, text=rust, anchor=north, align=center] at (57.25,16.5) {Transition · Operate 경계\\= \textbf{ELS} 8주(03-01\textasciitilde 04-23)\\이 장의 서비스 전환이 놓이는 곳};
+\node[font=\tiny, text=grey, align=left, anchor=north west] at (0,16.5) {6활동 → 8활동 재매핑은 회사 운영 규정\\개정 시 필요(Design and transition → Design +\\Transition, Deliver and support → Deliver + Support)};
+% 가운데 화살표
+\draw[arr, very thick] (96,28) -- (110,28);
+\node[font=\tiny, text=navy, align=center, anchor=south] at (103,29) {practice 이름은\\판본이 바뀌어도 같다};
+% 우: 이 교재의 practice 어휘 9개
+\node[font=\small\bfseries, text=teal, anchor=west] at (112,50) {이 교재가 고정한 practice 어휘 (ITIL 4 명칭 · 판본 무관)};
+\foreach \i/\n/\w in {0/Change Enablement — CAB 수요일 · 변경 동결 02-20\textasciitilde 03-12/⑰ 항목 1·8, 1/Service Validation and Testing — UAT · 스모크 거래 36건 중 36 성공/⑯ 항목 2·행 31, 2/Release Management — R1\textasciitilde R5 · 하자보수기 표준 릴리스/⑱ 항목 7, 3/Deployment Management — 펌웨어 615점 배포 · 8병렬/⑯ 행 26\textasciitilde 30, 4/Incident Management — P1 2 · P2 9 · P3 41 · P4 88/⑰ 항목 6, 5/Problem Management — 문제 9 = 근본 제거 3 + KE 6/⑰ 항목 6, 6/Service Level Management — SLA 1 · OLA 3 · UC 5 서명 05-14/⑰ 항목 4, 7/Early Life Support — 8주 · 종료 기준 5 · 상주 20→4/⑰ 항목 5, 8/Known Error Database — KE-01\textasciitilde 06 · 우회 · 근본 원인 상태/⑰ 항목 6} {
+  \pgfmathsetmacro{\yy}{46-\i*4.6}
+  \node[boxteal, text width=72mm, font=\tiny, align=left, anchor=north west, inner sep=2.5pt] at (112,\yy) {\n \hfill {\color{grey}\w}};
+}
+% 하단 주
+\node[box, draw=grey, fill=white, text width=184mm, font=\tiny, align=left, anchor=north west] at (0,-3) {\textbf{쓰지 말 것}: "ITIL 4가 최신"(2026-02-12 이후 틀린 문장). \textbf{쓰는 것}: practice 명칭(위 9개) — 여러분 회사의 운영 규정·수행사 유지보수 계약·CSP 계약·ISO/IEC 20000 증적이 지금 이 어휘로 적혀 있다. 이 장이 다투는 것은 어휘가 아니라 판단(SLA 3층의 산술 · '훼손' 해당 여부 · 릴리스 횟수)이며 판단은 판본이 바뀌어도 같다. ITIL 4는 폐기되지 않고 병행 유지.};
+\node[src, anchor=north west] at (0,-16) {출처: PeopleCert ITIL Version 5 공지(2026-02, 웹 확인 — 상위 모듈은 3\textasciitilde 4월 순차) · Day4 교재 3.1절 · 워크북 ⑰ §2.2. 오른쪽 값은 워크북 ⑯·⑰·⑱ 완성 예시본.};
+\end{tikzpicture}
+\end{document}

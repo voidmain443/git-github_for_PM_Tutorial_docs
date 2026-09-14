@@ -1,0 +1,23 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink}]
+\node[title] at (3.4,4.8) {두 방향 — 범위 고정·기간 추정 vs 기간 고정·범위 변수};
+% left: scope fixed
+\node[anchor=west,text=navy,font=\footnotesize\bfseries] at (-3.4,4.1) {프로젝트 — 범위 41을 고정하면};
+\draw[fill=navylight,draw=navy] (-3.4,2.2) rectangle (2.2,3.2); \node at (-0.6,2.7) {범위 41 mm (고정)};
+\draw[arr] (-3.4,1.7) -- (2.9,1.7); \node[lbl,below] at (-0.25,1.7) {기간 = 41 ÷ 4명 ≈ 10.3개월 (추정 · 변수)};
+\draw[rust,thick,dashed] (0.35,1.2) -- (0.35,3.4); \node[lbl,text=rust,anchor=west,align=left] at (0.5,3.42) {6개월 — 런웨이·TIPS 시계};
+\node[boxrust,text width=30mm,anchor=north] at (-0.6,0.9) {시계를 넘는다 — 기간이 늘거나 사람을 더한다(Brooks)};
+% right: time fixed
+\node[anchor=west,text=teal,font=\footnotesize\bfseries] at (3.6,4.1) {Appetite — 기간 6개월을 고정하면};
+\draw[fill=teallight,draw=teal] (3.6,2.2) rectangle (8.4,3.2); \node at (6.0,2.7) {가용 24 mm = 4명 × 6개월 (고정)};
+\draw[fill=navylight,draw=navy] (3.6,1.2) rectangle (5.55,1.9); \node at (4.58,1.55) {Must 14};
+\draw[fill=teallight,draw=teal] (5.55,1.2) rectangle (6.1,1.9); \node[font=\tiny] at (5.83,1.55) {Sh 4};
+\draw[fill=lightgrey,draw=grey] (6.1,1.2) rectangle (6.95,1.9); \node[font=\tiny] at (6.52,1.55) {예비 6};
+\draw[fill=white,draw=grey,dashed] (6.95,1.2) rectangle (8.4,1.9); \node[font=\tiny,text=grey] at (7.68,1.55) {범위 밖 23};
+\node[lbl,below] at (6.0,1.15) {범위 = 변수 · 잘라서 맞춘다 · 기간이 끝나면 회로 차단기};
+\node[boxteal,text width=30mm,anchor=north] at (6.0,0.4) {사건(퇴사)이 나면 줄어드는 것은 기간이 아니라 범위(24 → 17)};
+\node[src,anchor=west] at (-3.4,-1.0) {Singer, Shape Up(2019) "appetite". Appetite는 기간(6개월)이지 24 mm(가용 공수)도 41(견적)도 아니다 — 세 숫자를 세 칸에 따로 적는다(㉖ 항목 1·2).};
+\end{tikzpicture}
+\end{document}

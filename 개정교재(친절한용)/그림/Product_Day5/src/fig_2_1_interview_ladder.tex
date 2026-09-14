@@ -1,0 +1,13 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\footnotesize,text=ink}]
+\foreach \y/\q/\r/\c in {4.4/"이런 기능이 있으면 쓰시겠어요?"/의견 — 거의 항상 "예"/rust, 3.3/"~가 얼마나 불편하세요?"/유도된 동의/rust, 2.2/"보통 어떻게 하세요?"/일반화된 자기 보고 — 사람은 자기 평균을 모른다/grey, 1.1/"지난번에 ~했을 때 무슨 일이 있었나요?"/이야기 — 한 사건의 사실/teal, 0/"그때 무엇을 보셨나요? 지금 보여 주실 수 있나요?"/관찰 — 행동/teal}{
+  \node[draw=\c, thick, rounded corners=2pt, fill=white, text width=64mm, align=left, inner sep=4pt] at (0,\y) {\q};
+  \node[anchor=west, text width=62mm, align=left, text=\c] at (4.0,\y) {\r};}
+\draw[arrgrey] (-4.2,4.9) -- node[lbl,left,align=right]{의견\\(예의 바름)} (-4.2,3.0);
+\draw[arrteal] (-4.2,1.8) -- node[lbl,left,align=right]{사실\\(대개 참)} (-4.2,-0.4);
+\node[draw=navy,thick,fill=navylight,rounded corners=2pt,text width=118mm,align=left,font=\scriptsize] at (1.9,-1.3) {딥게이지 9문(워크북 ㉒ 항목 2)은 전부 아래 두 칸 — "어제 하루를 처음부터", "가장 최근에 부적합이 나왔던 때", "그때 사진은 어디에 보냈나요". 금지: 위 두 칸과 가격 언급.};
+\node[src, anchor=west] at (-4.4,-2.2) {Fitzpatrick(2013) 세 규칙 · Torres(2021) 이야기 기반 인터뷰를 바탕으로 재구성.};
+\end{tikzpicture}
+\end{document}

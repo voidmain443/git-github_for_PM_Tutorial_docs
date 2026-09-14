@@ -1,0 +1,26 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink},x=1mm,y=1mm]
+\node[title] at (84,10) {㊵ = ⑳의 표 + output 열 — 재무본부 소유, 온담 임원이 outcome·utilisation, 딥게이지가 output};
+\node[fill=grey,text=white,font=\scriptsize\bfseries,anchor=north west,minimum height=6mm,text width=114mm,align=center,inner sep=2pt] at (0,3) {⑳ v1.0 (2027-05-21, 재무본부 소유) — 그대로};
+\node[fill=teal,text=white,font=\scriptsize\bfseries,anchor=north west,minimum height=6mm,text width=50mm,align=center,inner sep=2pt] at (116,3) {+ 딥게이지 output (원장 v2.0, 2028-05-31)};
+\foreach \x/\w/\t in {0/18/편익 ID,20/30/측정식(분자/분모),52/28/기준값 → G5 실적,82/32/목표값·시점}{
+  \node[fill=navy,text=white,font=\tiny\bfseries,anchor=north west,minimum height=5mm,text width=\w mm,align=center,inner sep=1.5pt] at (\x,-4) {\t};}
+\node[fill=teal,text=white,font=\tiny\bfseries,anchor=north west,minimum height=5mm,text width=50mm,align=center,inner sep=1.5pt] at (116,-4) {output — 측정 가능한 인도물};
+\def\row#1#2#3#4#5#6#7{%
+  \node[boxfill,anchor=north west,text width=16mm,minimum height=#1 mm,align=left,font=\tiny] at (0,#2) {#3};
+  \node[boxgrey,anchor=north west,text width=28mm,minimum height=#1 mm,align=left,font=\tiny] at (20,#2) {#4};
+  \node[boxgrey,anchor=north west,text width=26mm,minimum height=#1 mm,align=left,font=\tiny] at (52,#2) {#5};
+  \node[boxgrey,anchor=north west,text width=30mm,minimum height=#1 mm,align=left,font=\tiny] at (82,#2) {#6};
+  \node[boxteal,anchor=north west,text width=48mm,minimum height=#1 mm,align=left,font=\tiny] at (116,#2) {#7};}
+\row{12}{-11}{B-02(A) 재고 정확도\\— 참고}{실사 일치 SKU ÷ 순환실사 SKU(69\%)}{A 91.3\%(2025) → G5 97.1\%}{98.5\%(M+24) — 판정 완료, 81\% 실현. \textbf{불변}}{(검사기록과 무관 — ⑳ 그대로)}
+\row{14}{-25}{\textbf{B-02(B)} 분모 B}{실사 일치 SKU ÷ 전체 SKU(100\%)}{B 84.6\%(2026-12) → G5 88.9\%}{\textbf{95.0\%(M+36 2030-01) — v2 신설}(⑳ "M+12 리뷰에서 설정")}{입고 검수 검사기록 \textbf{자동 생성률 ≥ 90\%} · 코드 매핑 커버리지 61.4 → 95\% · 판정 정확도: \textbf{온담 세트 미측정 → 항목 4}}
+\row{12}{-41}{B-03 결품률}{결품 SKU-일 ÷ 진열 SKU-일}{4.7\% → G5 2.6\%}{1.5\%(M+24) — 66\% 실현, 유지 판정 2029-05}{입고 검수 리드타임(검사 대기 재고) 1.8일 → 0.5일}
+\row{12}{-55}{B-04 폐기율}{월 폐기 금액 ÷ 취급원가(C-15)}{3.9\% → G5 2.9\%}{2.2\%(M+24) — 59\% 실현, 개선 계획}{'온도 이탈' 폐기 코드 자동 부여율 ≥ 95\%(C-27)}
+\row{12}{-69}{B-09 기록·검색 공수 — \textbf{신설}}{월 작성 + 검색 인시}{1,260 인시(2028-04 표본)}{$-$60\% = 504(운영 +12)}{자동 생성률 · 검색 3초 · 오프라인 동기화}
+\row{14}{-83}{B-10 CCP 초과 → 개선조치 리드타임 — \textbf{신설}}{한계 초과 → 기록 완료 시각}{3.2시간(2028-04 표본)}{30분(운영 +12)}{CCP 플래그 → 알림 30초(C-03) · \textbf{판정은 검사원 — 법정 판정 정확도는 output이 아니다}(㊲ 항목 5)}
+\node[boxrust,anchor=north west,text width=164mm,align=left,font=\scriptsize] at (0,-100) {세 서명 — \textbf{output} 딥게이지 강민수(G4형 인수로 종결 → ㊲ 25\% 구간) / \textbf{outcome} 한동석(B-02) · 오정근(B-03·04) · 나영선(B-09·10) / \textbf{utilisation} 나영선 — 검사기록 정착 · \textbf{마스터 정비(C-05, 온담 자체)} · 강현도 · 점포 QA. 판정 — 재무본부(정미란·재경팀장)};
+\node[src,anchor=west] at (0,-113) {PM Day4 ⑳ §5.5 항목 1·2·5 · ㊵ 항목 2·3(워크북 §5.5) [추가 설정 — G5 실적·B-09·10·output].};
+\end{tikzpicture}
+\end{document}

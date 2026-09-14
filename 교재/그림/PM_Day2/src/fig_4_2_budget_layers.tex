@@ -1,0 +1,28 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (80,30) {예산의 층 — 컨틴전시와 관리예비비는 다른 사람의 돈이다 (온담 P1, 억 원)};
+\def\sc{0.95}
+% 가로 누적 막대
+\fill[navylight, draw=navy, thick] (0,0) rectangle ({145.8*\sc},12);
+\fill[teallight, draw=teal, thick] ({145.8*\sc},0) rectangle ({156.0*\sc},12);
+\fill[rustlight, draw=rust, thick] ({156.0*\sc},0) rectangle ({168.0*\sc},12);
+\node[font=\small\bfseries, text=navy, align=center] at ({145.8*\sc/2},6) {계획 원가 145.8\\{\scriptsize\mdseries 작업패키지 추정의 합 = WBS L2 합 = PV 누적 (Day3 PV 곡선)}};
+\node[font=\tiny\bfseries, text=teal, align=center, rotate=90] at ({(145.8+156.0)/2*\sc},6) {컨틴전시 10.2};
+\node[font=\tiny\bfseries, text=rust, align=center, rotate=90] at ({(156.0+168.0)/2*\sc},6) {관리예비비 12.0};
+% 위 괄호
+\draw[decorate, decoration={brace, amplitude=3pt}, navy, thick] (0,13) -- ({156.0*\sc},13) node[midway, above=3pt, font=\scriptsize\bfseries, text=navy] {원가 기준선 (BAC) 156.0 = 온담의 "집행 한도" — PM이 책임지는 성과 측정의 자};
+\draw[decorate, decoration={brace, amplitude=3pt}, rust, thick] (0,20) -- ({168.0*\sc},20) node[midway, above=3pt, font=\scriptsize\bfseries, text=rust] {프로젝트 예산 168.0 = "승인 예산" — 이사회 의결, 계약·발주 한도};
+% 아래 소유자 상자
+\node[box, draw=navy, text width=62mm, font=\tiny, align=left, anchor=north] (b1) at (36,-4) {\textbf{계획 원가 — PM (작업패키지 담당)}\\알려진 작업. 시간대별 배분(월별 PV, 4.3절)\\일곱 내역 157.8 $-$ 12.0 = 145.8의 산수가 문서에 보여야 한다 (4.5절)};
+\node[box, draw=teal, fill=teallight, text width=50mm, font=\tiny, align=left, anchor=north] (b2) at (99,-4) {\textbf{컨틴전시 — PM의 돈} (RACI 19행 A = P1 PM)\\식별된 리스크(known unknowns)의 대응 비용\\집행은 \textbf{리스크 ID}를 달고 등록부에 기록 · CCB 월 보고 · 재경 C\\근거 = 리스크별 배정 4.60 (11건, 잔여 EMV 4.58) + 미배정 풀 5.60 (스프린트 4회분) — 식별 노출의 약 P80 (5.3절)};
+\node[box, draw=rust, fill=rustlight, text width=52mm, font=\tiny, align=left, anchor=north] (b3) at (160,-4) {\textbf{관리예비비 — 스폰서의 돈} (RACI 20행 A = 정미란)\\식별되지 않은 리스크·범위 밖 사건 (unknown unknowns)\\예외 보고 → 10영업일 내 결재 → \textbf{기준선 갱신 동반}\\대상: R-01 1.20·R-04 1.00 (프로그램·스폰서 계층 원인), 유보 조정 항목 복귀(클라우드 3.0·PMO 3.0·상용SW 4.0)\\이사회 승인 조건 2항 · 프로그램 24억 중 P1 유보분};
+\draw[arr] (b1.north) -- ({36},0);
+\draw[arrteal] (b2.north) -- ({(145.8+156.0)/2*\sc},0);
+\draw[arrrust] (b3.north) -- ({(156.0+168.0)/2*\sc},0);
+\node[lbl, font=\tiny, anchor=north west] at (0,-24) {검산: 145.8 + 10.2 = 156.0 · 156.0 + 12.0 = 168.0. 10.2 = 승인 예산의 6.07\% = 계획 원가의 +7.0\%(프로젝트 계층 원가 허용범위) — 백분율은 결과이지 근거가 아니다. 컨틴전시 집행은 PV에 없던 원가가 AC에 나타나는 형태로 기록된다.};
+\node[box, draw=navy, fill=navylight, text width=176mm, font=\tiny, align=left, anchor=north west] at (0,-29) {\textbf{둘을 섞으면.} 컨틴전시를 관리예비비처럼 쓰면(스폰서 결재 요구) PM은 허용범위 안의 리스크 대응조차 못 하고 예외 보고만 한다 — "권한 없는 PM". 관리예비비를 컨틴전시처럼 쓰면(PM이 근거 없이) 이사회 조건 2항 위반이고 미지의 사건이 왔을 때 돈이 없다. 컨틴전시가 남으면 "절감"이 아니다 — 리스크가 실현되지 않은 것이며, 성과로 보상하면 다음 프로젝트의 컨틴전시는 부풀려진다(Eveleens \& Verhoef). 2020년 감사 지적 "컨틴전시 집행 승인 근거 부재"의 답 = 리스크 ID 기록 + 관리예비비 집행 절차(4.5절).};
+\node[src, anchor=north west] at (0,-44) {출처: PMBOK 8판 Finance 성과영역·ISO 21502:2020 §7.7의 예비비 구분과 사례 문서 §5.5(3층 예산 168.0 / 156.0 / 145.8), RACI 19·20행, 워크북 §4 완성 예시본 항목 2·6(컨틴전시 배정 4.60 + 미배정 5.60, 관리예비비 대상)을 교재 4.2절에 따라 재구성.};
+\end{tikzpicture}
+\end{document}

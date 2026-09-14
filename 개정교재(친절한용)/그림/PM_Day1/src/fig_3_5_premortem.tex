@@ -1,0 +1,28 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[node distance=5mm]
+% 절차
+\node[font=\small\bfseries, text=navy, anchor=west] (h) at (0,0) {프리모템(premortem) 절차 — Klein (2007)};
+\node[boxfill, text width=30mm, minimum height=20mm, font=\footnotesize, below=4mm of h.west, anchor=north west] (s1) {\textbf{① 계획 공유}\\팀이 계획을\\이해한 상태에서 시작};
+\node[boxrust, text width=40mm, minimum height=20mm, font=\footnotesize, right=of s1] (s2) {\textbf{② 실패를 사실로 선언}\\"지금은 프로젝트가 끝난 시점이고,\\이 프로젝트는 \textbf{완전히 실패했다}"};
+\node[boxfill, text width=30mm, minimum height=20mm, font=\footnotesize, right=of s2] (s3) {\textbf{③ 각자 2분}\\그 실패의 이유를\\혼자 적는다};
+\node[boxfill, text width=30mm, minimum height=20mm, font=\footnotesize, right=of s3] (s4) {\textbf{④ 돌아가며 한 가지씩}\\말하고 기록한다};
+\node[boxteal, text width=34mm, minimum height=20mm, font=\footnotesize, right=of s4] (s5) {\textbf{⑤ 리스크 등록부로}\\원인 · 사건 · 영향 · 대응 오너\\헌장 가정 목록과 연결};
+\draw[arr] (s1) -- (s2); \draw[arrrust] (s2) -- (s3); \draw[arr] (s3) -- (s4); \draw[arrteal] (s4) -- (s5);
+% 문법 대조
+\node[font=\small\bfseries, text=navy, anchor=west, below=10mm of s1.south west, anchor=west] (h2) {설계 핵심 (a) — 문법이 효과를 만든다 (prospective hindsight)};
+\node[box, draw=grey, fill=lightgrey, text width=62mm, font=\footnotesize, below=4mm of h2.west, anchor=north west] (g1) {\textbf{리스크 브레인스토밍}\\"실패할 수 있다면, 왜?"\\{\scriptsize 가능성의 문법 — 낙관과 몰입 속에서\\반대 의견은 사회적 비용을 진다}};
+\node[boxrust, text width=62mm, font=\footnotesize, right=8mm of g1] (g2) {\textbf{프리모템}\\"실패했다. 왜?"\\{\scriptsize 완료된 사실의 문법 — 미래를 이미 일어난 일로\\회고하게 하면 이유 생성 능력이 유의하게 높아진다\\(Mitchell, Russo \& Pennington, 1989)}};
+\draw[arrrust, thick] (g1) -- node[lbl, above=1mm, font=\scriptsize, text=rust] {문법 전환} (g2);
+\node[boxteal, text width=40mm, font=\footnotesize, right=8mm of g2] (g3) {\textbf{설계 핵심 (b)}\\약점을 아는 반대자가 안전하게 말할 수 있는 장 — 발언을 \textbf{과제}로 만들어 비용을 없앤다};
+% 반복
+\node[font=\small\bfseries, text=navy, anchor=west, below=8mm of g1.south west, anchor=west] (h3) {프리모템의 자리 — 한 번이 아니라 계획이 있는 시점마다};
+\node[boxfill, text width=40mm, font=\footnotesize, below=4mm of h3.west, anchor=north west] (t1) {\textbf{G0 착수}\\"실패했다. 왜?" 1차};
+\node[boxfill, text width=40mm, font=\footnotesize, right=of t1] (t2) {\textbf{G1 기획 완료}\\답이 어떻게 달라졌는가};
+\node[boxfill, text width=40mm, font=\footnotesize, right=of t2] (t3) {\textbf{G3 직전 (컷오버 승인)}\\변화 자체가 프로젝트의 방향을 보여 준다};
+\draw[arr] (t1) -- (t2); \draw[arr] (t2) -- (t3);
+\node[lbl, right=of t3, text width=44mm, align=left, font=\scriptsize] {P1 예시 항목의 공통 원인:\\가맹 협상 · 핵심 인물 의존 ·\\프로그램 의존(P2) · 재무 압박\\→ 착수 시점의 최우선 리스크};
+\node[src, anchor=north west] at ($(t1.south west)+(0,-5mm)$) {출처: Klein (2007), Performing a Project Premortem, Harvard Business Review; Mitchell, Russo \& Pennington (1989), Back to the future, J. Behavioral Decision Making 2(1)를 바탕으로 재구성.};
+\end{tikzpicture}
+\end{document}

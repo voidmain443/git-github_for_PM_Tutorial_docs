@@ -1,0 +1,34 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[node distance=5mm]
+% 열 헤더 (좌→우: IT enablers → enabling changes → business changes → benefits → objective)
+\foreach \i/\t/\c in {0/{IT 조력자\\IT enablers}/navy,1/{조력 변화\\enabling changes}/navy,2/{사업 변화\\business changes}/teal,3/{편익\\benefits}/teal,4/{투자 목적\\investment objective}/teal}{
+  \node[font=\small\bfseries, text=\c, align=center] at ({\i*38mm},0) {\t};
+}
+\node[lbl, anchor=west] at (-18mm,6mm) {읽는 방향: 오른쪽(목적)에서 왼쪽(IT)으로 거꾸로 추적 $\longleftarrow$};
+% 노드
+\node[boxfill, text width=32mm, font=\footnotesize, anchor=north] (e1) at (0,-6mm) {실시간 중앙 재고\\(통합 재고 원장)};
+\node[boxfill, text width=32mm, font=\footnotesize, anchor=north] (e2) at (0,-22mm) {신규 POS의\\재고 화면};
+\node[boxfill, text width=32mm, font=\footnotesize, anchor=north] (e3) at (0,-38mm) {가맹 발주 포털};
+\node[lbl, anchor=north, text=navy, font=\scriptsize] at (0,-52mm) {P1이 만드는 것은\\이 열뿐이다};
+\node[boxfill, text width=32mm, font=\footnotesize, anchor=north] (c1) at (38mm,-6mm) {매장 직원이 새 POS 재고 화면을\\쓸 줄 안다\\{\scriptsize (P3 교육 3,900명)}};
+\node[boxfill, text width=32mm, font=\footnotesize, anchor=north] (c2) at (38mm,-26mm) {발주 정책 개정\\{\scriptsize (영업본부의 규정 개정)}};
+\node[boxfill, text width=32mm, font=\footnotesize, anchor=north] (c3) at (38mm,-40mm) {가맹 계약 부속서 개정\\{\scriptsize (388점 서면 동의, 2026-08-14)}};
+\node[boxteal, text width=32mm, font=\footnotesize, anchor=north] (b1) at (76mm,-14mm) {매장 직원이 실시간 재고를\\보고 발주량을 바꾼다};
+\node[boxteal, text width=32mm, font=\footnotesize, anchor=north] (b2) at (76mm,-34mm) {가맹점이 포털로\\발주한다};
+\node[boxteal, text width=32mm, font=\footnotesize, anchor=north] (f1) at (114mm,-10mm) {폐기율 3.9\% → 2.2\%\\{\scriptsize 폐기 절감 43억}};
+\node[boxteal, text width=32mm, font=\footnotesize, anchor=north] (f2) at (114mm,-30mm) {가맹 발주 리드타임\\38시간 → 12시간};
+\node[boxteal, text width=32mm, font=\footnotesize, anchor=north] (o1) at (152mm,-16mm) {M+24 연간 절감 214억\\{\scriptsize (운영비 27억 차감 전)}};
+% 연결
+\draw[arr] (e1) -- (c1); \draw[arr] (e2) -- (c1); \draw[arr] (e1) -- (c2); \draw[arr] (e3) -- (c3);
+\draw[arrteal] (c1) -- (b1); \draw[arrteal] (c2) -- (b1); \draw[arrteal] (c3) -- (b2);
+\draw[arrteal] (b1) -- (f1); \draw[arrteal] (b2) -- (f2);
+\draw[arrteal] (f1) -- (o1); \draw[arrteal] (f2) -- (o1);
+% 책임 라벨
+\draw[decorate, decoration={brace, amplitude=4pt, mirror}, navy, thick] (-17mm,-63mm) -- (17mm,-63mm) node[midway, below=2mm, font=\scriptsize, text=navy] {P1 (PM 책임)};
+\draw[decorate, decoration={brace, amplitude=4pt, mirror}, rust, thick] (21mm,-63mm) -- (93mm,-63mm) node[midway, below=2mm, font=\scriptsize, text=rust, align=center] {P3 · 영업본부의 일 — "P1이 성공해도 편익이 안 나올 수 있는 경로"\\→ P1 헌장의 가정·제약, 리스크 등록부의 재료};
+\draw[decorate, decoration={brace, amplitude=4pt, mirror}, teal, thick] (97mm,-63mm) -- (169mm,-63mm) node[midway, below=2mm, font=\scriptsize, text=teal] {편익 오너(상설 조직 실명)의 책임 — G5 2028-03-31 측정};
+\node[src, anchor=north west] at (-18mm,-77mm) {출처: Ward \& Daniel (2012), Benefits Management, 2nd ed., Wiley의 Benefits Dependency Network를 온담 편익 표(B-01 폐기율, 가맹 발주 리드타임)에 적용해 재구성. 예시이며 워크북에서 다시 그린다.};
+\end{tikzpicture}
+\end{document}

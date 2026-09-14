@@ -1,0 +1,22 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink},x=1mm,y=1mm]
+\node[title] at (82,8) {코드체계 불일치 5차원 — 47건을 판정하기 전에 먼저 (6시간 → 40분)};
+% header
+\foreach \x/\w/\t in {0/22/차원,24/34/자동차 3세트(A·B·C),60/40/온담 4세트(D),102/62/1차 판정 · C-ID}{
+  \node[fill=navy,text=white,font=\scriptsize\bfseries,anchor=north west,minimum height=6mm,text width=\w mm,align=center,inner sep=2pt] at (\x,2) {\t};}
+\def\row#1#2#3#4#5#6{%
+  \node[boxfill,anchor=north west,text width=20mm,minimum height=#1 mm,align=left] at (0,#2) {#3};
+  \node[boxgrey,anchor=north west,text width=32mm,minimum height=#1 mm,align=left] at (24,#2) {#4};
+  \node[boxrust,anchor=north west,text width=38mm,minimum height=#1 mm,align=left] at (60,#2) {#5};
+  \node[box,anchor=north west,text width=60mm,minimum height=#1 mm,align=left] at (102,#2) {#6};}
+\row{15}{-5}{① 판정 라벨}{OK / NG \textbf{2값}}{in/out-of-range + 개선조치 필요 + 폐기·재작업·특채 → \textbf{3축 다값}\\(재학습 아닌 재설계)}{처분 축만 \textbf{제품화}(C-02) · 3축 스키마 \textbf{유상}(C-01, 10 mm) · 무인·이물 판정 \textbf{거절}(C-30 커널 · C-22 미측정)}
+\row{15}{-22}{② 검사항목 식별자}{도면 기반 DIM-\#\#\#\#\\마스터 217개}{\textbf{마스터가 없다} — 서식 기반 자유 문자열\\(매핑 대상 부재 → 커버리지 38.6\% 미매핑)}{\textbf{거절}(C-05·06·07·36) — 마스터는 온담이 만든다. 우리가 만들면 판정 근거의 소유 역전 · 상위 30개사 서식만 유상(C-08)}
+\row{15}{-39}{③ 시간·수량 단위}{로트 단위\\(초·중·종품 3점)}{연속 시계열(냉장 10분) / 배치(베이커리) / 건(입고)\\(1차 키가 다르다)}{건·계측기·오프라인 \textbf{제품화}(C-09·14·23) · 배치 앱 유상(C-40) · \textbf{시계열 거절}(C-20 IoT — 로거 대시보드가 있다)}
+\row{15}{-56}{④ 규격 근거}{도면 + 고객 사양 2중}{법정 + 고객 + 자체 \textbf{3중}, 법정 우선\\(오판정의 규제 리스크)}{자동 대조 \textbf{제품화}(C-10) · 법정 플래그 유상 + 판정 보조 한정 + \textbf{㊲ 배상 분리 연동}(C-03) · 법정 DB \textbf{거절}(C-11)}
+\row{15}{-73}{⑤ 부적합 흐름}{8D/NCR → 1차사 SQ 포털}{HACCP 개선조치 → 자체 보관(외부 제출 없음)\\(Flow 존재 이유 절반)}{자체 보관 워크플로우·관청 리포트·폐기 코드 \textbf{유상}(C-04·17·27) · P1 발주 연동 \textbf{거절}(C-43)}
+\node[boxgrey,anchor=north west,text width=160mm,align=left,font=\scriptsize] at (0,-90) {차원별 집계 [추가 설정] — ① 6건 24 mm · ② 6건 25 · ③ 8건 26 · ④ 3건 8 · ⑤ 4건 12 · 5차원 밖(인프라·보안·운영) 20건 43 = \textbf{47건 138 mm}. 즉시 탈락: 이 표 없이 47건 개별 판정 / ②를 우리가 / ④를 배상과 분리 안 함};
+\node[src,anchor=west] at (0,-101) {정본 §5.4(네 열) · 1차 판정 열은 day8\_enterprise.py FIVE\_DIMS [추가 설정].};
+\end{tikzpicture}
+\end{document}

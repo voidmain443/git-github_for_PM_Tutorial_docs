@@ -1,0 +1,27 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[node distance=4mm]
+% 7-7-7 삼중 구조 (좌)
+\node[font=\small\bfseries, text=navy, anchor=west] (h) at (0,0) {PRINCE2 7 (2023) — 7 principles / 7 practices / 7 processes};
+\node[boxfill, text width=44mm, anchor=north west, font=\footnotesize, align=left] (pr) at (0,-5mm) {\textbf{7 principles (원칙)}\\[2pt]
+ · continued business justification\\ · learn from experience\\ · defined roles, responsibilities\\ \ \ and relationships\\ · manage by stages\\ · \textbf{manage by exception}\\ · focus on products\\ · tailor to suit the project};
+\node[boxfill, text width=40mm, anchor=north west, font=\footnotesize, align=left, right=of pr.north east, anchor=north west] (pa) {\textbf{7 practices (실무, 舊 themes)}\\[2pt]
+ · business case\\ · organizing\\ · plans\\ · quality\\ · risk\\ · issues\\ · progress};
+\node[boxfill, text width=44mm, anchor=north west, font=\footnotesize, align=left, right=of pa.north east, anchor=north west] (pc) {\textbf{7 processes (프로세스)}\\[2pt]
+ · starting up a project\\ · \textbf{directing a project}\\ · initiating a project\\ · controlling a stage\\ · managing product delivery\\ · managing a stage boundary\\ · closing a project};
+\node[lbl, anchor=north west, text width=134mm, align=left] at (0,-50mm) {7판의 변경: 통합 요소 4→5(People 추가), 성과목표축 6→7(sustainability 추가), 관리 접근법 9개.};
+% Project Board (우)
+\node[font=\small\bfseries, text=teal, anchor=west] (h2) at (0,-60mm) {Project Board — 스폰서를 세 역할로 나눈다 (PMBOK의 단일 "sponsor"와의 결정적 차이)};
+\node[boxteal, text width=42mm, minimum height=24mm, anchor=north west] (ex) at (0,-65mm) {\textbf{Executive}\\{\footnotesize 비즈니스 케이스 책임 —\\"돈을 쓸 가치가 있는가"}\\[3pt]{\footnotesize 온담 P1: 정미란 CFO}};
+\node[boxteal, text width=42mm, minimum height=24mm, right=of ex] (su) {\textbf{Senior User}\\{\footnotesize 산출물이 실제로 쓰여 편익이\\나오는 것에 책임 · 요구사항 대표}\\[3pt]{\footnotesize 온담 P1: 오정근 영업본부장}};
+\node[boxteal, text width=42mm, minimum height=24mm, right=of su] (ss) {\textbf{Senior Supplier}\\{\footnotesize 산출물을 만드는 쪽의 자원과\\기술적 실현 가능성에 책임}\\[3pt]{\footnotesize 온담 P1: 박세연 IT본부장}};
+\begin{scope}[on background layer]
+\node[draw=teal, dashed, rounded corners=3pt, fit=(ex)(su)(ss), inner sep=3mm] (pb) {};
+\end{scope}
+\node[lbl, text=teal, anchor=north west, align=left, text width=58mm] at ($(pb.south west)+(0,-2mm)$) {이해가 상충하는 당사자를 하나의 의사결정체에\\강제로 넣는다 — G0 착수 조건 ``3역할 실명 지명''};
+\node[box, draw=grey, fill=lightgrey, text width=36mm, below=16mm of su] (pm) {\textbf{Project Manager}\\{\footnotesize 허용범위 안에서 결정,\\벗어나면 Exception Report로 권한 반납}};
+\draw[arrteal] (pb.south) -- node[lbl, right, font=\scriptsize, align=left, pos=0.5] {\ 허용범위(tolerance) 위임 ↓\\\ Exception Report(권한 반납) ↑} (pm.north);
+\node[src, anchor=north west] at (0,-130mm) {출처: PRINCE2 7 Managing Successful Projects (PeopleCert, 2023)의 구조를 교재 2.3절에 따라 재구성. 온담 배정은 사례 문서 §4.1.};
+\end{tikzpicture}
+\end{document}

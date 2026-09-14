@@ -1,0 +1,191 @@
+% 사례 한 장 — ㈜딥게이지 · GAUGE 책받침 (A4 가로 양면). 빌드: tectonic --chatter minimal 11_사례_한장_딥게이지.tex
+\documentclass[10pt]{article}
+\usepackage[a4paper,landscape,margin=11mm,top=9mm,bottom=8mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Apple SD Gothic Neo}
+\setsansfont{Apple SD Gothic Neo}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\usepackage{array,booktabs,tabularx,multicol,xcolor,colortbl}
+\usepackage{newunicodechar}
+\newfontfamily\circfont{Hiragino Sans W3}
+\newunicodechar{㉛}{{\circfont\mdseries ㉛}}\newunicodechar{㉜}{{\circfont\mdseries ㉜}}\newunicodechar{㉝}{{\circfont\mdseries ㉝}}\newunicodechar{㉞}{{\circfont\mdseries ㉞}}\newunicodechar{㉟}{{\circfont\mdseries ㉟}}
+\newunicodechar{㊱}{{\circfont\mdseries ㊱}}\newunicodechar{㊲}{{\circfont\mdseries ㊲}}\newunicodechar{㊳}{{\circfont\mdseries ㊳}}\newunicodechar{㊴}{{\circfont\mdseries ㊴}}\newunicodechar{㊵}{{\circfont\mdseries ㊵}}
+\definecolor{navy}{HTML}{1F3A5F}\definecolor{teal}{HTML}{2A7F62}\definecolor{rust}{HTML}{C8553D}
+\definecolor{grey}{HTML}{7A7A7A}\definecolor{lightgrey}{HTML}{EFEFEF}\definecolor{navylight}{HTML}{DCE6F2}\definecolor{rustlight}{HTML}{F6E0DA}\definecolor{teallight}{HTML}{DDF0E8}
+\setlength{\parindent}{0pt}\setlength{\parskip}{2pt}\pagestyle{empty}
+\renewcommand{\arraystretch}{1.12}
+\newcommand{\hd}[1]{{\color{navy}\bfseries\large #1}\par\vspace{1pt}{\color{navy}\rule{\linewidth}{0.6pt}}\par\vspace{3pt}}
+\newcommand{\sub}[1]{{\color{navy}\bfseries #1}\par\vspace{1pt}}
+\begin{document}\small
+% ───────────────────────────── 1면 ─────────────────────────────
+{\color{navy}\bfseries\LARGE 사례 한 장} \quad {\large ㈜딥게이지 · 검사기록 AI \textbf{GAUGE} — 프리시드에서 시리즈A까지 33개월} \hfill {\color{grey}\footnotesize 정본: 교재/공통/가상회사\_딥게이지.pdf · 숫자 ID는 그 문서 §7}
+
+\vspace{4pt}
+\begin{minipage}[t]{0.46\linewidth}
+\hd{회사}
+\textbf{2026-03-02}(D+0) 성수동 코워킹 4석 + 안산 상주 데스크 2석, 세 사람. 자본금 1억(액면 100원 × 1,000,000주), 현금 \textbf{1.6억}, 월 고정비 2,300만 → 런웨이 7개월. 제품 \textbf{GAUGE} — 검사원이 찍은 사진·음성에서 초·중·종품 검사기록과 부적합(NCR) 처리를 자동 생성하는 AI 버티컬 SaaS. 초기 시장 자동차 2·3차 협력사. 과금 \textbf{라인당 월 45만 원}, 좌석 무제한. 온담 본사에서 도보 11분 — 그러나 Day8까지 온담을 모른다.
+
+\vspace{3pt}\hd{창업팀 (= 여러분)}
+\begin{tabularx}{\linewidth}{@{}l l X r@{}}
+\toprule
+\textbf{강민수} & CEO 38 & 완성차 QA 9년 → 2차사 품질팀장 3년. 반려된 3년의 증명 & 45\%\\
+\textbf{오세진} & CTO 34 & 포털 비전팀 5년(VLM/OCR). 모델의 우아함 & 30\%\\
+\textbf{윤하경} & CPO 31 & 스마트팩토리 SI PM 4년. "요구사항 정리자"를 견디지 못함 & 15\%\\
+옵션풀 & 미발행 & \textbf{pre/post 미명시} — Day5의 첫 함정 & 10\%\\
+\bottomrule
+\end{tabularx}
+
+\vspace{3pt}\hd{시장과 문제의 크기}
+초기 SAM \textbf{2,150개사}(30\textasciitilde 300인 자동차 2·3차) / 확장 SAM \textbf{11,800}. 공장당 검사원 6.4명·라인 3.2개·검사항목 마스터 217개, 종이 비중 91\%, MES 38\%.\\
+검사기록 작성 \textbf{47분/일}(전기·중복 \textbf{31분}) · 부적합 → 1차사 통보 \textbf{3.7일} · 8D \textbf{11.5시간} · 클레임 1건 \textbf{2,700만}(선별 1,100 + 운송 400 + 페널티 1,200).
+
+\vspace{3pt}\hd{네 단계 — 핵심 숫자}
+\begin{tabularx}{\linewidth}{@{}l r r r r@{}}
+\toprule
+ & \textbf{D+90} & \textbf{D+300} & \textbf{D+600} & \textbf{D+900}\\
+\midrule
+인원 & 5 & 12 & 21 & 27 (→34)\\
+유료 고객 & 0 & 3 & \textbf{31} & \textbf{58}\\
+ARR 계약(IR) / 순SaaS & 0 & 6,060만 / 4,860만 & \textbf{4.9억 / 3.8억} & 11.9억 / 10.3억\\
+GM IR / 검산 & — & 41\% & \textbf{61\% / 49.8\%} & 54\% / 46.9\%\\
+AI 원가 ÷ 순SaaS MRR & — & 51.9\% & \textbf{42.3\%} & 44.0\%\\
+burn multiple & — & 4.26 & \textbf{2.07} & \textbf{1.20}\\
+현금 / 런웨이 & 1.6억 / 7 & 15.4억 / 22 & 6.82억 / \textbf{11} & 7.52억 / \textbf{8.9}\\
+GRR / NDR & — & — & 84 / 97\% & 87 / 104\%\\
+계약 라인 / 실사용 & — & 3.0 / 2.4 & \textbf{3.0 / 1.6} & 3.2 / 1.9\\
+자동판정 채택률 ㉮/㉯/㉰ & — & — & \textbf{22 / 14 / 38\%} & 26\%\\
+\bottomrule
+\end{tabularx}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.52\linewidth}
+\hd{33개월 타임라인 — 하루에 한 단계}
+\begin{tikzpicture}[x=0.0132cm,y=1cm,font=\scriptsize]
+% 축: D+0 .. D+1000
+\draw[very thick,navy] (0,0) -- (1010,0);
+\foreach \d in {0,100,...,1000}{\draw[navy] (\d,0.08)--(\d,-0.08); \node[below,gray] at (\d,-0.08) {D+\d};}
+% Day 밴드
+\fill[navylight] (0,2.35) rectangle (90,2.65);   \node[navy,font=\tiny] at (45,2.5) {Day5 프리시드};
+\fill[teallight] (120,2.35) rectangle (300,2.65); \node[teal,font=\tiny] at (210,2.5) {Day6 시드};
+\fill[navylight] (300,2.35) rectangle (600,2.65); \node[navy,font=\tiny] at (450,2.5) {Day7 PMF 추적};
+\fill[teallight] (600,2.35) rectangle (1000,2.65);\node[teal,font=\tiny] at (800,2.5) {Day8 시리즈A + 엔터프라이즈};
+% 위: 단계·자본
+\foreach \d/\l/\s in {0/설립 3명/26-03-02, 180/시드 RCPS 12억/pre 48억, 300/GA · 첫 유료 3/26-12-27, 600/데이터 일자/27-10-23, 900/텀시트 2안/28-08}{
+  \draw[navy,thick] (\d,0) -- (\d,0.85); \node[navy,above,align=center,font=\tiny] at (\d,0.85) {\textbf{\l}\\\s};}
+\draw[navy,thick] (660,0) -- (660,1.5); \node[navy,above,align=center,font=\tiny] at (660,1.5) {\textbf{SAFE 8억}\\cap 180억};
+\draw[navy,thick] (1000,0) -- (1000,1.5); \node[navy,above,align=center,font=\tiny] at (1000,1.5) {\textbf{에필로그 34명}\\28-11-26};
+% 아래: 사건 (붉은색)
+\draw[rust,thick] (230,0) -- (230,-0.8); \node[rust,below,align=center,font=\tiny] at (230,-0.8) {\textbf{조현우 퇴사}\\24→17 mm};
+\draw[rust,thick] (280,0) -- (280,-1.55); \node[rust,below,align=center,font=\tiny] at (280,-1.55) {\textbf{클라우드 청구서}\\210→780만};
+\draw[rust,thick] (330,0) -- (330,-0.8); \node[rust,below,align=center,font=\tiny] at (330,-0.8) {\textbf{서영채 메일}\\ARR 4.9 중 1.1};
+\draw[rust,thick] (520,0) -- (520,-0.8); \node[rust,below,align=center,font=\tiny] at (520,-0.8) {\textbf{세영정공 사고}\\FN · 2,700만 청구};
+\draw[rust,thick] (560,0) -- (560,-1.55); \node[rust,below,align=center,font=\tiny] at (560,-1.55) {\textbf{eval v2 · 분모 3종}\\FN 2.4 · FP 21.3};
+\draw[rust,thick] (640,0) -- (640,-0.8); \node[rust,below,align=center,font=\tiny] at (640,-0.8) {\textbf{온담 RFI}\\218문항};
+\draw[rust,thick] (820,0) -- (820,-0.8); \node[rust,below,align=center,font=\tiny] at (820,-0.8) {\textbf{47건 접수}\\138 mm};
+\end{tikzpicture}
+
+\vspace{2pt}\sub{시점 규칙}
+{\footnotesize Day5 = D+0\textasciitilde 90 (2026-03\textasciitilde 05) · Day6 = D+120\textasciitilde 300 · Day7 데이터 일자 \textbf{2027-10-23}(D+600) · Day8 = 2028-05(47건·텀시트) / \textbf{2028-11-26}(D+1000). 앞날의 문서에 뒷날의 숫자를 쓰지 않는다.}
+
+\vspace{3pt}\hd{eval — v1 → v2 (사고 후)}
+\begin{tabularx}{\linewidth}{@{}X r r@{}}
+\toprule
+ & \textbf{v1 (D+300)} & \textbf{v2 (D+540)}\\
+\midrule
+치수 OCR 정확도 / 외관 F1 & 91.4\% / 0.78 & 95.2\% / 0.84\\
+\textbf{FN} 불량→양품 & 8.1\% & \textbf{2.4\%}\\
+\textbf{FP} 양품→불량 & 14.6\% & \textbf{21.3\%} ← 채택률 22\%의 원인\\
+지연 / 사진 1건 단가 & 1.8초 / 32원 & 4.3초 / \textbf{67원} (×2.09)\\
+합격 기준 & FN≤8.0 \& OCR≥90 & FN≤3.0 \& OCR≥95 — \textbf{사고 후 개정}\\
+데이터셋 & 자동차 3세트 60건 & 동일 — \textbf{온담 4세트 미측정}\\
+\bottomrule
+\end{tabularx}
+
+\vspace{3pt}\hd{같은 숫자, 두 값 — 분모를 물어라}
+{\footnotesize ARR 4.9억(계약) vs \textbf{3.8억}(순SaaS) · GM 61\% vs \textbf{49.8\%} · CAC payback 2.3 vs \textbf{6.1개월} · LTV:CAC 5.8 vs \textbf{1.9}(:1) · 코호트 익명 A 93\% vs \textbf{70\%}(분모 활성 계정 → 신규 로고) · 채택률 22 / 14 / 38\% · 온담 ARR 18.9 vs \textbf{15.68억} · 집중 리스크 37\% / 24.1\% / 개발 용량 \textbf{82\%} · 옵션풀 15\% → \textbf{12.00\%}. 산수는 다 맞다 — 가정이 다르다.}
+\end{minipage}
+
+\newpage
+% ───────────────────────────── 2면 ─────────────────────────────
+{\color{navy}\bfseries\LARGE 사람, 온담 딜, 자본} \hfill {\color{grey}\footnotesize 상세: 딥게이지 정본 §5 온담 딜 · §6 등장인물 · §7.5 캡테이블}
+
+\vspace{4pt}
+\begin{minipage}[t]{0.5\linewidth}
+\hd{등장인물 — 소속을 앞에 붙인다}
+\begin{tabularx}{\linewidth}{@{}l l X@{}}
+\toprule
+\multicolumn{3}{@{}l}{\textbf{딥게이지}}\\
+조현우 & 개발자 29 & 시드 후 합류, D+230 퇴사 — "커스터마이징 요청만 하다 끝난다"\\
+강지우 & CS 리드 33 & D+400 합류. 채택률 분모 3종을 처음 계산. 비율만 낸다\\
+\midrule
+\multicolumn{3}{@{}l}{\textbf{고객·현장}}\\
+\textbf{박선재} & [세영정공] 검사원 52, 촉탁 & "다 해봤어요." 자동판정 OFF·재촬영. 조도 문제를 두 달 먼저 말함\\
+정미영 & [세영정공] 품질팀장 44 & 사고 후 "우리 검사원은 시스템이 통과시킨 걸 믿었다"\\
+\textbf{김도윤} & [H사] SQE 41 & 도면 클라우드 금지 · 340개 협력사를 한 화면에 — 블로커이자 채널. "공문으로 주세요"\\
+동보프레스 · 태산정밀 & 헤비 고객 · 첫 커스텀 & 월 사진 19,400건 / 검사항목 62개 요구, 계약 3·실사용 2\\
+대한기공 & 1차 협력사 3,200억 & BATNA — 연 2.4억 × 3년, 커스텀 0, 4주\\
+\midrule
+\multicolumn{3}{@{}l}{\textbf{투자자}}\\
+\textbf{서영채} & [노들] 심사역 33, 시드 리드 & 첫 단독 딜. "활성 사용자를 어떻게 정의하셨나요?" ARR 1.1억을 먼저 봄\\
+임재혁 & [한강벤처스] 파트너 & pre 320억, 옵션풀 15\% pre — "표준 문구예요"\\
+최나연 & [코너스톤] 파트너 & pre 290억, \textbf{온담 클로징 선행 조건}\\
+\midrule
+\multicolumn{3}{@{}l}{\textbf{온담 — 이번에는 반대편}}\\
+\textbf{나영선} & 품질안전본부장 & 스폰서. 47건 중 19건. "검사기록이 더 급하다"\\
+최영주 · 박세연 & CPO · IT본부장 & 218문항 발신 / 온프렘·릴리스 분기 1회·SBOM\\
+한동석 · 오정근 · 조성태 & 물류 · 영업 · 온담푸드시스템 대표 & 이천 12라인 / 브레드온담 61점 / 안성·베이커리 28라인\\
+강현도 · 정미란 & 구매팀장 · CFO & 서면 전용 — 단가·배상 / 결재 3주\\
+\bottomrule
+\end{tabularx}
+
+\vspace{4pt}\hd{캡테이블 — 강민수 지분과 옵션풀}
+\begin{tabularx}{\linewidth}{@{}l X r r r@{}}
+\toprule
+& 시점 & 주당가 & 강민수 & 옵션풀\\
+\midrule
+K-01 & 설립 & 100원 & 45.0\% & 10.0\%\\
+K-02 & 시드 RCPS 12억 / pre 48 & 4,800원 & 36.0\% & 8.0\%\\
+K-03 & SAFE 8억 / cap 180 & 14,400원 & 34.5\% & 7.7\%\\
+K-04 & \textbf{A 한강} 80억 / pre 320, 풀 15\% pre & 22,562원 & \textbf{25.38\%} & \textbf{12.00\%}\\
+K-05 & \textbf{B 코너스톤} 80억 / pre 290 & 22,213원 & \textbf{27.01\%} & \textbf{6.00\%}\\
+\bottomrule
+\end{tabularx}
+{\footnotesize 풀을 post에 두면 한강 18.71\% — pre 조항이 기존 주주에서 신규 투자자로 1.29\%p(25.4억) 이전. 코너스톤은 온담 거절 시 소멸.}
+\end{minipage}\hfill
+\begin{minipage}[t]{0.48\linewidth}
+\hd{온담 딜 — 21억이 두 회사에게 갖는 무게}
+\begin{center}\begin{tabular}{r c l}
+\textbf{21억 / 428억} & = & \textbf{4.906\%} \quad 온담: 허용범위 두 개 반\\
+\textbf{7억 / 18.9억} & = & \textbf{37.0\%} \quad 딥게이지(IR): 회사 존망\\
+\end{tabular}\end{center}
+{\footnotesize 세 번째 숫자 — ARR 검산 비중 \textbf{24.1\%}(과대 표기) / 커스터마이징 138 mm = 개발 14명 전원 9.9개월 = 용량의 \textbf{82.1\%}(과소 표기).}
+
+\vspace{3pt}\sub{계약 구조 (E-01\textasciitilde 05)}
+{\footnotesize 초기 구축·11년치 이관 3.00억(1년차) + 라이선스 11.34억(연 \textbf{3.78} = 라인 70 × 45만 × 12) + 온프렘 운영·GPU·SLA 6.66억(연 2.22) = \textbf{21.00억}, 청구 연 7.00 균등. 실질 ARR 증분은 3.78억뿐. 계약 주체 2법인(온담F\&B + 온담푸드시스템).}
+
+\vspace{3pt}\sub{라인 환산 70 — 이천 12 · 안성 16 · 베이커리공장 12 · \textbf{브레드온담 61점 = 30(2점 = 1라인)}}
+{\footnotesize 마지막 줄은 프라이싱 정책 밖의 임시 합의 — 라인 과금은 공장용이다.}
+
+\vspace{3pt}\sub{검사 대상 4종}
+{\footnotesize ① 이천센터 냉장구역 온도·이물·중량(로거 CSV + 종이) ② 브레드온담 61점 HACCP CCP(종이 기록지) ③ B2B 원료 입고 검수(거래처 260사 서식 제각각) ④ 안성 원료공장 납품 검사(고객사 5사 서식 제각각).}
+
+\vspace{3pt}\sub{코드체계 불일치 5차원 — 47건을 40분에 판정하는 표}
+\begin{tabularx}{\linewidth}{@{}l X X@{}}
+\toprule
+차원 & 자동차 3세트 & 온담 4세트\\
+\midrule
+① 판정 라벨 & OK/NG 2값 & 3축 다값 — 재설계\\
+② 검사항목 식별자 & DIM-\#\#\#\# 마스터 217 & \textbf{마스터 없음} — 매핑 불가\\
+③ 시간·수량 단위 & 로트 & 시계열 / 배치 / 건 혼합\\
+④ 규격 근거 & 도면 + 고객 사양 & \textbf{법정 기준} + 고객 + 자체, 법정 우선\\
+⑤ 부적합 흐름 & 8D → 1차사 포털 & HACCP 개선조치 → 자체 보관\\
+\bottomrule
+\end{tabularx}
+
+\vspace{3pt}\sub{온담이 요구하는 것}
+{\footnotesize 보안성 검토 \textbf{218문항}(5영업일, ISMS-P 미인증) · SLA 99.5\% · 배상 상한 \textbf{100\% vs 10\%} · 온프렘 GPU 2대 + 0.7 FTE · 릴리스 분기 1회 승인 후 · 이관 종이 11,200권 + 엑셀 4,100개, 코드 매핑 커버리지 \textbf{61.4\%}(구축 3억 → 실제 6.12억), 정본 판정자 미지정 · CFO 결재 3주.}
+
+\vspace{3pt}\hd{산출물 20종 (㉑\textasciitilde㊵) — ⑳으로 돌아가는 사슬}
+{\footnotesize \textbf{Day5} ㉑ 창업 헌장·합의서 ㉒ 인터뷰 스냅샷 ㉓ 기회-해법 트리 ㉔ 가정 맵·실험 카드 ㉕ 세그먼트·JTBD·전략 커널 \; \textbf{Day6} ㉖ MVP 범위 ㉗ Eval·오류 예산·HITL ㉘ 프라이싱·UE v1 ㉙ PR/FAQ·사전등록 ㉚ 시드 텀시트·캡테이블 v1 \; \textbf{Day7} ㉛ 코호트 판독 ㉜ North Star 트리 ㉝ UE v2 ㉞ 사고·Eval v2 ㉟ 로드맵·예산 3분리 \; \textbf{Day8} ㊱ 딜 데스크 47건 ㊲ 경계·SLA·배상 ㊳ IR·재무모델 ㊴ 텀시트 레드팀·캡테이블 v2 \textbf{㊵ 편익 원장 공동 확정본 = PM ⑳}}
+\end{minipage}
+\end{document}

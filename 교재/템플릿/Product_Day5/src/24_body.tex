@@ -1,0 +1,129 @@
+% 24_body.tex — 산출물 ㉔ 가정 맵 · 실험 카드 (빈 템플릿 / 완성 예시 공용 본문) — gen_product_templates.py 가 Product_specs.py 에서 생성
+% 드라이버: 24_가정맵실험카드_빈템플릿.tex (\wbblanktrue) / 24_가정맵실험카드_완성예시.tex (\wbblankfalse — 워크북 §X.5 확정 후)
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper,margin=16mm,top=14mm,bottom=20mm]{geometry}
+\def\DocNum{24}\def\DocDay{5}\def\DocIdx{4}
+\def\DocTitle{가정 맵 · 실험 카드}
+\def\DocSub{Assumption Map \& Experiment Cards}
+\def\DocVariant{\B{빈 템플릿}{딥게이지 완성 예시}}
+\usepackage{wbstyle}
+\def\DocCirc{㉔}   % newunicodechar(㉛~㊵ 폴백) 뒤에 정의해야 활성 문자로 읽힌다
+\begin{document}
+\docheader
+ {\Bg{[회사명 · 제품명]}{딥게이지 · GAUGE}}
+ {\Bg{[v0.x / D+n]}{v1.1 / 사전등록 D+38 · 결과 D+85}}
+ {\Bg{[작성자 — CPO]}{윤하경 CPO\rd{7mm}}}
+ {\Bg{[검토자 — CEO·CTO]}{강민수 · 오세진 (서명)\rd{7mm}}}
+
+%% ------------------------------------------------------------------ 1
+\landscapeon
+\secbar{1. 가정 목록}
+\guide{㉓ 항목 5에서 가져온다. 유형(가치/사용성/실현/사업성)과 지금 가진 증거(인터뷰 몇 건·데이터·없음)를 적는다.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{14mm}|Y|L{22mm}|L{50mm}|L{22mm}|L{24mm}|}\hline
+\hd{A-ID} & \hd{가정 문장} & \hd{유형} & \hd{현재 증거} & \hd{중요도(H/M/L)} & \hd{증거 부족(H/M/L)} \\ \hline
+\ifwbblank
+\rd{9mm} &  &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  &  \\ \hline
+\else
+A-01 & 검사원이 사진·음성 입력을 종이보다 빠르고 편하다고 느낀다 & V/U & 사진 촬영 이미 함 3건 · 태블릿 실패 2건 & H & H \\ \hline
+A-02 & 현장 조도·각도에서 치수 OCR 90\% 이상 & F & 실내 벤치 96\%(전 직장) · 현장 0건 & H & H \\ \hline
+A-03 & 팀장(공장장)이 8D 초안·통보 자동화에 월 100만대 예산을 낸다 & B & '제일 먼저 씁니다'(I-16) — 지불 의사 아님 & H & H \\ \hline
+A-04 & 1차사가 자동 생성 8D·근거 패키지를 접수한다 & B & 포털 규격 4종 확보 · 접수 확인 0 & H & M \\ \hline
+A-05 & 검사원이 판정 초안을 자기 판단의 대체로 두려워하지 않는다 & U/V & 반증 후보 — I-02 괴리, I-11 수기 메모 & H & H \\ \hline
+A-06 & 공장이 라인 단위 과금을 받아들인다 & B & 없음 & M & H \\ \hline
+A-07 & 클라우드 방식 도입 가능이 초기 SAM 과반 & B/F & I-22 '클라우드면' 1 / I-27 금지 1 & H & M \\ \hline
+A-08 & 마스터 217개를 2주 안에 매핑 & F & I-20 '실제 60개' & M & M \\ \hline
+A-09 & 와이파이·단말 환경 충분 & F & 12개사 관찰 — 폰 촬영 가능 10 & M & L \\ \hline
+A-10 & 결정자 = 품질팀장, 승인 = 공장장·대표 & B & 인터뷰 15건 일관 & H & L \\ \hline
+A-11 & 판정 초안이 승인 시간을 늘리지 않는다 & U & 없음 & M & H \\ \hline
+A-12 & 6개월 안에 유료 5개사(TIPS) & B & 파일럿 후보 4 & H & H \\ \hline
+\fi
+\end{tabularx}}
+\landscapeoff
+
+%% ------------------------------------------------------------------ 2
+\secbar{2. 2×2 배치 — 중요도 × 증거 부족}
+\guide{오른쪽 위(중요하고 증거 없음)가 먼저다. 각 칸에 A-ID를 적는다.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{34mm}|Y|Y|}\hline
+\hd{} & \hd{증거 부족 — 높음} & \hd{증거 부족 — 낮음} \\ \hline
+\ifwbblank
+\rd{26mm}중요도 — 높음 &  &  \\ \hline
+\rd{26mm}중요도 — 낮음 &  &  \\ \hline
+\else
+중요도 — 높음 & A-02 · A-05 · A-03 · A-12 (← 여기서 3개) & A-04 · A-07 · A-10 \\ \hline
+중요도 — 낮음 & A-06 · A-11 & A-08 · A-09 \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 3
+\secbar{3. 제거 우선순위 3}
+\guide{왜 이 순서인가 — 틀리면 가장 많이 잃는 것부터. 한 줄 근거.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{12mm}|L{14mm}|Y|Y|}\hline
+\hd{순위} & \hd{A-ID} & \hd{가정} & \hd{왜 이 순서인가} \\ \hline
+\ifwbblank
+\rd{11mm} &  &  &  \\ \hline
+\rd{11mm} &  &  &  \\ \hline
+\rd{11mm} &  &  &  \\ \hline
+\else
+1 & A-02 & OCR 90\% & 틀리면 제품의 절반이 없다. 가장 싸게(API 42만) 가장 빨리(2주) \\ \hline
+2 & A-05 & 검사원 수용 & 틀리면 데이터가 안 쌓인다. 인터뷰로는 검증 불가 — 현장 2주 \\ \hline
+3 & A-03 & 지불 의사 & 앞 둘의 결과를 들고 가야 답이 나온다 — LOI \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 4
+\secbar{4. 실험 카드 ① (별지로 ②·③ 반복)}
+\guide{가설(A-ID) · 실험 방법 · 대상·표본 · 측정 지표와 성공 기준(숫자) · 기간·비용 · 사전등록 문장('결과를 보기 전에 정한다') · 결과 칸(빈칸으로 둔다).}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{34mm}|Y|}\hline
+\hd{항목} & \hd{내용} \\ \hline
+\ifwbblank
+\rd{10mm}가설(A-ID) — ~라면 ~일 것이다 &  \\ \hline
+\rd{10mm}실험 방법(인터뷰·위저드오브오즈·랜딩·프로토타입·유료 파일럿) &  \\ \hline
+\rd{10mm}대상·표본(누구·몇 명·리크루팅) &  \\ \hline
+\rd{10mm}측정 지표(분자/분모)와 성공 기준(숫자) &  \\ \hline
+\rd{10mm}기간·비용·담당 &  \\ \hline
+\rd{10mm}사전등록 문장 — 결과를 보기 전에 정한 것 &  \\ \hline
+\rd{10mm}결과·판정(성공/실패/불확정) — 실험 후 기입 &  \\ \hline
+\rd{10mm}다음 행동 &  \\ \hline
+\else
+가설(A-ID) & A-01·A-05 — 사진·음성으로 입력하면 시간이 줄고, 판정 초안이 제시되어도 회피하지 않을 것이다 \\ \hline
+실험 방법 & 위저드오브오즈 — 검사원은 사진·음성만. 기록·판정 초안은 이수민·윤하경이 뒤에서 30분 내 회신 \\ \hline
+대상·표본 & 세영정공 1라인(검사원 3, 박선재 포함) + 태산정밀 1라인(2) · 2026-04-11~24 · 1,120건 \\ \hline
+측정 지표·성공 기준 & 기록 시간 · 재촬영 비율 · 별도 종이 메모 · 승인율(부재/배석) — 성공: 25분/일 이하 그리고 회피 행동 10\% 미만 \\ \hline
+기간·비용·담당 & 2주 · 인건비 2인 + 태블릿 대여 60만 · 이수민·윤하경 \\ \hline
+사전등록 문장 & '두 기준을 모두 충족해야 성공. 시간만 충족하면 불확정. 결과를 본 뒤 기준을 바꾸지 않는다.' — 2026-04-09 서명 3인 \\ \hline
+결과·판정 & 47 → 19분(전기 31 → 4) ✓ / 재촬영 18\% ✗ · 별도 메모 5명 중 2명 ✗ / 승인율 부재 71\% vs 배석 96\% → 불확정 \\ \hline
+다음 행동 & A-05를 A-05a(시간 — 제거) / A-05b(수용 — 미제거)로 쪼갠다 · 판정 초안 4순위 · Day6 ㉗ 자동판정 기본 OFF · 책임 한계 문구 \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 5
+\secbar{5. 실험 결과 판정 규칙}
+\guide{성공·실패·불확정 각각의 다음 행동을 실험 전에 적는다. 불확정을 성공으로 읽는 것이 가장 흔한 오류다.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{22mm}|Y|Y|}\hline
+\hd{판정} & \hd{기준} & \hd{다음 행동} \\ \hline
+\ifwbblank
+\rd{11mm}성공 &  &  \\ \hline
+\rd{11mm}실패 &  &  \\ \hline
+\rd{11mm}불확정 &  &  \\ \hline
+\else
+성공 & 사전등록 기준 전부 충족 & 가정 제거 표시, 해법 우선순위 유지·상향 \\ \hline
+실패 & 주 기준 미충족 & 반증으로 표시. 조건을 바꾼 재실험 또는 해법 강등 — 포기는 세 번째 \\ \hline
+불확정 & 기준 일부만 충족 / 표본·조건이 사전등록과 다름 & 성공으로 읽지 않는다. 가정을 쪼개서(A-05 → a/b) 충족된 부분만 제거 \\ \hline
+\fi
+\end{tabularx}}
+
+\end{document}

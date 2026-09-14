@@ -1,0 +1,30 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (90,72) {예외에 의한 관리 — 허용범위는 내려오고 예외 보고는 올라간다};
+% 계층 4
+\node[boxgrey, text width=40mm, font=\scriptsize, align=center] (b) at (20,58) {\textbf{프로그램 이사회}\\승인 예산 168.0 · 재기준선 의결\\R-01 분리 의결(G1)};
+\node[boxfill, text width=40mm, font=\scriptsize, align=center] (s) at (20,40) {\textbf{스폰서 정미란 · 프로그램 PMO장}\\집행 한도 156.0 · 관리예비비 12.0\\합류 버퍼 15 · CCB 위원장};
+\node[boxfill, text width=40mm, font=\scriptsize, align=center] (pm) at (20,22) {\textbf{P1 PM}\\컨틴전시 10.2 · 변경 전결\\성과보고 · 예외 보고 작성};
+\node[boxteal, text width=40mm, font=\scriptsize, align=center] (v) at (20,4) {\textbf{수행사 PM 이재현}\\스프린트 · 결함 · 인수 FP\\1단계 에스컬레이션(3영업일)};
+% 내려오는 허용범위 (왼쪽 세로 화살표 + 계층 사이 짧은 문장)
+\draw[arr, very thick] (-6,64) -- (-6,-2) node[midway, left, font=\tiny, text=navy, align=right] {허용범위\\(위임)\\7축$\times$3계층};
+\node[font=\tiny, text=navy, align=center, fill=white, inner sep=1pt] at (20,49.5) {→ P1 프로젝트: 원가 +10.2(컨틴전시 전액, +7.0\%) · 컷오버 창 0 / G4 +15\\FP $\pm$372(3\%) · 품질 0.4건/FP + 심각도 1·2 미해결 0 · 잔여 EMV 8억 / 단일 2억};
+\node[font=\tiny, text=navy, align=center, fill=white, inner sep=1pt] at (20,31.5) {→ P1 PM: 컨틴전시 10.2 전결(월 CCB 보고) · 허용범위 내 변경 전결\\예외 보고 결정 시한 10영업일};
+\node[font=\tiny, text=navy, align=center, fill=white, inner sep=1pt] at (20,13.5) {→ 수행사: 품질 0.13건/FP(작업패키지) · 순변동 $\pm$35건/동결\\1단계 에스컬레이션 3영업일 · 발주사 결정 SLA 5영업일};
+% 올라가는 보고서 (오른쪽)
+\node[box, text width=44mm, font=\tiny, align=left, anchor=west] (cp) at (48,4) {\textbf{Checkpoint Report — 주간}\\수행사 PM → P1 PM · 주간 PM 회의(월)\\인수 FP · 결함 · 결정 대기 · 다음 주\\온담: 09-28 "밀도 0.132 $>$ 0.13" 보고};
+\node[box, text width=44mm, font=\tiny, align=left, anchor=west] (hl) at (48,22) {\textbf{Highlight Report — 월}\\P1 PM → 스폰서·운영위 · 성과보고 제9호(10-05)\\RAG 7축 · 핵심 수치 · 결정 요청 3건\\일정 R / 원가 A / 범위 G / 품질 A / 리스크 A / 편익 G / 지속가능성 A};
+\node[boxrust, text width=44mm, font=\tiny, align=left, anchor=west] (ex) at (48,40) {\textbf{Exception Report — 비주기}\\P1 PM → 스폰서·프로그램 PMO장 · \textbf{EX-01 2026-10-02}\\"허용범위를 벗어날 것이 예상되는 시점"에 낸다\\인지 09-28 + 4영업일 · 결정 시한 10-16 (10영업일)};
+\draw[arrteal] (v.east) -- (cp.west);
+\draw[arr] (pm.east) -- (hl.west);
+\draw[arrrust, very thick] ($(pm.east)+(0,3)$) -- ++(3,0) |- (ex.west);
+
+\node[font=\tiny, text=rust, anchor=south west, align=left] at (48,49) {예외 보고의 수신: 스폰서 · 프로그램 PMO장(합류 버퍼 배정) — 이사회는 재기준선일 때만};
+% 예외 보고 구조
+\node[boxrust, text width=52mm, font=\tiny, align=left, anchor=west] (st) at (100,40) {\textbf{예외 보고의 구조 (PRINCE2 7 Exception Report)}\\① 원인 — A10 착수 $-$10(S18 3주 · 이월 420), 임계경로 TF 0\\② 영향 6축 — 일정 MG3 03-05 · 창 이탈 / 원가 +0.60\textasciitilde 1.6 / 범위 0 / 품질 R-19 / 리스크 R-14 P↑ / 편익 B-05 M+27\\③ 대안 3 — 압축·재배치 / 2차 창 수용(+1.6 관리예비비) / R3 범위 이연(260 FP)\\④ 권고 — 대안 1 + 대안 3 조건부(11-13 속도 620 미만 시 발동)\\⑤ 결정 시한 — 10-16 · 결정자 정미란 · 프로그램 PMO장 · 오정근};
+\node[box, text width=52mm, font=\tiny, align=left, anchor=west] (why) at (100,14) {\textbf{위임의 반대급부.} 허용범위는 "이 안에서는 묻지 않겠다"는 위임이고, 예외 보고는 "벗어날 것 같으면 결정 시한 안에 올리겠다"는 반대급부다. 하나만 있으면 — 허용범위만 있으면 방임, 예외 보고만 있으면 마이크로매니지먼트. 셋을 합치면(월례에 예외를 끼우면) 예외가 월례에 묻힌다 — EX-01이 성과보고 제9호(10-05)와 별도 문서인 이유.};
+\node[src, anchor=north west] at (-8,-8) {출처: Day1 거버넌스 §4 허용범위 격자(Day2 §5.5 확정본), Day3 워크북 ⑫ 항목 8·10(EX-01·Highlight 제9호), ⑭ 항목 8(1단계 에스컬레이션). PRINCE2 7 Progress practice의 세 보고서.};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,19 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[node distance=6mm]
+\node[boxfill, text width=44mm, minimum height=22mm] (a) at (0,0) {\textbf{프로젝트 관리 성공}\\project management success\\[3pt]{\footnotesize 시간·비용·범위를 지켰는가}\\[2pt]{\footnotesize 책임: PM}};
+\node[boxteal, text width=44mm, minimum height=22mm, right=of a] (b) {\textbf{프로젝트 성공}\\project success\\[3pt]{\footnotesize 목표한 편익을 실현했는가}\\[2pt]{\footnotesize 책임: 편익 오너 (Senior User)}};
+\node[box, draw=grey, fill=lightgrey, text width=44mm, minimum height=22mm, right=of b] (c) {\textbf{지속적 성공}\\consistent success\\[3pt]{\footnotesize 조직이 그것을 반복할 수 있는가}\\[2pt]{\footnotesize 책임: 조직 (PMO·교훈·base rate)}};
+\node[lbl, above=2mm of a] {질문 1}; \node[lbl, above=2mm of b] {질문 2}; \node[lbl, above=2mm of c] {질문 3};
+\node[font=\small\bfseries, text=rust, above=8mm of b] {세 질문의 답은 서로 \underline{독립}이다};
+% 2x2 예시
+\node[below=8mm of a.south west, anchor=north west, font=\small\bfseries, text=navy] (m) {질문 1 $\times$ 질문 2의 조합};
+\matrix[below=2mm of m.south west, anchor=north west, matrix of nodes, nodes={box, text width=48mm, minimum height=13mm, font=\footnotesize}, column sep=3mm, row sep=3mm] (mx) {
+ |[fill=lightgrey]| {\textbf{온타임·온버짓} + \textbf{편익 실현}\\모두가 바라는 조합} & |[boxrust]| {\textbf{온타임·온버짓} + \textbf{편익 없음}\\아무도 쓰지 않는 시스템\\온담 2019 스마트오더(34억, 예산 내 중단)} \\
+ |[boxteal]| {\textbf{6개월 지연·20\% 초과} + \textbf{편익 실현}\\"회사를 살린 시스템"} & |[fill=lightgrey]| {\textbf{지연·초과} + \textbf{편익 없음}\\두 정의 모두 실패} \\
+};
+\node[lbl, right=3mm of mx.east, text width=40mm, align=left] {이 구분이 없으면\\PRINCE2 비즈니스 케이스,\\PMBOK 8판 가치(value),\\제3장 편익 관리가\\전부 뒤섞인다};
+\node[src, below=3mm of mx.south west, anchor=north west] {출처: Cooke-Davies (2002), The 'real' success factors on projects, IJPM 20(3)을 바탕으로 재구성.};
+\end{tikzpicture}
+\end{document}

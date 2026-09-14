@@ -1,0 +1,17 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink}]
+\node[title] at (3.2,5.0) {상호 공격 기록 — 후보 셋, 공격 여덟, 생존 둘};
+\foreach \y/\c/\a/\d/\r in {3.9/NS-1 주간 승인 검사기록/① 빈 기록 승인 ② 자동판정 확정 건 포함 ③ 항목 잘게 쪼개기/분자 = 사진 1장+ · 수정 없이 승인 + 수정 승인 · 자동 확정 제외 · 기록 단위 = 기준서 단위 · 가드레일 사진 수 하한/생존,
+  2.3/NS-2 활성 라인 수/① 1라인을 2라인으로 등록(과금과 연결) ② 100건 기준을 90으로/라인 = 검사기준서 단위(B-05) · 기준 100건은 계약 명시 · 보조: 라인당 기록 분포/생존 — 입력 지표로,
+  0.7/NS-3 자동판정 채택 건수/① 신뢰도 임계값 하향 → 채택 ↑ FP ↑ ② 분모를 ㉰로(38\%) ③ 자동판정 ON 강제/방어 불가 — 지표를 올리는 가장 쉬운 방법이 제품을 나쁘게 만든다 · 커널과 반대 방향/탈락 → 가드레일}{
+  \node[boxfill,text width=24mm,anchor=west,align=left] (c) at (-4.4,\y) {\textbf{\c}};
+  \node[boxrust,text width=40mm,anchor=west,align=left] (at) at (-1.5,\y) {\a};
+  \node[boxteal,text width=44mm,anchor=west,align=left] (df) at (3.1,\y) {\d};
+  \node[anchor=west,font=\scriptsize\bfseries] at (7.9,\y) {\r};
+  \draw[arrrust] (c.east) -- (at.west); \draw[arrteal] (at.east) -- (df.west);}
+\node[lbl,anchor=west] at (-1.5,4.6) {공격 — 실제 가치 없이 올리는 법}; \node[lbl,anchor=west] at (3.1,4.6) {방어 — 정의 수정 · 가드레일};
+\node[src,anchor=west] at (-4.4,-0.4) {워크북 ㉜ 항목 2 [추가 설정]. Goodhart — 지표가 목표가 되면 지표이기를 멈춘다. 정의가 네 줄이 된 것이 생존의 대가.};
+\end{tikzpicture}
+\end{document}

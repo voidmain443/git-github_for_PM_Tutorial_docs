@@ -1,0 +1,29 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (0,82) {통제 사이클 다섯 단계와 온담 2026-09-30의 실제 값};
+% 동심원 (주기)
+\foreach \r in {54,60,66,72}{
+  \draw[grey, thin, dashed] (0,0) circle (\r);
+}
+\node[lbl, font=\tiny, anchor=south, fill=white, inner sep=1.5pt] at (0,72.5) {게이트 — G1 04-30 · G2 11-27 · G3 02-19 · G4 05-28 (재기준선·go/no-go·헌장)};
+\node[lbl, font=\tiny, anchor=south, fill=white, inner sep=1.5pt] at (0,66.5) {월 — 성과보고(제9호 10-05) · 정기 CCB(셋째 목, 10-15) · 등록부 갱신};
+\node[lbl, font=\tiny, anchor=south, fill=white, inner sep=1.5pt] at (0,60.5) {2주 — 스프린트 리뷰(인수 FP) · 격주 변경협의체(수, 09-30 · 10-14)};
+\node[lbl, font=\tiny, anchor=south, fill=white, inner sep=1.5pt] at (0,54.5) {주 — 주간 PM 회의(월) · Checkpoint · 결함 나이};
+% 원환 5단계 (반지름 22)
+\def\R{35}
+\node[boxfill, text width=30mm, font=\tiny, align=center] (m) at (90:\R) {\textbf{① 측정}\\인수 FP 7,020 (56.6\%) · AC 71.13\\A10 착수 09-28 (작업일 190)\\결함 1,140/1,024 · 감리 지적 8};
+\node[boxfill, text width=30mm, font=\tiny, align=center] (a) at (18:\R) {\textbf{② 분석}\\SV $-$4.40 = 시차 $-$1.96 + 실질 $-$2.44\\CV +2.30 = 착시 4.70 + 실질 $-$2.40\\SI 열 SV $-$5.31 · 밀도 0.132 $>$ 0.13};
+\node[boxfill, text width=30mm, font=\tiny, align=center] (f) at (-54:\R) {\textbf{③ 예측}\\EAC4 150.86 (한도 여유 5.14)\\IEAC(t) 18.48개월 (+31영업일)\\as-is MG3 03-05 → 창 이탈};
+\node[boxrust, text width=34mm, font=\tiny, align=center] (c) at (-126:\R) {\textbf{④ 조치 — 세 층}\\PM 전결: 결함 전담 2명 · CR-07\\예외 보고 EX-01 (10-02, 결정 10-16)\\변경요청 CR-08\textasciitilde 11 → CCB 10-15};
+\node[boxteal, text width=30mm, font=\tiny, align=center] (u) at (162:\R) {\textbf{⑤ 기준선 갱신}\\BL-02 10-23: 승인 변경 +1.02·+185 FP만\\재기준선 아님 — A10 $-$10은 편차로 남음\\Day2 문서 12건 갱신};
+\foreach \p/\q in {m/a, a/f, f/c, c/u, u/m} \draw[arr, very thick] (\p) to[bend left=12] (\q);
+\node[font=\scriptsize\bfseries, text=navy, align=center] at (0,3) {기준선 BL-01\\(PV · CPM · 격자)\\vs 실적};
+\node[font=\tiny, text=grey, align=center] at (0,-5) {편차 = 실적 $-$ 기준선\\기준선이 있어야 편차가 있다};
+% 조치 층을 가르는 것
+\node[lbl, font=\tiny, text=rust, align=left, anchor=north west] at (-72,-62) {조치의 세 층을 가르는 것 =\\Day1 허용범위 격자(7축$\times$3계층)\\내: PM 전결 · 초과 예상: 예외 보고 · 문언 변경: CCB};
+\node[lbl, font=\tiny, text=teal, align=right, anchor=north east] at (72,-62) {갱신은 승인된 변경으로만 일어난다\\지연·초과는 편차로 남긴다\\(교재 1.5절 "계획을 고쳐 편차 없애기")};
+\node[src, anchor=north west] at (-74,-78) {출처: Day3 워크북 ⑫ 항목 3\textasciitilde 8·10, ⑪ 항목 8\textasciitilde 9, ⑭ 항목 4·8의 값. 주기는 Day1 거버넌스 §4·Day2 §3.5 달력.};
+\end{tikzpicture}
+\end{document}

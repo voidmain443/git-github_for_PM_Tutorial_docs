@@ -1,0 +1,36 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[node distance=5mm]
+% 세 표준 행
+\node[font=\small\bfseries, text=navy, anchor=east] at (-2mm,0) {PMBOK 8판};
+\node[font=\small\bfseries, text=teal, anchor=east] at (-2mm,-22mm) {PRINCE2 7};
+\node[font=\small\bfseries, text=grey, anchor=east] at (-2mm,-44mm) {ISO 21502};
+% 단계 헤더
+\foreach \x/\t in {0/{착수 이전 (pre-project)\\포트폴리오·프로그램 계층},48mm/{착수 (initiating)},96mm/{계획 (planning)}}{
+  \node[lbl, font=\small\bfseries, anchor=south west] at (\x,10mm) {\t};
+}
+\draw[grey!50] (44mm,12mm) -- (44mm,-54mm); \draw[grey!50] (92mm,12mm) -- (92mm,-54mm);
+% PMBOK
+\node[boxgrey, text width=38mm, font=\footnotesize, anchor=west] (bc) at (0,0) {비즈니스 케이스 +\\편익 관리 계획\\{\scriptsize (프로젝트 바깥에서 온다)}};
+\node[boxfill, text width=38mm, font=\footnotesize, anchor=west] (ch) at (48mm,0) {\textbf{프로젝트 헌장}\\Develop Project Charter\\{\scriptsize 스폰서 발행 · PM 작성 지원}\\+ 이해관계자 식별};
+\node[boxfill, text width=38mm, font=\footnotesize, anchor=west] (pmp) at (96mm,0) {프로젝트 관리 계획서\\{\scriptsize (Planning Focus Area)}};
+\draw[arr] (bc) -- (ch); \draw[arr] (ch) -- (pmp);
+% PRINCE2
+\node[boxgrey, text width=38mm, font=\footnotesize, anchor=west] (mand) at (0,-22mm) {Project Mandate\\{\scriptsize → Starting Up a Project}};
+\node[boxteal, text width=38mm, font=\footnotesize, anchor=west] (brief) at (48mm,-22mm) {\textbf{Project Brief}\\{\scriptsize 간략한 정당성·범위·역할}\\{\scriptsize (Starting Up a Project)}};
+\node[boxteal, text width=38mm, font=\footnotesize, anchor=west] (pid) at (96mm,-22mm) {\textbf{PID}\\Project Initiation Documentation\\{\scriptsize 계획·통제·역할·비즈니스 케이스}\\{\scriptsize (Initiating a Project)}};
+\draw[arrteal] (mand) -- (brief); \draw[arrteal] (brief) -- (pid);
+% ISO
+\node[boxgrey, text width=38mm, font=\footnotesize, anchor=west] (pre) at (0,-44mm) {§6.2 pre-project activities\\{\scriptsize 사업 정당성 · 거버넌스 프레임워크(§5)}};
+\node[box, draw=grey, fill=lightgrey, text width=38mm, font=\footnotesize, anchor=west] (isoch) at (48mm,-44mm) {§6.4 initiating a project\\"project charter or equivalent"\\{\scriptsize 목표·범위·거버넌스·역할·제약}};
+\node[box, draw=grey, fill=lightgrey, text width=38mm, font=\footnotesize, anchor=west] (isopl) at (96mm,-44mm) {§7.2 planning 등 관리 실무};
+\draw[arrgrey] (pre) -- (isoch); \draw[arrgrey] (isoch) -- (isopl);
+% 대응 관계
+\draw[rust, dashed, thick, {Stealth}-{Stealth}] (ch.south) -- node[lbl, font=\scriptsize, text=rust, right] {$\approx$ 헌장 ≈ Project Brief} (brief.north);
+\draw[rust, dashed, thick, {Stealth}-{Stealth}] (pmp.south) -- node[lbl, font=\scriptsize, text=rust, right] {$\approx$ 관리 계획서 ≈ PID} (pid.north);
+% 하단 메시지
+\node[box, draw=navy, fill=navylight, text width=134mm, font=\footnotesize, anchor=north west, align=left] at (0,-58mm) {\textbf{헌장은 계획서가 아니라 권한 문서다.} 답하는 질문은 "무엇을 어떻게"가 아니라 "왜 이것을 하고, 누가 결정하며, PM은 무엇을 할 수 있는가". 착수의 첫 번째 일은 새로 쓰는 것이 아니라 왼쪽 열(이미 만들어진 비즈니스 케이스 — 온담: 이사회 부의안 2025-12, 편익 표 214억, 승인 조건 5개항)을 읽고 숫자와 가정을 검증하는 것이다.};
+\node[src, anchor=north west] at (0,-76mm) {출처: PMBOK Guide 8판(PMI, 2025), PRINCE2 7(PeopleCert, 2023), ISO 21502:2020의 착수 문서 체계를 교재 3.1\textasciitilde 3.2절에 따라 재구성.};
+\end{tikzpicture}
+\end{document}

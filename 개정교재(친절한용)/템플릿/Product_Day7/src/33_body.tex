@@ -1,0 +1,178 @@
+% 33_body.tex — 산출물 ㉝ 유닛이코노믹스 v2 · 재무 건전성 (빈 템플릿 / 완성 예시 공용 본문) — gen_product_templates.py 가 Product_specs.py 에서 생성
+% 드라이버: 33_UE_v2재무건전성_빈템플릿.tex (\wbblanktrue) / 33_UE_v2재무건전성_완성예시.tex (\wbblankfalse — 워크북 §X.5 확정 후)
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper,margin=16mm,top=14mm,bottom=20mm]{geometry}
+\def\DocNum{33}\def\DocDay{7}\def\DocIdx{3}
+\def\DocTitle{유닛이코노믹스 v2 · 재무 건전성}
+\def\DocSub{Unit Economics v2 — Two Answers from the Same Data}
+\def\DocVariant{\B{빈 템플릿}{딥게이지 완성 예시}}
+\usepackage{wbstyle}
+\def\DocCirc{㉝}   % newunicodechar(㉛~㊵ 폴백) 뒤에 정의해야 활성 문자로 읽힌다
+\begin{document}
+\docheader
+ {\Bg{[회사명 · 제품명]}{딥게이지 · GAUGE}}
+ {\Bg{[v2.x / D+600]}{v2.0 / D+600}}
+ {\Bg{[작성자 — CEO·CPO]}{강민수 · 윤하경\rd{7mm}}}
+ {\Bg{[검토자 — 투자자]}{[노들] 서영채(D+598 메일 답)\rd{7mm}}}
+
+%% ------------------------------------------------------------------ 1
+\secbar{1. 분모 선언}
+\guide{계약 MRR(4,083만) vs 순SaaS MRR(3,167만). 이 문서의 모든 비율은 어느 분모로 계산했는가를 표 첫 열에 쓴다.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{40mm}|Y|Y|L{30mm}|}\hline
+\hd{지표} & \hd{계약 기준 분모} & \hd{순SaaS 기준 분모} & \hd{이 문서의 선택} \\ \hline
+\ifwbblank
+\rd{9mm}MRR &  &  &  \\ \hline
+\rd{9mm}ARR &  &  &  \\ \hline
+\rd{9mm}ACV &  &  &  \\ \hline
+\rd{9mm}GM·AI 원가율의 분모 &  &  &  \\ \hline
+\else
+MRR & 4,083만(구축비·컨설팅 월할 917 포함) & 3,167만 & 순 SaaS — 원가율·GM·payback·LTV의 분모 \\ \hline
+ARR & 4.9억(G-03, IR 표기) & 3.8억(G-05) & 순 SaaS. 계약 기준은 각주 병기 \\ \hline
+ACV & 1,581만 & 1,226만 = 3.0라인 × 실효 34.1만 × 12(명목 45만의 76\%) & 순 SaaS \\ \hline
+GM·AI 원가율의 분모 & 4,083 → GM 61\%, AI 32.8\% & 3,167 → 49.8\% / 42.3\% & 순 SaaS. 둘 다 산수로 맞다 \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 2
+\secbar{2. 매출총이익률 — 두 계산}
+\guide{IR 표기 61\% vs 검산 49.8\%. COGS에 무엇이 들어가는가(AI 추론·STT·저장·온보딩 인건비·구축 원가).}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{40mm}|Y|Y|}\hline
+\hd{항목} & \hd{IR 표기(계약 분모)} & \hd{검산(순SaaS 분모)} \\ \hline
+\ifwbblank
+\rd{10mm}매출(분모) &  &  \\ \hline
+\rd{10mm}COGS 항목 열거 &  &  \\ \hline
+\rd{10mm}GM &  &  \\ \hline
+\rd{10mm}AI 원가 ÷ MRR &  &  \\ \hline
+\else
+매출(분모) & 4,083만 & 3,167만 \\ \hline
+COGS 항목 열거 & AI 추론 1,340(2-pass, 67원) + 호스팅·STT·저장 170 + 온보딩 인건비 일부 80 = 1,590 & 동일 1,590 \\ \hline
+GM & (4,083 − 1,590) ÷ 4,083 = 61\% & (3,167 − 1,590) ÷ 3,167 = 49.8\% \\ \hline
+AI 원가 ÷ MRR & 32.8\% & 42.3\% — v1 단가였다면 약 640만 = 20\% \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 3
+\landscapeon
+\secbar{3. 채널별 CAC와 payback}
+\guide{CAC(인바운드 310만 / 아웃바운드 1,470만 / 추천 90만 / blended 620만). payback을 매출 기준·GM 61\%·GM 49.8\% 세 가지로.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{30mm}|L{22mm}|L{26mm}|L{26mm}|L{26mm}|Y|}\hline
+\hd{채널} & \hd{CAC} & \hd{IR 기재 payback} & \hd{GM 61\% 기준} & \hd{GM 49.8\% 기준} & \hd{오가닉 제외 시} \\ \hline
+\ifwbblank
+\rd{9mm}인바운드 &  &  &  &  &  \\ \hline
+\rd{9mm}아웃바운드 &  &  &  &  &  \\ \hline
+\rd{9mm}1차사 추천 &  &  &  &  &  \\ \hline
+\rd{9mm}blended &  &  &  &  &  \\ \hline
+\else
+인바운드 & 310만 & 2.3 & 4.98 & 6.10 & — \\ \hline
+아웃바운드 & 1,470만 & 10.9 & 23.6 & 28.9 → D+590 중단 & — \\ \hline
+1차사 추천 & 90만 & 0.7 & 1.44 & 1.77 & — \\ \hline
+blended & 620만 & 4.6 & 9.95 & 12.2 & 오가닉 41\% 제외 → 유료 획득 CAC 1,051만 → payback 20.7 \\ \hline
+\fi
+\end{tabularx}}
+\landscapeoff
+
+%% ------------------------------------------------------------------ 4
+\secbar{4. LTV:CAC — 두 계산}
+\guide{같은 데이터로 5.8:1과 1.9:1. 가정을 열거한다 — ACV(계약/순SaaS) · GM · 이탈률(로고/매출) · CAC(blended/유료 획득). 이 표가 산출물의 본체다.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{40mm}|Y|Y|Y|}\hline
+\hd{가정} & \hd{5.8:1 계산} & \hd{1.9:1 계산} & \hd{유료 획득 CAC 1,051만 기준} \\ \hline
+\ifwbblank
+\rd{9mm}ACV &  &  &  \\ \hline
+\rd{9mm}GM &  &  &  \\ \hline
+\rd{9mm}월 이탈률·수명 &  &  &  \\ \hline
+\rd{9mm}CAC &  &  &  \\ \hline
+\rd{9mm}LTV &  &  &  \\ \hline
+\rd{9mm}LTV:CAC &  &  &  \\ \hline
+\else
+ACV & 계약 1,581만 & 순 SaaS 1,226만 & 1,226만 \\ \hline
+GM & 61\%(계약 분모) & 49.8\%(순 SaaS 분모) & 49.8\% \\ \hline
+월 이탈률·수명 & 이탈 미반영 — 관행 수명 45개월(3.75년) & 월 로고 이탈 4.3\%(최근 6개월 가중, ㉛) → 1.93년 & 1.93년 \\ \hline
+CAC & blended 620만(오가닉 포함) & blended 620만 & 1,051만(620 ÷ 0.59) \\ \hline
+LTV & 1,581 × 0.61 × 3.75 = 3,617만 & 1,226 × 0.498 × 1.93 = 1,178만 & 1,178만 \\ \hline
+LTV:CAC & 5.8 & 1.9 & 1.12 \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 5
+\secbar{5. burn multiple · efficiency · 런웨이}
+\guide{순소진 6,200만 / 분기 Net New ARR(순SaaS) 9,000만 → burn multiple 2.07. 현금 6.82억 / 런웨이 11개월. 다음 라운드까지 필요한 개선.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{40mm}|L{30mm}|Y|Y|}\hline
+\hd{지표} & \hd{값} & \hd{계산} & \hd{판단} \\ \hline
+\ifwbblank
+\rd{9mm}burn multiple &  &  &  \\ \hline
+\rd{9mm}efficiency score &  &  &  \\ \hline
+\rd{9mm}런웨이(개월) &  &  &  \\ \hline
+\rd{9mm}다음 12개월 필요 현금 &  &  &  \\ \hline
+\else
+burn multiple & 2.07 & 순소진 6,200 × 3 ÷ 분기 순증 ARR(순 SaaS) 9,000 & 분모를 계약 기준으로 잡으면 낮아진다 — 분모를 적는다. D+300 4.26에서 개선 \\ \hline
+efficiency score & 0.48 & 9,000 ÷ 18,600 & — \\ \hline
+런웨이(개월) & 11 & 6.82억 ÷ 6,200(아웃바운드 중단 후) & 시리즈A 클로징(D+900) 10개월 + 실사 3 → 부족. 브릿지 필요 \\ \hline
+다음 12개월 필요 현금 & 약 7.4억 & 6,200 × 12 & 브릿지 없이 D+930에 0 \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 6
+\secbar{6. 계약 vs 실사용 · 활성률 · 채택률 분모 3종}
+\guide{라인 3.0 / 1.6 · 활성률 68 → 41\% · 채택률 ㉮ 22\% / ㉯ 14\% / ㉰ 38\%(같은 분자, 다른 분모 — 절대 건수는 없다). 어느 값을 대외에, 어느 값을 내부 결정에 쓰는가.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{40mm}|L{26mm}|Y|L{26mm}|}\hline
+\hd{지표} & \hd{값} & \hd{분모 정의} & \hd{대외 / 내부} \\ \hline
+\ifwbblank
+\rd{9mm}계약 라인 / 실사용 &  &  &  \\ \hline
+\rd{9mm}검사원 계정 활성률 &  &  &  \\ \hline
+\rd{9mm}채택률 ㉮ AI 노출 건 &  &  &  \\ \hline
+\rd{9mm}채택률 ㉯ 전체 검사기록 건 &  &  &  \\ \hline
+\rd{9mm}채택률 ㉰ 활성 계정 처리 건 &  &  &  \\ \hline
+\else
+계약 라인 / 실사용 & 3.0 / 1.6 & 실사용 = 주 100건 이상 라인 & 내부: ACV·NDR·North Star 입력. 대외: 실사용 각주 \\ \hline
+검사원 계정 활성률 & 68\% → 41\%(4개월) & 주 1회 이상 승인 계정 ÷ 발급 계정 & 대외 68\%에 41\% 병기 \\ \hline
+채택률 ㉮ AI 노출 건 & 22\% & 수정 없이 채택 ÷ 초안·자동판정 노출 건 & 대외(각주에 ㉯·㉰) \\ \hline
+채택률 ㉯ 전체 검사기록 건 & 14\% & 같은 분자 ÷ 전체 검사기록(보류·오프라인 포함) & 내부 결정 — 가장 넓은 분모 \\ \hline
+채택률 ㉰ 활성 계정 처리 건 & 38\% & 같은 분자 ÷ 활성 계정 처리 건 & 온보딩 참고 — 대외 금지(익명 A의 분모와 같은 트릭) \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 7
+\secbar{7. 표기 규칙 — IR 덱 vs 이사회}
+\guide{같은 지표를 두 문서에 어떻게 쓰는가(병기·각주·분모 명시). 규칙 5줄.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{34mm}|Y|Y|Y|}\hline
+\hd{지표} & \hd{IR 덱 표기} & \hd{이사회·내부 표기} & \hd{각주 문구} \\ \hline
+\ifwbblank
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\else
+ARR & 4.9억 & 3.8억 & 계약 기준. 순 SaaS 3.8억(구축비·컨설팅 1.1억 제외) \\ \hline
+GM & 61\% & 49.8\% & 계약 MRR 기준. 순 SaaS 기준 49.8\%. COGS = AI 1,340 + 기타 250 \\ \hline
+LTV:CAC & 5.8 & 1.9(채널 1.12) & 가정: 계약 ACV·GM 61\%·수명 45개월·blended CAC — 표 4 \\ \hline
+채택률 & 22\% & 14\% & AI 노출 건 기준. 전체 14\%, 활성 계정 38\%. 절대 건수 미공개 \\ \hline
+리텐션 & 27Q1 6개월 71\% & 코호트 표 전체 & 분모: 해당 분기 신규 유료 계약 로고, 계약일 고정. 미도달 표시 \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 8
+\secbar{8. 개선 레버 3}
+\guide{GM·CAC·이탈 중 무엇을 어떻게 움직이는가 — 소유자·목표·기한.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{30mm}|Y|L{44mm}|L{34mm}|}\hline
+\hd{레버} & \hd{조치} & \hd{목표(분모 포함)} & \hd{소유자·기한} \\ \hline
+\ifwbblank
+\rd{10mm} &  &  &  \\ \hline
+\rd{10mm} &  &  &  \\ \hline
+\rd{10mm} &  &  &  \\ \hline
+\else
+CAC & 아웃바운드 중단(완료) · 1차사 추천 채널(90만) 확대 — 김도윤 공문 절차 & blended 620 → 450(유료 획득 1,051 → 750) & 박정우 · D+690 \\ \hline
+GM & 2-pass를 오후 조도·저신뢰 사진에만(조건부) · 계측 후 공정 사용 시행 & AI 원가율 42.3\% → 32\%(순 SaaS 분모) & 오세진 · D+660 \\ \hline
+이탈 & 온보딩 기준(100건 알림·마스터 3주) · 라인 축소 수용 & 27Q3 M4 ≥ 85\% · 월 로고 이탈 4.3\% → 3\% & 이수민·강지우 · 27Q4 \\ \hline
+\fi
+\end{tabularx}}
+
+\end{document}

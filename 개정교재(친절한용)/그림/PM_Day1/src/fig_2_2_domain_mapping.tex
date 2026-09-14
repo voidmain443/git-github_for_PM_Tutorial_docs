@@ -1,0 +1,35 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[node distance=3mm]
+\node[font=\small\bfseries, text=navy] (h6) at (0,6mm) {6판 (2017) — 10 Knowledge Areas};
+\node[font=\small\bfseries, text=teal] (h8) at (80mm,6mm) {8판 (2025) — 7 Performance Domains};
+\foreach \i/\t in {1/Integration,2/Scope,3/Schedule,4/Cost,5/Quality,6/Resource,7/Communications,8/Risk,9/Procurement,10/Stakeholder}{
+  \node[boxfill, text width=34mm, minimum height=7mm, font=\footnotesize, anchor=north] (k\i) at (0,{-(\i-1)*9.5mm}) {\t};
+}
+\foreach \i/\t in {1/Governance,2/Scope,3/Schedule,4/Finance,5/Stakeholders,6/Resources,7/Risk}{
+  \node[boxteal, text width=34mm, minimum height=7mm, font=\footnotesize, anchor=north] (d\i) at (80mm,{-(\i-1)*13mm}) {\t};
+}
+% 매핑
+\draw[arr] (k1) -- (d1);
+\draw[arr] (k2) -- (d2);
+\draw[arr] (k3) -- (d3);
+\draw[arr] (k4) -- (d4);
+\draw[arrrust, dashed] (k5.east) -- (d1.west);
+\draw[arrrust, dashed] (k5.east) -- (d2.west);
+\draw[arr] (k6) -- (d6);
+\draw[arrrust, dashed] (k7.east) -- (d5.west);
+\draw[arr] (k8) -- (d7);
+\draw[arrrust, dashed] (k9.east) -- ++(12mm,0) node[boxrust, anchor=west, font=\scriptsize, text width=26mm] {독립 도메인 아님 —\\배치는 인쇄본으로 확인};
+\draw[arr] (k10) -- (d5);
+\node[lbl, font=\scriptsize, anchor=west, align=left] at (d1.east) {\ Integration 개칭·승격 — 결정 권한의 구조\\\ + Quality의 QA(프로세스 감사)};
+\node[lbl, font=\scriptsize, anchor=west, align=left] at (d2.east) {\ + Quality의 QC(산출물 검사)·인수};
+\node[lbl, font=\scriptsize, anchor=west, align=left] at (d4.east) {\ Cost 개칭·확장 — 자금 조달·현금흐름};
+\node[lbl, font=\scriptsize, anchor=west, align=left] at (d5.east) {\ Stakeholder + Communications 흡수};
+\node[lbl, font=\scriptsize, anchor=west, align=left] at (d6.east) {\ 7판 Team에서 이름 회귀};
+\node[lbl, font=\scriptsize, anchor=west, align=left] at (d7.east) {\ 7판 Uncertainty에서 이름 회귀};
+% 범례
+\node[lbl, anchor=north west, align=left, text width=60mm] at (100mm,-86mm) {실선: 조항 번호만 교체하면 되는 매핑\\파선(붉음): 절차 본문의 재배치가 필요한 실질 변경\\[3pt]사내 표준 재매핑 대장의 4열:\\사내 문서·조항 / 6판 근거 / 8판 대응 위치 / 조치};
+\node[src, anchor=north west] at (-20mm,-104mm) {출처: PMBOK Guide 6판(PMI, 2017)과 8판(PMI, 2025)의 구조를 교재 2.1\textasciitilde 2.2절의 서술에 따라 재구성. Quality·Communications·Procurement의 정확한 배치는 8판 인쇄본 대조 필요.};
+\end{tikzpicture}
+\end{document}

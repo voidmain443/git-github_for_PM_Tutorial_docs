@@ -1,0 +1,222 @@
+% 26_body.tex — 산출물 ㉖ MVP 범위 결정서 (빈 템플릿 / 완성 예시 공용 본문) — gen_product_templates.py 가 Product_specs.py 에서 생성
+% 드라이버: 26_MVP범위결정서_빈템플릿.tex (\wbblanktrue) / 26_MVP범위결정서_완성예시.tex (\wbblankfalse — 워크북 §X.5 확정 후)
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper,margin=16mm,top=14mm,bottom=20mm]{geometry}
+\def\DocNum{26}\def\DocDay{6}\def\DocIdx{1}
+\def\DocTitle{MVP 범위 결정서}
+\def\DocSub{MVP Scope Decision — Appetite · MoSCoW · Won't}
+\def\DocVariant{\B{빈 템플릿}{딥게이지 완성 예시}}
+\usepackage{wbstyle}
+\def\DocCirc{㉖}   % newunicodechar(㉛~㊵ 폴백) 뒤에 정의해야 활성 문자로 읽힌다
+\begin{document}
+\docheader
+ {\Bg{[회사명 · 제품명]}{딥게이지 · GAUGE}}
+ {\Bg{[v1.x / D+n]}{v1.0 D+130 → v1.1 2026-10-23 (D+235)}}
+ {\Bg{[작성자 — CPO]}{윤하경 CPO\rd{7mm}}}
+ {\Bg{[승인자 — CEO·CTO]}{강민수 · 오세진\rd{7mm}}}
+
+%% ------------------------------------------------------------------ 1
+\secbar{1. 문서 정보와 Appetite}
+\guide{Appetite는 '얼마나 만들지'가 아니라 '얼마나 쓸지(기간)'다. 6개월 고정, 가용 공수 24 man-month(조현우 퇴사 후 17). 외부 시계(TIPS 6개월 내 유료 5개사)를 적는다.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{36mm}|Y|}\hline
+\hd{항목} & \hd{내용} \\ \hline
+\ifwbblank
+\rd{8mm}버전 / 기준일(D+n) &  \\ \hline
+\rd{8mm}Appetite(기간) &  \\ \hline
+\rd{8mm}가용 공수(man-month) — 근거 &  \\ \hline
+\rd{8mm}외부 시계(TIPS·시드 조건) &  \\ \hline
+\rd{8mm}승인자 / 승인일 &  \\ \hline
+\else
+버전 / 기준일(D+n) & v1.0 D+130(41 → 24) → v1.1 D+235(24 → 17, 조현우 퇴사 후 재산정) \\ \hline
+Appetite(기간) & 6개월 — D+120 ~ D+300(2026-06-30 ~ 12-27), GA 12-27. 기간이 고정이고 범위가 변수. 기간이 끝나면 남은 것은 다음 사이클(회로 차단기) \\ \hline
+가용 공수(man-month) — 근거 & v1.0 24 = 오세진(CTO 실무 100\% 가정)·김태오·조현우(D+126)·서하늘(D+126) × 6개월(G-37) → v1.1 17 = 24 − 손실 7.0(항목 4) \\ \hline
+외부 시계(TIPS·시드 조건) & 시드 클로징 D+180 · TIPS 운영사 추천 조건 유료 5개사(D+360, 2027-02) · 파일럿 3사 유료 전환 D+240~275 · 세영정공 LOI '2026-09 시작' \\ \hline
+승인자 / 승인일 & 강민수·오세진 / v1.0 D+130 · v1.1 D+235 — CPO 거부권(㉑ 항목 5) 미행사 \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 2
+\landscapeon
+\secbar{2. 백로그 견적표}
+\guide{항목·기회 노드(OP-ID)·공수(mm)·MoSCoW·근거. 정본 합계 41 mm는 [추가 설정] 견적표(워크북 §1.5)가 정본.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{14mm}|Y|L{18mm}|L{18mm}|L{18mm}|L{50mm}|}\hline
+\hd{B-ID} & \hd{항목} & \hd{OP-ID} & \hd{공수(mm)} & \hd{MoSCoW} & \hd{근거·의존} \\ \hline
+\ifwbblank
+\rd{8mm} &  &  &  &  &  \\ \hline
+\rd{8mm} &  &  &  &  &  \\ \hline
+\rd{8mm} &  &  &  &  &  \\ \hline
+\rd{8mm} &  &  &  &  &  \\ \hline
+\rd{8mm} &  &  &  &  &  \\ \hline
+\rd{8mm} &  &  &  &  &  \\ \hline
+\rd{8mm} &  &  &  &  &  \\ \hline
+\rd{8mm} &  &  &  &  &  \\ \hline
+\rd{8mm} &  &  &  &  &  \\ \hline
+\rd{8mm} &  &  &  &  &  \\ \hline
+\rd{8mm} &  &  &  &  &  \\ \hline
+\rd{8mm} &  &  &  &  &  \\ \hline
+\rd{8mm} &  &  &  &  &  \\ \hline
+\rd{8mm} &  &  &  &  &  \\ \hline
+\else
+B-01 & 사진 촬영·업로드 앱(오프라인 큐) & OP-01(a) & 2.0 & Must & X-01의 자동화 \\ \hline
+B-02 & 치수 OCR 파이프라인(VLM·매핑·신뢰도) & OP-01(a) & 2.5 & Must & 오전 93.1에서 시작 · 실제 3.4 \\ \hline
+B-03 & 음성 메모 첨부·텍스트 변환 & OP-01(b) & 0.5 & Must & 문장 생성(B-26)과 분리 \\ \hline
+B-04 & 검사기록 편집·승인 화면 & OP-01 & 1.5 & Must & HITL 승인의 자리 \\ \hline
+B-05 & 마스터 매핑 도구(엑셀) & OP-01/A-08 & 1.0 & Must & 온보딩 2주(X-06) \\ \hline
+B-06 & 조도 경고 & OP-05/X-02 & 0.5 & Should & 오후 84.7\% 대응 \\ \hline
+B-07 & 부적합(NCR) 패키지 & OP-02(a) & 1.5 & Must & 팀장이 돈을 내는 이유 \\ \hline
+B-08 & H사 포털 제출 초안(1종) & OP-02(a) & 1.5 & Must → 0.4 & v1.1 내보내기로 축소 \\ \hline
+B-09 & 포털 규격 3종 추가 & OP-02(a)/OP-07 & 3.0 & Could & 유료 5개사 확장 시 \\ \hline
+B-10 & 8D 초안 D1~D4 & OP-03(a) & 1.5 & Must → 0.5 & v1.1 D1~D3만 \\ \hline
+B-11 & 8D D5~D8 템플릿 & OP-03(b) & 1.0 & Could & 사람의 판단 \\ \hline
+B-12 & 판정 로그 & OP-04(a) & 0.5 & Must & 커널 행동 4 · 부산물 \\ \hline
+B-13 & 감사용 근거 월 리포트 & OP-04(b) & 1.0 & Could & 로그가 쌓인 뒤 \\ \hline
+B-14 & 외관 분류·판정 초안 표시(베타) & OP-05(a) & 1.5 & Should → 1.0 & ㉓ 4순위 · 세영 1라인 \\ \hline
+B-15 & 판정 편차 리포트 & OP-05(c) & 1.0 & Could & B-12 부산물 \\ \hline
+B-16 & 기준 사진 라이브러리 & OP-05(b) & 1.0 & Could & ㉓ 5순위 \\ \hline
+B-17 & 자동판정 모드 & OP-05(a) & 2.0 & Won't & A-05b 미제거 · FN 미충족 \\ \hline
+B-18 & 온프렘 배포 패키지 & OP-07 & 6.0 & Won't & ㉕ 하지 않는 것 1 \\ \hline
+B-19 & 도면 미업로드 모드 & OP-07 & 0.5 & Could → Must(D+200) & 동보프레스 조건 · 예비 집행 \\ \hline
+B-20 & 태산정밀 전용 항목 62개 & (고객 요청) & 1.5 & Could → 실제 2.2 & 계획 외 착수 \\ \hline
+B-21 & MES 연동 & OP-01/(요청) & 3.0 & Won't & 연동은 SI \\ \hline
+B-22 & 관리자 대시보드 & OP-02/OP-04 & 1.0 & Should → Won't & 엑셀 내보내기 대체 \\ \hline
+B-23 & 부적합 알림 & OP-02(b) & 0.5 & Could & 반쪽 해법 \\ \hline
+B-24 & 사용자·권한·라인·과금 & (기반) & 1.0 & Must & 라인 과금의 기반 \\ \hline
+B-25 & eval 하네스·라벨링 도구 & ㉗ & 0.5 & Must → 0 & CTO 직접 \\ \hline
+B-26 & 음성 → 문장 생성 & OP-01(b) & 1.0 & Should → Could & B-03 위에 \\ \hline
+B-27 & SSO·보안(ISMS 준비) & (요청) & 1.0 & Could & 지금 고객 아님 \\ \hline
+B-28 & 검사원 교육 모드 & A-01 & 1.0 & Could & 이수민이 대신 \\ \hline
+B-29 & 데이터 내보내기(엑셀·API) & (요청) & 0.5 & Could & MES 최소 대체 \\ \hline
+합계 & 29건 &  & 41.0 & Must 14 / Should 4 / Could 12 / Won't 11 &  \\ \hline
+\fi
+\end{tabularx}}
+\landscapeoff
+
+%% ------------------------------------------------------------------ 3
+\secbar{3. Must 공수 비중 산식}
+\guide{Must 합 ÷ 가용 공수. 상한 규칙(예: 60\%)을 정하고 넘으면 Must를 다시 자른다. 두 번 계산한다 — 24 mm일 때와 17 mm일 때.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{40mm}|Y|Y|}\hline
+\hd{항목} & \hd{24 mm 기준} & \hd{17 mm 기준(퇴사 후)} \\ \hline
+\ifwbblank
+\rd{9mm}Must 합(mm) &  &  \\ \hline
+\rd{9mm}Must ÷ 가용(\%) &  &  \\ \hline
+\rd{9mm}상한 규칙 &  &  \\ \hline
+\rd{9mm}초과 시 조치 &  &  \\ \hline
+\else
+Must 합(mm) & 14.0(B-01·02·03·04·05·07·08·10·12·24·25) & 11.8 = 완료 10.0 + WIP 0.7 + 남은 Must 1.1(축소 후) \\ \hline
+Must ÷ 가용(\%) & 14.0 / 24 = 58.3\% & 11.8 / 17 = 69.4\% — 초과. 쓴 10.7은 되돌릴 수 없다 → 남은 5.5 기준: Must 1.1(20\%) · Should 1.5(27\%) · 예비 2.9(53\%) \\ \hline
+상한 규칙 & Must ≤ 60\% · 예비 25\% 고정(6.0) · Should ≤ 15\% & 남은 공수에 대해: 예비 ≥ 50\% · Must 먼저 · Should는 남는 것만 \\ \hline
+초과 시 조치 & Must 첫 안 15.5(64.6\%) → B-03 1.5 → 0.5, B-25 1.0 → 0.5로 14.0 & Must 항목의 정의 축소(B-08 내보내기 · B-10 D1~D3 · B-25 CTO 직접) \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 4
+\secbar{4. 절단 결정 — 41 → 24 → 17}
+\guide{무엇을 Won't로 보냈는가, 왜, 누구에게 통보했는가(파일럿 고객·투자자).}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{14mm}|Y|L{26mm}|Y|L{40mm}|}\hline
+\hd{B-ID} & \hd{항목} & \hd{절단 시점(24/17)} & \hd{사유} & \hd{통보 대상·일자} \\ \hline
+\ifwbblank
+\rd{9mm} &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  \\ \hline
+\else
+B-09·11·13·15·16·23·27·28·29 & Could 9건 9.5 mm & 24(v1.0) & 유료 3사가 D+300에 필요하지 않다. 백로그 유지 & 세일즈·3사 서면 D+135 \\ \hline
+B-17·18·21 & Won't 3건 11.0 mm & 24(v1.0) & 항목 5 — 재검토 조건 있음 & 동보프레스·서영채 D+135 \\ \hline
+B-19 & 도면 미업로드 0.5 & 승격 D+200 & 동보프레스 조건 — 김도윤 공문. 예비에서 집행. 절단 아님, 기록 & — \\ \hline
+B-20 & 태산정밀 62항목 & 계획 외 D+180~228 & Could였으나 착수, 2.2 사용. 이 문서를 거치지 않았다 & 사후 기록 D+235 — 항목 5 규칙 \\ \hline
+— & 손실 분해 24 → 17 = 7.0 & 17(v1.1) & 조현우 잔여 2.2 · 태산 커스텀 2.2 · 인수인계·채용 1.0 · WIP 폐기 0.7 · B-02 재작업 0.9 & 서영채 월간 보고 D+240 \\ \hline
+B-08 & 포털 제출 1.5 → 0.4 & 17 & 자동 제출 → 규격 엑셀·PDF 내보내기. 업로드는 팀장이 2분 & 3사 D+236 \\ \hline
+B-10 & 8D 초안 1.5 → 0.5 & 17 & D1~D3 자동 첨부만. D4 원인 문장은 사람 & 3사 D+236 \\ \hline
+B-22·26·14·25 & → Won't / → Could / 1.5 → 1.0 / → CTO & 17 & 남은 5.5 중 예비 2.9를 지키기 위해 & 내부 D+235 \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 5
+\secbar{5. Won't 명시 목록}
+\guide{Won't는 '나중에'가 아니다 — 재검토 조건(무엇이 되면)과 시점을 적는다. Day8 47건의 절반이 이 표에서 온다.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{14mm}|Y|Y|L{26mm}|}\hline
+\hd{B-ID} & \hd{항목} & \hd{재검토 조건} & \hd{시점} \\ \hline
+\ifwbblank
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\else
+B-17 & 자동판정 모드 & ㉗ 합격 기준 충족 그리고 X-04 회피 행동 < 10\%(A-05b) & GA 후 첫 분기 \\ \hline
+B-18 & 온프렘 배포 & 유료 5개사 달성 또는 1차사 채널 계약 서명 — ㉕ 항목 6-1과 같은 문장 & D+360 이후 \\ \hline
+B-21 & MES 연동 & 유료 고객 중 MES 보유 과반 그리고 규격 2종 이하로 수렴 & 다음 사이클 \\ \hline
+B-22 & 관리자 대시보드 & 엑셀 내보내기 사용률 주 3회 이상 고객 3사 이상 & 다음 사이클 \\ \hline
+(규칙) & 고객 요청 항목은 이 표를 거친다 — 견적·상위 노드·MoSCoW 없이 착수하지 않는다 & B-20의 재발 방지 & v1.1부터 \\ \hline
+(규칙) & Won't를 '검토 중'이라 답하지 않는다 — 재검토 조건을 그대로 말한다 & 세일즈 스크립트 & v1.0부터 \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 6
+\secbar{6. 완료 정의(DoD)}
+\guide{기능 항목의 DoD와 AI 항목의 DoD(= ㉗ eval 합격 기준)를 분리한다. PM 트랙 ⑫ Rules of Credit과 같은 자리의 문서다.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{30mm}|Y|L{30mm}|}\hline
+\hd{구분} & \hd{완료 정의} & \hd{판정자} \\ \hline
+\ifwbblank
+\rd{10mm}일반 기능 &  &  \\ \hline
+\rd{10mm}AI 판정 기능(→ ㉗) &  &  \\ \hline
+\rd{10mm}데이터 이관·온보딩 &  &  \\ \hline
+\rd{10mm}문서·교육 &  &  \\ \hline
+\else
+일반 기능 & 단위·통합 테스트 통과 · 스테이징 배포 · 파일럿 1사 검사원이 실제 라인에서 1주 사용 · 크래시 0 & 김태오 + 이수민 \\ \hline
+AI 판정 기능(→ ㉗) & ㉗ 항목 3 합격 기준 충족 + 항목 6 HITL 승인 흐름 가동. 합격 전이면 '합격 전 베타' 표시, 자동판정 없음 & 오세진(측정) · 윤하경(게이트) \\ \hline
+데이터 이관·온보딩 & 마스터 매핑 완료(영업일 ≤ 10, X-06) · 검사원 전원 교육 1회 · 첫 주 기록 100건 & 이수민 \\ \hline
+문서·교육 & 검사원 1장 가이드 · 팀장 포털 내보내기 절차 · 계약 부속(책임 한계 문구 ㉗ 항목 6) & 윤하경 \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 7
+\secbar{7. 릴리스 계획 — 알파 / 베타 / GA 게이트}
+\guide{각 게이트의 진입 기준(숫자)과 판정자. 베타 진입 기준서(㉙)와 같은 숫자여야 한다.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{22mm}|Y|L{30mm}|L{26mm}|}\hline
+\hd{게이트} & \hd{진입 기준} & \hd{판정자} & \hd{목표 시점(D+n)} \\ \hline
+\ifwbblank
+\rd{10mm}알파 &  &  &  \\ \hline
+\rd{10mm}베타 &  &  &  \\ \hline
+\rd{10mm}GA &  &  &  \\ \hline
+\else
+알파 & 내부 + 세영 1라인 · 기록 자동 생성 성공률 ≥ 90\% · 앱 크래시 0건/주 · 마스터 매핑 완료 & CTO & D+200 \\ \hline
+베타 & 3사 전 라인 · 기록 시간 ≤ 25분/일 · 오전 OCR ≥ 90\% · 재촬영률 < 15\% · 판정 초안은 세영 오전 1라인만(X-04) & CPO & D+240 \\ \hline
+GA & 유료 3사 · eval v1 측정 완료 · 오류 예산 정책 가동 · HITL(승인 필수) · 자동판정 OFF · 미합격 시 '합격 전 베타' 표시 & CEO(전원) & D+300 \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 8
+\secbar{8. 리스크·가정 → 실험 사전등록}
+\guide{이 범위가 틀릴 수 있는 이유 3~5개와, 어느 실험(㉙)이 그것을 검증하는가.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{8mm}|Y|L{30mm}|L{24mm}|}\hline
+\hd{\#} & \hd{리스크·가정} & \hd{검증 실험(X-ID)} & \hd{소유자} \\ \hline
+\ifwbblank
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\else
+1 & A-05b 검사원이 판정 초안을 수용하지 않는다 & X-04 & 이수민 \\ \hline
+2 & A-06 라인 과금을 공장이 받아들이지 않는다 & X-05 & 강민수 \\ \hline
+3 & A-08 마스터 매핑이 2주를 넘긴다 & X-06 & 이수민 \\ \hline
+4 & A-02 오후 조도에서 OCR이 무너진다(84.7\%) & X-07 & 서하늘 \\ \hline
+5 & 유료 5개사(D+360)를 못 채운다 & 관찰만(세일즈 주간) & 박정우 \\ \hline
+\fi
+\end{tabularx}}
+
+\end{document}

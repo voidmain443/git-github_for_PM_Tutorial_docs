@@ -1,0 +1,28 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink},x=1mm,y=1mm]
+\node[title] at (85,46) {8일 사슬 역추적 — 두 사슬이 ㊵ 항목 4 첫 행에서 만난다};
+% PM chain (top)
+\node[lbl,anchor=west,font=\scriptsize\bfseries,text=navy] at (0,36) {PM 사슬 — 분모 A 91.3: 세 문서에서 한 번도 안 바뀌었다. 바뀐 것은 여러분의 자리};
+\node[boxgrey,text width=26mm] (c1) at (14,26) {① BC §4\\"순환실사 SKU"\\2025-11};
+\node[boxgrey,text width=26mm] (c12) at (50,26) {⑫ Day3 분모 정정\\91.3 vs 84.6\\2026-09 · 감사자};
+\node[boxgrey,text width=26mm] (c20) at (86,26) {⑳ 항목 2 분모 정치\\A 판정 · B 병기\\2027-05-21};
+\node[boxfill,text width=30mm] (c40a) at (126,26) {㊵ 항목 2 B-02(B)\\84.6 → 95.0 신설\\2028-05-31 · 서명자};
+\draw[arr] (c40a) -- (c20); \draw[arr] (c20) -- (c12); \draw[arr] (c12) -- (c1);
+% Product chain (bottom)
+\node[lbl,anchor=west,font=\scriptsize\bfseries,text=rust] at (0,12) {Product 사슬 — "자동차 3세트 60건": 다섯 문서에서 불변, 기준은 두 번 변경(8.0 → 3.0)};
+\node[boxgrey,text width=20mm] (p22) at (11,2) {㉒ 박선재 관찰\\D+40};
+\node[boxgrey,text width=20mm] (p23) at (37,2) {㉓ 초기 SAM 2,150\\D+60};
+\node[boxgrey,text width=20mm] (p26) at (63,2) {㉖ 범위 '자동차'\\D+130};
+\node[boxgrey,text width=22mm] (p27) at (90,2) {㉗ 데이터셋 60건\\FN ≤ 8.0 · D+137};
+\node[boxrust,text width=22mm] (p34) at (119,2) {㉞ eval v2 · 개정\\FN ≤ 3.0 · D+540};
+\node[boxfill,text width=22mm] (p40) at (148,2) {㊵ 항목 4\\"미측정" · D+821};
+\draw[arr] (p40) -- (p34); \draw[arr] (p34) -- (p27); \draw[arr] (p27) -- (p26); \draw[arr] (p26) -- (p23); \draw[arr] (p23) -- (p22);
+% meeting point
+\draw[arrrust,dashed] (c40a.south) -- ++(0,-6) -| node[lbl,pos=0.25,above,text=rust]{만나는 칸} (p40.north);
+% side chains
+\node[boxgrey,text width=150mm,align=left,anchor=north west,font=\tiny] at (2,-10) {배상 사슬 — ㊵ 항목 6 ← ㊲ 항목 5 4구간 ← ㉞ 항목 4 162만(D+525) ← ㉘ 항목 6 책임 한계 10\%(D+137) ← ⑰ SLA 배상 조항(Day4, 요구하는 쪽) · 시계 사슬 — ㊵ 항목 5 ← ⑳ 항목 4 ← ⑱ 이관 6번(2027-05) ← 2025-11 이사회 반려 34억 SI 견적 · ② 헌장 §5 제외 범위 → "제외 범위"가 3년 뒤 21억 계약};
+\node[src,anchor=west] at (2,-21) {㊵ 항목 7(워크북 §5.5) · 정본 §9 접합점 표. 마지막 30분의 조별 과제 — 모집단 칸을 비운 채 서명한 문서가 8일 동안 몇 개였는가.};
+\end{tikzpicture}
+\end{document}

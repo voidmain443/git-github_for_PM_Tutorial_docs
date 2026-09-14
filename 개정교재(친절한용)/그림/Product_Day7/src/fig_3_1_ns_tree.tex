@@ -1,0 +1,18 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink}]
+\node[title] at (2.4,4.6) {North Star와 입력 지표 트리 — 딥게이지 D+600};
+\node[draw=navy,line width=1.4pt,fill=navylight,rounded corners=3pt,text width=52mm,align=center] (ns) at (2.4,3.6) {\textbf{NS-1 주간 승인 검사기록 건수}\\사진 1장 이상 · 수정 없이 승인 + 수정 승인 · 자동판정 확정 제외\\현재 \textbf{12{,}400건/주} → 목표 16{,}000};
+\node[box,text width=24mm,align=center] (i1) at (-3.6,1.4) {실사용 라인\\50 / 93 → 70\\박정우·강지우};
+\node[box,text width=24mm,align=center] (i2) at (-0.6,1.4) {검사원 활성률(4개월)\\41\% → 55\%\\강지우};
+\node[box,text width=24mm,align=center] (i3) at (2.4,1.4) {온보딩 완료율\\27Q2 10/12 → 11/12\\이수민};
+\node[box,text width=26mm,align=center,draw=rust] (i4) at (5.5,1.4) {판정 초안 수용률\\22\% → 30\%\\오세진 · \textbf{가드레일: FP 예산}};
+\node[boxgrey,text width=26mm,align=center] (i5) at (8.6,1.4) {부적합 통보 리드타임\\추정 1.4일 — \textbf{목표 없음}\\측정 체계 먼저 · 윤하경};
+\foreach \n in {i1,i2,i3,i4,i5}{\draw[arr] (\n.north) -- (ns.south);}
+\node[boxgrey,text width=30mm,align=center,text=grey] (ns3) at (8.4,3.6) {NS-3 자동판정 채택 건수\\탈락 → 가드레일\\(임계값 하향으로 게임 가능 · 절대 건수 없음)};
+\draw[arrgrey,dashed] (ns3.south) -- (i4.north east);
+\node[lbl,text width=60mm] at (2.4,0.0) {NS-1 = 실사용 라인 × 라인당 주간 기록 × 활성 검사원 비율 … — 산식으로 이어지지 않는 입력 지표는 입력 지표가 아니다};
+\node[src,anchor=west] at (-4.9,-0.8) {워크북 ㉜ 항목 1·4·5 [추가 설정] · G-18~20. 검증 상태: 측정 가능(로그) 4 · 추정(자기 보고) 1 — 추정에는 목표를 두지 않는다.};
+\end{tikzpicture}
+\end{document}

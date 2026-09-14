@@ -1,0 +1,39 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\pgfdeclarelayer{bg1}\pgfdeclarelayer{bg2}\pgfsetlayers{bg1,bg2,main}
+\begin{document}
+\begin{tikzpicture}[node distance=4mm]
+% ---- 좌: 계층 포함 도해 ----
+\node[box, minimum width=28mm, minimum height=9mm] (p1) {P1 플랫폼\\{\footnotesize 168억}};
+\node[box, minimum width=28mm, minimum height=9mm, right=of p1] (p2) {P2 물류 자동화\\{\footnotesize 194억}};
+\node[box, minimum width=28mm, minimum height=9mm, right=of p2] (p3) {P3 변화관리\\{\footnotesize 22억}};
+\node[box, minimum width=28mm, minimum height=9mm, below=of p1] (p4) {P4 규제 대응\\{\footnotesize 31억}};
+\node[box, minimum width=28mm, minimum height=9mm, right=of p4] (p5) {P5 운영 이관\\{\footnotesize 13억}};
+\node[lbl, right=of p5, align=left, text width=28mm] (pnote) {프로젝트 =\\산출물(outputs)을 만든다};
+\begin{pgfonlayer}{bg2}
+\node[draw=teal, thick, rounded corners=3pt, fill=teallight, fit=(p1)(p3)(p4)(p5)(pnote), inner sep=5mm, inner ysep=7mm, label={[teal, font=\small\bfseries, anchor=north west, xshift=2mm, yshift=-1mm]north west:프로그램 ONE ONDAM — 총 428억, 편익 M+24 연 214억}] (prog) {};
+\end{pgfonlayer}
+\node[boxgrey, minimum height=9mm, text width=52mm, below=6mm of prog.south west, anchor=north west] (ops) {운영 — 서비스운영팀 (박준영, 서비스데스크 11명)\\{\footnotesize 2027-05-29 이후 연간 운영비 27억 (프로그램 예산 외)}};
+\node[lbl, right=6mm of ops, text width=50mm, align=left] {운영 = 반복되고 끝이 없다.\\프로젝트↔운영의 경계는\\착수 시점에 정의한다};
+\begin{pgfonlayer}{bg1}
+\node[draw=navy, thick, rounded corners=3pt, fill=navylight, fit=(prog)(ops), inner sep=5mm, inner ysep=8mm, label={[navy, font=\small\bfseries, anchor=north west, xshift=2mm, yshift=-1mm]north west:포트폴리오 — 전략 목표 아래 프로젝트·프로그램·운영의 전체 그림 (자원 경쟁의 장)}] (port) {};
+\end{pgfonlayer}
+
+% ---- 우: MSP 가치 사슬 ----
+\node[boxfill, text width=26mm, right=14mm of port.north east, anchor=north west, yshift=-2mm] (o1) {산출물\\outputs};
+\node[boxfill, text width=26mm, below=7mm of o1] (o2) {역량\\capabilities};
+\node[boxfill, text width=26mm, below=7mm of o2] (o3) {성과\\outcomes};
+\node[boxteal, text width=26mm, below=7mm of o3] (o4) {편익\\benefits};
+\draw[arr] (o1) -- (o2); \draw[arr] (o2) -- (o3); \draw[arr] (o3) -- (o4);
+\node[lbl, right=3mm of o1, text width=40mm, align=left] {P1: 신규 POS, 주문 허브,\\통합 재고, 가맹 발주 포털};
+\node[lbl, right=3mm of o2, text width=40mm, align=left] {실시간 재고 가시성};
+\node[lbl, right=3mm of o3, text width=40mm, align=left] {매장·물류의 발주 행동 변화};
+\node[lbl, right=3mm of o4, text width=40mm, align=left] {폐기율 절감 43억 (P1+P3)\\물류 처리량 절감 96억 (P1+P2)};
+\draw[decorate, decoration={brace, amplitude=3pt}, navy, thick] ($(o1.north west)+(-2mm,0)$) -- ($(o1.south west)+(-2mm,0)$) node[midway, left=2mm, lbl, text=navy, align=right] {PM\\책임};
+\draw[decorate, decoration={brace, amplitude=3pt}, teal, thick] ($(o2.north west)+(-2mm,0)$) -- ($(o4.south west)+(-2mm,0)$) node[midway, left=1mm, lbl, text=teal, align=right] {프로그램·\\편익 오너\\책임};
+\node[title, above=3mm of o1.north, anchor=south, xshift=18mm] {MSP 가치 사슬};
+
+% 출처
+\node[src, below=3mm of port.south west, anchor=north west] {출처: ISO 21502:2020, PMBOK Guide 8판(PMI, 2025), MSP 5판(AXELOS, 2020)의 정의와 사례 문서 『㈜온담F\&B홀딩스』를 바탕으로 재구성.};
+\end{tikzpicture}
+\end{document}

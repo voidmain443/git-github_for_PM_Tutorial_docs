@@ -1,0 +1,51 @@
+% 공통 프리앰블 — Day1_슬라이드.tex / Day1_슬라이드_노트.tex 가 \input 한다
+\usetheme{metropolis}
+\usepackage{fontspec}
+\setmainfont{Apple SD Gothic Neo}
+\setsansfont{Apple SD Gothic Neo}
+\setmonofont{Menlo}
+\XeTeXlinebreaklocale "ko"
+\XeTeXlinebreakskip = 0pt plus 1pt
+\usepackage{amssymb,booktabs,array,graphicx,xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning}
+% ㉛~㊵ 는 Apple SD Gothic Neo 에 없다 → Hiragino Sans 로 대체 (Product 트랙 산출물 번호)
+\usepackage{newunicodechar}
+\newfontfamily\circfont{Hiragino Sans W3}
+\newunicodechar{㉛}{{\circfont\mdseries ㉛}}\newunicodechar{㉜}{{\circfont\mdseries ㉜}}\newunicodechar{㉝}{{\circfont\mdseries ㉝}}\newunicodechar{㉞}{{\circfont\mdseries ㉞}}\newunicodechar{㉟}{{\circfont\mdseries ㉟}}
+\newunicodechar{㊱}{{\circfont\mdseries ㊱}}\newunicodechar{㊲}{{\circfont\mdseries ㊲}}\newunicodechar{㊳}{{\circfont\mdseries ㊳}}\newunicodechar{㊴}{{\circfont\mdseries ㊴}}\newunicodechar{㊵}{{\circfont\mdseries ㊵}}
+\metroset{numbering=counter, progressbar=frametitle, block=fill}
+\setbeamertemplate{frametitle continuation}[from second][(계속)]
+\setbeamertemplate{note page}[plain]
+\setbeamerfont{note page}{size=\small}
+\setbeamerfont{frametitle}{size=\normalsize}
+\setbeamerfont{title}{size=\LARGE}
+\setbeamersize{text margin left=9mm, text margin right=9mm}
+% metropolis 여백 축소(제목 바·바닥글) — 본문 공간 확보
+\makeatletter
+\setlength{\metropolis@frametitle@padding}{1.3ex}
+\makeatother
+\setbeamertemplate{footline}{%
+  \begin{beamercolorbox}[wd=\textwidth, sep=1.1ex]{footline}%
+    \usebeamerfont{page number in head/foot}%
+    \usebeamertemplate*{frame footer}%
+    \hfill%
+    \usebeamertemplate*{frame numbering}%
+  \end{beamercolorbox}%
+}
+\setlength{\leftmargini}{1.1em}
+\setlength{\leftmarginii}{1.0em}
+\setbeamertemplate{itemize items}{\textcolor{mDarkTeal}{\raisebox{0.15ex}{\scriptsize$\blacktriangleright$}}}
+\setbeamertemplate{itemize subitem}{\textcolor{mDarkTeal!70}{--}}
+\setbeamertemplate{enumerate items}[default]
+\setlength{\parskip}{2pt}
+\interlinepenalty=400
+\makeatletter\@beginparpenalty=10000\makeatother  % 소제목·상위 항목과 그 아래 목록을 떼지 않는다
+\clubpenalty=10000
+\widowpenalty=10000
+\emergencystretch=1.5em
+\graphicspath{{../그림/PM_Day1/}}
+\title{PM 트랙 Day 1}
+\subtitle{프로젝트 매니지먼트 일반론과 착수}
+\author{}
+\date{}

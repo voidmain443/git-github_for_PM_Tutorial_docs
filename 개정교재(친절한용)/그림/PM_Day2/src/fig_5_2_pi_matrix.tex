@@ -1,0 +1,59 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (60,82) {확률-영향 매트릭스 위의 P1 위협 13건 + 기회 2건 (대응 전) — 같은 원인으로 묶이는 리스크는 하나로 읽어야 한다};
+\def\c{15}
+% 셀 채색: 위치로 읽는다 (점수 아님)
+\foreach \p in {1,...,5} \foreach \i in {1,...,5} {
+  \pgfmathsetmacro{\s}{\p*\i}
+  \ifdim \s pt > 11.5pt \fill[rustlight] ({(\p-1)*\c},{(\i-1)*\c}) rectangle ({\p*\c},{\i*\c});
+  \else \ifdim \s pt > 5.5pt \fill[sand!60] ({(\p-1)*\c},{(\i-1)*\c}) rectangle ({\p*\c},{\i*\c});
+  \else \fill[teallight] ({(\p-1)*\c},{(\i-1)*\c}) rectangle ({\p*\c},{\i*\c}); \fi\fi }
+\draw[grey!60] (0,0) grid[step=\c] (75,75);
+\foreach \p/\l in {1/{매우 낮음\\≤20\%},2/{낮음\\21–35\%},3/{중간\\36–50\%},4/{높음\\51–65\%},5/{매우 높음\\>65\%}} \node[font=\tiny, align=center, anchor=north] at ({(\p-0.5)*\c},-1) {\l};
+\foreach \i/\l in {1/{매우 작음\\<1억},2/{작음\\1–1.9억},3/{중간\\2–2.9억},4/{큼\\3–3.9억},5/{매우 큼\\≥4억}} \node[font=\tiny, align=right, anchor=east] at (-1,{(\i-0.5)*\c}) {\l};
+\node[font=\scriptsize\bfseries, text=navy, anchor=north] at (37.5,-9) {대응 전 확률 (워크북 §5 등록부 P\%, 점은 실제 값 위치)};
+\node[font=\scriptsize\bfseries, text=navy, anchor=south, rotate=90] at (-14,37.5) {P1 원가 영향 (억 원 — 등록부 값, 기회는 절댓값)};
+% 리스크 점 — 워크북 §5 완성 예시본 등록부의 대응 전 P%·원가 영향(억)을 연속 좌표로 놓았다
+% x: 0-20%→0-15, 21-35→15-30, 36-50→30-45, 51-65→45-60, 66-100→60-75 / y: 억당 15mm (≥4억은 셀 5)
+\def\rk#1#2#3#4{\node[circle, draw=#4, fill=white, very thick, inner sep=0.6pt, font=\tiny\bfseries, text=#4] (#1) at (#2,#3) {#1};}
+\def\op#1#2#3{\node[diamond, draw=teal, fill=teallight, thick, inner sep=0.3pt, aspect=1.6, font=\tiny\bfseries, text=teal] (#1) at (#2,#3) {#1};}
+\rk{R-01}{52}{67.5}{rust}   % 60% · 4.5
+\rk{R-04}{58}{72}{navy}     % 60% · 5.0
+\rk{R-02}{38.5}{46.5}{navy}     % 50% · 3.0
+\rk{R-08}{43}{62}{navy}     % 50% · 4.0
+\rk{R-03}{35}{32}{rust}     % 40% · 2.0
+\rk{R-11}{35}{39}{navy}     % 40% · 2.5
+\rk{R-09}{39}{26}{navy}     % 40% · 1.8
+\rk{R-12}{35}{16}{rust}     % 40% · 1.0
+\rk{R-13}{28}{31.5}{navy}   % 35% · 2.1
+\rk{R-05}{62}{36}{teal}     % 70% · 2.4
+\rk{R-06}{25}{52.5}{teal}   % 30% · 3.5
+\rk{R-10}{20}{57}{teal}     % 25% · 3.8
+\rk{R-07}{55}{22.5}{navy}   % 60% · 1.5
+\op{O-01}{43}{11}           % 50% · −0.8
+\op{O-02}{58}{15.5}         % 60% · −1.0
+% 상관 연결선
+\draw[rust, thick, densely dashed] (R-01) -- (R-03) -- (R-12);
+\draw[teal, thick, densely dashed] (R-10) -- (R-06);
+\draw[teal, thick, densely dashed] (R-06) to[out=-50,in=175] (R-05);
+\node[font=\tiny, text=rust, align=left, anchor=west, fill=white, inner sep=1pt] at (80,44) {\textbf{한동석 축} R-01·R-03·R-12\\한동석 본부장의 결정과 이천센터 협조에 걸려 있다};
+\node[font=\tiny, text=teal, align=left, anchor=west, fill=white, inner sep=1pt] at (80,36) {\textbf{박세연 축} R-05·R-06·R-10\\박세연 본부장의 시간에 걸려 있다};
+\draw[rust, thin, densely dashed] (79,44) -- (R-01.east);
+\draw[teal, thin, densely dashed] (79,36) -- (R-05.east);
+% 함정 상자
+\node[box, draw=navy, fill=navylight, text width=58mm, font=\tiny, align=left, anchor=north west] at (80,29) {\textbf{읽는 규칙} — 점수(P×I)를 더하거나 평균 내지 말고 \textbf{위치}로 읽는다. 4×2 = 8과 2×4 = 8은 다른 리스크다(자주 일어나는 작은 것 vs 드문 큰 것). 영향 등급에 억 원·영업일의 실제 범위를 붙여야 비교 가능하다. 매트릭스에는 상관을 표시할 칸이 없다 — 등록부에 "연관 리스크" 열을 두고 같은 원인을 묶으면 진짜 상위 리스크가 보인다(Day1 프리모템 군집화). 근접성·긴급성도 없다 — 등록부의 "근접성"·"다음 검토" 열이 보완한다.};
+\node[lbl, font=\tiny, anchor=north west, align=left] at (80,76) {셀 색 = 위치로 정한 등급 (높음 / 중간 / 낮음) · 원 = 위협, 마름모 = 기회(영향 절댓값)\\점의 색 = navy 단독 · rust·teal = 같은 원인 묶음 · 점 위치 = 등록부의 실제 P\%·억};
+\node[font=\tiny, text=ink, anchor=north west, align=left] at (80,68) {\begin{tabular}{@{}l@{\ \ }l@{\ \ }l@{}}
+\multicolumn{3}{@{}l}{\textbf{대응 전 P\% · 원가 영향(억) · EMV} (워크북 §5)}\\
+R-01 60·4.5·2.70 & R-06 30·3.5·1.05 & R-11 40·2.5·1.00\\
+R-02 50·3.0·1.50 & R-07 60·1.5·0.90 & R-12 40·1.0·0.40\\
+R-03 40·2.0·0.80 & R-08 50·4.0·2.00 & R-13 35·2.1·0.74\\
+R-04 60·5.0·3.00 & R-09 40·1.8·0.72 & O-01 50·(-0.8)·(-0.40)\\
+R-05 70·2.4·1.68 & R-10 25·3.8·0.95 & O-02 60·(-1.0)·(-0.60)\\
+\multicolumn{3}{@{}l}{위협 합 17.44 → 대응 후 잔여 6.78 (5.3절 분포의 평균)}
+\end{tabular}};
+\node[src, anchor=north west] at (-20,-16) {출처: 워크북 §5 완성 예시본 등록부(= 교재 5.7절 정량화 표)의 대응 전 확률·P1 원가 영향 [추가 설정]을 5×5 격자에 실제 값 위치로 놓고, 5.2절의 상관(한동석 축·박세연 축)을 연결선으로 표시. 등급 경계는 이 그림이 정한 예시.};
+\end{tikzpicture}
+\end{document}

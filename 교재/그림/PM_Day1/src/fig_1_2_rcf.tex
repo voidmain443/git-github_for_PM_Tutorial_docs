@@ -1,0 +1,22 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[node distance=5mm]
+% 올바른 순서
+\node[title, anchor=west] (t1) at (0,0) {올바른 순서 — 외부 분포를 먼저 본다 (outside view $\rightarrow$ inside view)};
+\node[boxteal, text width=40mm, below=5mm of t1.west, anchor=north west] (s1) {\textbf{(1) reference class 확보}\\유사 과거 프로젝트\\20\textasciitilde30건 이상};
+\node[boxteal, text width=40mm, right=of s1] (s2) {\textbf{(2) 분포 산출}\\관심 변수의 분포\\{\footnotesize 예: 최종 실적 $\div$ 최초 승인 예산}};
+\node[boxteal, text width=40mm, right=of s2] (s3) {\textbf{(3) 값 읽기 · uplift}\\원하는 신뢰 수준의 값으로\\현재 추정치를 상향 조정};
+\node[boxfill, text width=34mm, right=of s3] (s4) {그다음 내부 질문\\{\footnotesize "우리가 그 분포의\\어디에 있을 이유가 있는가"}};
+\draw[arrteal] (s1) -- (s2); \draw[arrteal] (s2) -- (s3); \draw[arr] (s3) -- (s4);
+% 틀린 순서
+\node[title, text=rust, below=14mm of s1.south west, anchor=west] (t2) {틀린 순서 — 내부 추정을 먼저 만들고 RCF로 "검증"한다};
+\node[boxrust, text width=40mm, below=5mm of t2.west, anchor=north west] (w1) {\textbf{내부 추정 먼저}\\세부 계획을 보고\\"이렇게 하면 된다"};
+\node[boxgrey, text width=40mm, right=of w1] (w2) {\textbf{앵커링}\\내부 추정치가\\기준점이 되어 버린다};
+\node[boxgrey, text width=40mm, right=of w2] (w3) {\textbf{RCF가 형식으로 전락}\\외부 분포를 봐도\\기준점 근처로 되돌아온다};
+\draw[arrrust] (w1) -- (w2); \draw[arrrust] (w2) -- (w3);
+% 두 함정
+\node[box, draw=grey, fill=sand, text width=60mm, right=of w3, yshift=0mm] (trap) {\textbf{reference class의 폭}\\너무 좁게: "우리와 완전히 같은 프로젝트"만 → 표본 3건, uniqueness bias\\너무 넓게: "IT 프로젝트 원가 초과 분포"를 168억 SI에 그대로 적용};
+\node[src, below=5mm of w1.south west, anchor=north west] {출처: Flyvbjerg (2014); Kahneman \& Tversky (1979)의 outside view; 영국 재무부 Green Book·DfT 지침을 바탕으로 재구성.};
+\end{tikzpicture}
+\end{document}

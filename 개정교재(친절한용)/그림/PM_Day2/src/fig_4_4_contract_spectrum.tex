@@ -1,0 +1,22 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (80,44) {계약 유형별 원가 리스크 배분 스펙트럼과 온담 P1 계약의 위치};
+% 스펙트럼 축
+\shade[left color=rustlight, right color=navylight] (0,8) rectangle (160,16);
+\draw[navy, thick] (0,8) rectangle (160,16);
+\node[font=\scriptsize\bfseries, text=rust, anchor=east, align=center] at (-2,12) {원가 리스크\\공급자에게};
+\node[font=\scriptsize\bfseries, text=navy, anchor=west, align=center] at (162,12) {원가 리스크\\발주사에게};
+\def\ct#1#2#3#4{\draw[navy] (#1,8) -- (#1,6); \node[font=\scriptsize\bfseries, text=navy, anchor=north, align=center] at (#1,5) {#2}; \node[font=\tiny, text=grey, anchor=north, align=center, text width=30mm] at (#1,-2) {#3}; \node[font=\tiny, text=ink, anchor=north, align=center, text width=30mm] at (#1,-12) {#4};}
+\ct{12}{고정가 (FP / LSTK)}{발주사가 통제하는 것: 범위 (변경 = 대가)\\맞는 때: 범위가 정의됨 (Class 2 이상)}{\textbf{P1:} SI 용역 68.2 (FP 12,400 × 55만 원) · 데이터 전환 11.4 · 감리 4.2}
+\ct{48}{GMP (최대 보증가)}{최대 보증가까지 발주사, 초과분 공급자\\맞는 때: 설계와 시공이 겹칠 때 (CM at risk)}{P1: 없음 (EPC에서 흔함)}
+\ct{84}{단가 계약 (unit price)}{단가 고정, 수량 실측 (공유)\\맞는 때: 수량이 불확실한 반복 작업}{\textbf{P1:} 클라우드 사용료 · 단말 148만 원 × 477대}
+\ct{116}{T\&M (time \& materials)}{단가 고정, 투입 시간 변동 (공유)\\맞는 때: 소규모·단기·범위 미정}{P1: 앱 벤더 API 연동 추가 시 후보 (R-08)}
+\ct{148}{실비정산 (CPFF / CPIF)}{발주사가 통제하는 것: 원가 투명성\\맞는 때: 범위가 불확실할 때, R\&D}{P1: 없음}
+% 위: 고정가의 절반의 진실
+\node[box, draw=rust, fill=rustlight, text width=70mm, font=\tiny, align=left, anchor=south west] at (0,19) {\textbf{고정가가 "안전"하다는 믿음은 절반만 맞다.} 공급자는 원가 리스크를 \textbf{입찰가의 프리미엄} 또는 \textbf{변경 대가의 공격성}으로 돌려준다. 한빛디지털 응찰 198 → 계약 168: 30억의 차이 어딘가에 프리미엄이 있었거나, 없었다면 손익률 6.5\%를 지키기 위한 변경 대가 청구가 온다 (이재현 PM은 이미 그렇게 말했다). Merrow(2023): 설계 성숙도 부족 + 경쟁입찰 압박 → LSTK 성과 악화 — 단독 응찰·30억 감액·설계 전 계약의 P1과 겹친다.};
+\node[box, draw=teal, fill=teallight, text width=82mm, font=\tiny, align=left, anchor=south west] at (76,19) {\textbf{기준선 대비 편차 방식 (FIDIC Emerald Book의 GBR 패턴).} 리스크를 통째로 넘기지 않고 "기준선 대비 편차"만 보상한다. SI 이식: 데이터 전환 용역 11.4억에 "정본 데이터 결함률 기준선 N\% [추가 설정]"을 붙이고 초과분만 대가 조정 — 발주사는 데이터 정제 책임, 용역사는 전환 기술 책임. \textbf{변경 대가 산정 기준}(FP 추가분 × 단가인가, 인월 × 단가인가, 보정계수)이 계약서에 없으면 변경협의체는 매번 처음부터 협상한다.};
+\node[src, anchor=north west] at (-16,-24) {출처: 계약 유형별 리스크 배분은 PMBOK 6판 12장·FIDIC 계약 체계·NEC4 옵션 A\textasciitilde E의 통상적 분류를 따랐고(8판은 조달을 Appendix X4로 내렸다), 사례 문서 §5.5의 계약 8건과 Merrow, E. (2023) Contract Strategies for Major Projects를 교재 4.4절에 따라 대입.};
+\end{tikzpicture}
+\end{document}

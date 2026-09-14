@@ -1,0 +1,12 @@
+warning: accessing absolute path `/System/Library/Fonts/AppleSDGothicNeo.ttc`; build may not be reproducible in other environments
+warning: 01_사례_한장.tex:45: Overfull \hbox (20.63928pt too wide) in alignment at lines 45--45
+warning: 01_사례_한장.tex:65: Underfull \hbox (badness 10000) in paragraph at lines 63--65
+warning: 01_사례_한장.tex:89: Overfull \hbox (8.47707pt too wide) in paragraph at lines 88--89
+warning: 01_사례_한장.tex:120: Underfull \hbox (badness 1648) in paragraph at lines 120--120
+warning: 01_사례_한장.tex:120: Underfull \hbox (badness 10000) in paragraph at lines 120--120
+warning: 01_사례_한장.tex:45: Overfull \hbox (20.63928pt too wide) in alignment at lines 45--45
+warning: 01_사례_한장.tex:65: Underfull \hbox (badness 10000) in paragraph at lines 63--65
+warning: 01_사례_한장.tex:89: Overfull \hbox (8.47707pt too wide) in paragraph at lines 88--89
+warning: 01_사례_한장.tex:120: Underfull \hbox (badness 1648) in paragraph at lines 120--120
+warning: 01_사례_한장.tex:120: Underfull \hbox (badness 10000) in paragraph at lines 120--120
+warning: warnings were issued by the TeX engine; use --print and/or --keep-logs for details.

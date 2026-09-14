@@ -1,0 +1,53 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}
+\def\L{46mm}
+% 축별 단계 수: N=3(위), T=4(우), C=3(아래), P=4(좌)
+\coordinate (O) at (0,0);
+% 가이드 다이아몬드: 축별 눈금 k를 연결
+\foreach \k in {1,2,3}{
+  \draw[lightgrey!80!grey, thin] (0,\k*\L/3) -- (\k*\L/4,0) -- (0,-\k*\L/3) -- (-\k*\L/4,0) -- cycle;
+}
+\draw[grey!50, thin, dashed] (0,\L) -- (\L,0) -- (0,-\L) -- (-\L,0) -- cycle;
+% 축
+\draw[grey, thick] (0,0) -- (0,\L); \draw[grey, thick] (0,0) -- (\L,0);
+\draw[grey, thick] (0,0) -- (0,-\L); \draw[grey, thick] (0,0) -- (-\L,0);
+% 눈금 + 라벨 — Novelty (3)
+\foreach \k/\t in {1/derivative,2/platform,3/breakthrough}{
+  \draw[grey, thick] (-1mm,\k*\L/3) -- (1mm,\k*\L/3);
+  \node[lbl, anchor=west, xshift=1.5mm] at (0,\k*\L/3) {\t};
+}
+% Technology (4)
+\foreach \k/\t in {1/low-tech,2/medium-tech,3/high-tech,4/super-high-tech}{
+  \draw[grey, thick] (\k*\L/4,-1mm) -- (\k*\L/4,1mm);
+  \node[lbl, anchor=north west, rotate=-35, yshift=-1.5mm] at (\k*\L/4,0) {\t};
+}
+% Complexity (3)
+\foreach \k/\t in {1/assembly,2/system,3/array}{
+  \draw[grey, thick] (-1mm,-\k*\L/3) -- (1mm,-\k*\L/3);
+  \node[lbl, anchor=west, xshift=1.5mm] at (0,-\k*\L/3) {\t};
+}
+% Pace (4)
+\foreach \k/\t in {1/regular,2/fast-competitive,3/time-critical,4/blitz}{
+  \draw[grey, thick] (-\k*\L/4,-1mm) -- (-\k*\L/4,1mm);
+  \node[lbl, anchor=south east, rotate=-35, yshift=1.5mm] at (-\k*\L/4,0) {\t};
+}
+% 축 이름
+\node[font=\small\bfseries, text=navy, anchor=south] at (0,\L+3mm) {Novelty (신규성) — 3단계};
+\node[font=\small\bfseries, text=navy, anchor=west, align=left] at (\L+3mm,0) {Technology\\(기술) — 4단계};
+\node[font=\small\bfseries, text=navy, anchor=north] at (0,-\L-3mm) {Complexity (복잡성) — 3단계};
+\node[font=\small\bfseries, text=navy, anchor=east, align=right] at (-\L-3mm,0) {Pace\\(속도) — 4단계};
+% 온담 P1 프로파일: N=platform(2/3), T=medium(2/4), C=system(2/3, array에 가까움), P=time-critical(3/4)
+\coordinate (N) at (0,2*\L/3); \coordinate (T) at (2*\L/4,0); \coordinate (C) at (0,-2*\L/3); \coordinate (P) at (-3*\L/4,0);
+\fill[rust, opacity=0.12] (N) -- (T) -- (C) -- (P) -- cycle;
+\draw[rust, very thick] (N) -- (T) -- (C) -- (P) -- cycle;
+\foreach \p in {N,T,C,P}{ \fill[rust] (\p) circle (1.3mm); }
+% complexity: array에 가까움 표시
+\draw[rust, thick, dotted] (C) -- (0,-\L); \node[lbl, text=rust, anchor=east, xshift=-2mm, align=right] at (0,-2.5*\L/3) {프로그램 관점에서는\\array에 가깝다};
+\node[font=\small\bfseries, text=rust, anchor=north west] at (0.55*\L,0.55*\L) {온담 P1 프로파일};
+\node[lbl, anchor=north west, align=left, text width=44mm] at (0.55*\L,0.45*\L) {기술은 낮지만 통합·일정 리스크가 큰 프로젝트 — "표준 SI"가 아니다};
+\node[lbl, anchor=north west, align=left, text width=40mm] at (-\L-8mm,\L-2mm) {네 축은 직교한다.\\합산해 '난이도 등급'을\\만들면 모델이 무의미해진다.\\게이트마다 다시 그린다.};
+\node[src, anchor=north west] at (-\L-14mm,-\L-11mm) {출처: Shenhar \& Dvir (2007), Reinventing Project Management: The Diamond Approach, Harvard Business School Press를 바탕으로 재구성. P1 위치는 교재 1.4절의 예시 진단.};
+\end{tikzpicture}
+\end{document}

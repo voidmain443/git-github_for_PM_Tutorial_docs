@@ -1,0 +1,29 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}
+\node[title] at (66mm,36mm) {온담 P1 WBS — 레벨 1\textasciitilde 2 (6개, 작업패키지 43)와 1.3 통합 재고의 레벨 3 (경계 조건이 작업패키지로 갈라진다)};
+\node[boxfill, text width=60mm, font=\footnotesize\bfseries] (l1) at (66mm,26mm) {1 P1 차세대 주문·재고 통합 플랫폼\\{\scriptsize\mdseries 범위 100\% · 계획 원가 145.80억 · FP 12,400점 · WP 43}};
+\def\lb#1#2#3#4#5#6{\node[#6, text width=19mm, minimum height=22mm, font=\tiny, align=center] (#1) at (#2,8mm) {\textbf{#3}\\#4\\{\color{grey}#5}};}
+\lb{a1}{4mm}{1.1 POS·\\매장 운영 시스템}{§5 포함 (1) · WP 8\\FP 3,100 / 25.65억}{인수: 오정근·박세연}{box}
+\lb{a2}{28mm}{1.2 주문 허브}{§5 포함 (2) · WP 5\\FP 2,900 / 15.95억}{인수: 오정근}{box}
+\lb{a3}{52mm}{1.3 통합 재고 관리}{§5 포함 (3) · WP 5\\FP 2,300 / 12.65억}{인수: 한동석·박세연}{boxteal}
+\lb{a4}{76mm}{1.4 가맹 발주 포털}{§5 포함 (4) · WP 4\\FP 1,500 / 8.25억\\선행 릴리스 2026-Q4}{인수: 오정근·서정필}{box}
+\lb{a5}{100mm}{1.5 통합 계층·\\데이터 전환·공통 기반}{§5 포함 (5) · WP 10\\FP 2,600 / 64.00억\\인터페이스 문서 47본·인프라}{인수: 박세연}{box}
+\lb{a6}{124mm}{1.6 프로젝트 관리·\\통합 검증}{§6 횡단 + 관리 · WP 11\\FP — / 19.30억\\통합·성능시험, UAT, 감리, 컷오버, PMO 9.6억}{인수: 박세연·박준영·정미란}{boxgrey}
+\foreach \c in {a1,a2,a3,a4,a5,a6} \draw[arrgrey,-] (l1.south) -- (\c.north);
+\draw[decorate, decoration={brace, amplitude=3pt, mirror}, navy, thick] (-7mm,-4mm) -- (111mm,-4mm) node[midway, below=2pt, font=\tiny, text=navy] {헌장 §5의 다섯 산출물 = 레벨 2 (전문 산출물) — FP 12,400 · 126.50억};
+\draw[decorate, decoration={brace, amplitude=3pt, mirror}, grey, thick] (113mm,-4mm) -- (135mm,-4mm) node[midway, below=2pt, font=\tiny, text=grey, text width=30mm, align=center] {100\% 규칙이 요구하는 하나 — 횡단 인도물 + 관리 산출물};
+% 레벨 3 of 1.3
+\node[font=\footnotesize\bfseries, text=teal, anchor=west] at (-7mm,-14mm) {1.3 통합 재고 관리의 레벨 3 (WP 5) — 헌장 한 문장과 경계 조건이 세 작업패키지(1.3.1 / 1.3.3 / 1.3.4)로 갈라진다};
+\def\wp#1#2#3#4#5{\node[#5, text width=42mm, minimum height=15mm, font=\tiny, align=left, anchor=north west] (#1) at (#2,#3) {#4};}
+\wp{w1}{-7mm}{-18mm}{\textbf{1.3.1} 재고 원장 모델·규격서\\(P2·3PL 협상 지원 자료 포함)\\{\color{grey}발주(박세연, 한동석 협의) + 수행 재고팀. P2 인터페이스 규격 \textbf{T0 2026-04-24 전 전달}(FNLT), 3PL 부하 산정서 — 협상은 한동석, P1은 자료만}}{boxrust}
+\wp{w2}{40mm}{-18mm}{\textbf{1.3.2} 재고 원장 코어 모듈\\{\color{grey}수행 재고팀. 매장·센터·공장 3개 재고원 단일 원장, 15분 반영. 핵심 — 1.1과 인터페이스. 센터 재고를 야간 배치(1.3.3 폴백)로 받는 상태로도 컷오버 가능해야 (R-01)}}{boxteal}
+\wp{w3}{87mm}{-18mm}{\textbf{1.3.3} 3PL WMS 준실시간 API·폴백\\{\color{grey}수행 인터페이스팀(협상: 한동석). 연동 명세서·P1측 API·야간 배치 2회 폴백·자동 전환. 경계: 명세는 P1이 쓰고 API는 P1이 구현. 폴백이 R-03 완화 — 협상 결렬 시 인수 기준}}{boxrust}
+\wp{w4}{-7mm}{-37mm}{\textbf{1.3.4} P2 설비 인터페이스 P1측 수신 구현·시험\\{\color{grey}수행 인터페이스팀(설비측: P2). 수신 모듈, 통합시험 결과(MC 후). 경계: 규격·수신은 P1, 설비측 구현·시험은 P2. 시험 2027-02-12\textasciitilde 18 — 1.6.9와 분리(물류 2차 컷오버 옵션)}}{boxrust}
+\wp{w5}{40mm}{-37mm}{\textbf{1.3.5} 공장 출하 재고 연동 (별도 법인)\\{\color{grey}수행 인터페이스팀(계약: 최영주·조성태). 온담푸드시스템 연동 2본 — 계약·개인정보 주체 분리 (R-09)}}{boxteal}
+\node[lbl, font=\tiny, anchor=north west, text width=44mm, align=left, text=rust] at (87mm,-37mm) {\textbf{경계 조건은 범위 밖을 적는 것이 아니라 범위 안의 마지막 조각을 적는 것이다.} 자료·규격·수신 모듈이 WBS에 없으면 "P1이 자료를 안 줘서 협상을 못 했다", "규격을 못 받아 설비 사양에 반영하지 못했다"가 성립한다.};
+\draw[decorate, decoration={brace, amplitude=3pt, mirror}, rust, thick] (-7mm,-56mm) -- (133mm,-56mm) node[midway, below=2pt, font=\tiny, text=rust, text width=138mm, align=center] {헌장 §5 "연동 명세를 작성하고 P1측 API를 구현하되 협상은 물류본부 소관" 한 문장 → 1.3.1 (규격·협상 지원 자료) / 1.3.3 (명세서·API·폴백) / 1.3.4 (P2 수신·시험). 1.3.3의 WBS 사전 카드는 협상 실패 시 인도할 것(④ 폴백 ⑤ 자동 전환)과 없는 것(③ 준실시간 API 가동)을 미리 가른다.};
+\node[src, anchor=north west] at (-7mm,-66mm) {출처: 사례 문서 헌장 §5·§6(포함 산출물 5·경계 조건)과 초기 리스크 R-01·R-03·R-09. 구조·코드·FP·원가는 워크북 §1 완성 예시본 항목 7\textasciitilde 9 [추가 설정].};
+\end{tikzpicture}
+\end{document}

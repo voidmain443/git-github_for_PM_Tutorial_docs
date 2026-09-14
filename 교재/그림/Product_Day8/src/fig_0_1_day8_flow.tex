@@ -1,0 +1,29 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink}]
+\node[title] at (3.0,5.4) {Day8 다섯 산출물의 입력 관계 — 5차원 표 하나가 넷을 관통하고, 모집단 하나가 40종을 닫는다};
+\node[boxgrey,text width=27mm] (p16) at (-3.8,4.0) {PM ⑯ SAC · ⑰ SLA 3층\\보내던·요구하던 쪽};
+\node[boxgrey,text width=27mm] (p20) at (-3.8,2.6) {PM ⑳ 편익 원장 v1.0\\6칸 · 분모 A/B · ITO 서명표};
+\node[boxgrey,text width=27mm] (t26) at (-3.8,1.2) {㉖ Won't · ㉟ CR-044\\태산 62항목 · 온프렘 보류};
+\node[boxgrey,text width=27mm] (t27) at (-3.8,-0.2) {㉗·㉞ 데이터셋 문장\\자동차 3세트 60건 · 미측정};
+\node[boxgrey,text width=27mm] (t33) at (-3.8,-1.6) {㉝ 표기 규칙 · ㉚ 옵션풀 메모\\4.9 vs 3.8 · 위치 조항 부재};
+\node[boxfill,text width=31mm] (d36) at (1.4,4.0) {㊱ 딜 데스크\\5차원 표 · 3분류 · 82.1\% · BATNA};
+\node[boxfill,text width=31mm] (d37) at (1.4,2.6) {㊲ 경계·SLA·배상\\3영역 · 야간 P1 · 4구간 · 218문항};
+\node[boxfill,text width=31mm] (d38) at (1.4,1.2) {㊳ IR·재무모델\\18.9 / 15.68 · 3케이스 · IC 8문};
+\node[boxfill,text width=31mm] (d39) at (1.4,-0.2) {㊴ 텀시트 레드팀\\T2 → T3 · 1.29\%p · 2×2};
+\node[boxfill,text width=31mm] (d40) at (1.4,-1.6) {㊵ 편익 원장 공동 확정본\\output 열 · 모집단 · 8일 사슬};
+\node[boxrust,text width=22mm] (e47) at (6.6,4.0) {D+800 47건 확정\\138 mm};
+\node[boxrust,text width=22mm] (ets) at (6.6,1.2) {D+787·795\\텀시트 2안};
+\node[boxrust,text width=22mm] (eg5) at (6.6,-1.6) {D+760 온담 G5\\실현률 71\% 경고};
+\draw[arr] (p16) -- (d37); \draw[arr] (p20) -- ++(1.9,0) |- (d40.west); \draw[arr] (t26) -- ++(2.2,0) |- (d36.west); \draw[arr] (t27) -- ++(1.6,0) |- (d40.west); \draw[arr] (t33) -- ++(2.5,0) |- (d38.west); \draw[arr] (t33.east) -- ++(0.7,0) |- (d39.west);
+\draw[arrteal] (d36.south) -- (d37.north);
+\draw[arrteal] (d36.east) -- ++(0.35,0) -- node[lbl,left,pos=0.5,text width=13mm,align=right]{6.12 · 82.1\\대한기공} ++(0,-2.8) -- (d38.east);
+\draw[arrteal] (d38.south) -- (d39.north);
+\draw[arrteal] (d37.east) -- ++(0.95,0) -- node[lbl,right,pos=0.6,text width=14mm]{25\% 구간 ·\\정본 판정자} ++(0,-4.2) -- (d40.east);
+\draw[arrteal] (d39.south) -- (d40.north);
+\draw[arrrust] (e47) -- (d36); \draw[arrrust] (ets) -- (d38); \draw[arrrust] (eg5) -- (d40);
+\node[boxgrey,text width=30mm,font=\tiny,draw=rust] (fin) at (6.6,-3.1) {마지막 30분 — 8일 최종 명제\\㊵ ← ⑳ ← ⑫ ← ① / ㊵ ← ㉞ ← ㉗ ← ㉖ ← ㉓ ← ㉒}; \draw[arrgrey,dashed] (d40.east) -- ++(0.5,0) |- (fin.west);
+\node[src,anchor=west,text width=118mm] at (-5.2,-4.2) {Day8 워크북 §6. 실선 — 입력(PM ⑯·⑰·⑳는 반대편에서). 청록 — 오늘의 문서끼리(㊱ 3분류 → ㊲ 3영역 / ㊱ 6.12·82.1 → ㊳ / ㊲ 25\% 구간·정본 판정자 → ㊵). 붉은색 — 사건. 파선 — 마지막 30분.};
+\end{tikzpicture}
+\end{document}

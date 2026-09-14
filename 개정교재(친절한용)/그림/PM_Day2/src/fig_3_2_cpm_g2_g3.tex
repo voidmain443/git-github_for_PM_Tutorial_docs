@@ -1,0 +1,59 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}
+\node[title] at (80mm,38mm) {온담 P1 G2 → G3 → 컷오버 네트워크 — 두 임계경로(통합시험·UAT 사슬·P2 사슬)와 리허설 사슬의 총여유 5영업일};
+% 노드 매크로: ES EF / 이름 / LS LF / TF
+\tikzset{
+ an/.style={draw=navy, thick, fill=white, inner sep=0pt, minimum width=22mm, minimum height=11mm},
+ cr/.style={draw=rust, very thick, fill=rustlight},
+ ms/.style={diamond, draw=navy, thick, fill=navylight, inner sep=1pt, font=\tiny, align=center, aspect=2.2},
+}
+\def\act#1#2#3#4#5#6#7#8#9{% style, name, x, y, id+label, ES, EF, LS, LF
+ \node[an, #1] (#2) at (#3,#4) {\begin{tabular}{@{}c@{}}{\tiny #6 \quad #7}\\{\tiny\bfseries #5}\\{\tiny #8 \quad #9}\end{tabular}};}
+% 리허설 사슬 (상단) — TF 5
+\node[ms, aspect=1.8] (A) at (-30mm,22mm) {A 정본 판정 종료\\11-20 → G2 11-27\\(FNLT)};
+\act{}{B}{0mm}{22mm}{B 전환 프로그램 최종화 10}{11-23}{12-04}{11-30}{12-11}
+\act{}{C}{26mm}{22mm}{C 리허설 1회차 5}{12-07}{12-11}{12-14}{12-18}
+\act{}{D}{52mm}{22mm}{D 결함 수정·재매핑 1 10}{12-14}{12-25}{12-21}{01-01}
+\act{}{E}{78mm}{22mm}{E 리허설 2회차 5}{12-28}{01-01}{01-04}{01-08}
+\act{}{F}{104mm}{22mm}{F 결함 수정 2 5}{01-04}{01-08}{01-11}{01-15}
+\act{}{G}{130mm}{22mm}{G 리허설 3회차 (검증 6종) 10}{01-11}{01-22}{01-18}{01-29}
+\draw[arr] (A.east) -- (B.west);
+\foreach \a/\b in {B/C,C/D,D/E,E/F,F/G} \draw[arr] (\a.east) -- (\b.west);
+\foreach \n in {B,C,D,E,F,G} \node[font=\tiny, text=teal, anchor=south] at (\n.north) {TF 5};
+\node[font=\tiny, text=teal, anchor=south] at (A.north) {TF 5};
+\node[font=\tiny, text=rust, anchor=south west, align=left] at ($(G.north east)+(0mm,2.5mm)$) {\textbf{FNLT 01-29}\\(G3 no-go 조건)};
+% 통합시험·UAT 사슬 (중단) — TF 0
+\node[ms, draw=grey, fill=lightgrey] (R3) at (24mm,4mm) {구현 R3 종료\\12-04 (A10)};
+\act{cr}{H}{52mm}{4mm}{H 통합시험·성능·보안진단 30}{12-07}{01-15}{12-07}{01-15}
+\act{cr}{I}{78mm}{4mm}{I UAT 실행 14}{01-18}{02-04}{01-18}{02-04}
+\act{cr}{J}{104mm}{4mm}{J UAT 결함 수정·재시험 5}{02-05}{02-11}{02-05}{02-11}
+\act{cr}{K}{130mm}{4mm}{K 롤백 검증·G3 패키지 5}{02-12}{02-18}{02-12}{02-18}
+\draw[arrgrey] (R3.east) -- (H.west);
+\foreach \a/\b in {H/I,I/J,J/K} \draw[arrrust, very thick] (\a.east) -- (\b.west);
+\foreach \n in {H,I,J,K} \node[font=\tiny, text=rust, anchor=south] at (\n.north) {TF 0};
+% P2 사슬 (하단) — TF 0 (SNET이 만든 0)
+\node[ms, draw=rust, fill=rustlight] (L) at (104mm,-13mm) {L P2 기계적 준공 MC\\02-12 (외부, \textbf{SNET})};
+\act{cr}{M}{130mm}{-13mm}{M 물류 인터페이스 통합시험 5}{02-12}{02-18}{02-12}{02-18}
+\draw[arrrust, very thick] (L.east) -- (M.west);
+\draw[arrrust, very thick] (H.south) |- ($(M.west)+(-4mm,2.5mm)$) -- ($(M.west)+(0mm,2.5mm)$);
+\node[font=\tiny, text=rust, anchor=south] at (M.north) {TF 0 (SNET이 만든 0)};
+% G3, 컷오버
+\node[ms, draw=rust, fill=rustlight] (N) at (158mm,4mm) {N G3 컷오버 승인\\02-19 (\textbf{FNLT})};
+\act{}{O}{184mm}{4mm}{O 컷오버 창 대기 4}{02-22}{02-25}{02-22}{02-25}
+\node[font=\tiny, text=navy, anchor=south, align=center] at (O.north) {제약 사이 간격\\(여유 아님)};
+\node[ms, draw=rust, fill=rustlight] (P) at (184mm,-13mm) {P 컷오버 주말 (34h)\\02-26\textasciitilde 28 (\textbf{SNET 02-26})};
+\draw[arrrust, very thick] (K.east) -- (N.west);
+\draw[arr] (G.east) -| (N.north);
+\draw[arrrust, very thick] (M.east) -| (N.south);
+\draw[arrrust, very thick] (N.east) -- (O.west);
+\draw[arrrust, very thick] (O.south) -- (P.north);
+\node[font=\tiny, text=grey, anchor=west, align=left] at ($(P.east)+(1mm,0)$) {→ 프로그램 합류 버퍼\\15영업일 (→03-12)\\P1의 것이 아니다};
+% 범례
+\node[lbl, font=\tiny, anchor=north west, align=left] at (-34mm,-2mm) {노드 안: 위 = ES EF / 아래 = LS LF\\기간 = 영업일 (2027-01-01·설 연휴 무시)\\{\color{rust}\rule{6mm}{1.2pt}} 임계경로 (TF 0)\\{\color{navy}\rule{6mm}{1.2pt}} 리허설 사슬 (TF 5)\\A\textasciitilde P = 교재 3.2절 표 (워크북 A11·A13\textasciitilde A17·MG3)};
+% 해설 상자
+\node[box, draw=navy, fill=navylight, text width=120mm, font=\tiny, align=left, anchor=north west] at (-34mm,-24mm) {\textbf{읽는 것 세 가지.} ① 임계경로는 통합시험·UAT 사슬(H→I→J→K→N)과 P2 사슬(L→M→N) 둘이다 — M의 여유 0은 논리가 아니라 SNET(외부 날짜 02-12)이 만든 0이며, P1 PM이 통제하지 못하는 외부 마일스톤이 P1의 임계경로를 결정한다(R-01). ② 리허설 사슬(A\textasciitilde G)의 총여유 5일은 논리(N 02-19 역산이면 19일)가 아니라 \textbf{FNLT 01-29가 만든 여유}이고, 경로가 공유하는 자원이다 — R-10(정본 후 마스터 변경, 재매핑 6주)이 오면 즉시 임계. ③ G3(02-19) → 컷오버(02-26)의 4영업일(O)은 여유가 아니라 FNLT와 SNET 사이의 \textbf{간격} — 소비하면 매장 통보·패키지 확정이 없어진다. 그 뒤 합류 버퍼 15영업일은 프로그램의 것(3.3절).};
+\node[src, anchor=north west] at (-34mm,-42mm) {출처: 교재 3.2절 CPM 계산표 [추가 설정] — 워크북 §3 완성 예시본 항목 5의 A11·A13\textasciitilde A17·MG3 구간을 손으로 계산할 수 있는 크기로 쪼갠 것. 날짜·기간·여유는 워크북과 같다. 착수\textasciitilde G4 전체 20개 활동은 그림 3-6.};
+\end{tikzpicture}
+\end{document}

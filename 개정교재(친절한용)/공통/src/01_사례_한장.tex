@@ -1,0 +1,157 @@
+% 사례 한 장 — 온담F&B홀딩스 · P1 책받침 (A4 가로 양면). 빌드: tectonic --chatter minimal 01_사례_한장.tex
+\documentclass[10pt]{article}
+\usepackage[a4paper,landscape,margin=11mm,top=9mm,bottom=8mm]{geometry}
+\usepackage{fontspec}
+\setmainfont{Apple SD Gothic Neo}
+\setsansfont{Apple SD Gothic Neo}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,positioning,calc}
+\usepackage{array,booktabs,tabularx,multicol,xcolor,colortbl}
+\definecolor{navy}{HTML}{1F3A5F}\definecolor{teal}{HTML}{2A7F62}\definecolor{rust}{HTML}{C8553D}
+\definecolor{grey}{HTML}{7A7A7A}\definecolor{lightgrey}{HTML}{EFEFEF}\definecolor{navylight}{HTML}{DCE6F2}\definecolor{rustlight}{HTML}{F6E0DA}
+\setlength{\parindent}{0pt}\setlength{\parskip}{2pt}\pagestyle{empty}
+\renewcommand{\arraystretch}{1.12}
+\newcommand{\hd}[1]{{\color{navy}\bfseries\large #1}\par\vspace{1pt}{\color{navy}\rule{\linewidth}{0.6pt}}\par\vspace{3pt}}
+\newcommand{\sub}[1]{{\color{navy}\bfseries #1}\par\vspace{1pt}}
+\begin{document}\small
+% ───────────────────────────── 1면 ─────────────────────────────
+{\color{navy}\bfseries\LARGE 사례 한 장} \quad {\large ㈜온담F\&B홀딩스 · 프로젝트 P1 차세대 주문·재고 통합 플랫폼} \hfill {\color{grey}\footnotesize 정본: 교재/공통/가상회사\_온담F앤B.pdf · 숫자 ID는 그 문서 §5}
+
+\vspace{4pt}
+\begin{minipage}[t]{0.47\linewidth}
+\hd{회사}
+성수동 본사, 비상장 식음료 중견기업. 카페(온담커피)·베이커리(브레드온담)·델리(온담델리) 3개 브랜드 \textbf{615개 매장}(직영 227 / 가맹 388) + B2B 원료 유통·냉동생지. 2025년 연결매출 \textbf{8,740억}, 영업이익 312억(3.6\%), \textbf{부채비율 187\%}, 이자보상배율 2.69배. 2019년 사모펀드 350억 유치 → \textbf{2027년 IPO} 조항. 대표 김선호(창업자 장남), CFO 정미란(2024 외부 영입).
+
+\vspace{4pt}\hd{왜 P1인가}
+매장 시스템 \textbf{OD-POS 2.1}(2011 자체개발, 서버 OS 지원 종료, 원 개발자 3명 중 1명 재직) 수명 종료. 시스템 6종·인터페이스 47본 중 \textbf{13본 설계문서 없음}. 재고를 실시간으로 못 본다(3PL WMS 야간 배치, 가맹 발주 39\%가 전화·팩스·엑셀).
+두 번의 실패 — \textbf{2019 스마트오더 34억 8개월 중단}, \textbf{2022 WMS 고도화 12억 범위 63\% 축소}. 감사 지적: 편익 근거 부재 · 손실 확정 절차 부재 · 형상관리 미비.
+
+\vspace{4pt}\hd{핵심 숫자 12}
+\begin{tabularx}{\linewidth}{@{}l r l @{}}
+\toprule
+재고 정확도 & 91.3\% & 순환실사 SKU만(69\%) — 목표 98.5 (O-08, B-02)\\
+결품률 / 폐기율 & 4.7\% / 3.9\% & 폐기 = 식자재 2,530억 × 3.9\% ≈ 연 98.7억 (B-03·B-04)\\
+가맹 발주 리드타임 & 38h & 목표 12h (B-08)\\
+온라인 매출 비중 & 6.2\% & 목표 18\% (B-01)\\
+프로그램 ONE ONDAM & 428억 & P1 168 / P2 194 / P3 22 / P4 31 / P5 13 (P-01)\\
+승인 편익 M+24 & 연 214억 & 그중 P1 직접 기여 118, P2 설비 96 (B-01\textasciitilde08)\\
+P1 예산 3층 & 168.0 / 156.0 / 145.8 & 승인 / 집행 한도 / 계획 원가 (P-08)\\
+SI 계약 & 68.2억 & FP 12,400 × 55만 원, 고정가 (P-09)\\
+데이터 전환 & 1,842 테이블 · 7.4TB & (P-10)\\
+피크 인력 & 82명 & 수행사 61 + 발주사 14(겸임) + 벤더 7 (P-11)\\
+스프린트 & 36회 × 2주 & 설계 6 / 구현 20 / 통합·시험 10\\
+위임 한도 & 5억 / 5,000만 & 본부장 전결 / CFO 결재(2026-02-16\textasciitilde)\\
+\bottomrule
+\end{tabularx}
+
+\vspace{4pt}\hd{프로그램 ONE ONDAM — 다섯 프로젝트 (§2.5)}
+\begin{tabularx}{\linewidth}{@{}l X r@{}}
+\toprule
+\textbf{P1} & \textbf{차세대 주문·재고 통합 플랫폼 구축 (SI) — 여러분} & \textbf{168}\\
+P2 & 이천 물류센터 자동화 — AS/RS 12,400 로케이션, 셔틀 42대, 4,200 케이스/h & 194\\
+P3 & 매장·가맹 프로세스 변화관리 — 3,900명 교육, 슈퍼유저 124명, 파일럿 12개점 & 22\\
+P4 & 규제 대응 — 개인정보 보호법·전자금융업·ISMS-P & 31\\
+P5 & 운영 이관 — 서비스 전환, SLA·운영 문서 12종 (+연 운영비 27) & 13\\
+\bottomrule
+\end{tabularx}
+
+\vspace{4pt}\hd{이사회 승인 조건 5 (§2.4)}
+① 428억을 3개년(176 / 198 / 54)에 집행, 연차별 재확인 \; ② 관리예비비 24억 원천 유보, 스폰서 결재 \; ③ 게이트 G0\textasciitilde G5마다 편익 전망 재확인 \; ④ G5(2028-03-31)에서 M+24 연 214억 판정 \; ⑤ 2020·2023 감사 지적(편익 근거·손실 확정 절차·형상관리) 재발 방지.
+\end{minipage}\hfill
+\begin{minipage}[t]{0.51\linewidth}
+\hd{P1 범위 — 다섯 산출물}
+① 신규 클라우드 POS·매장 운영(직영 477대 교체, 가맹 388점 SW 배포) \; ② 주문 허브(앱·배달3사·POS·가맹발주·B2B EDI → 하나의 주문 원장) \; ③ 통합 재고 관리(매장·이천센터·공장 단일 원장, 3PL 야간 배치 → 준실시간 API) \; ④ 가맹 발주 포털 \; ⑤ 통합 계층·데이터 전환(API GW, MDM, SAP 애드온).\\
+\textbf{제외}: SAP ECC 교체 · 물류 설비·WMS(P2) · 교육·가맹계약 개정(P3) · 규제 등록 자체(P4) · 운영 조직 편성(P5).
+
+\vspace{4pt}\hd{타임라인 — 고정 기한은 붉은색}
+\begin{tikzpicture}[x=0.5cm,y=1cm,font=\scriptsize]
+% 축: 2026-01 = 0, 월 단위, 2028-03 = 26
+\draw[very thick,navy] (0,0) -- (27.5,0);
+\foreach \m/\l in {0/2026-01,3/04,6/07,9/10,12/2027-01,15/04,18/07,21/10,24/2028-01,26/03}{\draw[navy] (\m,0.08)--(\m,-0.08); \node[below,gray] at (\m,-0.08) {\l};}
+% 성수기 잠금
+\foreach \a/\b in {6/8,11/12,18/20,23/24}{\fill[rustlight] (\a,0.05) rectangle (\b,0.32);}
+\node[rust,font=\tiny] at (7,0.45) {성수기 잠금};\node[rust,font=\tiny] at (11.5,0.45) {12월};
+% 게이트 (위)
+\foreach \m/\l/\d in {0.15/G0 착수/01-05, 3.95/G1 기획 완료/04-30, 10.9/G2 중간·데이터 정본/11-27, 13.6/G3 컷오버 승인/02-19, 16.9/G4 운영 이관 완료 (P1 종료)/05-29, 26.0/G5 편익 검토/03-31}{
+  \draw[navy,thick] (\m,0) -- (\m,0.9); \node[navy,above,align=center,font=\tiny] at (\m,0.9) {\textbf{\l}\\\d};}
+% 고정 기한 (아래, 붉은색)
+\draw[rust,thick] (8.35,0) -- (8.35,-0.95); \node[rust,below,align=center,font=\tiny] at (8.35,-0.95) {\textbf{개인정보 보호법 대응}\\2026-09-11};
+\draw[rust,thick] (13.85,0) -- (13.85,-1.75); \node[rust,below,align=center,font=\tiny] at (13.85,-1.75) {\textbf{컷오버 주말 34h}\\2027-02-26\textasciitilde 28};
+\draw[rust,thick] (15.6,0) -- (15.6,-0.95); \node[rust,below,align=center,font=\tiny] at (15.6,-0.95) {\textbf{전자금융업 등록}\\2027-03-31};
+% P2
+\draw[teal,thick] (3.8,-2.75) -- (3.8,-2.45); \node[teal,below,font=\tiny,align=center] at (3.8,-2.75) {P2 설비 발주 T0\\04-24};
+\draw[teal,thick] (13.4,-2.75) -- (13.4,-2.45); \node[teal,below,font=\tiny,align=center] at (13.4,-2.75) {P2 기계적 준공\\02-12 (34→41주 위험)};
+\draw[teal,dashed] (3.8,-2.45) -- (13.4,-2.45); \node[teal,font=\tiny,above] at (8.6,-2.45) {P2 이천 물류센터 자동화 194억};
+% 스프린트 밴드
+\fill[navylight] (0,1.55) rectangle (14,1.85); \node[navy,font=\tiny] at (7,1.7) {스프린트 36회 (설계 S1\textasciitilde6 · 구현 S7\textasciitilde26 · 통합·시험 S27\textasciitilde36)};
+\fill[teal!20] (17,1.55) rectangle (18.6,1.85); \node[teal,font=\tiny,right] at (18.7,1.7) {ELS 8주 → 운영};
+\end{tikzpicture}
+
+\vspace{2pt}\sub{마일스톤 (§5.4)}
+{\footnotesize G0 착수 2026-01-05 · G1 기획 완료 04-30 · 개인정보 보호법 대응 완료 09-11 · G2 중간/데이터 정본 판정 11-27 · 리허설 3회차 2027-01-29 · 전자금융업 등록 신청 01-29 · G3 컷오버 승인 02-19 · \textbf{컷오버 주말 02-26\textasciitilde 28} · 전자금융업 심사 대응 03-31 · \textbf{G4 운영 이관 완료 05-29} · ISMS-P 심사 06 · G5 편익 검토 2028-03-31}
+
+\vspace{3pt}\hd{움직일 수 없는 것}
+성수기(7\textasciitilde8월, 12월, 명절 전 2주)에는 매장 시스템을 건드릴 수 없다 → 컷오버 창은 1\textasciitilde2월 또는 3\textasciitilde5월. OD-POS·SAP ECC는 컷오버까지 병행. 3PL 대성로지스 WMS는 커스터마이징 불가, 계약은 물류본부 소관. 가맹 388점 SW 배포는 서면 동의가 전제. 프로그램 관리예비비 24억은 스폰서 결재.
+\end{minipage}
+
+\newpage
+% ───────────────────────────── 2면 ─────────────────────────────
+{\color{navy}\bfseries\LARGE 사람과 긴장} \hfill {\color{grey}\footnotesize 상세: 사례 §4.2 등장인물 표 · §6 이해관계와 긴장}
+
+\vspace{4pt}
+\begin{minipage}[t]{0.56\linewidth}
+\hd{등장인물 13 + 서면 4}
+\begin{tabularx}{\linewidth}{@{}l l X@{}}
+\toprule
+\textbf{김선호} & 대표이사, 프로그램 이사회 의장 & IPO 시계. "일정이 먼저다", 착수 회의에서 "가능하다면 더 앞당기라"\\
+\textbf{정미란} & CFO, 프로그램 스폰서(Executive)·CCB 위원장 & 부채비율 시계. "1차연도 176억은 못 쓴다 → 148억", "편익은 근거가 있어야"\\
+\textbf{오정근} & 영업본부장, P1 Senior User & "성수기 절대 금지", 가맹 반발은 2019의 반복. 편익 책임자(폐기·결품·인건비)\\
+\textbf{박세연} & IT본부장(CIO), Senior Supplier & OD-POS 원 설계자, 기존 시스템의 유일한 해독자. "벤더 종속은 피한다"\\
+\textbf{한동석} & 물류본부장, P2 Senior User & 3PL 계약 소관. "4,200 케이스/h는 현장 숫자가 아니다"\\
+\textbf{나영선} & 품질안전본부장, CCB 위원 & "검사기록이 더 급하다"(2025-11 반려 34억). 재고 정확도 분모 협의 상대\\
+\textbf{최영주} & CPO(개인정보), CCB 위원 & "시행일은 협상 대상이 아니다". 검토 의견만, 아키텍처 결정 안 함\\
+\textbf{박준영} & 서비스운영팀장(데스크 11명), P5 인수자 & SAC 판정권 — "우리가 운영할 수 있는 시스템인가"\\
+\textbf{서정필} & 가맹점주협의회장 & 388점 서면 동의의 상대. 데이터는 누구의 것인가\\
+\textbf{이재현} & 수행사 ㈜한빛디지털 PM(피크 61명) & 응찰 198 → 계약 168, 손익률 6.5\%. "대기·추가는 변경대가"\\
+\textbf{강윤지} & 지역매니저(매장 현장) & "이번엔 없어지지 않나요" — 활용률의 열쇠\\
+\textbf{윤태호} & 내부감사팀장 & 2020·2023 지적의 원천. "근거를 문서로"\\
+\textbf{김미르} & 노조 물류지부장(246명) & "처리량 두 배 = 인원 절반?"\\
+\bottomrule
+\end{tabularx}
+{\footnotesize 서면 등장 — \textbf{조성태} 생산본부장(별도 법인 온담푸드시스템 대표 겸임) · \textbf{강현도} 구매팀장 · \textbf{정하늘} 수석감리원 · \textbf{타케다 마사시} P2 설비 PM}
+
+\vspace{5pt}\hd{거버넌스 한 눈에}
+프로그램 이사회(분기 + 게이트, 의장 김선호 — 게이트 판정·관리예비비 24억) → 스폰서 정미란 → 운영위(월) → 프로그램 PMO 4명 → \textbf{P1 PM(여러분)} + P1 PMO 3명. 변경은 세 층 — \textbf{CCB 7인}(정미란·박세연·오정근·나영선·최영주·PMO장·재경팀장) / 계약상 \textbf{변경협의체}(FP·대가) / PM 전결(허용범위 안).
+\end{minipage}\hfill
+\begin{minipage}[t]{0.42\linewidth}
+\hd{세 개의 시계 — 사례 §6.3}
+\textbf{대표의 시계는 IPO.} 2027년 3분기 예비심사 전에 안정 가동 → 컷오버는 2027년 2월 마지막 주말. 놓치면 하반기.\\
+\textbf{CFO의 시계는 부채비율.} 187\% → 160\% 목표를 사모펀드·은행에 이미 말했다 → 1차연도 176억을 148억으로.\\
+\textbf{품질의 시계는 수행사와 감리.} FP 12,400 안에서 손익률 6.5\% — 앞당기면 변경대가, 줄이면 요구 재협상.\\
+세 시계는 맞지 않는다. PM이 맞추는 게 아니라 \textbf{헌장의 우선순위 칸에 적어 스폰서가 결정하게} 한다.
+
+\vspace{5pt}\hd{네 개의 긴장 — 사례 §6.1\textasciitilde6.4}
+현업 vs IT("쓰기 편한" vs "운영할 수 있는") · 본사 vs 가맹(데이터 소유권, 단말 비용) · 일정 vs 재무 vs 품질 · 통제 밖(물류센터 P2, 3PL, 규제 시행일, 노조).
+
+\vspace{5pt}\hd{허용범위 초안 — 프로젝트 계층 (§5.6)}
+\begin{tabularx}{\linewidth}{@{}l l X@{}}
+\toprule
+원가 & +6\% (10.08억) & 본부장 전결 5억과 불일치\\
+일정 & +15 영업일 & 컷오버 창은 0\\
+범위 & ±3\% (±35건) & 변경협의체 합의 필요\\
+품질 & 0.4건/FP & 작업패키지 0.13\\
+리스크 & EMV 8억 & 프로그램 16억\\
+편익 & $-$5\%p & 판정 권한 재무본부\\
+\bottomrule
+\end{tabularx}
+
+\vspace{5pt}\hd{4일의 시점}
+Day1 \textbf{2026-01-05} G0 착수 → Day2 \textbf{2026-04} G1 직전, 기준선 → Day3 \textbf{2026-09-30} 데이터 일자, 성과보고 제9호 → Day4 \textbf{2027-02-05} 런북 확정 / \textbf{2027-05-28} G4 종료.
+
+\vspace{5pt}\hd{산출물 20종 — 하나의 사슬}
+{\footnotesize \textbf{Day1} ① 비즈니스 케이스 요약 ② 헌장 ③ 이해관계자 등록부·현저성 ④ 거버넌스·RACI ⑤ 프리모템·초기 리스크 \; \textbf{Day2} ⑥ 범위 기술서·WBS ⑦ RTM 골격 ⑧ 일정 기준선 ⑨ 원가 기준선·예비비 ⑩ 리스크 정량화·허용범위 격자 \; \textbf{Day3} ⑪ 변경요청서·CCB 의결 ⑫ 성과보고 EVM·ES ⑬ 이슈·리스크 갱신 ⑭ 품질 통제 기록 ⑮ 조달·계약 변경 \; \textbf{Day4} ⑯ 컷오버 런북·SAC ⑰ 운영 이관·SLA 3층·ELS ⑱ 종료 보고서·이관 목록 ⑲ 교훈 등록부 ⑳ 편익 실현 원장}
+
+\vspace{5pt}\hd{ID 읽는 법}
+C-/O-/P-/B- 숫자 표 · G0\textasciitilde5 게이트 · \textbf{S-nn 이해관계자} vs \textbf{Snn 스프린트} · \textbf{R-nn 리스크} vs \textbf{Rn 릴리스} · A01\textasciitilde20 활동 · CR-nn 변경 · BL-0n 기준선 · EX-0n 예외 보고 · IS-nn 이슈 · L-nn 교훈. 전체는 02\_용어약어색인.pdf.
+\end{minipage}
+\end{document}

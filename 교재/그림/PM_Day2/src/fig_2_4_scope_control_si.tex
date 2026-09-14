@@ -1,0 +1,29 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}
+\node[title] at (66mm,34mm) {한국 민간 SI의 범위 통제 구조 — 계약 문서의 층, FP 기준선, 변경의 두 층};
+% 좌: 계약 문서 층 (우선순위)
+\node[font=\footnotesize\bfseries, text=navy, anchor=west] at (-4mm,26mm) {① 계약 문서의 층 — 상충 시 우선순위};
+\node[lbl, font=\tiny, anchor=west] at (-4mm,22.5mm) {(계약서에 우선순위 조항이 있을 때만 유효)};
+\node[box, draw=navy, fill=navylight, text width=58mm, font=\scriptsize, align=left, anchor=north west] (d1) at (-4mm,20mm) {\textbf{1. 계약서 본문} — 지체상금·공기 연장·대가 조정 원칙};
+\node[box, draw=navy, fill=navylight!70, text width=58mm, font=\scriptsize, align=left, below=1.5mm of d1.south west, anchor=north west] (d2) {\textbf{2. 특수조건} — 변경 대가 산정 기준·FP 재산정 주체·비용 부담};
+\node[box, draw=navy, fill=navylight!45, text width=58mm, font=\scriptsize, align=left, below=1.5mm of d2.south west, anchor=north west] (d3) {\textbf{3. 과업지시서(과업내용서)} — 범위의 정본. {\color{rust}"기타 협의된 사항"이 여기에 산다}};
+\node[box, draw=navy, fill=navylight!25, text width=58mm, font=\scriptsize, align=left, below=1.5mm of d3.south west, anchor=north west] (d4) {\textbf{4. 제안요청서(RFP)} — StRS+SyRS 혼합의 요구};
+\node[box, draw=navy, fill=white, text width=58mm, font=\scriptsize, align=left, below=1.5mm of d4.south west, anchor=north west] (d5) {\textbf{5. 제안서} — "제안서에 있으니 해 달라"의 원천};
+\node[lbl, font=\scriptsize, anchor=north west, text width=58mm, align=left, below=2mm of d5.south west, anchor=north west] (dn) {우선순위 조항이 없으면 "제안서에 있다" vs "과업지시서에 없다"의 충돌은 변경협의체가 아니라 법무로 간다.};
+% 중: FP 기준선 확인서
+\node[font=\footnotesize\bfseries, text=navy, anchor=west] at (62mm,26mm) {② 범위 기준선의 계약적 단위};
+\node[boxteal, text width=56mm, font=\scriptsize, align=left, anchor=north west] (fp) at (62mm,22mm) {\textbf{FP 기준선 확인서 (G1 2026-04-30 서명)}\\요구사항 1,180건 ↔ FP 12,400점 ↔ 68.2억\\(12,400 × 55만 원 — 보정계수는 부속서 확인)\\서명: 발주사 PM · 수행사 PM(이재현) · 형상관리 담당\\[3pt]입찰 시점 12,400 = RFP 기준 개략 계수(Class 4\textasciitilde 3)\\G1 확인서 = 설계 스프린트 6회 후 정밀 계수(Class 2)\\[3pt]{\color{rust}FP는 기능만 잰다} — 비기능·데이터 전환·인프라는 FP 밖 → 168.0 중 SI 용역 68.2뿐, 나머지 99.8은 별도 계약};
+\node[boxgrey, text width=56mm, font=\scriptsize, align=left, anchor=north west] (tr) at (62mm,-22mm) {\textbf{범위 크립의 장치} 매월 마지막 수요일 동결 → 허용범위 ±3\%(±35건) 안은 PM이 결정하되 \textbf{기록} → 누적 ±35건 또는 분기 1회에 FP 재산정 트리거 → ±3\% 초과 시 계약 금액 조정. 크립의 원인은 통제의 부재가 아니라 \textbf{문턱이 너무 높은 것} — 작은 변경도 기록한다.};
+% 우: 변경의 두 층
+\node[font=\footnotesize\bfseries, text=navy, anchor=west] at (126mm,26mm) {③ 변경의 두 층 (순서가 중요)};
+\node[boxrust, text width=48mm, font=\scriptsize, align=left, anchor=north west] (cc) at (126mm,22mm) {\textbf{계약상 변경협의체}\\발주 3 + 수행 3 · 격주 수요일 14:00\\변경 대가 산정 · FP 재산정 트리거 판정\\{\color{grey}대가에 합의하지 않으면 수행사는 하지 않는다}};
+\node[boxrust, text width=48mm, font=\scriptsize, align=left, below=4mm of cc.south west, anchor=north west] (ccb) {\textbf{사내 CCB} 7인 · 월 1회 셋째 목요일\\범위·원가·일정 기준선 변경 승인\\{\color{grey}예산을 승인하지 않으면 발주사는 지급하지 못한다}};
+\draw[arrrust, <->, very thick] (cc.south) -- node[lbl, font=\tiny, text=rust, right, align=left] {둘 다 통과해야\\변경이 성립} (ccb.north);
+\node[lbl, font=\scriptsize, anchor=north west, text width=48mm, align=left] at (126mm,-22mm) {{\color{rust}민간에는 과업심의위원회(SW진흥법)가 없다.} 이재현 PM: "발주사 미결정 대기와 요구사항 추가는 변경대가 대상" → 발주사 PM의 대응 기록 = 결정 요청 응답 SLA 5영업일 + RACI.};
+\draw[arr] (fp.east) -- (cc.west);
+\draw[arr] (d3.east) -- (fp.west);
+\node[src, anchor=north west] at (-4mm,-42mm) {출처: 한국소프트웨어산업협회 『SW사업 대가산정 가이드』의 기능점수 기반 대가 구조, 사례 문서 §5.3·§5.6(FP 12,400·동결·±3\%·변경협의체·CCB)을 교재 2.4절에 따라 재구성. 문서 우선순위는 일반적 관행이며 계약서 조항이 우선한다.};
+\end{tikzpicture}
+\end{document}

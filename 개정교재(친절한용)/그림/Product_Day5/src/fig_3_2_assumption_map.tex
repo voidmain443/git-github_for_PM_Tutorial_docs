@@ -1,0 +1,32 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink}]
+\draw[navy, thick] (0,0) rectangle (10,7);
+\draw[navy] (5,0) -- (5,7); \draw[navy] (0,3.5) -- (10,3.5);
+\fill[rustlight, opacity=0.5] (5,3.5) rectangle (10,7);
+\node[anchor=south, text=navy, font=\footnotesize\bfseries] at (5,7.1) {증거 부족 →};
+\node[anchor=south] at (2.5,7.1) {낮음 (현장 데이터·인터뷰 다수)};
+\node[anchor=south] at (7.5,7.1) {높음 (인터뷰 1~2건·없음)};
+\node[anchor=south, rotate=90, text=navy, font=\footnotesize\bfseries] at (-0.95,3.5) {중요도 ↑};
+\node[anchor=south, rotate=90] at (-0.4,5.25) {높음};
+\node[anchor=south, rotate=90] at (-0.4,1.75) {낮음};
+% 오른쪽 위
+\node[boxrust, text width=40mm, draw=rust, line width=1.3pt] at (7.5,6.2) {\textbf{A-02} 현장 조도에서 OCR 90\% → \textbf{X-02}};
+\node[boxrust, text width=40mm, draw=rust, line width=1.3pt] at (7.5,5.1) {\textbf{A-05} 검사원이 판정 초안을 두려워하지 않는다 → \textbf{X-01}};
+\node[boxrust, text width=40mm, draw=rust, line width=1.3pt] at (7.5,4.0) {\textbf{A-03} 팀장이 월 100만대 예산을 낸다 → \textbf{X-03}};
+\node[draw=rust, dashed, fill=white, rounded corners=2pt, text width=40mm, align=center] at (7.5,3.85-0.75) {\textbf{A-12} 6개월 유료 5 — 지금 실험 불가, 지도에 남긴다};
+% 왼쪽 위
+\node[boxfill, text width=40mm] at (2.5,6.1) {A-04 1차사가 자동 8D를 접수한다};
+\node[boxfill, text width=40mm] at (2.5,5.2) {A-07 클라우드 가능이 과반 (I-22 vs I-27)};
+\node[boxfill, text width=40mm] at (2.5,4.3) {A-10 결정자 = 팀장, 승인 = 공장장·대표};
+% 오른쪽 아래
+\node[boxgrey, text width=40mm] at (7.5,2.4) {A-06 라인 단위 과금을 받아들인다};
+\node[boxgrey, text width=40mm] at (7.5,1.4) {A-11 초안이 승인 시간을 늘리지 않는다};
+\node[boxgrey, text width=40mm] at (7.5,0.5) {A-01 사진·음성이 종이보다 낫다고 느낀다};
+% 왼쪽 아래
+\node[boxgrey, text width=40mm] at (2.5,1.9) {A-08 마스터 217개를 2주에 매핑};
+\node[boxgrey, text width=40mm] at (2.5,0.9) {A-09 와이파이·단말 충분};
+\node[src, anchor=west] at (0,-0.6) {Day5 워크북 §4.5 항목 1·2(D+38). 오른쪽 위에서 셋을 골라 X-01~03으로. A-01은 X-01에서 A-05와 함께 검증됐다(중요도는 A-05가 흡수).};
+\end{tikzpicture}
+\end{document}

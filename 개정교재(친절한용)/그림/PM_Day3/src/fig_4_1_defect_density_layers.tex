@@ -1,0 +1,46 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (95,100) {결함밀도 — 분자·분모의 정의가 값을 만들고, 계층이 정치를 끊는다 (2026-09-30)};
+% ---- 왼쪽: 정의의 정치 (분자 × 분모 격자)
+\node[font=\scriptsize\bfseries, text=rust, anchor=west] at (0,92) {정의의 정치 — 같은 프로젝트, 분자·분모 선택에 따라 다른 값};
+\node[font=\tiny, text=grey, anchor=west, text width=88mm, align=left] at (0,87) {수행사는 분자를 좁게(심각도 1·2만)·분모를 넓게(계약 FP) 정의하고 싶고, 발주사는 반대다. 아래 격자는 값의 범위를 보이기 위한 것이며 굵은 칸만 격자가 채택한 정의다.};
+% 격자 헤더
+\node[font=\tiny\bfseries, text=navy, anchor=south] at (36,78.5) {분모 = 계약 FP 12,400};
+\node[font=\tiny\bfseries, text=navy, anchor=south] at (62,78.5) {분모 = 인수 FP 7,020};
+\node[font=\tiny\bfseries, text=navy, anchor=south] at (88,78.5) {분모 = BL-02 12,585};
+\foreach \y/\lab/\a/\b/\c/\sty in {
+ 72/분자 = 심각도 1·2 미해결 7건/0.0006/0.0010/0.0006/boxgrey,
+ 64/분자 = 스프린트 시험 결함 930/0.075/\textbf{0.132}/0.074/boxgrey,
+ 56/분자 = 설계 검토 + 시험 1{,}140/0.092/0.162/0.091/boxgrey,
+ 48/분자 = 통합시험–UAT 결함 (전망 1{,}130)/0.091/—/\textbf{약 0.09}/boxgrey}{
+  \node[font=\tiny, text=ink, anchor=east, align=right, text width=30mm] at (22,\y) {\lab};
+  \node[\sty, font=\tiny, minimum width=22mm, minimum height=6mm] at (36,\y) {\a};
+  \node[\sty, font=\tiny, minimum width=22mm, minimum height=6mm] at (62,\y) {\b};
+  \node[\sty, font=\tiny, minimum width=22mm, minimum height=6mm] at (88,\y) {\c};
+}
+\node[boxteal, font=\tiny, minimum width=22mm, minimum height=6mm, line width=1.2pt] at (62,64) {\textbf{0.132}};
+\node[boxfill, font=\tiny, minimum width=22mm, minimum height=6mm, line width=1.2pt] at (88,48) {\textbf{약 0.09}};
+\node[font=\tiny, text=grey, anchor=west, text width=98mm, align=left] at (0,40) {회색 칸의 값은 분자·분모를 바꿔 계산한 참고값이다(심각도 1·2 행은 미해결 7건만 넣은 하한). 0.4를 계약 FP·전체 결함으로 재면 0.09로 "여유 78\%"가 되고, 심각도 1·2만으로 재면 0.01이 된다 — 정의 없는 0.4는 아무것도 재지 않는다.};
+% ---- 오른쪽: 두 계층
+\node[font=\scriptsize\bfseries, text=navy, anchor=west] at (106,92) {격자의 해결 — 계층마다 분자·분모·기준·판정자를 따로 둔다 (Day2 §5.5)};
+\node[boxteal, text width=82mm, font=\tiny, align=left, anchor=north west] at (106,88) {%
+\textbf{작업패키지 계층 — 수행사 PM 이재현 · 선행 지표(지금 잴 수 있다)}\par
+분자 = 스프린트 시험 결함(설계 검토 제외) 930 ÷ 분모 = 인수 FP 누적 7,020 = \textbf{0.132건/FP}\par
+기준 0.13 → 1.5\% 초과 = 경계를 넘음 → \textbf{1단계 에스컬레이션}: 이재현 → P1 PM 09-28(인지 09-25 + 1영업일), P1 PM 결정 10-01(결함 전담 2명 10월 배치 · backlog 10-31 60 이하 · 시험 노력 주간 보고 추가)\par
+월별 누적 0.085 / 0.130 / \textbf{0.162}(6월 최고) / 0.157 / 0.129(8월, 시험 정지 착시) / 0.132 — 에스컬레이션은 8월에 일어났어야 했다};
+\node[boxfill, text width=82mm, font=\tiny, align=left, anchor=north west] at (106,58) {%
+\textbf{프로젝트 계층 — P1 PM · 후행 지표(통합시험 A14 시작 전이라 판정 불가)}\par
+분자 = 통합시험(A14)–UAT(A16) 발견 결함 ÷ 분모 = FP 기준선 BL-02 12,585 · 기준 \textbf{0.4건/FP} + G3 심각도 1·2 미해결 0\par
+전망(범위로 적는다) = 0.132 × 유출률 35\% [추가 설정, Kan DRE 가정] 0.046 + UAT 약 0.04 [추가 설정] = \textbf{약 0.09(0.07–0.13)} → 기준의 22\%\par
+절대 건수 약 \textbf{1,130건}(통합시험 580 + UAT 550) → 통합시험 30일에 580건 해소 = 주 100건 이상 필요 vs 현재 능력 주 40건. 실제 제약은 밀도가 아니라 \textbf{심각도 1·2 미해결 0 = 해소 능력}이다};
+% 화살표: 선행 → 후행
+\draw[arrteal, line width=1.2pt] (147,61.5) -- (147,58.5);
+\node[font=\tiny, text=teal, anchor=west] at (149,60) {선행 지표가 후행 지표의 입력(유출률)};
+% 하단 메시지
+\node[boxrust, text width=188mm, font=\tiny, align=left, anchor=north west] at (0,28) {%
+\textbf{계층이 없으면.} 0.132는 0.4보다 한참 아래이므로 아무 일도 일어나지 않고, 통합시험에서 처음 0.4를 잰다 — 그때는 늦다. 에스컬레이션은 크기가 아니라 \textbf{경계를 넘었는가}로 발동하고(0.132 > 0.13), 분자·분모·기준·판정자가 문서에 적혀 있을 때만 "넘었다"가 성립한다. 워크북 ⑭ 항목 1(밀도 정의)·항목 4(월별 누적)·항목 8(에스컬레이션 기록).};
+\node[src, anchor=north west] at (0,16) {출처: Day3 워크북 ⑭ 완성 예시본 항목 1·4·8, Day2 워크북 §5 항목 7·8 격자(품질 축 0.4 / 0.13), 교재 4.1절. 회색 참고값은 같은 분자·분모로 나눈 산술값.};
+\end{tikzpicture}
+\end{document}

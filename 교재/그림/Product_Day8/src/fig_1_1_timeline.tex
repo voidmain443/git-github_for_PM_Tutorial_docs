@@ -1,0 +1,31 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink},x=0.42mm,y=1mm]
+\node[title] at (800,70) {D+600 → D+1000 — 시점 1(D+800)에 쓰고, 시점 2(D+1000)는 봉인};
+\draw[very thick,navy] (600,0) -- (1000,0);
+\foreach \d in {600,700,800,900,1000}{\draw[navy] (\d,-1.5) -- (\d,1.5); \node[below=2pt] at (\d,-1.5) {D+\d};}
+\node[below=11pt,text=grey] at (600,-1.5) {2027-10-23}; \node[below=11pt,text=grey] at (800,-1.5) {2028-05-10}; \node[below=11pt,text=grey] at (1000,-1.5) {2028-11-26};
+\fill[navylight,opacity=0.5] (786,-3) rectangle (822,3);
+% above: deal & capital (정본 진하게, 추가 설정 연하게)
+\node[boxrust,text width=19mm,anchor=south] (a1) at (604,14) {D+610 온담 RFI\\218문항 · 제218문항};
+\node[boxgrey,text width=17mm,anchor=south] (a2) at (640,32) {D+640 제안서 v1\\21억 · 커버리지 95\% 가정};
+\node[boxrust,text width=17mm,anchor=south] (a3) at (668,14) {D+660 SAFE 8억\\cap 180 · K-03};
+\node[boxgrey,text width=19mm,anchor=south] (a4) at (702,32) {D+690 이관 실사\\61.4\% → 6.12억};
+\node[boxgrey,text width=17mm,anchor=south] (a5) at (739,14) {D+739 대한기공\\문의(김도윤)};
+\node[boxrust,text width=17mm,anchor=south] (a6) at (787,32) {D+787 한강\\80/320 · 풀 15\% pre};
+\node[boxrust,text width=19mm,anchor=south] (a7) at (852,32) {D+795 코너스톤\\80/290 · 온담 선행};
+\node[boxrust,text width=21mm,anchor=south,line width=1.4pt] (a8) at (800,14) {\textbf{D+800 47건 확정}\\시점 1 · ㊱};
+\node[boxfill,text width=21mm,anchor=south,dashed] (a9) at (1000,14) {\textbf{D+1000 에필로그}\\봉인 — 마지막 30분};
+\foreach \n/\x in {a1/610,a2/640,a3/660,a4/690,a5/739,a6/787,a7/795,a8/800,a9/1000}{\draw[grey,thin] (\n.south) -- (\x,2);}
+% below: 온담 side & documents
+\node[boxgrey,text width=17mm,anchor=north] (b1) at (617,-14) {D+617 218 회신\\131 / 62 / 25};
+\node[boxgrey,text width=17mm,anchor=north] (b2) at (718,-14) {D+718 요구 1차\\31건};
+\node[boxrust,text width=19mm,anchor=north] (b3) at (760,-30) {D+760 온담 G5\\실현률 71\% 경고};
+\node[boxgrey,text width=17mm,anchor=north] (b4) at (780,-14) {D+780 대한기공\\2.4억 × 3년};
+\node[boxfill,text width=23mm,anchor=north] (b5) at (811,-46) {D+802 ㊳ · 807 ㊴\\814 ㊲ · 821 ㊵};
+\node[boxgrey,text width=19mm,anchor=north] (b6) at (900,-14) {D+900 시리즈A\\클로징 목표(㉝)};
+\foreach \n/\x in {b1/617,b2/718,b3/760,b4/780,b5/811,b6/900}{\draw[grey,thin] (\n.north) -- (\x,-2);}
+\node[src,anchor=west,text width=160mm] at (598,-70) {정본 §4.10\textasciitilde{}4.13 · §1.5(붉은 상자) · 워크북 §0.3 [추가 설정](회색). RFI는 정본 표기 D+640이나 날짜 2027-11-02 = D+610. 정본 §7.1의 'D+900' 열 값을 시점 1에 쓴다.};
+\end{tikzpicture}
+\end{document}

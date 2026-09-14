@@ -1,0 +1,29 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}
+% 비선형 시간축: 1994~2015는 1년=2mm, 2015 이후는 1년=14mm (최근 10년이 조밀하므로)
+\newcommand{\yr}[1]{ifthenelse(#1<2015,(#1-1994)*2mm,42mm+(#1-2015)*14mm)}
+\draw[grey, very thick, -{Stealth[length=3mm]}] ({\yr{1994}},0) -- ({\yr{2028}},0); \draw[grey!60, dashed] ({\yr{2015}},-3mm) -- ({\yr{2015}},3mm) node[lbl, above, font=\scriptsize] {축 척도 변경};
+\foreach \y in {1996,2005,2015,2017,2019,2021,2023,2025,2027}{ \draw[grey] ({\yr{\y}},-1mm) -- ({\yr{\y}},1mm); \node[lbl, below] at ({\yr{\y}},-1mm) {\y}; }
+% PMI 계열 (위)
+\node[font=\small\bfseries, text=navy, anchor=west] at ({\yr{1994}-14mm}, 30mm) {PMI 계열};
+\node[font=\small\bfseries, text=teal, anchor=west] at ({\yr{1994}-14mm}, -30mm) {그 밖의 표준};
+\newcommand{\up}[4]{\draw[navy] ({\yr{#1}},0) -- ({\yr{#1}},#2); \node[boxfill, anchor=south, text width=#4, font=\footnotesize] at ({\yr{#1}},#2) {#3};}
+\newcommand{\dn}[4]{\draw[teal] ({\yr{#1}},0) -- ({\yr{#1}},-#2); \node[boxteal, anchor=north, text width=#4, font=\footnotesize] at ({\yr{#1}},-#2) {#3};}
+\up{1996}{8mm}{\textbf{1996 PMBOK 1판 계열}\\9 Knowledge Areas}{26mm}
+\up{2017}{8mm}{\textbf{2017 6판}\\10 KA $\times$ 5 Process Groups\\49 processes · ITTO\\+ Agile Practice Guide\\(Agile Alliance 공동)}{30mm}
+\up{2021}{30mm}{\textbf{2021 7판 — 실험}\\12 principles / 8 domains\\프로세스·ITTO 전면 삭제\\실무 콘텐츠 → PMIstandards+}{30mm}
+\up{2022.7}{8mm}{\textbf{2022 Process Groups:\\A Practice Guide}\\7판의 공백을 PMI가 보완}{27mm}
+\up{2025.9}{32mm}{\textbf{2025-11 8판 (디지털)}\\\textbf{2026-01 인쇄본}\\6 principles / 7 domains\\5 Focus Areas / 40 processes\\— 부분 회귀}{31mm}
+\dn{2018.7}{8mm}{\textbf{2019 APM BoK 7판}\\PMI보다 먼저 원칙·맥락 중심 재편}{30mm}
+\dn{2020.4}{28mm}{\textbf{2020 ISO 21502:2020}\\ISO 21500:2012를 대체하는\\프로젝트 관리 본체 지침}{30mm}
+\dn{2021.6}{8mm}{\textbf{2021 ISO 21500:2021}\\제목이 "Context and\\concepts"로 변경}{27mm}
+\dn{2023.3}{28mm}{\textbf{2023 PRINCE2 7} (PeopleCert)\\7 principles / 7 practices\\/ 7 processes}{28mm}
+\dn{2026.5}{8mm}{\textbf{2026-07-09 PMP 신시험}\\근거는 ECO,\\PMBOK은 참고 문헌}{27mm}
+% 2006 RPM
+\draw[grey, dashed] ({\yr{2006}},0) -- ({\yr{2006}},-40mm);
+\node[lbl, anchor=north, text width=34mm] at ({\yr{2006}},-40mm) {2006 Rethinking Project\\Management (제4장) —\\7판 원칙 전환의 뿌리};
+\node[src, anchor=north west] at ({\yr{1994}-14mm},-56mm) {출처: 교재 2.1절 연표(PMI, ISO/TC 258, PeopleCert, APM 공개 정보)를 바탕으로 재구성. 연도 위치는 근사.};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,31 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (95,70) {한국 SI 통제의 네 주기와 세 조직 — "감리 지적은 검수의 근거"가 잇는 사슬};
+% 조직 띠 3
+\foreach \y/\c/\t in {44/navylight/발주사 PMO (P1 PM · P1 PMO), 24/rustlight/감리법인 (정하늘 수석감리원), 4/teallight/구매 · 재경 (강현도 · 재경팀장 · 변경협의체)}{
+  \fill[\c, opacity=0.6] (0,\y) rectangle (190,\y+18);
+  \node[font=\scriptsize\bfseries, text=ink, anchor=west] at (1,\y+15.5) {\t};
+}
+% 발주사 PMO 띠: 주간·월간
+\node[box, text width=36mm, font=\tiny, align=left] (wk) at (24,51) {\textbf{주간 보고 (월)}\\주간 PM 회의 · Checkpoint\\인수 FP · 결함 나이 · 결정 대기\\09-28: 밀도 0.132 보고 · 구두 "감리 정리 후 검수"};
+\node[box, text width=40mm, font=\tiny, align=left] (mo) at (70,51) {\textbf{월간 보고 (성과보고 · CCB)}\\제9호 10-05 · CCB 10-15 · 등록부 갱신\\EVM · ES · CPM TF · RAG 7축\\예외 보고 EX-01 10-02(비주기)};
+\node[box, text width=40mm, font=\tiny, align=left] (ex) at (118,51) {\textbf{게이트 (G1\textasciitilde G5)}\\G2 11-27 정본 판정 · 감리 2차\\감리 시정 확인 회의 11-06\\검수 조건부 합격 조건 = 지적 조치};
+% 감리 띠
+\node[boxrust, text width=44mm, font=\tiny, align=left] (au) at (70,31) {\textbf{감리 (중간 1차 09-07\textasciitilde 18, 통보 09-25)}\\지적 8건: 중대 1 · 보통 4 · 경미 3\\감리 기재 귀속: 수행사 6 · 발주사 2\\AF-1-03·04 "수행사 설계 미흡" → 이의 09-29 → 회신 요청 10-08};
+\node[boxrust, text width=40mm, font=\tiny, align=left] (au2) at (118,31) {\textbf{정보시스템 감리기준(공공)을 빌린 민간 구조}\\감리 계약 부속서 3: 등급 정의\\등급 = 시정 기한 / 귀속 = 책임\\G2 감리 2차(11월) · G3 · G4};
+% 검수 띠
+\node[boxteal, text width=44mm, font=\tiny, align=left] (ac) at (70,11) {\textbf{검수 (계약 §14, R2 요청 09-25)}\\15영업일 → 결과 통보 10-16\\조건부 합격: 수행사 귀속 3건(02·05·06) 조치 + 심각도 2 R2분 5건\\발주사 사유 기간 09-28\textasciitilde 10-08 = 8영업일 (R2 FP 12\%)};
+\node[boxteal, text width=40mm, font=\tiny, align=left] (cc) at (118,11) {\textbf{변경협의체 (격주 수) · 대기 비용}\\대기 기록 10-09 제출 → 10-14 판정\\§14 발주사 사유 = 지체 제외 · 대기 비용\\§18 지체상금 1/1000/일 (유보 0.0614)};
+% 굵은 화살표: 감리 → 검수
+\draw[arrrust, line width=1.6pt] (au.south) -- (ac.north) node[midway, right, font=\tiny, text=rust, align=left] {"감리 지적은 검수의 근거" (회사 정본 §6.3)\\귀속 칸 하나가 검수 조건과 대기 비용을 정한다};
+\draw[arrteal, thick] (ac.east) -- (cc.west);
+\draw[arrrust, thick] (au.east) -- (au2.west);
+\draw[arr, thick] (wk.east) -- (mo.west); \draw[arr, thick] (mo.east) -- (ex.west);
+\draw[arr, thick, dashed] (mo.south) -- (au.north) node[midway, right, font=\tiny, text=grey] {감리 대응 → 성과보고 품질 A};
+% 연쇄 (하단)
+\node[box, draw=rust, text width=186mm, font=\tiny, align=left, anchor=north west] at (0,0) {\textbf{연쇄와 온담 날짜.} 감리 통보 09-25 → 검수 요청 09-25(같은 날) → 주간 회의 구두 "감리 정리 후" 09-28 → 수행사 서면 "보류 = 대기" 09-29 / 발주사 귀속 이의 서면 09-29 → 발주사 회신 6항 10-01 → 감리 귀속 회신 10-08 → 대기 기록 10-09 → 변경협의체 판정 10-14 → 검수 결과 통보 10-16 → 감리 시정 확인 회의 11-06.  지적 귀속 칸 → 검수 조건부 합격 조건 → 대기 비용 청구 범위 → 변경협의체 판정 — 네 문서가 같은 날짜와 같은 8영업일을 말해야 한다(⑭ 항목 6 · ⑬ IS-07 · ⑮ 항목 4·6).};
+\node[src, anchor=north west] at (0,-14) {출처: Day3 워크북 ⑭ 항목 6(감리 대응 관리대장), ⑮ 항목 1·4·6(계약 §14·§18, 검수 회신, 지연 귀책), ⑬ IS-07; 회사 정본 §6.3. 교재 1.4절.};
+\end{tikzpicture}
+\end{document}

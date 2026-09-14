@@ -1,0 +1,21 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink}]
+\node[title] at (4.6,4.3) {네 칸의 표 — FN과 FP의 분모는 다르다 (DS-v1 1{,}480항목)};
+% header
+\node[lbl] at (2.0,3.5) {초안 '불량'}; \node[lbl] at (5.1,3.5) {초안 '양품'}; \node[lbl,anchor=east] at (0.3,3.5) {실제 ↓ · 초안 →};
+\node[lbl,anchor=east] at (0.3,2.5) {실제 불량 \textbf{296}}; \node[lbl,anchor=east] at (0.3,1.1) {실제 양품 \textbf{1{,}184}};
+\draw[fill=teallight,draw=teal] (0.5,1.8) rectangle (3.5,3.2); \node at (2.0,2.6) {TP 272}; \node[font=\tiny,text=grey] at (2.0,2.15) {불량을 불량으로};
+\draw[fill=rustlight,draw=rust,line width=1.4pt] (3.6,1.8) rectangle (6.6,3.2); \node[text=rust,font=\small\bfseries] at (5.1,2.6) {FN 24}; \node[font=\tiny,text=rust] at (5.1,2.15) {불량을 양품으로 — 라인을 나간다};
+\draw[fill=rustlight!60,draw=rust] (0.5,0.4) rectangle (3.5,1.8); \node[text=rust] at (2.0,1.2) {FP 173}; \node[font=\tiny,text=grey] at (2.0,0.75) {양품을 불량으로 — 검사원이 잡는다};
+\draw[fill=teallight,draw=teal] (3.6,0.4) rectangle (6.6,1.8); \node at (5.1,1.2) {TN 1{,}011};
+% rates
+\node[box,text width=36mm,align=left,anchor=west] at (7.0,2.5) {\textbf{FN} = 24 ÷ \textbf{296} = \textbf{8.1\%}\\분모 = 실제 불량 (V-03)};
+\node[box,text width=36mm,align=left,anchor=west] at (7.0,1.1) {\textbf{FP} = 173 ÷ \textbf{1{,}184} = \textbf{14.6\%}\\분모 = 실제 양품 (V-04)};
+\node[boxgrey,text width=36mm,align=left,anchor=west] at (7.0,-0.2) {"정확도" = (272+1{,}011) ÷ 1{,}480 = 86.7\% — 전부 양품이라 해도 80\%. 판정 기능에는 쓰지 않는다};
+% F1 small
+\node[boxgrey,text width=58mm,align=left,anchor=west] at (0.5,-0.5) {외관 결함 96(별도): TP 76 · FN 20 · FP 23 → 정밀도 76÷99 = 0.768 · 재현율 76÷96 = 0.792 → \textbf{F1 0.78}(V-02) · OCR 960÷1{,}050 = \textbf{91.4\%}(V-01)};
+\node[src,anchor=west] at (0.3,-1.4) {정본 §7.3 V-01~04 v1 열 · 분자·분모는 day6\_seed.py [추가 설정]. 24 + 173 = 197은 "오류 197건"이 아니다 — 다른 분모 위의 숫자다.};
+\end{tikzpicture}
+\end{document}

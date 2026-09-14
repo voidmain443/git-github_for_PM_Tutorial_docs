@@ -1,0 +1,24 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\footnotesize,text=ink}]
+\foreach \x/\t/\d in {0/프리시드 D+0~90/Day5, 4.6/시드 D+120~300/Day6, 9.2/PMF 추적 D+300~600/Day7, 13.8/시리즈A D+600~1000/Day8}{
+  \node[boxfill, text width=40mm, minimum height=9mm] at (\x,3.2) {\textbf{\t}\\{\scriptsize \d}};}
+\node[anchor=east, text=navy, font=\footnotesize\bfseries] at (-2.4,2.0) {있는 것};
+\node[anchor=east, text=rust, font=\footnotesize\bfseries] at (-2.4,0.5) {없는 것};
+\node[anchor=east, text=teal, font=\footnotesize\bfseries] at (-2.4,-1.1) {만드는 문서};
+\node[box, text width=40mm, align=left] at (0,2.0) {문제 숫자 4 · 시장 1\\현금 1.6억 · 캡테이블 1\\창업자의 가설};
+\node[box, text width=40mm, align=left] at (4.6,2.0) {+ 시드 12억 · 12명\\백로그 41 mm · LOI 2\\eval v1 · 가격표 v1};
+\node[box, text width=40mm, align=left] at (9.2,2.0) {+ 유료 31 · ARR 4.9/3.8억\\코호트 3 · 채택률 22\%\\사고 1건 · eval v2};
+\node[box, text width=40mm, align=left] at (13.8,2.0) {+ 유료 58 · ARR 11.9억\\온담 RFI 218문항 · 47건\\텀시트 2안};
+\node[boxrust, text width=40mm, align=left] at (0,0.5) {고객 · 매출 · 지표 · 데이터\\제품(WoZ뿐)};
+\node[boxrust, text width=40mm, align=left] at (4.6,0.5) {리텐션 · 유닛이코노믹스 실측\\채택률};
+\node[boxrust, text width=40mm, align=left] at (9.2,0.5) {온담 4세트 eval\\PM 1명};
+\node[boxrust, text width=40mm, align=left] at (13.8,0.5) {자동차 밖 도메인 데이터\\ISMS-P};
+\node[boxteal, text width=40mm, align=left] at (0,-1.1) {㉑ 합의서 ㉒ 인터뷰 ㉓ 트리\\㉔ 가정·실험 ㉕ 세그먼트·커널\\{\scriptsize → 모르는 것의 목록}};
+\node[boxteal, text width=40mm, align=left] at (4.6,-1.1) {㉖ 범위 ㉗ eval·HITL ㉘ 가격\\㉙ PR/FAQ ㉚ 텀시트};
+\node[boxteal, text width=40mm, align=left] at (9.2,-1.1) {㉛ 코호트 ㉜ North Star ㉝ UE v2\\㉞ 사고 ㉟ 로드맵};
+\node[boxteal, text width=40mm, align=left] at (13.8,-1.1) {㊱ 딜 데스크 ㊲ 경계·SLA\\㊳ IR ㊴ 레드팀 ㊵ 편익 공동};
+\node[src, anchor=west] at (-2.3,-2.4) {Day5 교재 1.4절. 프리시드의 문서는 결정을 기록하지 않고 "모르는 것"을 기록한다 — 90일의 성과는 모르는 것의 목록이 짧아진 정도로 잰다.};
+\end{tikzpicture}
+\end{document}

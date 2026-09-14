@@ -1,0 +1,35 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (95,76) {두 번 컷오버(R-14)와 4주의 임시 상태 — 앞 컷오버의 안정화 지표가 뒤 컷오버의 게이트 조건};
+% 시간축: 02-28 → 04-27 (x = 일수 * 3.1mm, 02-28 = 0)
+\draw[grey, thick] (0,30) -- (183,30);
+\foreach \d/\t in {0/02-28, 12/03-12, 27/03-27, 58/04-27}
+  \draw[grey] (3.1*\d,29) -- (3.1*\d,31) node[below=1.5mm, font=\tiny, text=grey] {\t};
+\node[font=\tiny, text=grey, anchor=north] at (92,29) {03-29};
+% 임시 상태 구간
+\fill[sand, opacity=0.6] (0,33) rectangle (86.8,54.5);
+\node[font=\scriptsize\bfseries, text=ink, anchor=north] at (43.4,54) {임시 상태 4주 (02-28 \textasciitilde{} 03-28)};
+\node[boxgrey, text width=36mm, font=\tiny, align=left] at (21,42) {\textbf{매장 재고} = 신 원장 (정본)\\\textbf{이천센터 재고} = 구 SAP 원장 (정본)\\둘 사이 대사 = 폴백 야간 배치 2회 (21:00 · 03:00)\\CR-08 임시 연동 2본 유지};
+\node[boxrust, text width=38mm, font=\tiny, align=left] at (62,42) {\textbf{하지 말 것}\\① 센터 재고를 신 원장에서 조회·수정하지 않는다\\(읽기 전용 미러)\\② 재고 정확도 리포트(StRS-034) 3월분은\\"매장 원장 기준"으로만 — 센터 분모는 4월부터};
+% 1차 오픈
+\fill[teal] (0,30) circle (1.5); \node[font=\scriptsize\bfseries, text=teal, anchor=north, align=center] at (0,26) {1차 오픈\\02-28 06:00\\(매장·주문)};
+% 하이퍼케어 판정
+\fill[navy] (37.2,30) circle (1.5);
+\node[font=\tiny, text=navy, anchor=north, align=center] at (37.2,26) {1차 하이퍼케어 2주 판정 03-12\\심각도 2 이상 \textbf{4건 ≤ 5} → 2차 go 조건 ①\\(R-14 트리거 미발동)};
+% 2차 착수 조건 박스
+\node[box, draw=navy, text width=44mm, font=\tiny, align=left, anchor=north] at (83,12) {\textbf{2차 게이트 1 조건 (03-24 운영위 · 03-27 21:30)}\\① 1차 하이퍼케어 심각도 2 이상 ≤ 5 → 실제 4\\② P2 MC 03-05 · A15 설비 IF 시험 03-08\textasciitilde 12 통과\\③ 3월 B2B 납품 집중 창 회피 확인(오정근 03-19)\\④ 센터 순환 실사 03-26 완료(한동석)};
+% 2차 컷오버
+\fill[rust] (83.7,30) circle (1.5); \node[font=\scriptsize\bfseries, text=rust, anchor=south, align=center] at (83.7,56) {2차 컷오버 03-27 22:00 \textasciitilde{} 03-28 06:00 (8h)\\게이트 2 01:25 go(대사 불일치 0.03\% = 25건) · PoNR 01:40\\설비 IF 4/4 · 트리거 발동 0 · 한동석 인수 서명 03-28 07:00};
+\draw[rust, thick] (83.7,31.5) -- (83.7,55.5);
+% 통합 원장 이후
+\node[boxteal, text width=40mm, font=\tiny, align=left] at (113,42) {\textbf{03-28 이후 — 통합 원장}\\매장 + 센터 재고 = 신 원장 하나\\P2 설비 IF 4본 활성\\재고 정확도 두 분모 리포트 센터 포함(4월분)};
+% P2-07
+\fill[rust] (89.9,30) circle (1.5); \node[font=\tiny, text=rust, anchor=north, align=center] at (100,26) {03-29(월) 03:00 폴백 배치 1회차 실패\\\textbf{P2-07} 84분 지연 — 2차 후 첫 평일 배치\\R-16 실현 → KE-02(22:30 파라미터)};
+% 임시 연동 폐기
+\fill[navy] (179.8,30) circle (1.5); \node[font=\tiny, text=navy, anchor=north, align=center] at (172,26) {04-27 CR-08 임시 연동 2본 폐기\\(2차 후 30일 — CCB 01-21 갱신)\\SAC 항목 10 증빙};
+\node[boxgrey, text width=40mm, font=\tiny, align=left] at (160,42) {\textbf{두 번 컷오버의 비용}\\런북 2벌 · 리허설 · 창 2회 · 임시 연동 2본(CR-08 0.495억)\\· 4주 이중 원장 운영 · 폴백 배치 파라미터 사고 1건\\= 한 번에 34h 안에 못 넣는 물류(P2 연동)를\\분리한 대가 — R-14의 대응 비용};
+\node[src, anchor=north west] at (0,-2) {출처: Day4 워크북 ⑯ 항목 7(2차 컷오버 축약 런북 — 착수 조건·임시 상태·실행 기록), ⑰ 항목 5(ELS 5주차 P2-07)·6(KE-02), ⑱ 항목 3(CR-08 폐기 04-27). R-14는 Day3 ⑬ 2차 리스크.};
+\end{tikzpicture}
+\end{document}

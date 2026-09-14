@@ -1,0 +1,76 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+% 시각 h = 02-25 20:00(T-24h) 기준 경과 시간, x = 4h (오픈 06:00 = 58h 이후는 1mm/h 압축)
+% \tbar{h1}{h2}{y}{label}{fill}{anchor}{dy}
+\newcommand{\tbar}[7]{\fill[#5] (4*#1, #3-1.6) rectangle (4*#2, #3+1.6); \node[font=\tiny, text=ink, anchor=#6, inner sep=1pt] at (4*#1, #3+#7) {#4};}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (128,86) {온담 1차 컷오버 런북 시각표 — T$-$24h \textasciitilde{} D+1 (2027-02-25 20:00 → 03-01 07:20), 계획 대비 실행 기록};
+% 시간축
+\draw[grey, thick] (0,0) -- (232,0);
+\draw[grey, thick, dashed] (232,0) -- (258,0);
+\foreach \h/\t in {0/02-25 20:00, 12/02-26 08:00, 24/02-26 20:00 = T0, 36/02-27 08:00, 48/02-27 20:00, 58/02-28 06:00 = T+34h}
+  \draw[grey] (4*\h,-1) -- (4*\h,1) node[below=2mm, font=\tiny, text=grey, align=center] {\t};
+\foreach \h in {6,18,30,42,54} \draw[grey, thin] (4*\h,-0.7) -- (4*\h,0.7);
+\node[below=2mm, font=\tiny, text=grey, align=center] at (248,0) {02-28 22:00 첫 일마감};
+\node[below=2mm, font=\tiny, text=grey, align=center] at (257,-3.5) {03-01 07:00};
+\node[font=\tiny, text=grey] at (245,-8) {(압축 1mm/h)};
+% 구간 음영
+\fill[rustlight, opacity=0.5] (96,4) rectangle (118.5,72);
+\fill[sand, opacity=0.5] (118.5,4) rectangle (176,72);
+\node[font=\tiny, text=rust, anchor=south] at (107,72.5) {롤백 손실 0 (재기동 2h)};
+\node[font=\tiny, text=rust, anchor=south] at (147,72.5) {손실 있는 롤백(이중 원장 대사 2영업일) · 결정권 정미란};
+\node[font=\tiny, text=grey, anchor=south] at (204,72.5) {롤백 불가 — 오픈 연기만(최대 10:00)};
+% 세로선
+\draw[navy, thick] (96,-1) -- (96,77); \node[font=\scriptsize\bfseries, text=navy, anchor=south] at (96,77.5) {T0 20:00};
+\draw[rust, very thick] (118.5,-1) -- (118.5,77); \node[font=\scriptsize\bfseries, text=rust, anchor=south] at (118.5,77.5) {PoNR 01:40};
+\draw[rust, thick, dashed] (176,-1) -- (176,77); \node[font=\scriptsize\bfseries, text=rust, anchor=south] at (176,77.5) {기술적 롤백 최종 시한 16:00 (오픈$-$14h)};
+\draw[teal, very thick] (232,-1) -- (232,77); \node[font=\scriptsize\bfseries, text=teal, anchor=south] at (232,77.5) {오픈 06:00};
+% 갈래
+\foreach \y/\l/\c in {60/C 통제/navy, 44/D 데이터/teal, 28/I 인터페이스/navy, 12/S 매장/rust}
+  \node[font=\scriptsize\bfseries, text=\c, anchor=east] at (-1,\y) {\l};
+\foreach \y in {12,28,44,60} \draw[lightgrey] (0,\y) -- (258,\y);
+% ---- C 통제 (y=60)
+\tbar{0}{0.83}{60}{T$-$24h 점검 회의 20:00\textasciitilde 20:50 · D$-$2 사건 보고}{navylight}{south west}{2.2}
+\tbar{12}{12.5}{60}{컨트롤룸 개설 · 롤백 패키지 해시 일치}{navylight}{south west}{2.2}
+\tbar{22}{22.5}{60}{출석 96/97 · 임시 키 유효}{navylight}{north east}{-2.2}
+\fill[navy] (4*23.58,60) circle (1.4); \node[font=\tiny\bfseries, text=navy, anchor=south east, align=right] at (94.5,62.2) {게이트 1 P1 PM\\19:30 → 19:35 go};
+\tbar{32}{32.3}{60}{교대 · 중간 보고 1 04:00}{navylight}{south west}{2.2}
+\fill[navy] (4*40.5,60) circle (1.4); \node[font=\tiny\bfseries, text=navy, anchor=south, align=center] at (162,62.2) {게이트 3 정미란\\12:00 → 12:30 go (+30)};
+\fill[rust] (176,60) circle (1.4); \node[font=\tiny, text=rust, anchor=north west, align=left] at (177,57.8) {16:00 관측: 배포 412/615 · 실패 4\\→ 트리거 해당 없음 → 롤백 창 종료};
+\tbar{56}{56.2}{60}{경보 0 · 데스크 11/11}{navylight}{south east}{2.2}
+\fill[teal] (4*56.5,60) circle (1.4); \node[font=\tiny\bfseries, text=teal, anchor=north east, align=right] at (229,57.8) {오픈 판정 04:30 go\\정미란·박준영·이재현·P1 PM};
+\tbar{58}{74}{60}{D+1 하이퍼케어 — 성공률 최저 99.3\% · 콜 214}{navylight}{south west}{2.2}
+\fill[teal] (257.3,60) circle (1.6); \node[font=\tiny\bfseries, text=teal, anchor=north east, align=right] at (258,57.8) {D+1 07:00 판정 회의\\박준영 인수 서명 07:20};
+% ---- D 데이터 (y=44)
+\tbar{2}{5.17}{44}{백업 1차 7.4TB 스냅샷 22:00\textasciitilde 01:10}{teallight}{south west}{2.2}
+\tbar{24.5}{25.42}{44}{마감 배치 · 백업 2차 · 추출 5.1TB}{teallight}{south east}{2.2}
+\tbar{25.5}{26.08}{44}{}{teallight}{south west}{2.2}
+\tbar{26}{28.33}{44}{마스터 6종 2,184,310행 22:00 → 00:20}{teallight}{north west}{-2.2}
+\tbar{28.5}{29}{44}{}{teallight}{south west}{2.2}
+\node[font=\tiny, text=rust, anchor=north west, align=left] at (104,38.8) {검증 1차 00:30\textasciitilde 01:00: 5종 통과 · 표본 대조 1건 불일치(가격 마스터 VAT 반올림) → 규칙 수정 · 재실행 01:12\textasciitilde 01:35 → 0건};
+\fill[teal] (4*29.63,44) circle (1.4); \node[font=\tiny\bfseries, text=teal, anchor=south west, align=left] at (119.5,49.5) {게이트 2 박세연 01:00 → 01:38 go (+38, 재실행 1/2)};
+\tbar{29.67}{36.58}{44}{이력 적재 3.21억 행 · 5.1TB 01:40 → 08:35 완료 (계획 09:00, $-$25)}{teallight}{south west}{2.2}
+\tbar{36.67}{38.83}{44}{검증 2차 6종 08:40\textasciitilde 10:50 전부 통과 (표본 0)}{teallight}{north west}{-2.2}
+\tbar{53}{54.67}{44}{재고 대사 615/615 · 차이 0}{teallight}{south east}{2.2}
+% ---- I 인터페이스 (y=28)
+\tbar{18}{19.5}{28}{3PL · 배달3사 · PG 7 · 앱 전환 시각 회신 4/4}{navylight}{south west}{2.2}
+\tbar{26}{26.67}{28}{구 연결 차단 47/47 (폐기 2본 포함)}{navylight}{south west}{2.2}
+\tbar{31}{31.52}{28}{폴백 배치 1회차 03:00\textasciitilde 03:31 — 신 원장 기준 첫 실운영 출고 지시}{navylight}{north west}{-2.2}
+\tbar{39}{40.25}{28}{신 연결 47/47 (PG 1본 재시도 정상) · 성능 스모크 p95 610ms}{navylight}{south west}{2.2}
+\tbar{55}{55.13}{28}{폴백 2회차 (빈 배치 정상)}{navylight}{south east}{2.2}
+% ---- S 매장 (y=12)
+\tbar{14}{14.33}{12}{배포 큐 615/615 · 구형 35점 별도 패키지}{rustlight}{south west}{2.2}
+\tbar{20}{20.2}{12}{포털 20:00 마감 공지}{rustlight}{north west}{-2.2}
+\tbar{24}{24.75}{12}{거래 정지 → 오프라인 모드 615/615}{rustlight}{north west}{-2.2}
+\tbar{41}{48.17}{12}{펌웨어 배포 615점 13:00 → 20:10 (+10) — 실패 9 (직영 2) vs RB-3 31·직영 10}{rustlight}{south west}{2.2}
+\tbar{48.5}{50.67}{12}{재배포 8/9 성공 · 1점 수기 (03-02 교체)}{rustlight}{north west}{-2.2}
+\tbar{51}{53.5}{12}{스모크 거래 23:00\textasciitilde 01:30 — 36/36 · PG 0 실패}{rustlight}{south west}{5.5}
+\tbar{58}{58.5}{12}{온라인 전환 614/615}{rustlight}{north west}{-2.2}
+% 하단 메모
+\node[box, draw=navy, fill=white, text width=78mm, font=\tiny, anchor=north west, align=left] at (0,-13) {\textbf{계획 대비 편차}: 게이트 2 +38분(표본 대조 재실행) · 게이트 3 +30분(스폰서 열람) · 이력 적재 $-$25분 · 배포 완료 +10분 · 오픈 0. 총 여유 2h 20m(리허설 3회차 31h 40m 대비) 중 소진 약 1h 10m. 트리거 RB-1\textasciitilde 4 발동 0.};
+\node[box, draw=grey, fill=white, text width=80mm, font=\tiny, anchor=north west, align=left] at (84,-13) {\textbf{판정 권한}: 게이트 1 P1 PM(정미란 위임장 02-19) · 게이트 2 박세연 · 게이트 3·오픈 정미란(02-27 11:00 현장 도착) · PoNR 이후 손실 있는 롤백 정미란(부재 시 김선호). 판정자 부재 시 대체: 게이트 2 용역사 PM + P1 PM, 게이트 3 박세연.};
+\node[box, draw=grey, fill=white, text width=82mm, font=\tiny, anchor=north west, align=left] at (170,-13) {\textbf{확인 열은 관측값으로}: "정상 확인"이 아니라 615/615 · 47/47 · 36/36 · p95 610ms · 실패 9/31처럼 숫자와 기준을 적는다. 그 숫자가 다음 컷오버(2차 03-27 · R5 · P2)의 임계값 근거가 된다.};
+\node[src, anchor=north west] at (0,-30) {출처: Day4 워크북 ⑯ 완성 예시본 항목 2(시각표 38행)·3(게이트)·4(PoNR)·5(트리거)·10(실행 기록). 가로축 4mm/h, 오픈 이후 1mm/h로 압축.};
+\end{tikzpicture}
+\end{document}

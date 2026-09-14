@@ -1,0 +1,30 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink},x=0.72mm,y=1mm]
+\node[title] at (450,58) {D+300 → D+600 열 달의 시간표 — 성장 위에, 신호 아래에};
+\draw[very thick,navy] (300,0) -- (600,0);
+\foreach \d in {300,360,420,480,540,600}{\draw[navy] (\d,-1.5) -- (\d,1.5); \node[below=2pt] at (\d,-1.5) {D+\d};}
+\node[below=11pt,text=grey] at (300,-1.5) {2026-12-27}; \node[below=11pt,text=grey] at (600,-1.5) {2027-10-23};
+% growth above
+\node[boxteal,text width=17mm,anchor=south] (g1) at (360,14) {D+360 TIPS\\유료 5개사 달성};
+\node[boxteal,text width=17mm,anchor=south] (g2) at (400,30) {D+400 강지우\\CS 리드};
+\node[boxgrey,text width=19mm,anchor=south,draw=rust] (g3) at (410,14) {D+410 자동판정 모드\\조건 미충족 출시};
+\node[boxteal,text width=17mm,anchor=south] (g4) at (450,30) {D+450 첫 PM\\채용 공고};
+\node[boxteal,text width=19mm,anchor=south] (g5) at (345,44) {D+345 초안 전 라인\\30\% 프로모션};
+\node[boxfill,text width=22mm,anchor=south,draw=navy,dashed] (g6) at (600,14) {D+600 데이터 일자\\㉛ ㉜ ㉝ ㉟};
+\foreach \n/\x in {g1/360,g2/400,g3/410,g4/450,g5/345,g6/600}{\draw[grey,thin] (\n.south) -- (\x,2);}
+% signals below
+\node[boxrust,text width=17mm,anchor=north] (s1) at (330,-14) {D+330 서영채\\"계약 ARR" 첫 지적};
+\node[boxrust,text width=17mm,anchor=north] (s2) at (470,-14) {D+470 박선재\\구두 보고 · 기록 없음};
+\node[boxrust,text width=17mm,anchor=north,line width=1.4pt] (s3) at (520,-30) {\textbf{D+520 사고}\\INC-01};
+\node[boxrust,text width=17mm,anchor=north] (s4) at (540,-14) {D+540 eval v2\\기준 개정};
+\node[boxrust,text width=17mm,anchor=north] (s5) at (560,-46) {D+560 강지우\\22 / 14 / 38};
+\node[boxrust,text width=17mm,anchor=north] (s6) at (590,-30) {D+590 아웃바운드\\중단};
+\node[boxrust,text width=19mm,anchor=north] (s7) at (598,-62) {D+598 서영채\\"4.9억 중 1.1억"};
+\foreach \n/\x in {s1/330,s2/470,s3/520,s4/540,s5/560,s6/590,s7/598}{\draw[grey,thin] (\n.north) -- (\x,-2);}
+\draw[arrrust] (s3.east) -- ++(6,0) |- node[lbl,right,pos=0.3]{㉞ · ㉟} ++(12,8);
+\draw[arrrust] (s7.west) -- ++(-40,0) node[lbl,left]{㉝};
+\node[src,anchor=west] at (298,-80) {정본 §4.5~4.9 · §2.3 · §6.1 · 워크북 §0.3 [추가 설정]. 사고 보고서(㉞)만 사고 일자 기준, 나머지는 D+600.};
+\end{tikzpicture}
+\end{document}

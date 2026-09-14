@@ -1,0 +1,24 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink},y=0.42cm]
+\node[title] at (3.4,11.2) {criteria drift — 기준이 결과를 따라 움직였고, 데이터셋은 그대로였다};
+% axes
+\draw[grey] (-0.5,0) -- (-0.5,9.5); \foreach \v in {0,2,4,6,8}{\node[lbl,anchor=east] at (-0.6,\v) {\v\%};}
+\node[lbl,rotate=90] at (-1.4,4.8) {FN};
+% v1 D+300
+\draw[fill=navylight,draw=navy] (0.5,0) rectangle (2.0,8.1); \node[text=white,font=\scriptsize\bfseries] at (1.25,7.2) {결과 8.1};
+\draw[rust,thick] (0.2,8.0) -- (2.3,8.0); \node[text=rust,anchor=west,font=\scriptsize] at (2.35,8.45) {기준 8.0 — \textbf{불합격, 유지}};
+\node[below] at (1.25,-0.1) {v1 (D+270)};
+% v2 D+540
+\draw[fill=navylight,draw=navy] (5.0,0) rectangle (6.5,2.4); \node[text=white,font=\scriptsize\bfseries] at (5.75,1.6) {결과 2.4};
+\draw[rust,thick] (4.7,3.0) -- (6.8,3.0); \node[text=rust,anchor=west,font=\scriptsize] at (6.85,3.0) {기준 3.0 — 합격 (결과를 본 뒤의 숫자)};
+\node[below] at (5.75,-0.1) {v2 (D+540)};
+\draw[arrrust,dashed] (2.4,7.6) to[out=-30,in=150] (4.6,3.4); \node[text=rust,font=\tiny,text width=30mm,align=center] at (3.5,6.4) {기준이 결과를 따라 내려왔다 —\\방향은 엄격 쪽이라 절차 통과};
+% dataset band
+\draw[fill=lightgrey,draw=grey] (0.2,-2.2) rectangle (7.0,-1.2); \node at (3.6,-1.7) {DS-v1 — 자동차 3세트 60건 · \textbf{오전 9~11시} · 두 시점 모두 동일};
+\node[boxrust,text width=44mm,align=left,anchor=west] at (7.4,-1.7) {사고 조건(오후 조도)은 어느 쪽에도 없다 — 2.4\%는 오전에서의 값. 기준 개정보다 DS-v2가 먼저였어야 했다};
+\node[boxgrey,text width=44mm,align=left,anchor=west] at (7.4,6.0) {반론 셋(㉞ 항목 6): ① 결과에 맞춘 기준 ② 데이터셋 미변경 ③ FP 21.3 > 예산 15 — 기준에 FP가 없어서 합격};
+\node[src,anchor=west] at (-1.5,-3.2) {정본 V-03·V-06·V-07 · 워크북 ㉞ 항목 6 [추가 설정] · Shankar 외(2024) · Day6 3.4절.};
+\end{tikzpicture}
+\end{document}

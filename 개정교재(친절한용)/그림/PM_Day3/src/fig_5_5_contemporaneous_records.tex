@@ -1,0 +1,35 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (85,70) {동시기록 — 구두 "검수 보류"에 서면으로 답하는 이유 (R2 검수, 2026-09-25 → 10-16)};
+% 시간축: 09-25(0) ~ 10-16(21일) → 7mm/일
+\def\dx{7.2}
+\draw[navy, very thick, -{Stealth[length=3mm]}] (-4,30) -- (158,30);
+\foreach \d/\t/\c in {0/09-25 (금)\\R2 검수 요청 (수행사)\\감리 지적 통보/navy, 4/09-29 (화)\\수행사 서면 "보류 = 대기"\\발주사 귀속 이의 서면/rust, 13/10-08 (목)\\감리 귀속 회신\\(요청 시한)/navy, 19/10-14 (수)\\변경협의체\\대기 비용 판정/teal}{
+  \draw[\c, thick] (\d*\dx,28) -- (\d*\dx,32);
+  \node[font=\tiny, text=\c, align=center, anchor=north] at (\d*\dx,27) {\t};
+}
+\foreach \d/\t/\c in {3/09-28 (월)\\주간 회의 구두\\"감리 정리 후 검수"/rust, 6/10-01 (목)\\발주사 회신 6항\\(검수 진행 중 · 조건부)/teal, 14/10-09 (금)\\수행사 대기 기록 제출/navy, 21/10-16 (금)\\검수 결과 통보\\(§14 15영업일)/navy}{
+  \draw[\c, thick] (\d*\dx,28) -- (\d*\dx,32);
+  \node[font=\tiny, text=\c, align=center, anchor=south] at (\d*\dx,33) {\t};
+}
+% 위 띠: 기록이 있는 쪽 — 수행사 서면만 있을 때
+\fill[grey, opacity=0.25] (3*\dx,50) rectangle (21*\dx,56);
+\node[font=\tiny, text=grey, anchor=west] at (3*\dx+1,53) {수행사 09-29 서면만 있을 때의 대기 주장 범위 — 09-28 \textasciitilde\ 10-16 전 기간 · R2 전체(3,300 FP) · 대기 인력 전원};
+\node[font=\tiny, text=grey, anchor=east, align=right] at (3*\dx-1,53) {기록 A};
+% 발주사 회신 후 인정 범위
+\fill[teal, opacity=0.35] (3*\dx,42) rectangle (13*\dx,47);
+\node[font=\tiny, text=teal, anchor=west] at (13*\dx+1,44.5) {발주사 10-01 회신 4항이 그은 경계 — 09-28 \textasciitilde\ 10-08 = \textbf{8영업일} $\times$ R2 FP의 \textbf{12\%}(P2 규격서 v1.1 · 배포 패키지 설계) · 나머지는 병행 가능 = 대기 아님};
+\node[font=\tiny, text=teal, anchor=east, align=right] at (3*\dx-1,44.5) {기록 B};
+\node[font=\tiny, text=teal, align=left, anchor=west] at (3*\dx+1,48.6) {↑ 기록 A와 ↓ 기록 B — 발주사가 먼저 경계를 긋는다 (회신이 없으면 기록 A만 남는다)};
+% 아래: 세 문서 연결
+\node[boxrust, text width=37mm, font=\tiny, align=left] (d1) at (16,2) {\textbf{⑭ 이의 제기 서면 (09-29)}\\AF-1-03·04 귀속 → 발주사\\회신 요청 10-08 · 근거 WBS 담당 열 · RACI};
+\node[boxfill, text width=37mm, font=\tiny, align=left] (d2) at (76,2) {\textbf{⑬ IS-07 (09-25, 심각도 1)}\\감리 8건 귀속 이의 · 에스컬 2단계(09-30)\\기한 10-08 · 연결 ⑭ 항목 6 · ⑮ 회신 · R-20};
+\node[boxteal, text width=37mm, font=\tiny, align=left] (d3) at (136,2) {\textbf{⑮ 검수 회신 4항 (10-01)}\\발주사 사유 기간 09-28\textasciitilde 10-08 = 8영업일\\영향 범위 R2 FP 12\% · 판정 10-14};
+\draw[arrgrey, dashed] (d1.east) -- (d2.west) node[midway, above, font=\tiny, text=grey] {같은 날짜 · 같은 근거};
+\draw[arrgrey, dashed] (d2.east) -- (d3.west) node[midway, above, font=\tiny, text=grey] {같은 8영업일 · 같은 12\%};
+\node[font=\tiny, text=navy, align=center] at (76,-10) {세 문서가 같은 날짜와 같은 숫자를 말해야 변경협의체(10-14)에서 통한다 — 서로 다르면 수행사의 기록 A가 유일한 정합 기록이 된다};
+\node[src, anchor=north west] at (-8,-16) {출처: Day3 워크북 ⑮ 완성 예시본 항목 4(검수 보류 서면 회신 1\textasciitilde 6항)·항목 6(귀책 분해), ⑭ 항목 6(이의 서면), ⑬ IS-07. 계약 §14·§18은 [추가 설정].};
+\end{tikzpicture}
+\end{document}

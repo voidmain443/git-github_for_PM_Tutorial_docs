@@ -1,0 +1,14 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink},x=1mm,y=1mm]
+\node[title] at (80,50) {경계 3영역 — ㊱의 3분류가 ㊲의 합의 문장이 된다 (미확정 5 → 서명 전 0)};
+\node[boxteal,anchor=north west,text width=44mm,minimum height=40mm,align=left] (a) at (0,42) {\textbf{제품 라인 — 14건 27 mm}\\[2pt]C-02 · 09 · 10 · 12 · 14 · 15 · 23 · 24 · 29 · 32 · 33 · 39 · 46 · 47\\[3pt]기준: 자동차 58사에게도 가치 + 커널 무충돌\\문구: 로드맵 편입 · 무상 · \textbf{시점 미약속}\\소유: 딥게이지};
+\node[boxfill,anchor=north west,text width=44mm,minimum height=40mm,align=left] (b) at (52,42) {\textbf{유상 커스텀 — 19건 59 mm}\\[2pt]C-01 · 03 · 04 · 08 · 16 · 17 · 18 · 19 · 21 · 26 · 27 · 28 · 31 · 34 · 35 · 38 · 40 · 44 · 45\\[3pt]기준: 온담 전용 + 모듈 격리 가능\\문구: 별도 SOW 59 × 1,200만 = \textbf{7.08억}\\소유: 코드 온담 / 모델 딥게이지 / \textbf{재사용권 딥게이지} · 유지보수 18\%};
+\node[boxgrey,anchor=north west,text width=44mm,minimum height=40mm,align=left] (c) at (104,42) {\textbf{고객 자체 개발(온담 IT본부) — 8건}\\[2pt]C-05 · 06 · 11 · 20 · 25 · 36 · 37 · 43\\[3pt]기준: 데이터 거버넌스·인프라 소관\\문구: "온담 소관 — 딥게이지는 인터페이스 사양 제공"\\소유: 온담 · 변경 60일 전 통지};
+\node[boxrust,anchor=north west,text width=150mm,align=left] (d) at (0,-4) {\textbf{경계 미확정 5 → 3자 회의에서 확정 → 0}: C-07(260종 서식 → C-08 상위 30개사로 축소 → 유상) · C-22(식품 이물 판정 → 온담 세트 측정 후 재논의, 보류 조항) · C-30·41(무인 판정·감시 대시보드 → 커널 충돌, 자체 개발) · C-42(2개점 = 1라인 과금 → 계약 별지)};
+\draw[arrteal] (d.north) ++(-40,0) -- ++(0,3) -| (b.south); \draw[arrgrey] (d.north) ++(30,0) -- ++(0,3) -| (c.south);
+\node[box,anchor=north west,text width=150mm,align=left,draw=navy,dashed] at (0,-20) {학습 데이터(온담 4세트) — 원본 온담 / 가공·라벨 딥게이지 \textbf{사용권} / 제3자 제공 불가 / 측정 세트 80건의 라벨 판정자 = 정본 판정자(항목 7). 이 행이 없으면 ㊵ 항목 4의 측정 세트가 누구 것인지 정해지지 않는다.};
+\node[src,anchor=west] at (0,-33) {㊲ 항목 2·3 (워크북 §2.5) [추가 설정] · 3분류는 ㊱ 항목 3.};
+\end{tikzpicture}
+\end{document}

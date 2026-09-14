@@ -1,0 +1,40 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (80,66) {mum effect — R-05 실현의 신호가 계층을 오르며 가늘어진 경로 (2026-05-12 → 07-15)};
+% 계층 축 (세로) · 시간 축 (가로)
+\foreach \y/\t in {6/수행사 개발팀 · P1 PMO (현장), 18/이재현 (수행사 PM), 30/P1 PM, 42/오정근 (Senior User), 54/정미란 (스폰서) · 변경협의체}{
+  \draw[lightgrey, thin] (0,\y) -- (150,\y);
+  \node[font=\tiny, text=grey, anchor=east, align=right, text width=28mm] at (-1,\y) {\t};
+}
+\foreach \x/\t in {12/05-12 (화)\\age 12 관측, 42/05-14 (목)\\주간 회의, 72/05-27 (수)\\변경협의체, 102/06-03 (수)\\대체 결정권자, 138/07-15 (수)\\변경협의체 판정}{
+  \draw[lightgrey, thin] (\x,2) -- (\x,60);
+  \node[font=\tiny, text=grey, align=center, anchor=north] at (\x,1) {\t};
+}
+% 신호 노드
+\node[boxteal, text width=26mm, font=\tiny, align=center] (n1) at (16,6) {POS 화면 정의서 v1.0\\승인 대기 12영업일\\WIP 41 · age 12 (S10)};
+\node[boxfill, text width=24mm, font=\tiny, align=center] (n2) at (42,18) {"승인 대기 중"\\(Checkpoint 05-14)\\— 사실만};
+\node[box, text width=24mm, font=\tiny, align=center] (n3) at (42,30) {"일부 지연"\\(주간 회의 메모)\\— 완화됨};
+\node[boxgrey, text width=24mm, font=\tiny, align=center] (n4) at (42,42) {보고 없음\\(오정근 부속서 협상 중)\\— 침묵};
+\node[boxgrey, text width=24mm, font=\tiny, align=center] (n5) at (42,54) {성과보고 제5호(06-05)\\"CV +2.70 개선"\\— 다른 이야기};
+\draw[arrteal, line width=2.2pt] (n1.north) -- (n2.south);
+\draw[arr, line width=1.4pt] (n2.north) -- (n3.south);
+\draw[arrgrey, line width=0.8pt, dashed] (n3.north) -- (n4.south);
+\draw[arrgrey, line width=0.4pt, dotted] (n4.north) -- (n5.south);
+\node[font=\tiny, text=rust, align=left, anchor=west] at (92,14) {계층마다 화살표가 가늘어지고\\문구가 완화된다 — 문제를 아는 사람\\(개발팀·PMO)과 보고할 권한이 있는\\사람(P1 PM)이 다르고, 보고자는\\"본부장이 늦다"고 적을 때의\\비난을 예견한다 (Keil·Smith)};
+% 05-27 변경협의체 상정 (수행사가 먼저)
+\node[boxrust, text width=26mm, font=\tiny, align=center] (m1) at (72,18) {수행사, 변경협의체에\\대기 비용 상정 (05-27)\\— 발주사 기록 없음};
+\draw[arrrust, thick] (n2.east) -- (m1.west);
+% 06-03 대체 결정권자
+\node[boxrust, text width=26mm, font=\tiny, align=center] (m2) at (102,42) {대체 결정권자 지정\\매장운영팀장 (06-03)\\— 등록부 R-05 조치, 3주 늦음};
+\draw[arrrust, thick] (m1.east) -- ++(4,0) |- (m2.west);
+% 07-15 판정
+\node[boxrust, text width=28mm, font=\tiny, align=center] (m3) at (138,54) {변경협의체 판정 (07-15)\\"발주사 귀책 7일" 문서화\\대기 비용 0.42 (합의서 5호)};
+\draw[arrrust, thick] (m2.east) -- ++(4,0) |- (m3.west);
+\node[font=\tiny, text=rust, align=center] at (120,61) {실현(05-12)에서 문서화(07-15)까지 44일};
+% 처방 4개
+\node[box, draw=teal, text width=148mm, font=\tiny, align=left, anchor=north west] at (-30,-10) {\textbf{처방은 성격이 아니라 양식이다.} ① 트리거를 관측 항목으로 — "참석률 70\% 미만 2주 연속"·"work item age 10영업일 초과"를 Checkpoint 고정 칸으로 두면 "본부장이 늦다"가 "트리거가 발동했다"가 된다. ② SLA 준수율 병기 — 발주사 결정 SLA(5영업일) 준수율을 수행사 성과 옆에 같은 표에 적는다(⑮ 항목 3, 5월 58\%). ③ 조기 신호 → 양식 변경 — 성과보고 제9호 항목 9 "보았어야 한 것"이 다음 호의 관측 목록이 된다. ④ 예외 보고자의 대우 — EX-01을 낸 사람이 비난받지 않는 것을 스폰서가 회의록에 남긴다(PRINCE2 예외는 실패가 아니라 절차).};
+\node[src, anchor=north west] at (-30,-28) {출처: Day3 워크북 ⑬ IS-02(05-12 실현 · 06-03 대체 결정권자 · 07-15 판정), ⑫ 항목 9 조기 신호 2·3, ⑮ 항목 3. 계층 간 문구는 교재 5.2절의 재구성 [추가 설정]. Keil \& Smith mum effect.};
+\end{tikzpicture}
+\end{document}

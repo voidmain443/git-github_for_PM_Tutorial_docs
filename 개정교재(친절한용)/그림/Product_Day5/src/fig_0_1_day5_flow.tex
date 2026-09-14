@@ -1,0 +1,23 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[node distance=5mm, every node/.style={font=\small,text=ink}]
+\node[boxgrey, text width=34mm] (p18) {PM ⑱ 종료 보고서\\이관 목록 6번\\{\scriptsize 검사기록 21억·나영선}};
+\node[boxfill, text width=34mm, right=14mm of p18] (a21) {㉑ 창업 헌장·\\공동창업자 합의서\\{\scriptsize 지분·베스팅·옵션풀 pre/post}};
+\node[box, text width=34mm, below=9mm of a21] (a22) {㉒ 인터뷰 스냅샷 팩\\{\scriptsize 27건 · 관찰 vs 자기 보고}};
+\node[box, text width=34mm, right=14mm of a22] (a23) {㉓ 기회-해법 트리\\{\scriptsize 기회 8 · 해법 3안 · 우선순위}};
+\node[box, text width=34mm, below=9mm of a23] (a24) {㉔ 가정 맵·실험 카드\\{\scriptsize A-01~12 · X-01~03}};
+\node[box, text width=34mm, right=14mm of a23] (a25) {㉕ 세그먼트·JTBD·\\전략 커널\\{\scriptsize 회피 903 · 하지 않는 것 5}};
+\draw[arrgrey,dashed] (p18) -- node[lbl,above]{선언문에만} (a21);
+\draw[arr] (a22) -- node[lbl,above]{유일한 근거} (a23);
+\draw[arr] (a23) -- node[lbl,right]{잎 아래 가정} (a24);
+\draw[arrteal,bend left=18] (a24.west) to node[lbl,left,align=right]{실험 결과가\\순서를 바꾼다} (a23.west);
+\draw[arr] (a23) -- node[lbl,above]{기각·보류} (a25);
+\draw[arrteal] (a24.east) -- ++(6mm,0) |- node[lbl,pos=0.25,right]{X-03 온프렘 → 회피} (a25.south);
+\draw[arr] (a22.east) -- ++(4mm,0) |- (a25.west);
+\node[boxgrey, text width=40mm, right=14mm of a25] (d6) {Day6\\{\scriptsize ㉖ 백로그 ← ㉓ · ㉙ 사전등록 ← ㉔ · ㉚ 캡테이블 ← ㉑ 항목 3 · ㉘ 가격 ← ㉕ 커널}};
+\draw[arrgrey,dashed] (a25) -- (d6);
+\draw[arrgrey,dashed] (a21.east) -- ++(10mm,0) |- ([yshift=6mm]d6.west);
+\node[src, below=8mm of a24, xshift=-10mm] {Day5 워크북 §6의 표를 재구성. 실선 = 입력, 초록 = 되돌아가는 것, 회색 파선 = 트랙 밖·다음 날.};
+\end{tikzpicture}
+\end{document}

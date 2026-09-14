@@ -1,0 +1,33 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}
+\matrix (m) [matrix of nodes, nodes in empty cells, row sep=-\pgflinewidth, column sep=-\pgflinewidth,
+  nodes={draw=grey!60, minimum height=9mm, text width=30mm, align=center, font=\footnotesize, anchor=center, fill=white},
+  column 1/.style={nodes={fill=navylight, font=\footnotesize\bfseries, text=navy, text width=30mm}},
+  row 1/.style={nodes={fill=navy, text=white, font=\footnotesize\bfseries}}] {
+  성과목표축 $\backslash$ 계층 & {작업패키지\\{\scriptsize\mdseries work package}} & {프로젝트 (P1)\\{\scriptsize\mdseries project}} & {프로그램\\{\scriptsize\mdseries programme}} \\
+  원가 (cost) & +2\% & |[fill=teallight]| \textbf{+6\%} (10.08억) & +12\% \\
+  일정 (time) & +5영업일 & |[fill=teallight]| \textbf{+15영업일} & +30영업일 \\
+  범위 (scope) & ±1\% & |[fill=teallight]| \textbf{±3\%} (±35건) & ±6\% \\
+  품질 (quality) & 결함밀도 0.13건/FP & |[fill=teallight]| \textbf{0.4건/FP} & 0.8건/FP \\
+  리스크 (risk) & EMV 2.7억 & |[fill=teallight]| \textbf{EMV 8억} & EMV 16억 \\
+  편익 (benefits) & $-$1.7\%p & |[fill=teallight]| \textbf{$-$5\%p} & $-$10\%p \\
+  안전·지속가능성 & 0 & |[fill=teallight]| \textbf{0} & 0 \\
+};
+% 계층 관리자
+\node[lbl, font=\scriptsize, anchor=south] at (m-1-2.north) {팀 리더 · 수행사 PL};
+\node[lbl, font=\scriptsize, anchor=south, text=teal] at (m-1-3.north) {\textbf{P1 PM} — 이 열 안에서는 묻지 않고 결정};
+\node[lbl, font=\scriptsize, anchor=south] at (m-1-4.north) {스폰서 · 프로그램 운영위};
+% 예외 화살표
+
+\node[lbl, font=\scriptsize, text=rust, anchor=north, text width=30mm] at ($(m-8-2.south)+(0,-2mm)$) {벗어날 것이 예측되면\\→ Exception Report로\\권한을 오른쪽 계층에 반납};
+\node[lbl, font=\scriptsize, text=rust, anchor=north, text width=30mm] at ($(m-8-3.south)+(0,-2mm)$) {→ 스폰서에게 반납\\(실제로 벗어난 후가 아니라\\\textbf{예측되는 순간})};
+\node[lbl, font=\scriptsize, text=rust, anchor=north, text width=30mm] at ($(m-8-4.south)+(0,-2mm)$) {→ 프로그램 이사회};
+\draw[arrrust, very thick] ($(m-8-2.south)+(0,-16mm)$) -- ($(m-8-3.south)+(0,-16mm)$);
+\draw[arrrust, very thick] ($(m-8-3.south)+(0,-16mm)$) -- ($(m-8-4.south)+(0,-16mm)$);
+% 우측 검증 메모
+\node[box, draw=rust, fill=rustlight, text width=46mm, font=\scriptsize, anchor=north west, align=left] at ($(m-2-4.east)+(4mm,4mm)$) {\textbf{검증 ①} 사내 규정과 맞는가\\원가 허용범위 10.08억 > 본부장 위임전결 한도 5억 → 불일치. 헌장에 적고 스폰서가 결정\\[4pt]\textbf{검증 ②} Business Case의 편익 민감도와 맞는가\\편익 $-$5\%p ≈ 214억의 약 10.7억이 사라져도 프로젝트 계층에서 처리한다는 뜻 — CFO "근거 없는 편익은 승인 않겠다" 상황에서 적절한가\\[4pt]허용범위를 전 프로젝트 공통 "±10\%"로 박으면 격자는 장식이 된다 — 편익 민감도에서 역산한다};
+\node[src, anchor=north west] at ($(m-8-1.south west)+(0,-22mm)$) {출처: PRINCE2 7의 7 성과목표축 × 3 계층 허용범위 격자에 사례 문서 §5.6의 온담 허용범위 초안을 대입해 재구성.};
+\end{tikzpicture}
+\end{document}

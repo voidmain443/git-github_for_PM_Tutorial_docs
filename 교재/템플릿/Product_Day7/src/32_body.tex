@@ -1,0 +1,126 @@
+% 32_body.tex — 산출물 ㉜ North Star & Input Metric Tree · 분기 OKR (빈 템플릿 / 완성 예시 공용 본문) — gen_product_templates.py 가 Product_specs.py 에서 생성
+% 드라이버: 32_NorthStar지표트리_빈템플릿.tex (\wbblanktrue) / 32_NorthStar지표트리_완성예시.tex (\wbblankfalse — 워크북 §X.5 확정 후)
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper,margin=16mm,top=14mm,bottom=20mm]{geometry}
+\def\DocNum{32}\def\DocDay{7}\def\DocIdx{2}
+\def\DocTitle{North Star \& Input Metric Tree · 분기 OKR}
+\def\DocSub{North Star Metric, Input Tree \& Quarterly OKR}
+\def\DocVariant{\B{빈 템플릿}{딥게이지 완성 예시}}
+\usepackage{wbstyle}
+\def\DocCirc{㉜}   % newunicodechar(㉛~㊵ 폴백) 뒤에 정의해야 활성 문자로 읽힌다
+\begin{document}
+\docheader
+ {\Bg{[회사명 · 제품명]}{딥게이지 · GAUGE}}
+ {\Bg{[v1.x / D+600]}{v1.0 / D+600}}
+ {\Bg{[작성자 — CPO]}{윤하경 CPO(첫 PM 이관 예정)\rd{7mm}}}
+ {\Bg{[검토자 — 전원]}{전원\rd{7mm}}}
+
+%% ------------------------------------------------------------------ 1
+\secbar{1. North Star 후보 3}
+\guide{정의·분자·분모·주기·현재값. '고객이 받은 가치'를 대표해야 하며 매출 자체는 후보가 아니다.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{26mm}|Y|L{50mm}|L{18mm}|L{22mm}|}\hline
+\hd{후보} & \hd{정의} & \hd{분자 / 분모} & \hd{주기} & \hd{현재값} \\ \hline
+\ifwbblank
+\rd{12mm} &  &  &  &  \\ \hline
+\rd{12mm} &  &  &  &  \\ \hline
+\rd{12mm} &  &  &  &  \\ \hline
+\else
+NS-1 주간 승인 검사기록 건수 & 검사원이 GAUGE에서 승인한 검사기록의 주간 합계 & 승인 기록 건수 / (절대 건수) & 주 & 12,400건/주(31사 × 1.6라인 × 250) \\ \hline
+NS-2 활성 라인 수 & 주 100건 이상 기록되는 라인 & 활성 라인 / 계약 93 & 주 & 50 \\ \hline
+NS-3 자동판정 채택 건수 & AI 판정이 수정 없이 채택된 건 & 채택 / ㉮㉯㉰ & 월 & 비율만 — 22 / 14 / 38\%. 절대 건수 없음 \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 2
+\secbar{2. 게임 가능성 분석 — 상호 공격 기록}
+\guide{각 후보를 실제 가치 없이 올리는 방법을 다른 조원이 공격한다. 방어 가능한 후보만 남긴다.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{26mm}|Y|Y|L{18mm}|}\hline
+\hd{후보} & \hd{어떻게 부풀릴 수 있나} & \hd{방어(정의 수정·보조 지표)} & \hd{생존?} \\ \hline
+\ifwbblank
+\rd{13mm} &  &  &  \\ \hline
+\rd{13mm} &  &  &  \\ \hline
+\rd{13mm} &  &  &  \\ \hline
+\else
+NS-1 & ① 빈 기록 승인 ② 자동판정 확정 건을 '승인'에 ③ 항목 잘게 쪼개기 & 분자 = 사진 1장+ 기록 중 수정 없이 승인 + 수정 승인 · 자동 확정 제외 · 기록 단위 = 기준서 단위 · 가드레일 사진 수 하한 & 생존 \\ \hline
+NS-2 & ① 1라인을 2라인으로 등록 ② 100건 기준을 90으로 & 라인 = 검사기준서 단위(B-05) · 기준 100건 계약 명시 · 보조: 라인당 기록 분포 & 생존 — 입력 지표로 \\ \hline
+NS-3 & ① 임계값 하향 → 채택 ↑ FP ↑ ② 분모를 ㉰로(38\%) ③ ON 강제 & 방어 불가 — 올리는 가장 쉬운 방법이 제품을 나쁘게 만든다. 커널과 반대 방향 & 탈락 → 가드레일 \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 3
+\secbar{3. 선정과 근거}
+\guide{하나를 고르고 왜인가 — 가치 대표성 / 게임 어려움 / 측정 가능성 / 팀이 움직일 수 있는가. 탈락 후보를 보조 지표로 쓸지.}
+\begin{fieldbox}
+\ifwbblank
+\lines{6}{9.5mm}
+\else
+NS-1 주간 승인 검사기록 건수(정의 수정 후)를 선정한다. 가치 대표성 — 검사원이 종이 대신 GAUGE로 기록하고 자기 판정으로 승인하는 행위가 커널의 추진 방침('행동을 바꾸지 않는다, 근거를 남긴다')과 같은 방향. 게임 어려움 — 공격 셋을 정의 수정으로 막았고 가드레일이 붙었다. 측정 가능 — 판정 로그(B-12). 팀이 움직일 수 있는가 — 입력 지표 다섯에 각각 소유자. NS-2는 입력 지표로 흡수, NS-3는 가드레일(FP 예산과 함께, ㉞ 항목 7).
+\fi
+\end{fieldbox}
+
+%% ------------------------------------------------------------------ 4
+\landscapeon
+\secbar{4. Input Metric Tree}
+\guide{North Star를 움직이는 선행 지표 3~5개(예: 활성 라인 수·검사원 활성률·자동판정 채택률·온보딩 완료율). 소유자·현재값·목표값·분모.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|Y|L{50mm}|L{22mm}|L{22mm}|L{24mm}|L{24mm}|}\hline
+\hd{입력 지표} & \hd{분자/분모} & \hd{소유자} & \hd{현재값} & \hd{목표값(분기)} & \hd{검증 상태} \\ \hline
+\ifwbblank
+\rd{10mm} &  &  &  &  &  \\ \hline
+\rd{10mm} &  &  &  &  &  \\ \hline
+\rd{10mm} &  &  &  &  &  \\ \hline
+\rd{10mm} &  &  &  &  &  \\ \hline
+\rd{10mm} &  &  &  &  &  \\ \hline
+\else
+실사용 라인 수(주 100건 이상) & 활성 라인 / 계약 라인 93 & 박정우·강지우 & 50 & 70 & 측정 가능(로그) \\ \hline
+검사원 계정 활성률(4개월) & 주 1회 이상 승인 계정 / 발급 계정 & 강지우 & 41\%(1개월 68\%) & 55\% & 측정 가능(로그) \\ \hline
+온보딩 완료율 & 매핑 ≤ 10영업일 \& 첫 달 100건 로고 / 신규 로고 & 이수민 & 27Q2 10/12 & 27Q3 11/12 & 측정 가능 \\ \hline
+판정 초안 수용률 & 수정 없이 승인 / 초안 노출(㉮) & 오세진 & 22\% & 30\% & 측정 가능 — FP 예산과 함께 \\ \hline
+부적합 통보 리드타임 & 발생 → 포털 제출(일) & 윤하경 & 추정 1.4일 & 목표 없음 — 측정 체계 먼저 & 추정(자기 보고) \\ \hline
+\fi
+\end{tabularx}}
+\landscapeoff
+
+%% ------------------------------------------------------------------ 5
+\secbar{5. 검증 상태 표기}
+\guide{측정 가능 / 추정 / 미검증 — 미검증 지표를 목표로 쓰지 않는다.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{40mm}|L{26mm}|Y|Y|}\hline
+\hd{지표} & \hd{상태} & \hd{측정 방법·데이터 원천} & \hd{검증 계획} \\ \hline
+\ifwbblank
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\else
+실사용 라인 수 & 측정 가능 & 라인별 주간 승인 기록 수(로그) & 라인 정의 고정 후 재집계 D+615 \\ \hline
+검사원 계정 활성률 & 측정 가능 & 계정별 주간 승인 로그 & '활성' 정의(주 1회)를 IR 각주에 \\ \hline
+온보딩 완료율 & 측정 가능 & 매핑 완료일(B-05) + 첫 달 기록 수 & — \\ \hline
+판정 초안 수용률 & 측정 가능 & HITL 수정 로그(B-12) & FP 예산 초과 라인은 분모에서 표기 \\ \hline
+부적합 통보 리드타임 & 추정 & 팀장 자기 보고(월 1회) — 포털 제출 시각 미수집 & 포털 내보내기 시각 로그 추가(B-08 확장) → D+660부터 \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 6
+\secbar{6. 분기 OKR 1페이저}
+\guide{O 1개, KR 3개 — KR은 지표가 아니라 결과로 쓴다('활성률 60\%'가 아니라 '검사원 10명 중 6명이 매주 판정을 승인한다').}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{20mm}|Y|L{50mm}|L{24mm}|}\hline
+\hd{항목} & \hd{문장} & \hd{측정(분자/분모)} & \hd{소유자} \\ \hline
+\ifwbblank
+\rd{11mm}O &  &  &  \\ \hline
+\rd{11mm}KR1 &  &  &  \\ \hline
+\rd{11mm}KR2 &  &  &  \\ \hline
+\rd{11mm}KR3 &  &  &  \\ \hline
+\else
+O & 검사원이 종이 대신 GAUGE로 기록하고 자기 판정으로 승인하는 것이 자연스러운 라인을 늘린다 & NS-1 12,400 → 16,000건/주 & 윤하경 \\ \hline
+KR1 & 계약 라인 10개 중 7개가 매주 100건 이상 기록된다 & 활성 라인 70 / 93 & 박정우·강지우 \\ \hline
+KR2 & 온보딩한 검사원 10명 중 5.5명이 넉 달 뒤에도 매주 판정을 승인한다 & 4개월 활성 계정 / 발급 계정 = 55\% & 강지우·이수민 \\ \hline
+KR3 & 신규 로고 12 중 11이 10영업일 안에 매핑을 끝내고 첫 달에 100건을 기록한다 & 온보딩 완료 11 / 12 & 이수민 \\ \hline
+\fi
+\end{tabularx}}
+
+\end{document}

@@ -1,0 +1,183 @@
+% 23_body.tex — 산출물 ㉓ 기회-해법 트리 (빈 템플릿 / 완성 예시 공용 본문) — gen_product_templates.py 가 Product_specs.py 에서 생성
+% 드라이버: 23_기회해법트리_빈템플릿.tex (\wbblanktrue) / 23_기회해법트리_완성예시.tex (\wbblankfalse — 워크북 §X.5 확정 후)
+\documentclass[10pt,a4paper]{article}
+\usepackage[a4paper,margin=16mm,top=14mm,bottom=20mm]{geometry}
+\def\DocNum{23}\def\DocDay{5}\def\DocIdx{3}
+\def\DocTitle{기회-해법 트리}
+\def\DocSub{Opportunity Solution Tree}
+\def\DocVariant{\B{빈 템플릿}{딥게이지 완성 예시}}
+\usepackage{wbstyle}
+\def\DocCirc{㉓}   % newunicodechar(㉛~㊵ 폴백) 뒤에 정의해야 활성 문자로 읽힌다
+\begin{document}
+\docheader
+ {\Bg{[회사명 · 제품명]}{딥게이지 · GAUGE}}
+ {\Bg{[v0.x / D+n]}{v1.0 / 2026-05-26 (D+85, 실험 후)}}
+ {\Bg{[작성자 — CPO]}{윤하경 CPO\rd{7mm}}}
+ {\Bg{[검토자 — CEO]}{강민수 · 오세진\rd{7mm}}}
+
+%% ------------------------------------------------------------------ 1
+\secbar{1. 결과(outcome) 정의}
+\guide{트리의 뿌리. 비즈니스 결과(예: 6개월 내 유료 5개사 — TIPS 조건)와 제품 결과(고객 행동의 변화)를 구분해 적고, 이 트리는 제품 결과에서 시작한다.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{30mm}|Y|L{50mm}|L{22mm}|}\hline
+\hd{구분} & \hd{결과 문장} & \hd{측정(분자/분모)} & \hd{기한} \\ \hline
+\ifwbblank
+\rd{11mm}비즈니스 결과 &  &  &  \\ \hline
+\rd{11mm}제품 결과(이 트리의 뿌리) &  &  &  \\ \hline
+\else
+비즈니스 결과 & 유료 고객 3개사(D+300), 5개사(D+360 — TIPS 조건) & 유료 계약 로고 수 & 2026-12 / 2027-02 \\ \hline
+제품 결과(뿌리) & 검사원이 라인이 도는 동안 기록을 끝내고, 부적합이 당일 1차사에 근거와 함께 통보된다 & 기록 시간 47 → 20분/일 이하 · 통보 3.7일 → 1영업일 이내 & D+300 GA \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 2
+\landscapeon
+\secbar{2. 기회 계층 — L1 기회 → L2 하위 기회}
+\guide{기회는 고객의 상황·진전·장애의 문장이다. 근거 인터뷰 ID와 빈도·강도(몇 명 중 몇 명, 얼마나 아픈가)를 붙인다.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{14mm}|Y|Y|L{28mm}|L{22mm}|}\hline
+\hd{OP-ID} & \hd{L1 기회} & \hd{L2 하위 기회} & \hd{근거 인터뷰 ID} & \hd{빈도/강도} \\ \hline
+\ifwbblank
+\rd{10mm} &  &  &  &  \\ \hline
+\rd{10mm} &  &  &  &  \\ \hline
+\rd{10mm} &  &  &  &  \\ \hline
+\rd{10mm} &  &  &  &  \\ \hline
+\rd{10mm} &  &  &  &  \\ \hline
+\rd{10mm} &  &  &  &  \\ \hline
+\rd{10mm} &  &  &  &  \\ \hline
+\rd{10mm} &  &  &  &  \\ \hline
+\else
+L1-A & 기록에 드는 시간 — 라인이 도는 동안은 못 적고 나중에 다시 적는다 &  &  & 12/3 \\ \hline
+OP-01 &  & 종이 → 엑셀 → 포털로 다시 적는다(31분/일) & I-01·02·04·07·10·13·14·18·20·21·24·25 & 12/3 \\ \hline
+OP-06 &  & 기준서 버전이 달라 두 번 잰다 & I-04·15·20 & 3/2 \\ \hline
+L1-B & 부적합 대응의 속도와 근거 &  &  & 8/3 \\ \hline
+OP-02 &  & 근거 수집으로 통보 3.7일 & I-03·08·19·24·25 & 5/3 \\ \hline
+OP-03 &  & 8D 11.5시간 — 옮겨 적기 & I-03·05·16 & 3/3 \\ \hline
+OP-04 &  & '누가 언제 무엇을 보고' 찾을 수 없다 & I-09·11·12·23·27 & 5/2 \\ \hline
+L1-C & 판정의 일관성 &  &  & 5/2 \\ \hline
+OP-05 &  & 신입·교대·오후 조도에서 판정이 흔들린다 & I-02·06·11·15·26 & 5/2 \\ \hline
+L1-D & 1차사의 요구와 통제 &  &  & 4/2 \\ \hline
+OP-07 &  & 포털 규격 추종 / 도면 클라우드 금지 & I-08·22·23·27 & 4/2 \\ \hline
+(기각) & OP-08 공정 개선 — 항목 7 &  & I-14·17 & 2/1 \\ \hline
+\fi
+\end{tabularx}}
+\landscapeoff
+
+%% ------------------------------------------------------------------ 3
+\landscapeon
+\secbar{3. 해법 후보 — 기회별 3안 이상}
+\guide{같은 기회에 해법을 셋 이상 놓아야 첫 해법에 묶이지 않는다. 해법 열에만 제품·기능 명사를 쓴다.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{14mm}|Y|Y|L{24mm}|L{40mm}|}\hline
+\hd{OP-ID} & \hd{해법 후보} & \hd{무엇이 달라지는가} & \hd{실현 난이도(H/M/L)} & \hd{차별 요소} \\ \hline
+\ifwbblank
+\rd{9mm} &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  \\ \hline
+\else
+OP-01 & (a) 사진 → 치수·항목 자동 전기(OCR) & 전기 31분이 사라진다 & M(조도 — X-02) & 사진은 이미 찍는다 \\ \hline
+OP-01 & (b) 음성 메모 → 기록 문장(STT) & 라인이 도는 동안 말로 & L & 손을 쓰지 않는다 \\ \hline
+OP-01 & (c) 종이 스캔 → 사후 OCR & 행동을 바꾸지 않는다 & L & 저항 최소, '나중에'가 남는다 \\ \hline
+OP-01 & (d) 태블릿 직접 입력 — 기각 & — & — & '다 해봤어요' \\ \hline
+OP-02 & (a) 부적합 사진·기록·판정 패키지 → 포털 제출 초안 & 이틀 → 즉시 & M(포털 규격 4종) & 세 번 옮김이 한 번으로 \\ \hline
+OP-02 & (b) 알림만 & 인지만 빨라진다 & L & 반쪽 \\ \hline
+OP-02 & (c) 사람이 뒤에서 패키징(서비스) & 즉시 — 임시 & L & X-01 방식, 확장 불가 \\ \hline
+OP-03 & (a) 8D 초안 자동 생성 & 11.5 → 4시간(추정) & M & '붙이는 것'을 없앤다 \\ \hline
+OP-03 & (b) 템플릿 + 사진 자동 첨부 & 부분 & L & — \\ \hline
+OP-03 & (c) 8D 대행 & — & L & 확장 불가 \\ \hline
+OP-04 & (a) 판정 로그 자동 기록 & 감사·클레임 근거 & L & 다른 해법의 부산물 — 공짜 \\ \hline
+OP-04 & (b) 월 리포트 & 사후 & L & — \\ \hline
+OP-04 & (c) 기존 MES에 로그 필드(고객 자체) & 범위 밖 & — & — \\ \hline
+OP-05 & (a) 판정 초안 제시 → 검사원 승인 & 편차 감소 — 수용될 때만 & H(X-02 미달·A-05) & 핵심 기술이나 가장 위험 \\ \hline
+OP-05 & (b) 기준 사진 라이브러리 & 기준 공유 & L & 저항 없음 \\ \hline
+OP-05 & (c) 판정 편차 리포트 & 재기만 한다 & L & 로그의 부산물 \\ \hline
+\fi
+\end{tabularx}}
+\landscapeoff
+
+%% ------------------------------------------------------------------ 4
+\secbar{4. 해법 우선순위}
+\guide{기회 크기 × 실현 가능성 × 차별 — 점수를 더하지 말고 위치로 읽는다. 상위 3개와 그 이유.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{12mm}|Y|L{22mm}|L{22mm}|L{18mm}|L{50mm}|}\hline
+\hd{순위} & \hd{해법} & \hd{기회 크기} & \hd{실현 가능} & \hd{차별} & \hd{선정·보류 이유} \\ \hline
+\ifwbblank
+\rd{9mm} &  &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  &  \\ \hline
+\rd{9mm} &  &  &  &  &  \\ \hline
+\else
+1 & OP-01(a)+(b) 사진·음성 → 검사기록 자동 생성 & H & M & H & 빈도 12, X-01 시간 효과 검증. OCR은 오전 라인부터 \\ \hline
+2 & OP-02(a)+OP-03(a) 부적합 패키지 → 포털 초안 + 8D 초안 & H & M & H & 팀장이 돈을 내는 이유(A-03). 1이 있어야 성립 \\ \hline
+3 & OP-04(a)+OP-05(c) 판정 로그·편차 리포트 & M & L & M & 1·2의 부산물. 대표·SQE가 원하는 것 \\ \hline
+4 & OP-05(a) 판정 초안(AI) & H & L & H & 실험 전 1순위 → 실험 후 4순위. 오전 베타. A-05 미제거 \\ \hline
+5 & OP-05(b) 기준 사진 라이브러리 & M & L & L & 4의 사용성 보완 \\ \hline
+보류 & OP-07 온프렘 & M & L & — & Day6 Won't — 클라우드 가능 공장만(㉕) \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 5
+\secbar{5. 가정 후보 목록 → ㉔ 가정 맵}
+\guide{선정한 해법이 성립하려면 무엇이 참이어야 하는가 — 가치/사용성/실현/사업성 네 유형으로.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{14mm}|Y|L{22mm}|L{34mm}|}\hline
+\hd{A-ID} & \hd{가정 문장(~라면 ~일 것이다)} & \hd{유형} & \hd{출처 노드(OP/해법)} \\ \hline
+\ifwbblank
+\rd{8mm} &  &  &  \\ \hline
+\rd{8mm} &  &  &  \\ \hline
+\rd{8mm} &  &  &  \\ \hline
+\rd{8mm} &  &  &  \\ \hline
+\rd{8mm} &  &  &  \\ \hline
+\rd{8mm} &  &  &  \\ \hline
+\rd{8mm} &  &  &  \\ \hline
+\rd{8mm} &  &  &  \\ \hline
+\else
+A-01 & 검사원이 사진·음성 입력을 종이보다 빠르고 편하다고 느낀다 & 가치/사용성 & OP-01(a)(b) \\ \hline
+A-02 & 현장 조도·각도에서 치수 OCR 90\% 이상 & 실현 & OP-01(a), OP-05(a) \\ \hline
+A-03 & 품질팀장(공장장)이 월 100만 원대 예산을 낸다 & 사업성 & OP-02(a), OP-03(a) \\ \hline
+A-04 & 1차사가 자동 생성 8D·근거 패키지를 접수한다 & 사업성 & OP-02(a) \\ \hline
+A-05 & 검사원이 판정 초안을 자기 판단의 대체로 두려워하지 않는다 & 사용성/가치 & OP-05(a) \\ \hline
+A-06~12 & (㉔ 항목 1) &  &  \\ \hline
+\fi
+\end{tabularx}}
+
+%% ------------------------------------------------------------------ 6
+\secbar{6. 트리 그림 (A4 판 — 벽면판 축소)}
+\guide{결과 → L1 기회 → L2 → 해법 → (실험) 순으로 그린다. 노드마다 ID. 가지가 하나뿐인 기회는 다시 인터뷰.}
+\begin{fieldbox}
+\ifwbblank
+\lines{14}{9.5mm}
+\else
+제품 결과 → L1-A(OP-01·06) / L1-B(OP-02·03·04) / L1-C(OP-05) / L1-D(OP-07) → 해법 (a)(b)(c) → X-01·02·03. 기각 가지 OP-08·OP-01(d)는 회색. 교재 그림 2-6과 동일.
+\fi
+\end{fieldbox}
+
+%% ------------------------------------------------------------------ 7
+\secbar{7. 기각한 기회와 사유}
+\guide{트리에서 뺀 기회는 사라지지 않는다 — 언제 다시 볼지 적는다. Day8 47건의 절반이 여기서 기각된 것들이다.}
+{\footnotesize
+\begin{tabularx}{\linewidth}{|L{14mm}|Y|Y|L{44mm}|}\hline
+\hd{OP-ID} & \hd{기회} & \hd{기각 사유} & \hd{재검토 조건} \\ \hline
+\ifwbblank
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\rd{9mm} &  &  &  \\ \hline
+\else
+OP-08 & 검사 데이터로 공정 개선 & 아픔이 아니라 바람 — 최근 사례 없음 & 유료 10개사 · 데이터 6개월 \\ \hline
+OP-06 & 도면·기준서 버전 불일치 & 공장 내부 문서 관리 — 풀면 SI가 된다 & 1차사가 기준서 배포를 우리 포털로 요구할 때 \\ \hline
+OP-07(온프렘) & 도면 클라우드 금지 & 초기 6개월 범위 밖 — 클라우드 가능 1,247로 시작 & 유료 5개사 후, 또는 1차사 채널 계약 시 \\ \hline
+OP-01(d) & 태블릿 직접 입력 & '다 해봤어요' — 종이보다 느리다 & 없음 \\ \hline
+\fi
+\end{tabularx}}
+
+\end{document}

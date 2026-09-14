@@ -1,0 +1,28 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[every node/.style={font=\scriptsize,text=ink},x=1mm,y=1mm]
+\node[title] at (85,8) {SLA / OLA / UC 3층 매핑 — 공급자 쪽에서. 한 층이 비면 SLA는 성립하지 않는다};
+\foreach \x/\w/\t in {0/26/SLA 항목 · 목표,28/36/OLA(딥게이지 내부),66/40/UC(외부 — 온담 IT본부는 진하게),108/34/사슬 합 vs SLA,144/24/성립?}{
+  \node[fill=navy,text=white,font=\scriptsize\bfseries,anchor=north west,minimum height=6mm,text width=\w mm,align=center,inner sep=2pt] at (\x,2) {\t};}
+\def\row#1#2#3#4#5#6#7{%
+  \node[boxfill,anchor=north west,text width=24mm,minimum height=#1 mm,align=left] at (0,#2) {#3};
+  \node[boxgrey,anchor=north west,text width=34mm,minimum height=#1 mm,align=left] at (28,#2) {#4};
+  \node[box,anchor=north west,text width=38mm,minimum height=#1 mm,align=left] at (66,#2) {#5};
+  \node[boxgrey,anchor=north west,text width=32mm,minimum height=#1 mm,align=left] at (108,#2) {#6};
+  \node[#7,anchor=north west,text width=22mm,minimum height=#1 mm,align=center] at (144,#2) {};}
+\row{13}{-5}{가용성 99.5\%\\= 219.2분/월}{운영 0.7 FTE 평일 09-18\\대기 0.5 FTE}{GPU 벤더 NBD 교체\\\textbf{온담 IT 1차 대응}}{2대 이중화 → 단일 무중단\\이중 장애 NBD 24-72h}{boxteal}
+\node[anchor=north west,text width=22mm,align=center] at (144,-5) {조건부 성립\\(이중화 전제)};
+\row{13}{-20}{P1 복구 4시간}{주간 2h · 야간 대기 4h}{\textbf{온담 IT 야간 1차 30분}}{야간 0.5 + 4 = \textbf{4.5h > 4h}}{boxrust}
+\node[anchor=north west,text width=22mm,align=center] at (144,-20) {\textbf{불성립}\\→ 최선 노력 또는 온담 OLA};
+\row{13}{-35}{릴리스 분기 1회\\온담 승인 후}{스테이징 검증 2주}{\textbf{온담 IT 승인 3주}}{승인 지연 = 모델 갱신 불가}{boxteal}
+\node[anchor=north west,text width=22mm,align=center] at (144,-35) {성립 — 승인 지연 기간 판정 오류 SLA 제외};
+\row{13}{-50}{추론 지연 P95 5초}{2-pass 4.3초(V-05)}{GPU 2대 부하 분산}{이중 장애 시 8.6초}{boxteal}
+\node[anchor=north west,text width=22mm,align=center] at (144,-50) {조건부 성립};
+\row{13}{-65}{데이터 정정 2영업일}{CS 온담 담당 1명(1일)}{\textbf{온담 정본 판정자 확인 1일}}{1 + 1 = 2}{boxteal}
+\node[anchor=north west,text width=22mm,align=center] at (144,-65) {성립 — 판정자 지정 전제};
+\row{15}{-80}{\textbf{AI 판정 정확도}\\FN ≤ 3.0\% (측정 세트 한정)}{eval 분기 1회 재측정}{\textbf{온담 라벨 판정자}}{\textbf{온담 4세트 미측정} — 세트가 없으면 이 행 자체가 없다}{boxrust}
+\node[anchor=north west,text width=22mm,align=center] at (144,-80) {\textbf{임시 기준}\\㊵ 항목 4 완료 전 · 크레딧, 배상 아님};
+\node[src,anchor=west,text width=165mm] at (0,-102) {㊲ 항목 4(워크북 §2.5) [추가 설정] · E-13·14 · PM ⑰ 항목 3·4와 같은 규칙(합산은 가장 긴 사슬). 온프렘 SLA의 특징 — 고객이 UC의 당사자다.};
+\end{tikzpicture}
+\end{document}

@@ -1,0 +1,36 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (110,92) {Rules of Credit — 같은 작업, 여섯 규칙, 여섯 EV 곡선 (ANSI/PMI 19-006 EV 측정 기법)};
+\node[lbl] at (110,86) {가로: 작업 진행(착수 → 완료) · 세로: 인정 EV(0 → 100\%) · 초록 = 온담 P1 채택, 회색 = 미채택};
+% 여섯 미니 차트 (3열 × 2행)
+\foreach \cx/\cy/\nm/\rl/\onedam/\col/\pth in {
+ 12/60/{0/100}/완료 전 0 · 완료 시 100/설계 스프린트 1.25{/}회 · 리허설 회차 · 감리·시험 보고서/teal/{(0,0) -- (26,0) -- (26,18) -- (28,18)},
+ 90/60/{50/50}/착수 50 · 완료 50/미채택 — 라이선스 50{/}50은 AC 인식 규칙(지급 조건) · EV 규칙 아님/grey/{(0,0) -- (0,9) -- (26,9) -- (26,18) -- (28,18)},
+ 170/60/마일스톤 가중/중간 마일스톤에 가중치/단말: 입고 검수 70 · 설치 확인 30 ‖ 통합·시험: TC 통과율 60 · UAT 종료 40/teal/{(0,0) -- (12,0) -- (12,12.6) -- (26,12.6) -- (26,18) -- (28,18)},
+ 12/22/물리적 \%/셀 수 있는 산출 단위 비율/구현 스프린트 = 인수 FP ÷ 620 × 1.96 ‖ 전환 매핑 = 확정 테이블 ÷ 1{,}842/teal/{(0,0) -- (5,3) -- (10,7) -- (15,9.5) -- (20,14) -- (26,18) -- (28,18)},
+ 90/22/배분 노력/다른 작업 EV에 비례/미채택 — 검사·QA를 본 작업에 비례 인정하는 방식/grey/{(0,0) -- (8,4) -- (16,11) -- (26,18) -- (28,18)},
+ 170/22/노력 수준 LOE/시간 경과 비례 · EV ≡ PV/PMO 월 0.56 · 유지보수 · 클라우드 사용료 ‖ → SV 항상 0 · 성과는 AC로만 읽는다/teal/{(0,0) -- (28,18)}}{
+  \begin{scope}[shift={(\cx,\cy)}]
+    \draw[grey!60, very thin] (0,0) rectangle (28,18);
+    \draw[grey, -{Stealth[length=1.5mm]}] (0,0) -- (30,0); \draw[grey, -{Stealth[length=1.5mm]}] (0,0) -- (0,20);
+    \draw[grey!50, dashed, very thin] (0,18) -- (28,18);
+    \node[font=\tiny, text=grey, anchor=east] at (-0.5,18) {100};
+    \node[font=\tiny, text=grey, anchor=east] at (-0.5,0) {0};
+    \node[font=\tiny, text=grey, anchor=north] at (0,-0.6) {착수};
+    \node[font=\tiny, text=grey, anchor=north] at (26,-0.6) {완료};
+    \draw[\col, line width=1.3pt] \pth;
+    \node[font=\scriptsize\bfseries, text=\col, anchor=south west] at (0,20.5) {\nm};
+    \node[font=\tiny, text=ink, anchor=north west, text width=46mm, align=left] at (31,19) {\textbf{규칙:} \rl};
+    \node[font=\tiny, text=\col, anchor=north west, text width=46mm, align=left] at (31,13) {\onedam};
+  \end{scope}
+}
+% 하단: 규칙이 SPI를 만든다 — 시차 두 건
+\node[boxfill, text width=218mm, font=\tiny, align=left, anchor=north west] at (0,8) {%
+\textbf{규칙의 어긋남이 만드는 구조적 편차 두 건 (2026-09-30).} ① \textbf{PV 규칙 vs EV 규칙} — PV는 "스프린트 시작 월에 계상"(Day2 §4.5), EV는 "리뷰에서 인수된 FP를 인수 월에 계상"(진행 중 스프린트 0). 월말에 걸친 S20(09-28 착수)의 PV 1.96이 EV 0으로 남아 SV $-$4.40 중 $-$1.96은 지연이 아니다 → 워크북 ⑫ 항목 4 "조정 1: 측정 시차 제거, SV $-$2.44 · SPI 0.968". ② \textbf{EV 규칙 vs AC 인식 기준} — 라이선스 EV는 "인도·설치 확인서 100\%", AC는 03-13 계약 변경으로 "인도 50\% / 통합시험 통과 50\%" → EV 100 · AC 50이 CV +4.70의 정체(착시 1). 둘 다 \textbf{병기하되 대체하지 않는다} — 규칙은 G1에 확정(원가 기준선 부속 2 [추가 설정]), BL-02에서 정식 첨부.};
+\node[boxrust, text width=218mm, font=\tiny, align=left, anchor=north west] at (0,-8) {%
+\textbf{느슨한 규칙 vs 엄격한 규칙.} 스프린트 착수 시 100\% 인정·담당자 진척률(느슨) → SPI가 1 근처에 붙어 있다가 종료 직전 무너진다(90\% 증후군). 진행 중 0·인수 시 인정(엄격, 온담) → SPI는 구조적으로 1 아래에서 시작하고 실제 편차를 더한 값으로 움직인다. SPI 0.943은 자연의 값이 아니라 G1에서 합의한 규칙이 만든 값이다 — 규칙을 실행 중에 바꾸면(대개 SPI가 나쁠 때 "진행 중 50\% 인정") EV는 원하는 숫자가 된다.};
+\node[src, anchor=north west] at (0,-19) {출처: Day3 워크북 ⑫ 완성 예시본 항목 2(Rules of Credit 표 — PV 규칙과의 시차 명시)·항목 4(조정 1·2), 교재 2.2절 표. 기법 명칭은 ANSI/PMI 19-006-2019.};
+\end{tikzpicture}
+\end{document}

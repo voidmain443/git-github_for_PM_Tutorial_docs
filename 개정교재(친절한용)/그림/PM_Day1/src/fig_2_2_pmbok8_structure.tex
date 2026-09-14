@@ -1,0 +1,27 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[node distance=4mm]
+% 6 원칙
+\node[font=\small\bfseries, text=navy, anchor=west] (h1) at (0,0) {6 core principles — 왜 (모든 도메인·프로세스를 관통)};
+\foreach \i/\t in {1/{총체적 관점 채택\\Adopt a holistic view},2/{가치 집중\\Focus on value},3/{품질 내재화\\Embed quality},4/{책임 있는 리더십\\Be an accountable leader},5/{지속가능성 통합\\Integrate sustainability},6/{권한 위임 문화\\Build an empowered culture}}{
+  \node[boxfill, text width=27mm, minimum height=11mm, font=\footnotesize, anchor=north west] (p\i) at ({(\i-1)*30mm},-5mm) {\t};
+}
+\node[lbl, anchor=west, text=rust] at (p6.east) {\quad 5번은 8판 신설 (7판 대응물 없음)};
+% 7 도메인
+\node[font=\small\bfseries, text=navy, anchor=west] (h2) at (0,-22mm) {7 performance domains — 무엇을 (6판 지식영역풍 이름으로 회귀)};
+\foreach \i/\t/\n in {1/Governance/{← 6판 Integration},2/Scope/{QC 흡수},3/Schedule/{},4/Finance/{← 6판 Cost},5/Stakeholders/{Communications 흡수},6/Resources/{← 7판 Team},7/Risk/{← 7판 Uncertainty}}{
+  \node[boxteal, text width=21mm, minimum height=9mm, font=\footnotesize, anchor=north west] (d\i) at ({(\i-1)*25.5mm},-27mm) {\textbf{\t}};
+  \node[lbl, font=\scriptsize, anchor=north] at (d\i.south) {\n};
+}
+% 5 focus areas + 40 processes
+\node[font=\small\bfseries, text=navy, anchor=west] (h3) at (0,-46mm) {5 Focus Areas 안의 40 processes — 언제 (6판 5 Process Groups와 같은 이름, non-prescriptive)};
+\foreach \i/\t in {1/Initiating,2/Planning,3/Executing,4/{Monitoring and\\Controlling},5/Closing}{
+  \node[box, fill=sand, draw=grey, text width=32mm, minimum height=10mm, font=\footnotesize, anchor=north west] (f\i) at ({(\i-1)*36mm},-51mm) {\textbf{\t}};
+}
+\foreach \i in {1,2,3,4}{ \draw[arrgrey] (f\i) -- (f\the\numexpr\i+1\relax); }
+\node[lbl, font=\scriptsize, anchor=north] at (f1.south) {헌장 개발 · 이해관계자 식별 (2개)};
+\node[lbl, anchor=north west, text width=178mm, align=left] at (0,-66mm) {세로 읽기: 원칙(왜) → 도메인(무엇을) → Focus Area의 프로세스(언제). 8판이 40개 프로세스를 되살린 것은 6판이 옳았다는 뜻이 아니라 "프로세스 없는 표준은 조직이 쓸 수 없다"는 실무 피드백의 결과다.};
+\node[src, anchor=north west] at (0,-76mm) {출처: PMBOK Guide 8판(PMI, 2025 디지털 / 2026-01 인쇄) 구조를 교재 2.1\textasciitilde 2.2절에 따라 재구성. 원칙 영문은 출처에 따라 축약형·완전형이 혼재하므로 인쇄본 대조 필요.};
+\end{tikzpicture}
+\end{document}

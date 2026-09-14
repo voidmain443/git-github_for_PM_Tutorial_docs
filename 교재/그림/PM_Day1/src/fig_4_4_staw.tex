@@ -1,0 +1,21 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[node distance=5mm]
+% 순환 (좌)
+\node[font=\small\bfseries, text=rust, anchor=south] (h1) at (0,34mm) {몰입의 상승 (escalation of commitment) 순환};
+\node[boxrust, text width=30mm, font=\footnotesize] (a) at (0,24mm) {① 결정을 \textbf{내 손으로} 내린다\\{\scriptsize 착수 승인, 비전 선언}};
+\node[boxrust, text width=30mm, font=\footnotesize] (b) at (28mm,0) {② 나쁜 결과 정보\\{\scriptsize 지연·초과·편익 미달}};
+\node[boxrust, text width=30mm, font=\footnotesize] (c) at (0,-24mm) {③ 자기 정당화\\self-justification\\{\scriptsize "내 결정이 옳았음을 증명해야"}};
+\node[boxrust, text width=30mm, font=\footnotesize] (d) at (-28mm,0) {④ 추가 투입\\{\scriptsize 같은 결과에서, 자기가 결정했을 때\\추가 투입이 유의하게 커진다}};
+\draw[arrrust, thick] (a) to[bend left=25] (b); \draw[arrrust, thick] (b) to[bend left=25] (c);
+\draw[arrrust, thick] (c) to[bend left=25] (d); \draw[arrrust, thick] (d) to[bend left=25] (a);
+\node[lbl, font=\scriptsize, text=rust, text width=22mm] at (0,0) {원인은 매몰비용의\\계산 착오가 아니라\\\textbf{자기 정당화}\\→ 처방은 회계 교육이\\아니라 \textbf{조직 설계}};
+% 처방 (우)
+\node[font=\small\bfseries, text=teal, anchor=west] (h2) at (52mm,34mm) {처방 — 조직 설계 두 가지};
+\node[boxteal, text width=76mm, font=\footnotesize, anchor=north west, align=left] (p1) at (52mm,29mm) {\textbf{① 착수 결정자와 중단 결정자를 분리한다}\\승인한 사람이 중단 여부를 결정하면 자기 정당화가 작동한다. 중단 결정은 착수 결정에 참여하지 않은 사람, 또는 최소한 착수 책임을 지지 않는 위원회가 내린다.\\[3pt]{\scriptsize 온담: 김선호 대표 = 이사회 의장 + 게이트 최종 승인자 + "매장 615개를 하나의 채널처럼" 비전의 소유자 → 이 관점에서 리스크. 사외이사 1인이 분리의 최소 장치}};
+\node[boxteal, text width=76mm, font=\footnotesize, anchor=north west, align=left, below=4mm of p1] (p2) {\textbf{② 중단 기준(kill criteria)을 착수 시점에 사전 확약한다}\\정보가 없어 자기 정당화가 작동하지 않는 착수 시점에 기준을 정해 둔다.\\[3pt]{\scriptsize 예: "G2에서 데이터 전환 정본이 확정되지 않으면 컷오버를 2027년 하반기로 연기한다" / "G1에서 편익 프로필 8종 중 5종 이상의 오너 실명과 분모가 없으면 편익 합계 재산정 전에 G1을 통과시키지 않는다"\\온담 2019 스마트오더: 34억 투입 후 8개월 만에 중단, 내부감사 "중단 결정 시점의 손실 확정 절차 없음" → 이사회 조건 5항}};
+\node[box, draw=grey, fill=sand, text width=76mm, font=\scriptsize, anchor=north west, align=left, below=4mm of p2] (p3) {\textbf{오독 주의} — escalation ≠ sunk cost fallacy. 매몰비용 오류는 개인의 계산 오류지만 escalation은 사회적·평판적 현상이므로 "매몰비용을 무시하세요"라는 교육으로는 완화되지 않는다. 게이트마다 작동하는 편향이다(Flyvbjerg 2021 편향 목록 \#10).};
+\node[src, anchor=north west] at ($(p3.south west)+(-97mm,-5mm)$) {출처: Staw (1976), Knee-deep in the big muddy: A study of escalating commitment to a chosen course of action, Organizational Behavior and Human Performance 16(1)를 바탕으로 재구성.};
+\end{tikzpicture}
+\end{document}

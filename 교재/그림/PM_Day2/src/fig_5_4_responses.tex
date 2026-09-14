@@ -1,0 +1,32 @@
+\documentclass[tikz,border=6pt]{standalone}
+\input{common.tex}
+\begin{document}
+\begin{tikzpicture}[x=1mm,y=1mm]
+\node[title] at (80,52) {위협 5 · 기회 5 대응 전략과 온담 P1 리스크의 배정, 잔여·2차 리스크의 흐름};
+% 위협 열
+\node[font=\footnotesize\bfseries, text=rust, anchor=west] at (0,44) {위협 (threat) — 5};
+\def\th#1#2#3#4{\node[box, draw=rust, fill=rustlight, text width=68mm, font=\tiny, align=left, anchor=north west] at (0,#1) {\textbf{#2} — #3\\{\color{ink}#4}};}
+\th{41}{회피 (avoid)}{원인을 제거하거나 계획을 바꿔 리스크가 성립하지 않게}{R-10: G2 전 마스터 6종 변경 동결을 CCB 의결 — "판정 후 변경"이라는 사건 자체를 막는다}
+\th{31}{전가 (transfer)}{영향을 제3자에게 옮긴다 (계약·보험·고정가)}{R-08: 앱 유지보수 계약에 소스 인수·API 연동 조항 — 벤더가 연동 의무를 진다}
+\th{21}{완화 (mitigate)}{확률 또는 영향을 줄인다}{R-06: 13본 문서화를 S1\textasciitilde S3에 전진 배치 · R-03: 폴백 설계(계획 원가에) · R-13: 단말 전수 조사}
+\th{11}{수용 (accept)}{수동적(아무것도 안 함) / 능동적(컨틴전시를 잡아 둔다)}{R-12: 편익 분모 분쟁 — 원가 영향 작음, 컨틴전시로 수용}
+\th{1}{상신 (escalate)}{프로젝트 밖의 것 — 상위 계층에 넘긴다}{R-01: P2 리드타임은 프로그램의 것 (소유자 프로그램 PMO장) · R-04: 1차연도 삭감은 스폰서 결정 — 전략은 완화, 자금원은 관리예비비}
+% 기회 열
+\node[font=\footnotesize\bfseries, text=teal, anchor=west] at (78,44) {기회 (opportunity) — 5 (Hillson 2002 이후 대칭)};
+\def\op#1#2#3#4{\node[box, draw=teal, fill=teallight, text width=68mm, font=\tiny, align=left, anchor=north west] at (78,#1) {\textbf{#2} — #3\\{\color{ink}#4}};}
+\op{41}{활용 (exploit)}{확실히 일어나게 한다}{O-02: 가맹 포털을 이연 불가 항목으로 헌장에 박고 2026-Q4 선행 릴리스 → 부속서 협상 지렛대}
+\op{31}{공유 (share)}{제3자와 나눈다}{수행사와 조기 완료 인센티브 (계약 조항)}
+\op{21}{증대 (enhance)}{확률·영향을 키운다}{O-01: 문서화 전진 배치를 R-06 완화와 통합 → 매핑 조기 완료, 리허설 여유 확보}
+\op{11}{수용 (accept)}{오면 받는다}{—}
+\op{1}{상신 (escalate)}{프로젝트 밖의 기회 — 상위 계층에}{프로그램 차원의 공동 조달·플랫폼 재사용 등}
+% 하단: 흐름
+\node[font=\footnotesize\bfseries, text=navy, anchor=west] at (0,-14) {대응 후에 남는 것과 생기는 것 — 컨틴전시의 근거는 잔여 리스크다};
+\node[box, draw=navy, text width=28mm, font=\tiny, align=center, anchor=north west] (a) at (0,-18) {\textbf{원 리스크}\\대응 전 위협 EMV 합 17.44};
+\node[box, draw=navy, text width=30mm, font=\tiny, align=center, anchor=north west] (b) at (34,-18) {\textbf{대응 계획} + 소유자 서명\\트리거에 측정 방법·주기\\{\color{grey}계획된 대응의 비용 = 계획 원가 (WBS 작업패키지)}};
+\node[box, draw=teal, fill=teallight, text width=30mm, font=\tiny, align=center, anchor=north west] (c) at (70,-18) {\textbf{잔여 리스크} (residual)\\대응 후 잔여 EMV 합 6.78\\{\color{grey}컨틴전시 대상 4.58 → 배정 4.60 (+ 미배정 풀 5.60 = 10.2) / 관리예비비 대상 2.20 (R-01·R-04)}};
+\node[box, draw=rust, fill=rustlight, text width=34mm, font=\tiny, align=center, anchor=north west] (d) at (106,-18) {\textbf{2차 리스크} (secondary)\\대응이 만드는 새 리스크 — 별도 행\\{\color{grey}R-02 분리 릴리스 → 두 번 배포·통합 결함 / R-08 조항 → 벤더의 계약 거부}};
+\draw[arr] (a.east) -- (b.west); \draw[arrteal] (b.east) -- (c.west); \draw[arrrust] (b.south) -- ++(0,-3) -| ($(d.south)+(0,0)$);
+\node[lbl, font=\tiny, anchor=north west, text width=146mm, align=left] at (0,-39) {소유자 = 원인에 가장 가까이 있고 대응 자원을 가진 사람 — RACI의 A와 일치해야 하며 대응 계획에 서명한다(한동석: 3PL 협상 착수 2026-03·폴백 결정 06-30). 흔한 오류: 전략이 전부 "완화"(회피·전가·상신을 생각하지 않았다는 뜻 — P1은 회피 1·전가 1·상신 2), 소유자가 전부 PM, 기회 칸이 빈 것, 대응 비용을 컨틴전시에서 쓰는 것.};
+\node[src, anchor=north west] at (0,-50) {출처: PMBOK 8판 Risk 성과영역의 위협·기회 대응 전략과 Hillson, D. (2002) Extending the risk process to manage opportunities, IJPM 20(3)를 교재 5.4절·5.7절(= 워크북 §5 완성 예시본)의 온담 배정에 대입해 재구성.};
+\end{tikzpicture}
+\end{document}
