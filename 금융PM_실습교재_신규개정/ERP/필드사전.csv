@@ -1,0 +1,167 @@
+﻿테이블,필드,자료형,기본키순번,외래키대상,설명
+account,saknr,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+account,name,TEXT,,,schema.sql 및 SAP대응 문서 참조
+account,statement,TEXT,,,schema.sql 및 SAP대응 문서 참조
+acdoca,bukrs,TEXT,PK1,bkpf.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+acdoca,belnr,TEXT,PK2,bkpf.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+acdoca,gjahr,INTEGER,PK3,bkpf.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+acdoca,docln,INTEGER,PK4,,schema.sql 및 SAP대응 문서 참조
+acdoca,rldnr,TEXT,PK5,,schema.sql 및 SAP대응 문서 참조
+acdoca,saknr,TEXT,,account.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+acdoca,hsl,INTEGER,,,금액은 원 단위 정수
+acdoca,pspid,TEXT,,project.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+acdoca,posid,TEXT,,wbs.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+acdoca,partner_id,TEXT,,business_partner.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+allocation,person_group,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+allocation,posid,TEXT,PK2,wbs.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+allocation,headcount,INTEGER,,,schema.sql 및 SAP대응 문서 참조
+allocation,person_days,INTEGER,,,schema.sql 및 SAP대응 문서 참조
+allocation,rate,INTEGER,,,schema.sql 및 SAP대응 문서 참조
+approval,approval_id,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+approval,kind,TEXT,,,schema.sql 및 SAP대응 문서 참조
+approval,approved_by,TEXT,,person.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+approval,approved_date,TEXT,,,schema.sql 및 SAP대응 문서 참조
+approval,source_id,TEXT,,source_document.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+baseline,version,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+baseline,pspid,TEXT,,project.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+baseline,bac,INTEGER,,,금액은 원 단위 정수
+baseline,management_reserve,INTEGER,,,금액은 원 단위 정수
+baseline,end_date,TEXT,,,schema.sql 및 SAP대응 문서 참조
+baseline,approval_id,TEXT,,approval.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+baseline,status,TEXT,,,schema.sql 및 SAP대응 문서 참조
+bkpf,bukrs,TEXT,PK1,company.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+bkpf,belnr,TEXT,PK2,,schema.sql 및 SAP대응 문서 참조
+bkpf,gjahr,INTEGER,PK3,,schema.sql 및 SAP대응 문서 참조
+bkpf,budat,TEXT,,,schema.sql 및 SAP대응 문서 참조
+bkpf,description,TEXT,,,schema.sql 및 SAP대응 문서 참조
+bkpf,source_id,TEXT,,source_document.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+budget_line,version,TEXT,PK1,baseline.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+budget_line,period,TEXT,PK2,,schema.sql 및 SAP대응 문서 참조
+budget_line,amount,INTEGER,,,금액은 원 단위 정수
+business_partner,partner_id,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+business_partner,name,TEXT,,,schema.sql 및 SAP대응 문서 참조
+business_partner,category,TEXT,,,schema.sql 및 SAP대응 문서 참조
+company,bukrs,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+company,name,TEXT,,,schema.sql 및 SAP대응 문서 참조
+company,currency,TEXT,,,schema.sql 및 SAP대응 문서 참조
+contract,contract_id,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+contract,partner_id,TEXT,,business_partner.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+contract,pspid,TEXT,,project.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+contract,amount,INTEGER,,,금액은 원 단위 정수
+contract,scope,TEXT,,,schema.sql 및 SAP대응 문서 참조
+contract,source_id,TEXT,,source_document.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+cost_center,kostl,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+cost_center,bukrs,TEXT,,company.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+cost_center,name,TEXT,,,schema.sql 및 SAP대응 문서 참조
+document_link,doc_id,TEXT,PK1,source_document.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+document_link,object_type,TEXT,PK2,,schema.sql 및 SAP대응 문서 참조
+document_link,object_id,TEXT,PK3,,schema.sql 및 SAP대응 문서 참조
+exception_case,exception_id,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+exception_case,tx_id,TEXT,,payment_transaction.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+exception_case,owner_id,TEXT,,person.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+exception_case,due_date,TEXT,,,schema.sql 및 SAP대응 문서 참조
+exception_case,status,TEXT,,,schema.sql 및 SAP대응 문서 참조
+exception_case,reason,TEXT,,,schema.sql 및 SAP대응 문서 참조
+invoice,invoice_id,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+invoice,acceptance_id,TEXT,,service_acceptance.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+invoice,amount,INTEGER,,,금액은 원 단위 정수
+invoice,belnr,TEXT,,bkpf.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+invoice,gjahr,INTEGER,,bkpf.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+invoice,bukrs,TEXT,,bkpf.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+merchant,merchant_id,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+merchant,partner_id,TEXT,,business_partner.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+merchant,name,TEXT,,,schema.sql 및 SAP대응 문서 참조
+merchant,fee_bps,INTEGER,,,schema.sql 및 SAP대응 문서 참조
+meta,stage,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+meta,as_of,TEXT,,,schema.sql 및 SAP대응 문서 참조
+meta,label,TEXT,,,schema.sql 및 SAP대응 문서 참조
+payment,payment_id,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+payment,invoice_id,TEXT,,invoice.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+payment,amount,INTEGER,,,금액은 원 단위 정수
+payment,paid_date,TEXT,,,schema.sql 및 SAP대응 문서 참조
+payment,belnr,TEXT,,bkpf.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+payment,gjahr,INTEGER,,bkpf.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+payment,bukrs,TEXT,,bkpf.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+payment_transaction,tx_id,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+payment_transaction,batch_id,TEXT,,settlement_batch.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+payment_transaction,trade_date,TEXT,,,schema.sql 및 SAP대응 문서 참조
+payment_transaction,gross,INTEGER,,,금액은 원 단위 정수
+payment_transaction,cancel,INTEGER,,,금액은 원 단위 정수
+payment_transaction,fee,INTEGER,,,금액은 원 단위 정수
+payment_transaction,expected_net,INTEGER,,,금액은 원 단위 정수
+payment_transaction,received_net,INTEGER,,,금액은 원 단위 정수
+performance,posid,TEXT,PK1,wbs.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+performance,status_date,TEXT,PK2,,schema.sql 및 SAP대응 문서 참조
+performance,pv,INTEGER,,,금액은 원 단위 정수
+performance,ev,INTEGER,,,금액은 원 단위 정수
+performance,ac,INTEGER,,,금액은 원 단위 정수
+performance,source_id,TEXT,,source_document.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+person,person_id,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+person,name,TEXT,,,schema.sql 및 SAP대응 문서 참조
+person,role,TEXT,,,schema.sql 및 SAP대응 문서 참조
+person,department,TEXT,,,schema.sql 및 SAP대응 문서 참조
+person,authority,TEXT,,,schema.sql 및 SAP대응 문서 참조
+person,interest,TEXT,,,schema.sql 및 SAP대응 문서 참조
+physical_resource,resource_id,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+physical_resource,name,TEXT,,,schema.sql 및 SAP대응 문서 참조
+physical_resource,planned_qty,INTEGER,,,schema.sql 및 SAP대응 문서 참조
+physical_resource,allocated_qty,INTEGER,,,schema.sql 및 SAP대응 문서 참조
+physical_resource,status,TEXT,,,schema.sql 및 SAP대응 문서 참조
+physical_resource,owner_id,TEXT,,person.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+physical_resource,source_id,TEXT,,source_document.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+project,pspid,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+project,bukrs,TEXT,,company.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+project,name,TEXT,,,schema.sql 및 SAP대응 문서 참조
+project,pm_id,TEXT,,person.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+purchase_order,ebeln,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+purchase_order,request_id,TEXT,,purchase_request.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+purchase_order,contract_id,TEXT,,contract.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+purchase_order,amount,INTEGER,,,금액은 원 단위 정수
+purchase_order,status,TEXT,,,schema.sql 및 SAP대응 문서 참조
+purchase_request,request_id,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+purchase_request,posid,TEXT,,wbs.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+purchase_request,amount,INTEGER,,,금액은 원 단위 정수
+purchase_request,status,TEXT,,,schema.sql 및 SAP대응 문서 참조
+purchase_request,source_id,TEXT,,source_document.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+requirement,req_id,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+requirement,title,TEXT,,,schema.sql 및 SAP대응 문서 참조
+requirement,owner_id,TEXT,,person.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+requirement,acceptance,TEXT,,,schema.sql 및 SAP대응 문서 참조
+requirement,source_id,TEXT,,source_document.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+requirement_wbs,req_id,TEXT,PK1,requirement.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+requirement_wbs,posid,TEXT,PK2,wbs.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+service_acceptance,acceptance_id,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+service_acceptance,ebeln,TEXT,,purchase_order.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+service_acceptance,accepted_date,TEXT,,,schema.sql 및 SAP대응 문서 참조
+service_acceptance,amount,INTEGER,,,금액은 원 단위 정수
+service_acceptance,kind,TEXT,,,schema.sql 및 SAP대응 문서 참조
+service_acceptance,source_id,TEXT,,source_document.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+settlement_batch,batch_id,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+settlement_batch,merchant_id,TEXT,,merchant.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+settlement_batch,settlement_date,TEXT,,,schema.sql 및 SAP대응 문서 참조
+settlement_batch,adjustment,INTEGER,,,schema.sql 및 SAP대응 문서 참조
+settlement_batch,status,TEXT,,,schema.sql 및 SAP대응 문서 참조
+settlement_revenue_bridge,batch_id,TEXT,PK1,settlement_batch.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+settlement_revenue_bridge,bukrs,TEXT,,bkpf.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+settlement_revenue_bridge,belnr,TEXT,,bkpf.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+settlement_revenue_bridge,gjahr,INTEGER,,bkpf.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+settlement_revenue_bridge,sample_fee,INTEGER,,,금액은 원 단위 정수
+source_document,doc_id,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+source_document,title,TEXT,,,schema.sql 및 SAP대응 문서 참조
+source_document,release_stage,TEXT,,,schema.sql 및 SAP대응 문서 참조
+source_document,author_id,TEXT,,person.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+source_document,reviewer_id,TEXT,,person.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+source_document,approver_id,TEXT,,person.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+source_document,version,TEXT,,,schema.sql 및 SAP대응 문서 참조
+source_document,effective_date,TEXT,,,schema.sql 및 SAP대응 문서 참조
+source_document,body,TEXT,,,schema.sql 및 SAP대응 문서 참조
+test_result,test_id,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+test_result,req_id,TEXT,,requirement.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+test_result,tested,INTEGER,,,schema.sql 및 SAP대응 문서 참조
+test_result,passed,INTEGER,,,schema.sql 및 SAP대응 문서 참조
+test_result,critical_open,INTEGER,,,schema.sql 및 SAP대응 문서 참조
+test_result,source_id,TEXT,,source_document.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+wbs,posid,TEXT,PK1,,schema.sql 및 SAP대응 문서 참조
+wbs,pspid,TEXT,,project.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조
+wbs,name,TEXT,,,schema.sql 및 SAP대응 문서 참조
+wbs,owner_id,TEXT,,person.PRIMARY KEY,schema.sql 및 SAP대응 문서 참조

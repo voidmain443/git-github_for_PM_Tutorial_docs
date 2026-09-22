@@ -1,0 +1,8 @@
+{
+  "name": "moapay-pm-learning-pages",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Browser checks for the learner-only GitHub Pages edition",
+  "scripts": {"test:pages": "node tools/pages_check.cjs"},
+  "devDependencies": {"playwright": "1.62.1"}
+}

@@ -1,0 +1,13 @@
+__pycache__/
+*.pyc
+.DS_Store
+node_modules/
+_site/
+검증/PDF검토/
+검증/*.png
+검증/*모의헌장기록.json
+06_실습수행기록/
+배포본/
+출판원고/
+ERP/data/
+05_강사용/

@@ -1,0 +1,84 @@
+name: Financial PM classroom · GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '금융PM_실습교재_신규개정/**'
+      - '.github/workflows/financial-pm-pages.yml'
+  pull_request:
+    paths:
+      - '금융PM_실습교재_신규개정/**'
+      - '.github/workflows/financial-pm-pages.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: financial-pm-pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: 금융PM_실습교재_신규개정
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v6
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: 금융PM_실습교재_신규개정/package-lock.json
+      - name: Install print and browser dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y fonts-nanum
+          python -m pip install -r requirements-pages.txt
+          npm ci --ignore-scripts
+          npx playwright install --with-deps chromium
+      - name: Rebuild and validate teaching material
+        run: python tools/rebuild.py --pdf
+      - name: Build learner-only static site
+        run: python tools/build_pages.py
+      - name: Compare browser ERP with local SQLite and test student journey
+        env:
+          PM_PYTHON: python
+        run: npm run test:pages
+      - name: Preserve validation results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: classroom-validation
+          path: |
+            금융PM_실습교재_신규개정/검증/*검증.json
+            금융PM_실습교재_신규개정/검증/Pages_*.png
+          retention-days: 14
+      - name: Upload student site
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: 금융PM_실습교재_신규개정/_site
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/configure-pages@v5
+      - name: Deploy validated classroom
+        id: deployment
+        uses: actions/deploy-pages@v4

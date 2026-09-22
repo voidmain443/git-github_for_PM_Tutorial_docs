@@ -1,0 +1,11 @@
+{
+  "package": "sql.js",
+  "version": "1.14.1",
+  "source": "https://github.com/sql-js/sql.js",
+  "integrity": "sha512-gcj8zBWU5cFsi9WUP+4bFNXAyF1iRpA3LLyS/DP5xlrNzGmPIizUeBggKa8DbDwdqaKwUcTEnChtd2grWo/x/A==",
+  "files": {
+    "LICENSE.sql.js": "60a3f6e4d7b29b4321359e683b36cf198d24f58e24582070f56e6fa89d5ee2be",
+    "sql-wasm.js": "77d6435bac506af0e3c59636dce9d22b1b14156348bc327f41a1577f3212360f",
+    "sql-wasm.wasm": "438c88f666dc054ce4e9395f80fe9db4218b1a3c379960454880f048a7898aed"
+  }
+}

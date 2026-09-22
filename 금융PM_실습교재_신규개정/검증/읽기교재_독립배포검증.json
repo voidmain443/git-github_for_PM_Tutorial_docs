@@ -1,0 +1,2124 @@
+{
+  "date": "2026-09-23",
+  "passed": 529,
+  "total": 529,
+  "scope": "Actual learner ZIPs extracted into an empty temporary directory; one server, seven stages. This is a technical check, not a novice learning pilot.",
+  "checks": [
+    {
+      "name": "starter contains only S0 database",
+      "passed": true
+    },
+    {
+      "name": "starter has no instructor content or builder",
+      "passed": true
+    },
+    {
+      "name": "uninstalled future stage refused",
+      "passed": true
+    },
+    {
+      "name": "S0 database stage",
+      "passed": true
+    },
+    {
+      "name": "S0 guide served",
+      "passed": true
+    },
+    {
+      "name": "S0 reader served",
+      "passed": true
+    },
+    {
+      "name": "S0/0/start released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0/0/people released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0/0/sources released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0/0/settlement released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0/0/reconciliation released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0/0/finance released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0/0/draft released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0/0/review released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0/1/charter-1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0/1/charter-2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0/1/13.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0/1/charter-3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0/1/charter-4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0/1/charter-5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0/1/charter-6 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0/1/charter-7 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0/1/charter-8 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0/1/charter-9 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0/1/charter-10 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0/1/charter-approval future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/2/5.1 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/2/5.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/2/5.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/2/5.4 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/3/6.1 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/3/6.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/3/9.1 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/3/9.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/3/6.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/3/6.4 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/3/6.5 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/4/7.1 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/4/7.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/4/7.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/5/8.1 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/5/11.1 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/5/11.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/5/11.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/5/11.4 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/5/11.5 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/6/12.1 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/6/12.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/6/10.1 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/6/13.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/7/4.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/7/plan-approval future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/7/4.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/7/9.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/7/9.4 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/7/9.5 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/7/4.4 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/7/8.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/7/10.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/7/11.6 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/7/13.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/8/7.4 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/8/5.6 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/8/6.6 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/8/9.6 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/8/10.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/8/11.7 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/8/13.4 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/8/4.5 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/8/4.6 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/8/change-approved future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/9/8.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/9/5.5 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/9/12.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0/9/4.7 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0 교재 PDF matches released stage",
+      "passed": true
+    },
+    {
+      "name": "S0 워크북 PDF matches released stage",
+      "passed": true
+    },
+    {
+      "name": "S0A switches without restarting server",
+      "passed": true
+    },
+    {
+      "name": "S0A database stage",
+      "passed": true
+    },
+    {
+      "name": "S0A guide served",
+      "passed": true
+    },
+    {
+      "name": "S0A reader served",
+      "passed": true
+    },
+    {
+      "name": "S0A/0/start released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0A/0/people released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0A/0/sources released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0A/0/settlement released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0A/0/reconciliation released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0A/0/finance released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0A/0/draft released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0A/0/review released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0A/1/charter-1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0A/1/charter-2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0A/1/13.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0A/1/charter-3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0A/1/charter-4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0A/1/charter-5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0A/1/charter-6 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0A/1/charter-7 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0A/1/charter-8 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0A/1/charter-9 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0A/1/charter-10 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0A/1/charter-approval released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S0A/2/5.1 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/2/5.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/2/5.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/2/5.4 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/3/6.1 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/3/6.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/3/9.1 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/3/9.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/3/6.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/3/6.4 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/3/6.5 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/4/7.1 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/4/7.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/4/7.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/5/8.1 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/5/11.1 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/5/11.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/5/11.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/5/11.4 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/5/11.5 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/6/12.1 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/6/12.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/6/10.1 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/6/13.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/7/4.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/7/plan-approval future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/7/4.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/7/9.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/7/9.4 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/7/9.5 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/7/4.4 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/7/8.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/7/10.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/7/11.6 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/7/13.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/8/7.4 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/8/5.6 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/8/6.6 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/8/9.6 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/8/10.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/8/11.7 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/8/13.4 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/8/4.5 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/8/4.6 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/8/change-approved future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/9/8.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/9/5.5 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/9/12.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A/9/4.7 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S0A 교재 PDF matches released stage",
+      "passed": true
+    },
+    {
+      "name": "S0A 워크북 PDF matches released stage",
+      "passed": true
+    },
+    {
+      "name": "S1 switches without restarting server",
+      "passed": true
+    },
+    {
+      "name": "S1 database stage",
+      "passed": true
+    },
+    {
+      "name": "S1 guide served",
+      "passed": true
+    },
+    {
+      "name": "S1 reader served",
+      "passed": true
+    },
+    {
+      "name": "S1/0/start released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/0/people released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/0/sources released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/0/settlement released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/0/reconciliation released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/0/finance released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/0/draft released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/0/review released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/1/charter-1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/1/charter-2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/1/13.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/1/charter-3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/1/charter-4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/1/charter-5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/1/charter-6 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/1/charter-7 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/1/charter-8 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/1/charter-9 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/1/charter-10 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/1/charter-approval released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/2/5.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/2/5.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/2/5.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/2/5.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/3/6.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/3/6.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/3/9.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/3/9.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/3/6.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/3/6.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/3/6.5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/4/7.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/4/7.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/4/7.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/5/8.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/5/11.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/5/11.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/5/11.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/5/11.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/5/11.5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/6/12.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/6/12.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/6/10.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/6/13.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/7/4.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1/7/plan-approval future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1/7/4.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1/7/9.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1/7/9.4 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1/7/9.5 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1/7/4.4 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1/7/8.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1/7/10.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1/7/11.6 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1/7/13.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1/8/7.4 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1/8/5.6 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1/8/6.6 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1/8/9.6 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1/8/10.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1/8/11.7 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1/8/13.4 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1/8/4.5 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1/8/4.6 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1/8/change-approved future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1/9/8.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1/9/5.5 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1/9/12.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1/9/4.7 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1 교재 PDF matches released stage",
+      "passed": true
+    },
+    {
+      "name": "S1 워크북 PDF matches released stage",
+      "passed": true
+    },
+    {
+      "name": "S1A switches without restarting server",
+      "passed": true
+    },
+    {
+      "name": "S1A database stage",
+      "passed": true
+    },
+    {
+      "name": "S1A guide served",
+      "passed": true
+    },
+    {
+      "name": "S1A reader served",
+      "passed": true
+    },
+    {
+      "name": "S1A/0/start released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/0/people released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/0/sources released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/0/settlement released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/0/reconciliation released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/0/finance released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/0/draft released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/0/review released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/1/charter-1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/1/charter-2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/1/13.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/1/charter-3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/1/charter-4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/1/charter-5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/1/charter-6 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/1/charter-7 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/1/charter-8 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/1/charter-9 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/1/charter-10 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/1/charter-approval released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/2/5.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/2/5.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/2/5.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/2/5.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/3/6.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/3/6.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/3/9.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/3/9.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/3/6.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/3/6.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/3/6.5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/4/7.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/4/7.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/4/7.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/5/8.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/5/11.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/5/11.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/5/11.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/5/11.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/5/11.5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/6/12.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/6/12.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/6/10.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/6/13.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/7/4.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/7/plan-approval released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/7/4.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S1A/7/9.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1A/7/9.4 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1A/7/9.5 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1A/7/4.4 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1A/7/8.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1A/7/10.2 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1A/7/11.6 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1A/7/13.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1A/8/7.4 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1A/8/5.6 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1A/8/6.6 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1A/8/9.6 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1A/8/10.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1A/8/11.7 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1A/8/13.4 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1A/8/4.5 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1A/8/4.6 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1A/8/change-approved future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1A/9/8.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1A/9/5.5 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1A/9/12.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1A/9/4.7 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S1A 교재 PDF matches released stage",
+      "passed": true
+    },
+    {
+      "name": "S1A 워크북 PDF matches released stage",
+      "passed": true
+    },
+    {
+      "name": "S2 switches without restarting server",
+      "passed": true
+    },
+    {
+      "name": "S2 database stage",
+      "passed": true
+    },
+    {
+      "name": "S2 guide served",
+      "passed": true
+    },
+    {
+      "name": "S2 reader served",
+      "passed": true
+    },
+    {
+      "name": "S2/0/start released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/0/people released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/0/sources released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/0/settlement released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/0/reconciliation released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/0/finance released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/0/draft released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/0/review released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/1/charter-1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/1/charter-2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/1/13.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/1/charter-3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/1/charter-4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/1/charter-5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/1/charter-6 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/1/charter-7 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/1/charter-8 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/1/charter-9 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/1/charter-10 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/1/charter-approval released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/2/5.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/2/5.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/2/5.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/2/5.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/3/6.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/3/6.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/3/9.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/3/9.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/3/6.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/3/6.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/3/6.5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/4/7.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/4/7.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/4/7.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/5/8.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/5/11.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/5/11.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/5/11.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/5/11.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/5/11.5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/6/12.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/6/12.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/6/10.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/6/13.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/7/4.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/7/plan-approval released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/7/4.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/7/9.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/7/9.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/7/9.5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/7/4.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/7/8.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/7/10.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/7/11.6 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/7/13.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/8/7.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/8/5.6 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/8/6.6 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/8/9.6 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/8/10.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/8/11.7 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/8/13.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/8/4.5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/8/4.6 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S2/8/change-approved future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S2/9/8.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S2/9/5.5 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S2/9/12.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S2/9/4.7 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S2 교재 PDF matches released stage",
+      "passed": true
+    },
+    {
+      "name": "S2 워크북 PDF matches released stage",
+      "passed": true
+    },
+    {
+      "name": "S3 switches without restarting server",
+      "passed": true
+    },
+    {
+      "name": "S3 database stage",
+      "passed": true
+    },
+    {
+      "name": "S3 guide served",
+      "passed": true
+    },
+    {
+      "name": "S3 reader served",
+      "passed": true
+    },
+    {
+      "name": "S3/0/start released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/0/people released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/0/sources released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/0/settlement released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/0/reconciliation released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/0/finance released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/0/draft released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/0/review released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/1/charter-1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/1/charter-2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/1/13.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/1/charter-3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/1/charter-4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/1/charter-5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/1/charter-6 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/1/charter-7 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/1/charter-8 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/1/charter-9 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/1/charter-10 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/1/charter-approval released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/2/5.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/2/5.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/2/5.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/2/5.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/3/6.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/3/6.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/3/9.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/3/9.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/3/6.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/3/6.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/3/6.5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/4/7.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/4/7.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/4/7.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/5/8.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/5/11.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/5/11.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/5/11.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/5/11.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/5/11.5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/6/12.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/6/12.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/6/10.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/6/13.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/7/4.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/7/plan-approval released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/7/4.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/7/9.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/7/9.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/7/9.5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/7/4.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/7/8.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/7/10.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/7/11.6 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/7/13.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/8/7.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/8/5.6 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/8/6.6 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/8/9.6 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/8/10.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/8/11.7 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/8/13.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/8/4.5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/8/4.6 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/8/change-approved released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S3/9/8.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S3/9/5.5 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S3/9/12.3 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S3/9/4.7 future content withheld",
+      "passed": true
+    },
+    {
+      "name": "S3 교재 PDF matches released stage",
+      "passed": true
+    },
+    {
+      "name": "S3 워크북 PDF matches released stage",
+      "passed": true
+    },
+    {
+      "name": "S4 switches without restarting server",
+      "passed": true
+    },
+    {
+      "name": "S4 database stage",
+      "passed": true
+    },
+    {
+      "name": "S4 guide served",
+      "passed": true
+    },
+    {
+      "name": "S4 reader served",
+      "passed": true
+    },
+    {
+      "name": "S4/0/start released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/0/people released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/0/sources released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/0/settlement released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/0/reconciliation released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/0/finance released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/0/draft released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/0/review released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/1/charter-1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/1/charter-2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/1/13.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/1/charter-3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/1/charter-4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/1/charter-5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/1/charter-6 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/1/charter-7 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/1/charter-8 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/1/charter-9 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/1/charter-10 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/1/charter-approval released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/2/5.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/2/5.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/2/5.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/2/5.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/3/6.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/3/6.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/3/9.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/3/9.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/3/6.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/3/6.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/3/6.5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/4/7.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/4/7.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/4/7.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/5/8.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/5/11.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/5/11.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/5/11.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/5/11.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/5/11.5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/6/12.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/6/12.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/6/10.1 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/6/13.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/7/4.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/7/plan-approval released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/7/4.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/7/9.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/7/9.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/7/9.5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/7/4.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/7/8.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/7/10.2 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/7/11.6 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/7/13.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/8/7.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/8/5.6 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/8/6.6 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/8/9.6 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/8/10.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/8/11.7 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/8/13.4 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/8/4.5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/8/4.6 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/8/change-approved released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/9/8.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/9/5.5 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/9/12.3 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4/9/4.7 released lesson readable",
+      "passed": true
+    },
+    {
+      "name": "S4 교재 PDF matches released stage",
+      "passed": true
+    },
+    {
+      "name": "S4 워크북 PDF matches released stage",
+      "passed": true
+    },
+    {
+      "name": "instructor folder never introduced",
+      "passed": true
+    },
+    {
+      "name": "all stages installed in order",
+      "passed": true
+    }
+  ]
+}

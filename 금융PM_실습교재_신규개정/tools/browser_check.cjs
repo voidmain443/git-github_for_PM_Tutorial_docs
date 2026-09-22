@@ -1,0 +1,16 @@
+const {chromium}=require(process.env.PLAYWRIGHT_MODULE || '/Users/voidmain443/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules/playwright');
+const path=require('path'),fs=require('fs');
+(async()=>{const browser=await chromium.launch({headless:true,executablePath:'/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'});const page=await browser.newPage({viewport:{width:1440,height:1000}});const errors=[];page.on('pageerror',e=>errors.push(e.message));
+await page.goto('http://127.0.0.1:8877');await page.waitForSelector('#results tbody tr');
+if(await page.locator('#results tbody tr').count()!==21)throw Error('Expected21 documents');
+await page.locator('nav button[data-menu="reconciliation"]').click();await page.waitForFunction(()=>document.querySelector('#count').textContent.includes('480'));
+await page.selectOption('#field','판정');await page.fill('#value','불일치');await page.locator('button.primary').first().click();await page.waitForFunction(()=>document.querySelector('#count').textContent.includes('12건'));
+if(await page.locator('#results tbody tr').count()!==12)throw Error('Filter mismatch');
+const out=path.resolve(__dirname,'../검증');fs.mkdirSync(out,{recursive:true});await page.screenshot({path:path.join(out,'ERP_대사화면.png'),fullPage:true});
+await page.locator('nav button[data-menu="procurement"]').click();await page.waitForSelector('[data-row="0"]');await page.locator('[data-row="0"]').click();await page.waitForSelector('dialog[open]');if(!(await page.locator('#detailbody').innerText()).includes('PY03'))throw Error('Missing related payment');await page.locator('#close').click();
+await page.locator('nav button[data-menu="sql"]').click();await page.fill('#sql','SELECT SUM(누적비용) AS 원가 FROM v_프로젝트원가');await page.locator('#run').click();await page.waitForFunction(()=>document.querySelector('#sqlresult').textContent.includes('115,000,000'));
+await page.fill('#sql','DELETE FROM person');await page.locator('#run').click();await page.waitForFunction(()=>/authorized|readonly|authorization/i.test(document.querySelector('#sqlstatus').textContent));
+await page.locator('nav button[data-menu="settlements"]').click();await page.waitForSelector('#results tbody tr');const downloadPromise=page.waitForEvent('download');await page.locator('#export').click();const download=await downloadPromise;await download.saveAs(path.join(out,'UI_CSV_export.csv'));
+await page.locator('nav button[data-menu="documents"]').click();await page.waitForFunction(()=>document.querySelector('#count').textContent.includes('21건'));await page.locator('[data-row="0"]').click();await page.waitForSelector('dialog[open]');await page.screenshot({path:path.join(out,'ERP_문서상세.png'),fullPage:true});await page.locator('#close').click();
+await page.setViewportSize({width:760,height:900});await page.screenshot({path:path.join(out,'ERP_좁은화면.png'),fullPage:true});
+if(errors.length)throw Error(errors.join('\n'));fs.writeFileSync(path.join(out,'브라우저검증.json'),JSON.stringify({passed:true,checks:['21 source documents','480 rows','12 mismatch filter','procurement related payments','SQL actual115M','write SQL rejected','CSV download','document detail','760px layout','zero JS errors']},null,2));await browser.close();console.log('Browser checks passed');})().catch(e=>{console.error(e);process.exit(1)});
