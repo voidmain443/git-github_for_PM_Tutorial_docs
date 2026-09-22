@@ -69,7 +69,7 @@ function query(sql) {
   const masked=sql.replace(/'(?:''|[^'])*'|"(?:""|[^"])*"|`(?:``|[^`])*`|\[[^\]]*\]|\/\*[\s\S]*?\*\/|--[^\n]*/g,' ');
   const statements=masked.split(';').filter(x=>x.trim());
   if(statements.length!==1)throw Error('한 번에 조회문 하나만 실행하세요.');
-  if(!/^\s*(SELECT|WITH)\b/i.test(masked)||/\b(INSERT|UPDATE|DELETE|REPLACE|CREATE|DROP|ALTER|PRAGMA|ATTACH|DETACH|VACUUM|REINDEX|ANALYZE|BEGIN|COMMIT|ROLLBACK|SAVEPOINT|RELEASE|LOAD_EXTENSION)\b/i.test(masked))
+  if(!/^\s*(SELECT|WITH)\b/i.test(masked)||/\b(INSERT|UPDATE|DELETE|CREATE|DROP|ALTER|PRAGMA|ATTACH|DETACH|VACUUM|REINDEX|ANALYZE|BEGIN|COMMIT|ROLLBACK|SAVEPOINT|RELEASE|LOAD_EXTENSION)\b/i.test(masked)||/\bREPLACE\b(?!\s*\()/i.test(masked))
     throw Error('읽기 전용 SELECT 조회만 사용할 수 있습니다.');
   db.run('PRAGMA query_only=ON');
   const statement=db.prepare(sql);
