@@ -12,7 +12,7 @@ async function run(){
   if(!pathname.startsWith(prefix)){res.writeHead(404).end();return}
   const file=path.resolve(site,pathname.slice(prefix.length)||'index.html');
   if(!file.startsWith(site+path.sep)){res.writeHead(403).end();return}
-  try{const data=fs.readFileSync(file),types={'.html':'text/html;charset=utf-8','.js':'text/javascript','.json':'application/json','.wasm':'application/wasm','.pdf':'application/pdf','.md':'text/markdown;charset=utf-8'};res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream'}).end(data)}catch(_){res.writeHead(404).end()}
+  try{const data=fs.readFileSync(file),types={'.html':'text/html;charset=utf-8','.js':'text/javascript','.mjs':'text/javascript','.css':'text/css','.json':'application/json','.wasm':'application/wasm','.pdf':'application/pdf','.md':'text/markdown;charset=utf-8'};res.writeHead(200,{'Content-Type':types[path.extname(file)]||'application/octet-stream'}).end(data)}catch(_){res.writeHead(404).end()}
  });
  await new Promise(r=>server.listen(0,'127.0.0.1',r));
  const base='http://127.0.0.1:'+server.address().port+prefix;
@@ -72,6 +72,7 @@ async function run(){
  await page.goto(base+'erp.html?menu=sql');await page.waitForSelector('#sqlpane', {state:'visible'});
  const slow=await page.evaluate(async()=>{try{await PMApp.api('/api/sql',{body:JSON.stringify({sql:'WITH RECURSIVE t(n) AS (SELECT 1 UNION ALL SELECT n+1 FROM t) SELECT SUM(n) FROM t'})});return false}catch(e){return e.message.includes('중단')}});
  check('slow SQL stops without freezing page',slow);check('worker recovers after timeout',(await page.evaluate(()=>PMApp.api('/api/meta'))).stage==='S4');
+ await require('./visual_browser_check.cjs')(context,base,check,root);
  check('no page exceptions',errors.length===0);check('no failed asset loads',badResponses.length===0);
  const publicFiles=JSON.parse(fs.readFileSync(path.join(site,'site-manifest.json'),'utf8')).files;
  check('teacher and private records absent',publicFiles.every(f=>!/(05_강사용|06_실습수행기록|강사_전체|완성문서)/.test(f.path)));
