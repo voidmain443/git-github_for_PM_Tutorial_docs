@@ -5,6 +5,7 @@ from build import ROOT,STAGES,MODULES
 
 def prepare():
     from reader_revision import quiz_md
+    from unit_reading import restrict_guide,guide_markdown
     results={}
     for stage in STAGES:
         base=ROOT/'배포본/단계자료'/stage;book=[];work=[]
@@ -13,8 +14,11 @@ def prepare():
         for m,title in enumerate(MODULES):
             lesson=json.loads((ROOT/f'ERP/lessons/{m:02}.json').read_text())
             content=f'# {m:02}. {title}\n\n현재 공개 자료: {stage}. 이후 단계는 목차만 표시합니다.\n\n'
-            content+=''.join('## '+h+'\n\n'+b+'\n\n' for h,b in lesson.get('chapterIntro',[]))
+            restrict_guide(lesson['unitGuide'],stage)
+            content+=guide_markdown(lesson['unitGuide'])
+            content+='## 단계별 실습\n\n'
             worksheet=f'# {m:02}. {title} - 수행 위치 기록\n\n문서 본문은 별도 양식에서 작성합니다. 이미 작성한 문서는 항목·버전으로 참조합니다.\n\n'
+            worksheet+='이번 단원의 결과: '+' / '.join(lesson['unitGuide']['outcomes'])+'\n\n교재의 단원 본문을 읽고, 개념 → 근거·예제 → 작성·검토 순서로 진행합니다. 그림은 필요한 경우만 사용합니다.\n\n'
             for i,s in enumerate(lesson['guideSteps']):
                 content+=f'## {i+1}. {s["title"]}\n\n자료 단계: {s["stage"]}\n\n'
                 if s['stage']>stage:

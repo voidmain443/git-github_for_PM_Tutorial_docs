@@ -58,7 +58,8 @@ def make(source,target,title,subtitle):
     i+=1
    if not rows:continue
    n=len(rows[0]);widths=[499/n]*n
-   if n==2:widths=[135,364]
+   if rows[0]==['단원','업무','시작 자료','안내 단계 수','다음에 넘길 것']:widths=[28,80,40,46,305]
+   elif n==2:widths=[135,364]
    elif n==3:widths=[100,260,139]
    cooked=[[Paragraph(clean(c),S['cell']) for c in r] for r in rows]
    t=LongTable(cooked,colWidths=widths,repeatRows=1,hAlign='LEFT',minRowHeights=[23]+[45 if workbook and n==2 and rows[0][0]=='작성 항목' else 30 if workbook else 23]*(len(rows)-1))

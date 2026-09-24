@@ -108,6 +108,8 @@ class Handler(BaseHTTPRequestHandler):
      if step['stage']>stage:
       lesson['guideSteps'][i]={k:step[k] for k in ['id','title','stage','processes']}
       lesson['guideSteps'][i]['locked']=True
+    for i,section in enumerate(lesson.get('unitGuide',{}).get('sections',[])):
+     if section['stage']>stage:lesson['unitGuide']['sections'][i]={**{key:section[key] for key in ['id','title','stage']},'locked':True}
     lesson.pop('readerHtml',None);lesson.pop('exercises',None)
     lesson['availableStages']=[s for s in STAGE_ORDER if (BASE/'data'/f'{s}.sqlite3').is_file()]
     return self.send(200,lesson)

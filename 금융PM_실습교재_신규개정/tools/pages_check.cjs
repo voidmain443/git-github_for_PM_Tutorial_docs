@@ -22,7 +22,7 @@ async function run(){
  const badResponses=[];page.on('response',r=>{if(r.status()>=400)badResponses.push(r.url())});
  await page.goto(base);check('starting directions visible',await page.getByRole('link',{name:'0단원부터 시작하기 →'}).isVisible());
  await page.screenshot({path:path.join(root,'검증/Pages_시작안내.png'),fullPage:true});
- await page.getByRole('link',{name:'0단원부터 시작하기 →'}).click();await page.waitForSelector('#step-title');
+ await page.getByRole('link',{name:'0단원부터 시작하기 →'}).click();await page.locator('[data-view=practice]').click();await page.waitForSelector('#step-title');
  check('subpath navigation works',page.url().includes(prefix+'learn.html'));
  check('initial stage S0',(await page.locator('#stage-caption').innerText()).includes('S0'));
  // Compare actual browser SQLite results with the local Python implementation.
@@ -41,10 +41,10 @@ async function run(){
  });assert(denied.every(x=>x.denied),JSON.stringify(denied));check('SQL writes and multiple statements rejected',true);
  await page.evaluate(()=>PMApp.api('/api/stage',{body:JSON.stringify({stage:'S0'})}));await page.reload();await page.waitForSelector('#step-title');
  const future=await page.evaluate(()=>PMApp.api('/api/lesson?unit=9'));check('future stage hides examples',future.guideSteps.every(s=>s.locked&&!s.html&&!s.sections));
- await page.goto(base+'learn.html?unit=1');await page.waitForSelector('#step-title');
- await page.locator('[data-source="S01"]').click();await page.waitForSelector('#source-panel:not([hidden])');check('source document readable',(await page.locator('#source-panel').innerText()).includes('모아페이'));
+ await page.goto(base+'learn.html?view=practice&unit=1');await page.waitForSelector('#step-title');
+ await page.locator('[data-phase=evidence]').click();await page.locator('[data-source="S01"]').click();await page.waitForSelector('#source-panel:not([hidden])');check('source document readable',(await page.locator('#source-panel').innerText()).includes('모아페이'));
  const assumption=await page.evaluate(()=>lesson.guideSteps.findIndex(s=>s.downloads?.includes('A01 가정 로그.md')));
- await page.locator(`[data-step="${assumption}"]`).first().click();await page.locator('#templates summary').click();
+ await page.locator(`[data-step="${assumption}"]`).first().click();await page.locator('[data-phase=practice]').click();await page.locator('#templates summary').click();
  const [download]=await Promise.all([page.waitForEvent('download'),page.getByRole('link',{name:'A01 가정 로그.md 내려받기'}).click()]);
  check('Korean template download',(await fs.promises.readFile(await download.path(),'utf8')).includes('확인 책임'));
  const other=await context.newPage();await other.goto(base+'erp.html?menu=settlements&field='+encodeURIComponent('정산번호')+'&value=ST001');await other.waitForSelector('#results table');
@@ -53,7 +53,7 @@ async function run(){
  const [csv]=await Promise.all([other.waitForEvent('download'),other.locator('#export').click()]);check('CSV current filter',(await fs.promises.readFile(await csv.path(),'utf8')).includes('222440'));
  await page.locator('#stage-caption').click();await page.selectOption('#stage','S1');await page.locator('#change-stage').click();await page.waitForFunction(()=>document.querySelector('#stage-caption').textContent.includes('S1'));
  await other.waitForFunction(()=>document.querySelector('#stage').textContent.includes('S1'));check('other tab refreshes after stage change',true);
- const independent=await browser.newContext();const isolated=await independent.newPage();await isolated.goto(base+'learn.html?unit=0');await isolated.waitForSelector('#step-title');check('another student remains at S0',(await isolated.locator('#stage-caption').innerText()).includes('S0'));await independent.close();
+ const independent=await browser.newContext();const isolated=await independent.newPage();await isolated.goto(base+'learn.html?view=practice&unit=0');await isolated.waitForSelector('#step-title');check('another student remains at S0',(await isolated.locator('#stage-caption').innerText()).includes('S0'));await independent.close();
  for(const stage of ['S0','S0A','S1','S1A','S2','S3','S4']){
   await page.evaluate(stage=>PMApp.api('/api/stage',{body:JSON.stringify({stage})}),stage);
   for(let u=0;u<10;u++){
@@ -61,7 +61,7 @@ async function run(){
    check(stage+' unit '+u+' release boundary',lesson.guideSteps.every(s=>s.stage>stage?s.locked&&!s.html:!s.locked&&s.html));
   }
  }
- await page.goto(base+'learn.html?unit=3');await page.waitForSelector('#step-title');await page.locator('.outline button').last().click();
+ await page.goto(base+'learn.html?view=practice&unit=3');await page.waitForSelector('#step-title');await page.locator('.outline button').last().click();
  await page.screenshot({path:path.join(root,'검증/Pages_단계안내.png'),fullPage:true});
  await page.setViewportSize({width:390,height:844});check('reader mobile fits',await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));await page.screenshot({path:path.join(root,'검증/Pages_모바일.png'),fullPage:true});
  await page.goto(base);check('home mobile fits',await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1));
@@ -74,6 +74,7 @@ async function run(){
  check('slow SQL stops without freezing page',slow);check('worker recovers after timeout',(await page.evaluate(()=>PMApp.api('/api/meta'))).stage==='S4');
  await require('./visual_browser_check.cjs')(context,base,check,root);
  await require('./study_browser_check.cjs')(context,base,check,root);
+ await require('./reader_ux_check.cjs')(context,base,check,root);
  check('no page exceptions',errors.length===0);check('no failed asset loads',badResponses.length===0);
  const publicFiles=JSON.parse(fs.readFileSync(path.join(site,'site-manifest.json'),'utf8')).files;
  check('teacher and private records absent',publicFiles.every(f=>!/(05_강사용|06_실습수행기록|강사_전체|완성문서)/.test(f.path)));

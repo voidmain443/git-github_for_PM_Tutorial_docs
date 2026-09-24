@@ -1,6 +1,6 @@
 {
-  "passed": 869,
-  "total": 869,
+  "passed": 1388,
+  "total": 1388,
   "guide_steps": 69,
   "processes": 49,
   "checks": [
@@ -9,11 +9,27 @@
       "passed": true
     },
     {
+      "name": "unit 0 complete chapter",
+      "passed": true
+    },
+    {
+      "name": "unit 0 preparation and outcomes",
+      "passed": true
+    },
+    {
+      "name": "unit 0 optional visual once",
+      "passed": true
+    },
+    {
       "name": "unit 0 reading steps",
       "passed": true
     },
     {
       "name": "0/start reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "0/start three complete reading phases",
       "passed": true
     },
     {
@@ -37,6 +53,10 @@
       "passed": true
     },
     {
+      "name": "0/people three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "0/people source available",
       "passed": true
     },
@@ -54,6 +74,10 @@
     },
     {
       "name": "0/sources reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "0/sources three complete reading phases",
       "passed": true
     },
     {
@@ -77,6 +101,10 @@
       "passed": true
     },
     {
+      "name": "0/settlement three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "0/settlement source available",
       "passed": true
     },
@@ -94,6 +122,10 @@
     },
     {
       "name": "0/reconciliation reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "0/reconciliation three complete reading phases",
       "passed": true
     },
     {
@@ -117,6 +149,10 @@
       "passed": true
     },
     {
+      "name": "0/finance three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "0/finance source available",
       "passed": true
     },
@@ -134,6 +170,10 @@
     },
     {
       "name": "0/draft reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "0/draft three complete reading phases",
       "passed": true
     },
     {
@@ -157,6 +197,10 @@
       "passed": true
     },
     {
+      "name": "0/review three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "0/review source available",
       "passed": true
     },
@@ -177,11 +221,27 @@
       "passed": true
     },
     {
+      "name": "unit 1 complete chapter",
+      "passed": true
+    },
+    {
+      "name": "unit 1 preparation and outcomes",
+      "passed": true
+    },
+    {
+      "name": "unit 1 optional visual once",
+      "passed": true
+    },
+    {
       "name": "unit 1 reading steps",
       "passed": true
     },
     {
       "name": "1/charter-1 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "1/charter-1 three complete reading phases",
       "passed": true
     },
     {
@@ -205,6 +265,10 @@
       "passed": true
     },
     {
+      "name": "1/charter-2 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "1/charter-2 source available",
       "passed": true
     },
@@ -222,6 +286,10 @@
     },
     {
       "name": "1/13.1 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "1/13.1 three complete reading phases",
       "passed": true
     },
     {
@@ -249,6 +317,10 @@
       "passed": true
     },
     {
+      "name": "1/charter-3 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "1/charter-3 source available",
       "passed": true
     },
@@ -266,6 +338,10 @@
     },
     {
       "name": "1/charter-4 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "1/charter-4 three complete reading phases",
       "passed": true
     },
     {
@@ -289,6 +365,10 @@
       "passed": true
     },
     {
+      "name": "1/charter-5 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "1/charter-5 source available",
       "passed": true
     },
@@ -306,6 +386,10 @@
     },
     {
       "name": "1/charter-6 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "1/charter-6 three complete reading phases",
       "passed": true
     },
     {
@@ -329,6 +413,10 @@
       "passed": true
     },
     {
+      "name": "1/charter-7 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "1/charter-7 source available",
       "passed": true
     },
@@ -346,6 +434,10 @@
     },
     {
       "name": "1/charter-8 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "1/charter-8 three complete reading phases",
       "passed": true
     },
     {
@@ -369,6 +461,10 @@
       "passed": true
     },
     {
+      "name": "1/charter-9 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "1/charter-9 source available",
       "passed": true
     },
@@ -386,6 +482,10 @@
     },
     {
       "name": "1/charter-10 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "1/charter-10 three complete reading phases",
       "passed": true
     },
     {
@@ -409,6 +509,10 @@
       "passed": true
     },
     {
+      "name": "1/charter-approval three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "1/charter-approval source available",
       "passed": true
     },
@@ -429,11 +533,27 @@
       "passed": true
     },
     {
+      "name": "unit 2 complete chapter",
+      "passed": true
+    },
+    {
+      "name": "unit 2 preparation and outcomes",
+      "passed": true
+    },
+    {
+      "name": "unit 2 optional visual once",
+      "passed": true
+    },
+    {
       "name": "unit 2 reading steps",
       "passed": true
     },
     {
       "name": "2/5.1 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "2/5.1 three complete reading phases",
       "passed": true
     },
     {
@@ -454,6 +574,10 @@
     },
     {
       "name": "2/5.2 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "2/5.2 three complete reading phases",
       "passed": true
     },
     {
@@ -481,6 +605,10 @@
       "passed": true
     },
     {
+      "name": "2/5.3 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "2/5.3 source available",
       "passed": true
     },
@@ -498,6 +626,10 @@
     },
     {
       "name": "2/5.4 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "2/5.4 three complete reading phases",
       "passed": true
     },
     {
@@ -521,11 +653,27 @@
       "passed": true
     },
     {
+      "name": "unit 3 complete chapter",
+      "passed": true
+    },
+    {
+      "name": "unit 3 preparation and outcomes",
+      "passed": true
+    },
+    {
+      "name": "unit 3 optional visual once",
+      "passed": true
+    },
+    {
       "name": "unit 3 reading steps",
       "passed": true
     },
     {
       "name": "3/6.1 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "3/6.1 three complete reading phases",
       "passed": true
     },
     {
@@ -549,6 +697,10 @@
       "passed": true
     },
     {
+      "name": "3/6.2 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "3/6.2 source available",
       "passed": true
     },
@@ -569,6 +721,10 @@
       "passed": true
     },
     {
+      "name": "3/9.1 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "3/9.1 source available",
       "passed": true
     },
@@ -586,6 +742,10 @@
     },
     {
       "name": "3/9.2 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "3/9.2 three complete reading phases",
       "passed": true
     },
     {
@@ -613,6 +773,10 @@
       "passed": true
     },
     {
+      "name": "3/6.3 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "3/6.3 source available",
       "passed": true
     },
@@ -630,6 +794,10 @@
     },
     {
       "name": "3/6.4 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "3/6.4 three complete reading phases",
       "passed": true
     },
     {
@@ -653,6 +821,10 @@
       "passed": true
     },
     {
+      "name": "3/6.5 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "3/6.5 source available",
       "passed": true
     },
@@ -673,11 +845,27 @@
       "passed": true
     },
     {
+      "name": "unit 4 complete chapter",
+      "passed": true
+    },
+    {
+      "name": "unit 4 preparation and outcomes",
+      "passed": true
+    },
+    {
+      "name": "unit 4 optional visual once",
+      "passed": true
+    },
+    {
       "name": "unit 4 reading steps",
       "passed": true
     },
     {
       "name": "4/7.1 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "4/7.1 three complete reading phases",
       "passed": true
     },
     {
@@ -698,6 +886,10 @@
     },
     {
       "name": "4/7.2 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "4/7.2 three complete reading phases",
       "passed": true
     },
     {
@@ -725,6 +917,10 @@
       "passed": true
     },
     {
+      "name": "4/7.3 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "4/7.3 source available",
       "passed": true
     },
@@ -749,11 +945,27 @@
       "passed": true
     },
     {
+      "name": "unit 5 complete chapter",
+      "passed": true
+    },
+    {
+      "name": "unit 5 preparation and outcomes",
+      "passed": true
+    },
+    {
+      "name": "unit 5 optional visual once",
+      "passed": true
+    },
+    {
       "name": "unit 5 reading steps",
       "passed": true
     },
     {
       "name": "5/8.1 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "5/8.1 three complete reading phases",
       "passed": true
     },
     {
@@ -777,6 +989,10 @@
       "passed": true
     },
     {
+      "name": "5/11.1 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "5/11.1 source available",
       "passed": true
     },
@@ -794,6 +1010,10 @@
     },
     {
       "name": "5/11.2 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "5/11.2 three complete reading phases",
       "passed": true
     },
     {
@@ -817,6 +1037,10 @@
       "passed": true
     },
     {
+      "name": "5/11.3 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "5/11.3 source available",
       "passed": true
     },
@@ -834,6 +1058,10 @@
     },
     {
       "name": "5/11.4 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "5/11.4 three complete reading phases",
       "passed": true
     },
     {
@@ -857,6 +1085,10 @@
       "passed": true
     },
     {
+      "name": "5/11.5 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "5/11.5 source available",
       "passed": true
     },
@@ -877,11 +1109,27 @@
       "passed": true
     },
     {
+      "name": "unit 6 complete chapter",
+      "passed": true
+    },
+    {
+      "name": "unit 6 preparation and outcomes",
+      "passed": true
+    },
+    {
+      "name": "unit 6 optional visual once",
+      "passed": true
+    },
+    {
       "name": "unit 6 reading steps",
       "passed": true
     },
     {
       "name": "6/12.1 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "6/12.1 three complete reading phases",
       "passed": true
     },
     {
@@ -905,6 +1153,10 @@
       "passed": true
     },
     {
+      "name": "6/12.2 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "6/12.2 source available",
       "passed": true
     },
@@ -922,6 +1174,10 @@
     },
     {
       "name": "6/10.1 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "6/10.1 three complete reading phases",
       "passed": true
     },
     {
@@ -945,6 +1201,10 @@
       "passed": true
     },
     {
+      "name": "6/13.2 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "6/13.2 source available",
       "passed": true
     },
@@ -965,11 +1225,27 @@
       "passed": true
     },
     {
+      "name": "unit 7 complete chapter",
+      "passed": true
+    },
+    {
+      "name": "unit 7 preparation and outcomes",
+      "passed": true
+    },
+    {
+      "name": "unit 7 optional visual once",
+      "passed": true
+    },
+    {
       "name": "unit 7 reading steps",
       "passed": true
     },
     {
       "name": "7/4.2 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "7/4.2 three complete reading phases",
       "passed": true
     },
     {
@@ -990,6 +1266,10 @@
     },
     {
       "name": "7/plan-approval reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "7/plan-approval three complete reading phases",
       "passed": true
     },
     {
@@ -1017,6 +1297,10 @@
       "passed": true
     },
     {
+      "name": "7/4.3 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "7/4.3 source available",
       "passed": true
     },
@@ -1034,6 +1318,10 @@
     },
     {
       "name": "7/9.3 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "7/9.3 three complete reading phases",
       "passed": true
     },
     {
@@ -1061,6 +1349,10 @@
       "passed": true
     },
     {
+      "name": "7/9.4 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "7/9.4 source available",
       "passed": true
     },
@@ -1078,6 +1370,10 @@
     },
     {
       "name": "7/9.5 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "7/9.5 three complete reading phases",
       "passed": true
     },
     {
@@ -1101,6 +1397,10 @@
       "passed": true
     },
     {
+      "name": "7/4.4 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "7/4.4 source available",
       "passed": true
     },
@@ -1118,6 +1418,10 @@
     },
     {
       "name": "7/8.2 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "7/8.2 three complete reading phases",
       "passed": true
     },
     {
@@ -1141,6 +1445,10 @@
       "passed": true
     },
     {
+      "name": "7/10.2 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "7/10.2 source available",
       "passed": true
     },
@@ -1158,6 +1466,10 @@
     },
     {
       "name": "7/11.6 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "7/11.6 three complete reading phases",
       "passed": true
     },
     {
@@ -1181,6 +1493,10 @@
       "passed": true
     },
     {
+      "name": "7/13.3 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "7/13.3 source available",
       "passed": true
     },
@@ -1201,11 +1517,27 @@
       "passed": true
     },
     {
+      "name": "unit 8 complete chapter",
+      "passed": true
+    },
+    {
+      "name": "unit 8 preparation and outcomes",
+      "passed": true
+    },
+    {
+      "name": "unit 8 optional visual once",
+      "passed": true
+    },
+    {
       "name": "unit 8 reading steps",
       "passed": true
     },
     {
       "name": "8/7.4 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "8/7.4 three complete reading phases",
       "passed": true
     },
     {
@@ -1233,6 +1565,10 @@
       "passed": true
     },
     {
+      "name": "8/5.6 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "8/5.6 source available",
       "passed": true
     },
@@ -1253,6 +1589,10 @@
       "passed": true
     },
     {
+      "name": "8/6.6 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "8/6.6 source available",
       "passed": true
     },
@@ -1270,6 +1610,10 @@
     },
     {
       "name": "8/9.6 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "8/9.6 three complete reading phases",
       "passed": true
     },
     {
@@ -1297,6 +1641,10 @@
       "passed": true
     },
     {
+      "name": "8/10.3 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "8/10.3 source available",
       "passed": true
     },
@@ -1314,6 +1662,10 @@
     },
     {
       "name": "8/11.7 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "8/11.7 three complete reading phases",
       "passed": true
     },
     {
@@ -1337,6 +1689,10 @@
       "passed": true
     },
     {
+      "name": "8/13.4 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "8/13.4 source available",
       "passed": true
     },
@@ -1354,6 +1710,10 @@
     },
     {
       "name": "8/4.5 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "8/4.5 three complete reading phases",
       "passed": true
     },
     {
@@ -1377,6 +1737,10 @@
       "passed": true
     },
     {
+      "name": "8/4.6 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "8/4.6 source available",
       "passed": true
     },
@@ -1394,6 +1758,10 @@
     },
     {
       "name": "8/change-approved reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "8/change-approved three complete reading phases",
       "passed": true
     },
     {
@@ -1421,11 +1789,27 @@
       "passed": true
     },
     {
+      "name": "unit 9 complete chapter",
+      "passed": true
+    },
+    {
+      "name": "unit 9 preparation and outcomes",
+      "passed": true
+    },
+    {
+      "name": "unit 9 optional visual once",
+      "passed": true
+    },
+    {
       "name": "unit 9 reading steps",
       "passed": true
     },
     {
       "name": "9/8.3 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "9/8.3 three complete reading phases",
       "passed": true
     },
     {
@@ -1453,6 +1837,10 @@
       "passed": true
     },
     {
+      "name": "9/5.5 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "9/5.5 source available",
       "passed": true
     },
@@ -1477,6 +1865,10 @@
       "passed": true
     },
     {
+      "name": "9/12.3 three complete reading phases",
+      "passed": true
+    },
+    {
       "name": "9/12.3 source available",
       "passed": true
     },
@@ -1498,6 +1890,10 @@
     },
     {
       "name": "9/4.7 reasoned self check",
+      "passed": true
+    },
+    {
+      "name": "9/4.7 three complete reading phases",
       "passed": true
     },
     {
@@ -1549,6 +1945,30 @@
       "passed": true
     },
     {
+      "name": "S0/00.json/u0-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/00.json/u0-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/00.json/u0-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/00.json/u0-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/00.json/u0-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/00.json/u0-handoff chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S0/00.json/start release boundary",
       "passed": true
     },
@@ -1578,6 +1998,30 @@
     },
     {
       "name": "S0/00.json/review release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/01.json/u1-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/01.json/u1-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/01.json/u1-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/01.json/u1-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/01.json/u1-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/01.json/u1-handoff chapter release boundary",
       "passed": true
     },
     {
@@ -1629,6 +2073,30 @@
       "passed": true
     },
     {
+      "name": "S0/06.json/u06-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/06.json/u06-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/06.json/u06-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/06.json/u06-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/06.json/u06-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/06.json/u06-06 chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S0/06.json/12.1 release boundary",
       "passed": true
     },
@@ -1642,6 +2110,30 @@
     },
     {
       "name": "S0/06.json/13.2 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/07.json/u07-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/07.json/u07-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/07.json/u07-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/07.json/u07-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/07.json/u07-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/07.json/u07-06 chapter release boundary",
       "passed": true
     },
     {
@@ -1689,6 +2181,30 @@
       "passed": true
     },
     {
+      "name": "S0/04.json/u4-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/04.json/u4-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/04.json/u4-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/04.json/u4-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/04.json/u4-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/04.json/u4-handoff chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S0/04.json/7.1 release boundary",
       "passed": true
     },
@@ -1698,6 +2214,30 @@
     },
     {
       "name": "S0/04.json/7.3 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/08.json/u08-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/08.json/u08-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/08.json/u08-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/08.json/u08-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/08.json/u08-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/08.json/u08-06 chapter release boundary",
       "passed": true
     },
     {
@@ -1741,6 +2281,30 @@
       "passed": true
     },
     {
+      "name": "S0/09.json/u09-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/09.json/u09-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/09.json/u09-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/09.json/u09-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/09.json/u09-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/09.json/u09-06 chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S0/09.json/8.3 release boundary",
       "passed": true
     },
@@ -1754,6 +2318,30 @@
     },
     {
       "name": "S0/09.json/4.7 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/05.json/u05-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/05.json/u05-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/05.json/u05-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/05.json/u05-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/05.json/u05-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/05.json/u05-06 chapter release boundary",
       "passed": true
     },
     {
@@ -1781,6 +2369,30 @@
       "passed": true
     },
     {
+      "name": "S0/02.json/u2-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/02.json/u2-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/02.json/u2-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/02.json/u2-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/02.json/u2-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/02.json/u2-handoff chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S0/02.json/5.1 release boundary",
       "passed": true
     },
@@ -1794,6 +2406,30 @@
     },
     {
       "name": "S0/02.json/5.4 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/03.json/u3-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/03.json/u3-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/03.json/u3-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/03.json/u3-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/03.json/u3-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0/03.json/u3-handoff chapter release boundary",
       "passed": true
     },
     {
@@ -1822,6 +2458,30 @@
     },
     {
       "name": "S0/03.json/6.5 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/00.json/u0-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/00.json/u0-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/00.json/u0-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/00.json/u0-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/00.json/u0-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/00.json/u0-handoff chapter release boundary",
       "passed": true
     },
     {
@@ -1854,6 +2514,30 @@
     },
     {
       "name": "S0A/00.json/review release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/01.json/u1-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/01.json/u1-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/01.json/u1-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/01.json/u1-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/01.json/u1-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/01.json/u1-handoff chapter release boundary",
       "passed": true
     },
     {
@@ -1905,6 +2589,30 @@
       "passed": true
     },
     {
+      "name": "S0A/06.json/u06-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/06.json/u06-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/06.json/u06-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/06.json/u06-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/06.json/u06-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/06.json/u06-06 chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S0A/06.json/12.1 release boundary",
       "passed": true
     },
@@ -1918,6 +2626,30 @@
     },
     {
       "name": "S0A/06.json/13.2 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/07.json/u07-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/07.json/u07-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/07.json/u07-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/07.json/u07-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/07.json/u07-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/07.json/u07-06 chapter release boundary",
       "passed": true
     },
     {
@@ -1965,6 +2697,30 @@
       "passed": true
     },
     {
+      "name": "S0A/04.json/u4-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/04.json/u4-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/04.json/u4-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/04.json/u4-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/04.json/u4-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/04.json/u4-handoff chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S0A/04.json/7.1 release boundary",
       "passed": true
     },
@@ -1974,6 +2730,30 @@
     },
     {
       "name": "S0A/04.json/7.3 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/08.json/u08-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/08.json/u08-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/08.json/u08-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/08.json/u08-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/08.json/u08-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/08.json/u08-06 chapter release boundary",
       "passed": true
     },
     {
@@ -2017,6 +2797,30 @@
       "passed": true
     },
     {
+      "name": "S0A/09.json/u09-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/09.json/u09-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/09.json/u09-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/09.json/u09-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/09.json/u09-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/09.json/u09-06 chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S0A/09.json/8.3 release boundary",
       "passed": true
     },
@@ -2030,6 +2834,30 @@
     },
     {
       "name": "S0A/09.json/4.7 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/05.json/u05-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/05.json/u05-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/05.json/u05-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/05.json/u05-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/05.json/u05-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/05.json/u05-06 chapter release boundary",
       "passed": true
     },
     {
@@ -2057,6 +2885,30 @@
       "passed": true
     },
     {
+      "name": "S0A/02.json/u2-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/02.json/u2-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/02.json/u2-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/02.json/u2-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/02.json/u2-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/02.json/u2-handoff chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S0A/02.json/5.1 release boundary",
       "passed": true
     },
@@ -2070,6 +2922,30 @@
     },
     {
       "name": "S0A/02.json/5.4 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/03.json/u3-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/03.json/u3-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/03.json/u3-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/03.json/u3-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/03.json/u3-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S0A/03.json/u3-handoff chapter release boundary",
       "passed": true
     },
     {
@@ -2098,6 +2974,30 @@
     },
     {
       "name": "S0A/03.json/6.5 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/00.json/u0-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/00.json/u0-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/00.json/u0-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/00.json/u0-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/00.json/u0-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/00.json/u0-handoff chapter release boundary",
       "passed": true
     },
     {
@@ -2130,6 +3030,30 @@
     },
     {
       "name": "S1/00.json/review release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/01.json/u1-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/01.json/u1-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/01.json/u1-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/01.json/u1-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/01.json/u1-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/01.json/u1-handoff chapter release boundary",
       "passed": true
     },
     {
@@ -2181,6 +3105,30 @@
       "passed": true
     },
     {
+      "name": "S1/06.json/u06-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/06.json/u06-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/06.json/u06-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/06.json/u06-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/06.json/u06-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/06.json/u06-06 chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S1/06.json/12.1 release boundary",
       "passed": true
     },
@@ -2194,6 +3142,30 @@
     },
     {
       "name": "S1/06.json/13.2 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/07.json/u07-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/07.json/u07-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/07.json/u07-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/07.json/u07-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/07.json/u07-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/07.json/u07-06 chapter release boundary",
       "passed": true
     },
     {
@@ -2241,6 +3213,30 @@
       "passed": true
     },
     {
+      "name": "S1/04.json/u4-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/04.json/u4-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/04.json/u4-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/04.json/u4-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/04.json/u4-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/04.json/u4-handoff chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S1/04.json/7.1 release boundary",
       "passed": true
     },
@@ -2250,6 +3246,30 @@
     },
     {
       "name": "S1/04.json/7.3 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/08.json/u08-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/08.json/u08-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/08.json/u08-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/08.json/u08-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/08.json/u08-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/08.json/u08-06 chapter release boundary",
       "passed": true
     },
     {
@@ -2293,6 +3313,30 @@
       "passed": true
     },
     {
+      "name": "S1/09.json/u09-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/09.json/u09-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/09.json/u09-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/09.json/u09-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/09.json/u09-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/09.json/u09-06 chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S1/09.json/8.3 release boundary",
       "passed": true
     },
@@ -2306,6 +3350,30 @@
     },
     {
       "name": "S1/09.json/4.7 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/05.json/u05-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/05.json/u05-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/05.json/u05-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/05.json/u05-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/05.json/u05-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/05.json/u05-06 chapter release boundary",
       "passed": true
     },
     {
@@ -2333,6 +3401,30 @@
       "passed": true
     },
     {
+      "name": "S1/02.json/u2-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/02.json/u2-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/02.json/u2-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/02.json/u2-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/02.json/u2-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/02.json/u2-handoff chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S1/02.json/5.1 release boundary",
       "passed": true
     },
@@ -2346,6 +3438,30 @@
     },
     {
       "name": "S1/02.json/5.4 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/03.json/u3-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/03.json/u3-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/03.json/u3-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/03.json/u3-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/03.json/u3-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1/03.json/u3-handoff chapter release boundary",
       "passed": true
     },
     {
@@ -2374,6 +3490,30 @@
     },
     {
       "name": "S1/03.json/6.5 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/00.json/u0-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/00.json/u0-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/00.json/u0-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/00.json/u0-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/00.json/u0-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/00.json/u0-handoff chapter release boundary",
       "passed": true
     },
     {
@@ -2406,6 +3546,30 @@
     },
     {
       "name": "S1A/00.json/review release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/01.json/u1-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/01.json/u1-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/01.json/u1-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/01.json/u1-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/01.json/u1-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/01.json/u1-handoff chapter release boundary",
       "passed": true
     },
     {
@@ -2457,6 +3621,30 @@
       "passed": true
     },
     {
+      "name": "S1A/06.json/u06-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/06.json/u06-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/06.json/u06-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/06.json/u06-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/06.json/u06-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/06.json/u06-06 chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S1A/06.json/12.1 release boundary",
       "passed": true
     },
@@ -2470,6 +3658,30 @@
     },
     {
       "name": "S1A/06.json/13.2 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/07.json/u07-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/07.json/u07-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/07.json/u07-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/07.json/u07-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/07.json/u07-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/07.json/u07-06 chapter release boundary",
       "passed": true
     },
     {
@@ -2517,6 +3729,30 @@
       "passed": true
     },
     {
+      "name": "S1A/04.json/u4-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/04.json/u4-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/04.json/u4-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/04.json/u4-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/04.json/u4-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/04.json/u4-handoff chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S1A/04.json/7.1 release boundary",
       "passed": true
     },
@@ -2526,6 +3762,30 @@
     },
     {
       "name": "S1A/04.json/7.3 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/08.json/u08-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/08.json/u08-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/08.json/u08-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/08.json/u08-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/08.json/u08-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/08.json/u08-06 chapter release boundary",
       "passed": true
     },
     {
@@ -2569,6 +3829,30 @@
       "passed": true
     },
     {
+      "name": "S1A/09.json/u09-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/09.json/u09-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/09.json/u09-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/09.json/u09-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/09.json/u09-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/09.json/u09-06 chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S1A/09.json/8.3 release boundary",
       "passed": true
     },
@@ -2582,6 +3866,30 @@
     },
     {
       "name": "S1A/09.json/4.7 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/05.json/u05-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/05.json/u05-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/05.json/u05-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/05.json/u05-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/05.json/u05-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/05.json/u05-06 chapter release boundary",
       "passed": true
     },
     {
@@ -2609,6 +3917,30 @@
       "passed": true
     },
     {
+      "name": "S1A/02.json/u2-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/02.json/u2-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/02.json/u2-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/02.json/u2-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/02.json/u2-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/02.json/u2-handoff chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S1A/02.json/5.1 release boundary",
       "passed": true
     },
@@ -2622,6 +3954,30 @@
     },
     {
       "name": "S1A/02.json/5.4 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/03.json/u3-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/03.json/u3-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/03.json/u3-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/03.json/u3-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/03.json/u3-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S1A/03.json/u3-handoff chapter release boundary",
       "passed": true
     },
     {
@@ -2650,6 +4006,30 @@
     },
     {
       "name": "S1A/03.json/6.5 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/00.json/u0-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/00.json/u0-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/00.json/u0-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/00.json/u0-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/00.json/u0-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/00.json/u0-handoff chapter release boundary",
       "passed": true
     },
     {
@@ -2682,6 +4062,30 @@
     },
     {
       "name": "S2/00.json/review release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/01.json/u1-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/01.json/u1-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/01.json/u1-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/01.json/u1-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/01.json/u1-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/01.json/u1-handoff chapter release boundary",
       "passed": true
     },
     {
@@ -2733,6 +4137,30 @@
       "passed": true
     },
     {
+      "name": "S2/06.json/u06-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/06.json/u06-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/06.json/u06-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/06.json/u06-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/06.json/u06-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/06.json/u06-06 chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S2/06.json/12.1 release boundary",
       "passed": true
     },
@@ -2746,6 +4174,30 @@
     },
     {
       "name": "S2/06.json/13.2 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/07.json/u07-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/07.json/u07-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/07.json/u07-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/07.json/u07-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/07.json/u07-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/07.json/u07-06 chapter release boundary",
       "passed": true
     },
     {
@@ -2793,6 +4245,30 @@
       "passed": true
     },
     {
+      "name": "S2/04.json/u4-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/04.json/u4-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/04.json/u4-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/04.json/u4-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/04.json/u4-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/04.json/u4-handoff chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S2/04.json/7.1 release boundary",
       "passed": true
     },
@@ -2802,6 +4278,30 @@
     },
     {
       "name": "S2/04.json/7.3 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/08.json/u08-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/08.json/u08-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/08.json/u08-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/08.json/u08-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/08.json/u08-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/08.json/u08-06 chapter release boundary",
       "passed": true
     },
     {
@@ -2845,6 +4345,30 @@
       "passed": true
     },
     {
+      "name": "S2/09.json/u09-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/09.json/u09-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/09.json/u09-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/09.json/u09-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/09.json/u09-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/09.json/u09-06 chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S2/09.json/8.3 release boundary",
       "passed": true
     },
@@ -2858,6 +4382,30 @@
     },
     {
       "name": "S2/09.json/4.7 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/05.json/u05-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/05.json/u05-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/05.json/u05-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/05.json/u05-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/05.json/u05-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/05.json/u05-06 chapter release boundary",
       "passed": true
     },
     {
@@ -2885,6 +4433,30 @@
       "passed": true
     },
     {
+      "name": "S2/02.json/u2-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/02.json/u2-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/02.json/u2-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/02.json/u2-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/02.json/u2-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/02.json/u2-handoff chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S2/02.json/5.1 release boundary",
       "passed": true
     },
@@ -2898,6 +4470,30 @@
     },
     {
       "name": "S2/02.json/5.4 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/03.json/u3-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/03.json/u3-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/03.json/u3-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/03.json/u3-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/03.json/u3-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S2/03.json/u3-handoff chapter release boundary",
       "passed": true
     },
     {
@@ -2926,6 +4522,30 @@
     },
     {
       "name": "S2/03.json/6.5 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/00.json/u0-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/00.json/u0-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/00.json/u0-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/00.json/u0-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/00.json/u0-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/00.json/u0-handoff chapter release boundary",
       "passed": true
     },
     {
@@ -2958,6 +4578,30 @@
     },
     {
       "name": "S3/00.json/review release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/01.json/u1-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/01.json/u1-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/01.json/u1-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/01.json/u1-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/01.json/u1-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/01.json/u1-handoff chapter release boundary",
       "passed": true
     },
     {
@@ -3009,6 +4653,30 @@
       "passed": true
     },
     {
+      "name": "S3/06.json/u06-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/06.json/u06-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/06.json/u06-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/06.json/u06-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/06.json/u06-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/06.json/u06-06 chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S3/06.json/12.1 release boundary",
       "passed": true
     },
@@ -3022,6 +4690,30 @@
     },
     {
       "name": "S3/06.json/13.2 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/07.json/u07-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/07.json/u07-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/07.json/u07-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/07.json/u07-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/07.json/u07-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/07.json/u07-06 chapter release boundary",
       "passed": true
     },
     {
@@ -3069,6 +4761,30 @@
       "passed": true
     },
     {
+      "name": "S3/04.json/u4-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/04.json/u4-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/04.json/u4-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/04.json/u4-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/04.json/u4-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/04.json/u4-handoff chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S3/04.json/7.1 release boundary",
       "passed": true
     },
@@ -3078,6 +4794,30 @@
     },
     {
       "name": "S3/04.json/7.3 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/08.json/u08-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/08.json/u08-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/08.json/u08-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/08.json/u08-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/08.json/u08-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/08.json/u08-06 chapter release boundary",
       "passed": true
     },
     {
@@ -3121,6 +4861,30 @@
       "passed": true
     },
     {
+      "name": "S3/09.json/u09-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/09.json/u09-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/09.json/u09-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/09.json/u09-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/09.json/u09-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/09.json/u09-06 chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S3/09.json/8.3 release boundary",
       "passed": true
     },
@@ -3134,6 +4898,30 @@
     },
     {
       "name": "S3/09.json/4.7 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/05.json/u05-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/05.json/u05-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/05.json/u05-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/05.json/u05-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/05.json/u05-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/05.json/u05-06 chapter release boundary",
       "passed": true
     },
     {
@@ -3161,6 +4949,30 @@
       "passed": true
     },
     {
+      "name": "S3/02.json/u2-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/02.json/u2-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/02.json/u2-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/02.json/u2-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/02.json/u2-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/02.json/u2-handoff chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S3/02.json/5.1 release boundary",
       "passed": true
     },
@@ -3174,6 +4986,30 @@
     },
     {
       "name": "S3/02.json/5.4 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/03.json/u3-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/03.json/u3-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/03.json/u3-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/03.json/u3-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/03.json/u3-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S3/03.json/u3-handoff chapter release boundary",
       "passed": true
     },
     {
@@ -3202,6 +5038,30 @@
     },
     {
       "name": "S3/03.json/6.5 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/00.json/u0-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/00.json/u0-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/00.json/u0-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/00.json/u0-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/00.json/u0-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/00.json/u0-handoff chapter release boundary",
       "passed": true
     },
     {
@@ -3234,6 +5094,30 @@
     },
     {
       "name": "S4/00.json/review release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/01.json/u1-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/01.json/u1-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/01.json/u1-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/01.json/u1-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/01.json/u1-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/01.json/u1-handoff chapter release boundary",
       "passed": true
     },
     {
@@ -3285,6 +5169,30 @@
       "passed": true
     },
     {
+      "name": "S4/06.json/u06-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/06.json/u06-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/06.json/u06-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/06.json/u06-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/06.json/u06-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/06.json/u06-06 chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S4/06.json/12.1 release boundary",
       "passed": true
     },
@@ -3298,6 +5206,30 @@
     },
     {
       "name": "S4/06.json/13.2 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/07.json/u07-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/07.json/u07-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/07.json/u07-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/07.json/u07-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/07.json/u07-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/07.json/u07-06 chapter release boundary",
       "passed": true
     },
     {
@@ -3345,6 +5277,30 @@
       "passed": true
     },
     {
+      "name": "S4/04.json/u4-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/04.json/u4-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/04.json/u4-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/04.json/u4-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/04.json/u4-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/04.json/u4-handoff chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S4/04.json/7.1 release boundary",
       "passed": true
     },
@@ -3354,6 +5310,30 @@
     },
     {
       "name": "S4/04.json/7.3 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/08.json/u08-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/08.json/u08-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/08.json/u08-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/08.json/u08-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/08.json/u08-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/08.json/u08-06 chapter release boundary",
       "passed": true
     },
     {
@@ -3397,6 +5377,30 @@
       "passed": true
     },
     {
+      "name": "S4/09.json/u09-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/09.json/u09-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/09.json/u09-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/09.json/u09-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/09.json/u09-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/09.json/u09-06 chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S4/09.json/8.3 release boundary",
       "passed": true
     },
@@ -3410,6 +5414,30 @@
     },
     {
       "name": "S4/09.json/4.7 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/05.json/u05-01 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/05.json/u05-02 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/05.json/u05-03 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/05.json/u05-04 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/05.json/u05-05 chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/05.json/u05-06 chapter release boundary",
       "passed": true
     },
     {
@@ -3437,6 +5465,30 @@
       "passed": true
     },
     {
+      "name": "S4/02.json/u2-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/02.json/u2-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/02.json/u2-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/02.json/u2-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/02.json/u2-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/02.json/u2-handoff chapter release boundary",
+      "passed": true
+    },
+    {
       "name": "S4/02.json/5.1 release boundary",
       "passed": true
     },
@@ -3450,6 +5502,30 @@
     },
     {
       "name": "S4/02.json/5.4 release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/03.json/u3-scene chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/03.json/u3-concepts chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/03.json/u3-reading chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/03.json/u3-example chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/03.json/u3-review chapter release boundary",
+      "passed": true
+    },
+    {
+      "name": "S4/03.json/u3-handoff chapter release boundary",
       "passed": true
     },
     {

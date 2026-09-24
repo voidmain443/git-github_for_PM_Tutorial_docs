@@ -41,6 +41,8 @@ with tempfile.TemporaryDirectory(prefix='moapay-learner-') as td:
             check(stage+' reader served','onboarding.js' in get('/learn?unit=0').decode())
             for unit in range(10):
                 lesson=json.loads(get(f'/api/lesson?unit={unit}'))
+                for section in lesson['unitGuide']['sections']:
+                    check(f'{stage}/{unit}/{section["id"]} chapter boundary',set(section)=={'id','title','stage','locked'} if section['stage']>stage else bool(section.get('html')))
                 for step in lesson['guideSteps']:
                     if step['stage']>stage:
                         check(f'{stage}/{unit}/{step["id"]} future content withheld',step['locked'] and 'html' not in step and 'sections' not in step)

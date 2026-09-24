@@ -9,9 +9,9 @@ async function run(){
  const page=await browser.newPage({acceptDownloads:true,viewport:{width:1360,height:960}});
  page.on('pageerror',e=>errors.push(e.message));
  const home=await page.goto(base,{waitUntil:'networkidle'});check('public homepage responds',home.ok());
- await page.getByRole('link',{name:'0단원부터 시작하기 →'}).click();await page.waitForSelector('#step-title');
+ await page.getByRole('link',{name:'0단원부터 시작하기 →'}).click();await page.locator('[data-view=practice]').click();await page.waitForSelector('#step-title');
  check('public reader begins at S0',(await page.locator('#stage-caption').innerText()).includes('S0'));
- await page.locator('[data-source="S01"]').click();await page.waitForSelector('#source-panel:not([hidden])');
+ await page.locator('[data-phase=evidence]').click();await page.locator('[data-source="S01"]').click();await page.waitForSelector('#source-panel:not([hidden])');
  check('public source document opens',(await page.locator('#source-panel').innerText()).includes('모아페이'));
  await page.goto(base+'erp.html?menu=settlements&field='+encodeURIComponent('정산번호')+'&value=ST001');
  await page.waitForSelector('#results table');check('public ERP computes settlement',(await page.locator('#results').innerText()).includes('222,440'));
@@ -21,13 +21,13 @@ async function run(){
  check('public SQL remains read-only',readonly);
  const [csv]=await Promise.all([page.waitForEvent('download'),page.locator('#export').click()]);
  check('public CSV download',(await fs.promises.readFile(await csv.path(),'utf8')).includes('222440'));
- await page.goto(base+'learn.html?unit=1');await page.waitForSelector('#step-title');await page.locator('#templates summary').click();
+ await page.goto(base+'learn.html?view=practice&unit=1');await page.waitForSelector('#step-title');await page.locator('[data-phase=practice]').click();await page.locator('#templates summary').click();
  const [template]=await Promise.all([page.waitForEvent('download'),page.locator('#templates a[download]').first().click()]);
  check('public Korean template download',(await fs.promises.readFile(await template.path(),'utf8')).includes('프로젝트 헌장'));
  const future=await page.evaluate(()=>PMApp.api('/api/lesson?unit=9'));check('future worked examples withheld in initial lesson',future.guideSteps.every(s=>s.locked&&!s.html));
  await page.locator('#stage-caption').click();await page.selectOption('#stage','S4');await page.locator('#change-stage').click();
  await page.waitForFunction(()=>document.querySelector('#stage-caption').textContent.includes('S4'));
- await page.goto(base+'learn.html?unit=9');await page.waitForSelector('#step-title');check('final quality step opens',(await page.locator('#step-title').innerText()).includes('검증'));
+ await page.goto(base+'learn.html?view=practice&unit=9');await page.waitForSelector('#step-title');check('final quality step opens',(await page.locator('#step-title').innerText()).includes('검증'));
  await page.goto(base+'resources.html');check('public print stage follows selection',(await page.locator('#print-stage').innerText()).includes('S4'));
  for(const link of await page.locator('#print-links a').evaluateAll(a=>a.map(x=>x.href))){const r=await page.request.get(link);check('public PDF available',r.ok()&&(await r.body()).subarray(0,4).toString()==='%PDF')}
  await page.locator('a',{hasText:'양식 보기'}).first().click();check('public form preview opens',await page.locator('table').count()>0);

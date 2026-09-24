@@ -215,11 +215,16 @@ def quiz_md(step,include_explanation=False):
 def apply_revision():
     assert set(CONTENT)=={p[0] for p in PROCESSES}
     from deep_lessons import enrich_lesson
+    from unit_reading import attach_unit,guide_markdown
     update_templates()
     # Align 0-unit and ERP instructions with the reading UI, at the source level.
     manual=MANUAL
     a=manual.index('실습실은');b=manual.index('## 2.')
     manual=manual[:a]+'''학습 안내 /learn에서는 설명·조회 경로·예제를 읽습니다. ERP 기본 화면 /에서는 회사 자료를 조회합니다. 「원천 ERP 열기」로 새 탭을 열고, 조회 후 안내 탭으로 돌아오세요. 웹페이지에 답을 입력할 필요는 없습니다.
+
+처음에는 「단원 본문 읽기」에서 상황과 개념, 자료 읽기, 부분 작성 예제, 검토와 수정, 다음 업무를 여섯 절로 읽습니다. 이어서 본문 아래 「이 단원의 단계별 실습 시작하기」를 누릅니다. 각 실습은 「1. 개념 읽기 → 2. 근거·예제 → 3. 작성·검토」 순서입니다. 원천 문서를 여는 버튼과 ERP 조회 링크는 두 번째 화면에, 양식과 확인 문제는 세 번째 화면에 있습니다. 이전 단계로 자유롭게 돌아갈 수 있습니다.
+
+시각화는 단원별 핵심 실습 한 곳에서만 선택하여 엽니다. 닫힌 상태에서는 불러오지 않고, 닫으면 재생도 끝납니다. 설명과 표만으로 이해됐다면 건너뛰어도 됩니다. 다음 단원 버튼은 다음 본문으로 연결됩니다. 회사 자료 시점을 여는 것과 학습자 문서를 승인받는 일은 서로 다릅니다.
 
 문서를 직접 작성할 때는 해당 단계의 웹 표 작성 영역 또는 내려받은 양식을 사용합니다. 웹 초안은 페이지 메모리에만 있으므로 이동 전에 파일로 내려받고, 다음에 그 파일을 불러옵니다. 원천 ERP는 바뀌지 않습니다. 문서 본문은 한 번 작성하고 워크북에는 사용한 문서·항목 위치만 남겨도 됩니다.
 
@@ -268,6 +273,7 @@ def apply_revision():
             else:s['sections'].append(['단원 마무리',lesson['handoff'] if m else '사람·정산·대사·세 가지 돈의 뜻을 설명할 수 있으면 1단원으로 갑니다. G00은 필요한 경우 사용하는 업무 파악 메모입니다.'])
             s['html']=markdown_html(sections_md(s))
             mapping.append([m,s['title'],s['stage'],','.join(s['processes']),' '.join(s['sources']),', '.join(s['downloads'])])
+        attach_unit(lesson,m)
         lesson['guideSteps']=steps;lesson['exercises']=[exercises[k] for k in ORDER.get(m,[])];lesson.pop('onboarding',None)
         lesson['sources']=sorted(set(x for s in steps for x in s['sources']))
         lesson['sourceTitles']={sid:DOC[sid][1] for sid in lesson['sources']}
@@ -275,7 +281,8 @@ def apply_revision():
         lesson['readerHtml']='';lesson['reading']='설명과 예제를 한 단계씩 읽고 ERP에서 확인합니다. 문서는 양식을 내려받아 별도로 작성합니다.'
         intro=f'# {m:02}. {MODULES[m]}\n\n{lesson["situation"]}\n\n'
         intro+='이 단원은 설명 → 자료 조회 → 예제 → 직접 확인 → 검토·수정 → 다음 업무 순서로 진행합니다. 웹 입력은 필요하지 않습니다. 문서를 작성할 때는 양식을 내려받고 같은 문서의 버전을 이어 갑니다.\n\n'
-        intro+=''.join('## '+h+'\n\n'+b+'\n\n' for h,b in lesson['chapterIntro'])
+        intro+=guide_markdown(lesson['unitGuide'])
+        intro+='## 단계별 실습: 개념 → 근거·예제 → 작성·검토\n\n'
         intro+=table(['순서','할 일','필요 자료'],[[i+1,s['title'],s['stage']] for i,s in enumerate(steps)])
         book=intro
         for i,s in enumerate(steps):
@@ -286,6 +293,8 @@ def apply_revision():
         path.write_text(json.dumps(lesson,ensure_ascii=False,indent=2))
         # No repeated copies of the same content across web, worksheet, and deliverable.
         work=f'# {m:02}. {MODULES[m]} - 문서 실습 안내\n\n교재의 단계별 설명을 읽은 뒤 실제 산출물을 작성합니다. 웹에 다시 입력하거나 이 워크북에 본문을 중복 복사할 필요는 없습니다.\n\n'
+        work+='이번 단원의 결과: '+' / '.join(lesson['unitGuide']['outcomes'])+'\n\n'
+        work+='단원 본문 여섯 절을 읽은 뒤 아래 과제를 차례로 진행합니다. 시각화는 '+lesson['visualAnchor']['title']+' 단계에서 이해가 필요할 때만 사용하며 필수 제출물이 아닙니다.\n\n'
         for ex in lesson['exercises']:
             work+=f'## {CONTENT[ex["id"]][0]} ({ex["id"]})\n\n사용 문서: {ex["output"]}. 근거: '+', '.join(ex['inputs'])+'.\n\n'
             work+=f'확인할 수행: {CONTENT[ex["id"]][3]}\n\n검토: {CONTENT[ex["id"]][4]}\n\n'
@@ -349,7 +358,7 @@ PILOT='''# 입문자 파일럿 운영과 관찰지
 '''
 README='''# 모아페이 금융 프로젝트 PM 교재
 
-처음에는 학습 안내의 0단원에서 시작합니다. 웹에서는 단원 전체 읽기·69단계 해설·확인 문제·10개 시각화 실습을 이어서 경험합니다. 웹의 표 또는 내려받은 양식에서 문서를 작성할 수 있으며 입력·제출은 필수가 아닙니다. 웹 초안은 페이지 메모리에만 있으므로 파일로 내보내 보관합니다. PDF는 같은 원고로 생성합니다.
+처음에는 학습 안내의 0단원에서 시작합니다. 웹에서는 10단원·60절 본문을 먼저 읽고 69단계 실습을 개념 → 근거·예제 → 작성·검토 순서로 진행합니다. 시각화는 단원별 핵심 단계에서 선택해 사용합니다. 웹의 표 또는 내려받은 양식에서 문서를 작성할 수 있으며 입력·제출은 필수가 아닙니다. 웹 초안은 페이지 메모리에만 있으므로 파일로 내보내 보관합니다. PDF는 같은 원고로 생성합니다.
 
 공개 웹 교재: https://voidmain443.github.io/git-github_for_PM_Tutorial_docs/
 

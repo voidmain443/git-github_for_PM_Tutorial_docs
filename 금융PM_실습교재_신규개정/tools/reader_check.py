@@ -15,10 +15,15 @@ docs={d[0]:d[2] for d in DOCS};covered=set();count=0
 for unit in range(10):
  d=json.loads((ROOT/f'ERP/lessons/{unit:02}.json').read_text())
  check(f'unit {unit} conceptual introduction',len(d.get('chapterIntro',[]))==3)
+ guide=d['unitGuide']
+ check(f'unit {unit} complete chapter',len(guide['sections'])==6 and len({c['id'] for c in guide['sections']})==6 and all(c['body'] and c['html'] and c['stage'] in STAGES for c in guide['sections']))
+ check(f'unit {unit} preparation and outcomes',len(guide['prerequisites'])==len(guide['outcomes'])==3 and bool(guide['mission']) and bool(guide['handoff']))
+ check(f'unit {unit} optional visual once',sum(bool(s.get('visualAid')) for s in d['guideSteps'])==1)
  check(f'unit {unit} reading steps',bool(d['guideSteps']))
  for s in d['guideSteps']:
   q=s.get('selfCheck',{})
   check(f'{unit}/{s["id"]} reasoned self check',bool(q.get('question')) and len(q.get('options',[]))==3 and q.get('answer') in [0,1,2] and len(q.get('explanation',''))>30)
+  check(f'{unit}/{s["id"]} three complete reading phases',set(s['readingBlocks'])=={'concept','evidence','practice'} and all(s['readingBlocks'].values()))
   count+=1;covered.update(s['processes'])
   check(f'{unit}/{s["id"]} source available',all(docs[x]<=s['stage'] for x in s['sources']))
   check(f'{unit}/{s["id"]} templates exist',all((ROOT/'04_Level1_워크북/양식'/n).exists() for n in s['downloads']))
@@ -44,8 +49,10 @@ check('manual matches no-entry reader','웹페이지에 답을 입력할 필요�
 for stage,base in prepare().items():
  for p in (base/'ERP/lessons').glob('*.json'):
   d=json.loads(p.read_text())
+  for c in d['unitGuide']['sections']:
+   check(stage+'/'+p.name+'/'+c['id']+' chapter release boundary',set(c)=={'id','title','stage','locked'} if c['stage']>stage else bool(c.get('html')) and bool(c.get('body')))
   for s in d['guideSteps']:
-   check(stage+'/'+p.name+'/'+s['id']+' release boundary',('html' not in s and 'sections' not in s and 'selfCheck' not in s) if s['stage']>stage else bool(s.get('html')))
+   check(stage+'/'+p.name+'/'+s['id']+' release boundary',('html' not in s and 'sections' not in s and 'selfCheck' not in s and 'readingBlocks' not in s) if s['stage']>stage else bool(s.get('html')))
 report={'passed':sum(v for _,v in checks),'total':len(checks),'guide_steps':count,'processes':len(covered),'checks':[{'name':n,'passed':v} for n,v in checks]}
 write('검증/읽기교재_연결검증.json',json.dumps(report,ensure_ascii=False,indent=2))
 assert all(v for _,v in checks)

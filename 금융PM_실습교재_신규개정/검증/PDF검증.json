@@ -1,14 +1,14 @@
 [
   {
     "file": "PDF/Level1_교재.pdf",
-    "pages": 157,
-    "characters": 172644,
+    "pages": 192,
+    "characters": 230866,
     "outside_page_content_bounds": 0
   },
   {
     "file": "PDF/Level1_워크북.pdf",
-    "pages": 89,
-    "characters": 52171,
+    "pages": 91,
+    "characters": 54429,
     "outside_page_content_bounds": 0
   },
   {
@@ -19,86 +19,86 @@
   },
   {
     "file": "단계자료/S2/배포본/PDF/Level1_교재.pdf",
-    "pages": 135,
-    "characters": 146268,
+    "pages": 168,
+    "characters": 198310,
     "outside_page_content_bounds": 0
   },
   {
     "file": "단계자료/S2/배포본/PDF/Level1_워크북.pdf",
     "pages": 76,
-    "characters": 39048,
+    "characters": 40906,
     "outside_page_content_bounds": 0
   },
   {
     "file": "단계자료/S3/배포본/PDF/Level1_교재.pdf",
-    "pages": 136,
-    "characters": 148086,
+    "pages": 170,
+    "characters": 201672,
     "outside_page_content_bounds": 0
   },
   {
     "file": "단계자료/S3/배포본/PDF/Level1_워크북.pdf",
     "pages": 77,
-    "characters": 39649,
+    "characters": 41507,
     "outside_page_content_bounds": 0
   },
   {
     "file": "단계자료/S4/배포본/PDF/Level1_교재.pdf",
-    "pages": 145,
-    "characters": 158658,
+    "pages": 181,
+    "characters": 216719,
     "outside_page_content_bounds": 0
   },
   {
     "file": "단계자료/S4/배포본/PDF/Level1_워크북.pdf",
     "pages": 78,
-    "characters": 41247,
+    "characters": 43105,
     "outside_page_content_bounds": 0
   },
   {
     "file": "단계자료/S1A/배포본/PDF/Level1_교재.pdf",
-    "pages": 103,
-    "characters": 110528,
+    "pages": 134,
+    "characters": 156948,
     "outside_page_content_bounds": 0
   },
   {
     "file": "단계자료/S1A/배포본/PDF/Level1_워크북.pdf",
     "pages": 70,
-    "characters": 32353,
+    "characters": 34211,
     "outside_page_content_bounds": 0
   },
   {
     "file": "단계자료/S0A/배포본/PDF/Level1_교재.pdf",
-    "pages": 53,
-    "characters": 53380,
+    "pages": 67,
+    "characters": 68794,
     "outside_page_content_bounds": 0
   },
   {
     "file": "단계자료/S0A/배포본/PDF/Level1_워크북.pdf",
     "pages": 61,
-    "characters": 21578,
+    "characters": 23436,
     "outside_page_content_bounds": 0
   },
   {
     "file": "단계자료/S1/배포본/PDF/Level1_교재.pdf",
-    "pages": 100,
-    "characters": 106963,
+    "pages": 131,
+    "characters": 152482,
     "outside_page_content_bounds": 0
   },
   {
     "file": "단계자료/S1/배포본/PDF/Level1_워크북.pdf",
     "pages": 69,
-    "characters": 31544,
+    "characters": 33402,
     "outside_page_content_bounds": 0
   },
   {
     "file": "단계자료/S0/배포본/PDF/Level1_교재.pdf",
-    "pages": 52,
-    "characters": 51750,
+    "pages": 65,
+    "characters": 66048,
     "outside_page_content_bounds": 0
   },
   {
     "file": "단계자료/S0/배포본/PDF/Level1_워크북.pdf",
     "pages": 60,
-    "characters": 21087,
+    "characters": 22945,
     "outside_page_content_bounds": 0
   }
 ]
