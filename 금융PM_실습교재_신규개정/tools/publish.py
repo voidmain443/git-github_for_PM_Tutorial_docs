@@ -18,9 +18,9 @@ pdfmetrics.registerFont(TTFont('Korean',font,subfontIndex=0))
 pdfmetrics.registerFontFamily('Korean',normal='Korean',bold='Korean',italic='Korean',boldItalic='Korean')
 S={
  'body':ParagraphStyle('body',fontName='Korean',fontSize=10,leading=17,wordWrap='CJK',spaceAfter=8,textColor=colors.HexColor('#253b4d')),
- 'h1':ParagraphStyle('h1',fontName='Korean',fontSize=21,leading=29,wordWrap='CJK',spaceAfter=18,textColor=colors.HexColor('#0a685d'),keepWithNext=True),
+ 'h1':ParagraphStyle('h1',fontName='Korean',fontSize=21,leading=29,wordWrap='CJK',spaceAfter=18,textColor=colors.HexColor('#1d3152'),keepWithNext=True),
  'h2':ParagraphStyle('h2',fontName='Korean',fontSize=14,leading=21,wordWrap='CJK',spaceBefore=15,spaceAfter=9,textColor=colors.HexColor('#11354e'),keepWithNext=True),
- 'h3':ParagraphStyle('h3',fontName='Korean',fontSize=11,leading=18,wordWrap='CJK',spaceBefore=12,spaceAfter=7,textColor=colors.HexColor('#176b58'),keepWithNext=True),
+ 'h3':ParagraphStyle('h3',fontName='Korean',fontSize=11,leading=18,wordWrap='CJK',spaceBefore=12,spaceAfter=7,textColor=colors.HexColor('#355d9e'),keepWithNext=True),
  'cell':ParagraphStyle('cell',fontName='Korean',fontSize=8,leading=12,wordWrap='CJK'),
  'small':ParagraphStyle('small',fontName='Korean',fontSize=9,leading=14,wordWrap='CJK',spaceAfter=6),
 }
@@ -32,7 +32,7 @@ def footer(c,doc):
  c.setStrokeColor(colors.HexColor('#cddbdc'));c.line(48,42,547,42)
  c.setFont('Korean',8);c.setFillColor(colors.HexColor('#607888'));c.drawString(48,29,'모아페이 · 금융 프로젝트 PM 실습 · Level 1');c.drawRightString(547,29,str(doc.page))
 def make(source,target,title,subtitle):
- story=[Spacer(1,95),Paragraph('MOAPAY / PM BOOTCAMP',S['small']),Paragraph(title,S['h1']),Paragraph(subtitle,S['body']),Spacer(1,25),Paragraph('49개 프로세스 · 하나의 프로젝트 · 근거에서 승인까지',S['h2']),Paragraph('독립 신규개정판 / 단계별 설명 개정 2026-09-23 / 가상회사 교육자료',S['body']),PageBreak()]
+ story=[Spacer(1,95),Paragraph('MOAPAY / PM BOOTCAMP',S['small']),Paragraph(title,S['h1']),Paragraph(subtitle,S['body']),Spacer(1,25),Paragraph('49개 프로세스 · 하나의 프로젝트 · 근거에서 승인까지',S['h2']),Paragraph('독립 신규개정판 / 심화 설명·시각화 연계 개정 2026-09-24 / 가상회사 교육자료',S['body']),PageBreak()]
  text=(ROOT/source).read_text();lines=text.splitlines();i=0
  headings=[x[2:] for x in lines if x.startswith('# ')]
  story += [Paragraph('차례',S['h1'])]+[Paragraph(h,S['small']) for h in headings]+[PageBreak()]

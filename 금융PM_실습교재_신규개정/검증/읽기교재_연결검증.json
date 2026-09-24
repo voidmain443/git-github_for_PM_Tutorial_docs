@@ -1,11 +1,19 @@
 {
-  "passed": 790,
-  "total": 790,
+  "passed": 869,
+  "total": 869,
   "guide_steps": 69,
   "processes": 49,
   "checks": [
     {
+      "name": "unit 0 conceptual introduction",
+      "passed": true
+    },
+    {
       "name": "unit 0 reading steps",
+      "passed": true
+    },
+    {
+      "name": "0/start reasoned self check",
       "passed": true
     },
     {
@@ -25,6 +33,10 @@
       "passed": true
     },
     {
+      "name": "0/people reasoned self check",
+      "passed": true
+    },
+    {
       "name": "0/people source available",
       "passed": true
     },
@@ -38,6 +50,10 @@
     },
     {
       "name": "0/people no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "0/sources reasoned self check",
       "passed": true
     },
     {
@@ -57,6 +73,10 @@
       "passed": true
     },
     {
+      "name": "0/settlement reasoned self check",
+      "passed": true
+    },
+    {
       "name": "0/settlement source available",
       "passed": true
     },
@@ -70,6 +90,10 @@
     },
     {
       "name": "0/settlement no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "0/reconciliation reasoned self check",
       "passed": true
     },
     {
@@ -89,6 +113,10 @@
       "passed": true
     },
     {
+      "name": "0/finance reasoned self check",
+      "passed": true
+    },
+    {
       "name": "0/finance source available",
       "passed": true
     },
@@ -102,6 +130,10 @@
     },
     {
       "name": "0/finance no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "0/draft reasoned self check",
       "passed": true
     },
     {
@@ -121,6 +153,10 @@
       "passed": true
     },
     {
+      "name": "0/review reasoned self check",
+      "passed": true
+    },
+    {
       "name": "0/review source available",
       "passed": true
     },
@@ -137,7 +173,15 @@
       "passed": true
     },
     {
+      "name": "unit 1 conceptual introduction",
+      "passed": true
+    },
+    {
       "name": "unit 1 reading steps",
+      "passed": true
+    },
+    {
+      "name": "1/charter-1 reasoned self check",
       "passed": true
     },
     {
@@ -157,6 +201,10 @@
       "passed": true
     },
     {
+      "name": "1/charter-2 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "1/charter-2 source available",
       "passed": true
     },
@@ -170,6 +218,10 @@
     },
     {
       "name": "1/charter-2 no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "1/13.1 reasoned self check",
       "passed": true
     },
     {
@@ -193,6 +245,10 @@
       "passed": true
     },
     {
+      "name": "1/charter-3 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "1/charter-3 source available",
       "passed": true
     },
@@ -206,6 +262,10 @@
     },
     {
       "name": "1/charter-3 no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "1/charter-4 reasoned self check",
       "passed": true
     },
     {
@@ -225,6 +285,10 @@
       "passed": true
     },
     {
+      "name": "1/charter-5 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "1/charter-5 source available",
       "passed": true
     },
@@ -238,6 +302,10 @@
     },
     {
       "name": "1/charter-5 no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "1/charter-6 reasoned self check",
       "passed": true
     },
     {
@@ -257,6 +325,10 @@
       "passed": true
     },
     {
+      "name": "1/charter-7 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "1/charter-7 source available",
       "passed": true
     },
@@ -270,6 +342,10 @@
     },
     {
       "name": "1/charter-7 no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "1/charter-8 reasoned self check",
       "passed": true
     },
     {
@@ -289,6 +365,10 @@
       "passed": true
     },
     {
+      "name": "1/charter-9 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "1/charter-9 source available",
       "passed": true
     },
@@ -302,6 +382,10 @@
     },
     {
       "name": "1/charter-9 no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "1/charter-10 reasoned self check",
       "passed": true
     },
     {
@@ -321,6 +405,10 @@
       "passed": true
     },
     {
+      "name": "1/charter-approval reasoned self check",
+      "passed": true
+    },
+    {
       "name": "1/charter-approval source available",
       "passed": true
     },
@@ -337,7 +425,15 @@
       "passed": true
     },
     {
+      "name": "unit 2 conceptual introduction",
+      "passed": true
+    },
+    {
       "name": "unit 2 reading steps",
+      "passed": true
+    },
+    {
+      "name": "2/5.1 reasoned self check",
       "passed": true
     },
     {
@@ -354,6 +450,10 @@
     },
     {
       "name": "2/5.1 no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "2/5.2 reasoned self check",
       "passed": true
     },
     {
@@ -377,6 +477,10 @@
       "passed": true
     },
     {
+      "name": "2/5.3 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "2/5.3 source available",
       "passed": true
     },
@@ -390,6 +494,10 @@
     },
     {
       "name": "2/5.3 no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "2/5.4 reasoned self check",
       "passed": true
     },
     {
@@ -409,7 +517,15 @@
       "passed": true
     },
     {
+      "name": "unit 3 conceptual introduction",
+      "passed": true
+    },
+    {
       "name": "unit 3 reading steps",
+      "passed": true
+    },
+    {
+      "name": "3/6.1 reasoned self check",
       "passed": true
     },
     {
@@ -429,6 +545,10 @@
       "passed": true
     },
     {
+      "name": "3/6.2 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "3/6.2 source available",
       "passed": true
     },
@@ -445,6 +565,10 @@
       "passed": true
     },
     {
+      "name": "3/9.1 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "3/9.1 source available",
       "passed": true
     },
@@ -458,6 +582,10 @@
     },
     {
       "name": "3/9.1 no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "3/9.2 reasoned self check",
       "passed": true
     },
     {
@@ -481,6 +609,10 @@
       "passed": true
     },
     {
+      "name": "3/6.3 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "3/6.3 source available",
       "passed": true
     },
@@ -494,6 +626,10 @@
     },
     {
       "name": "3/6.3 no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "3/6.4 reasoned self check",
       "passed": true
     },
     {
@@ -513,6 +649,10 @@
       "passed": true
     },
     {
+      "name": "3/6.5 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "3/6.5 source available",
       "passed": true
     },
@@ -529,7 +669,15 @@
       "passed": true
     },
     {
+      "name": "unit 4 conceptual introduction",
+      "passed": true
+    },
+    {
       "name": "unit 4 reading steps",
+      "passed": true
+    },
+    {
+      "name": "4/7.1 reasoned self check",
       "passed": true
     },
     {
@@ -546,6 +694,10 @@
     },
     {
       "name": "4/7.1 no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "4/7.2 reasoned self check",
       "passed": true
     },
     {
@@ -569,6 +721,10 @@
       "passed": true
     },
     {
+      "name": "4/7.3 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "4/7.3 source available",
       "passed": true
     },
@@ -589,7 +745,15 @@
       "passed": true
     },
     {
+      "name": "unit 5 conceptual introduction",
+      "passed": true
+    },
+    {
       "name": "unit 5 reading steps",
+      "passed": true
+    },
+    {
+      "name": "5/8.1 reasoned self check",
       "passed": true
     },
     {
@@ -609,6 +773,10 @@
       "passed": true
     },
     {
+      "name": "5/11.1 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "5/11.1 source available",
       "passed": true
     },
@@ -622,6 +790,10 @@
     },
     {
       "name": "5/11.1 no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "5/11.2 reasoned self check",
       "passed": true
     },
     {
@@ -641,6 +813,10 @@
       "passed": true
     },
     {
+      "name": "5/11.3 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "5/11.3 source available",
       "passed": true
     },
@@ -654,6 +830,10 @@
     },
     {
       "name": "5/11.3 no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "5/11.4 reasoned self check",
       "passed": true
     },
     {
@@ -673,6 +853,10 @@
       "passed": true
     },
     {
+      "name": "5/11.5 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "5/11.5 source available",
       "passed": true
     },
@@ -689,7 +873,15 @@
       "passed": true
     },
     {
+      "name": "unit 6 conceptual introduction",
+      "passed": true
+    },
+    {
       "name": "unit 6 reading steps",
+      "passed": true
+    },
+    {
+      "name": "6/12.1 reasoned self check",
       "passed": true
     },
     {
@@ -709,6 +901,10 @@
       "passed": true
     },
     {
+      "name": "6/12.2 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "6/12.2 source available",
       "passed": true
     },
@@ -722,6 +918,10 @@
     },
     {
       "name": "6/12.2 no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "6/10.1 reasoned self check",
       "passed": true
     },
     {
@@ -741,6 +941,10 @@
       "passed": true
     },
     {
+      "name": "6/13.2 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "6/13.2 source available",
       "passed": true
     },
@@ -757,7 +961,15 @@
       "passed": true
     },
     {
+      "name": "unit 7 conceptual introduction",
+      "passed": true
+    },
+    {
       "name": "unit 7 reading steps",
+      "passed": true
+    },
+    {
+      "name": "7/4.2 reasoned self check",
       "passed": true
     },
     {
@@ -774,6 +986,10 @@
     },
     {
       "name": "7/4.2 no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "7/plan-approval reasoned self check",
       "passed": true
     },
     {
@@ -797,6 +1013,10 @@
       "passed": true
     },
     {
+      "name": "7/4.3 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "7/4.3 source available",
       "passed": true
     },
@@ -810,6 +1030,10 @@
     },
     {
       "name": "7/4.3 no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "7/9.3 reasoned self check",
       "passed": true
     },
     {
@@ -833,6 +1057,10 @@
       "passed": true
     },
     {
+      "name": "7/9.4 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "7/9.4 source available",
       "passed": true
     },
@@ -846,6 +1074,10 @@
     },
     {
       "name": "7/9.4 no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "7/9.5 reasoned self check",
       "passed": true
     },
     {
@@ -865,6 +1097,10 @@
       "passed": true
     },
     {
+      "name": "7/4.4 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "7/4.4 source available",
       "passed": true
     },
@@ -878,6 +1114,10 @@
     },
     {
       "name": "7/4.4 no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "7/8.2 reasoned self check",
       "passed": true
     },
     {
@@ -897,6 +1137,10 @@
       "passed": true
     },
     {
+      "name": "7/10.2 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "7/10.2 source available",
       "passed": true
     },
@@ -910,6 +1154,10 @@
     },
     {
       "name": "7/10.2 no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "7/11.6 reasoned self check",
       "passed": true
     },
     {
@@ -929,6 +1177,10 @@
       "passed": true
     },
     {
+      "name": "7/13.3 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "7/13.3 source available",
       "passed": true
     },
@@ -945,7 +1197,15 @@
       "passed": true
     },
     {
+      "name": "unit 8 conceptual introduction",
+      "passed": true
+    },
+    {
       "name": "unit 8 reading steps",
+      "passed": true
+    },
+    {
+      "name": "8/7.4 reasoned self check",
       "passed": true
     },
     {
@@ -969,6 +1229,10 @@
       "passed": true
     },
     {
+      "name": "8/5.6 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "8/5.6 source available",
       "passed": true
     },
@@ -985,6 +1249,10 @@
       "passed": true
     },
     {
+      "name": "8/6.6 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "8/6.6 source available",
       "passed": true
     },
@@ -998,6 +1266,10 @@
     },
     {
       "name": "8/6.6 no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "8/9.6 reasoned self check",
       "passed": true
     },
     {
@@ -1021,6 +1293,10 @@
       "passed": true
     },
     {
+      "name": "8/10.3 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "8/10.3 source available",
       "passed": true
     },
@@ -1034,6 +1310,10 @@
     },
     {
       "name": "8/10.3 no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "8/11.7 reasoned self check",
       "passed": true
     },
     {
@@ -1053,6 +1333,10 @@
       "passed": true
     },
     {
+      "name": "8/13.4 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "8/13.4 source available",
       "passed": true
     },
@@ -1066,6 +1350,10 @@
     },
     {
       "name": "8/13.4 no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "8/4.5 reasoned self check",
       "passed": true
     },
     {
@@ -1085,6 +1373,10 @@
       "passed": true
     },
     {
+      "name": "8/4.6 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "8/4.6 source available",
       "passed": true
     },
@@ -1098,6 +1390,10 @@
     },
     {
       "name": "8/4.6 no obsolete UI directions",
+      "passed": true
+    },
+    {
+      "name": "8/change-approved reasoned self check",
       "passed": true
     },
     {
@@ -1121,7 +1417,15 @@
       "passed": true
     },
     {
+      "name": "unit 9 conceptual introduction",
+      "passed": true
+    },
+    {
       "name": "unit 9 reading steps",
+      "passed": true
+    },
+    {
+      "name": "9/8.3 reasoned self check",
       "passed": true
     },
     {
@@ -1145,6 +1449,10 @@
       "passed": true
     },
     {
+      "name": "9/5.5 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "9/5.5 source available",
       "passed": true
     },
@@ -1165,6 +1473,10 @@
       "passed": true
     },
     {
+      "name": "9/12.3 reasoned self check",
+      "passed": true
+    },
+    {
       "name": "9/12.3 source available",
       "passed": true
     },
@@ -1182,6 +1494,10 @@
     },
     {
       "name": "9/12.3 ERP lookup at correct stage",
+      "passed": true
+    },
+    {
+      "name": "9/4.7 reasoned self check",
       "passed": true
     },
     {

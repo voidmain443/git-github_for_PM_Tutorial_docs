@@ -81,6 +81,8 @@ class Handler(BaseHTTPRequestHandler):
    if u.path=='/':return self.send(200,(BASE/'index.html').read_bytes(),'text/html; charset=utf-8')
    if u.path=='/learn':return self.send(200,(BASE/'learn.html').read_bytes(),'text/html; charset=utf-8')
    if u.path=='/guide':return self.send(200,(BASE/'guide.html').read_bytes(),'text/html; charset=utf-8')
+   if u.path in ['/study-workspace.js','/study-workspace.css']:
+    return self.send(200,(BASE/u.path[1:]).read_bytes(),'text/css; charset=utf-8' if u.path.endswith('.css') else 'text/javascript; charset=utf-8')
    if u.path=='/onboarding.js':return self.send(200,(BASE/'onboarding.js').read_bytes(),'text/javascript; charset=utf-8')
    if u.path=='/app.js':return self.send(200,(BASE/'app.js').read_bytes(),'text/javascript; charset=utf-8')
    if u.path=='/download':

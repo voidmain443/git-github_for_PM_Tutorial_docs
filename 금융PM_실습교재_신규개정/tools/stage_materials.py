@@ -4,6 +4,7 @@ import json,copy
 from build import ROOT,STAGES,MODULES
 
 def prepare():
+    from reader_revision import quiz_md
     results={}
     for stage in STAGES:
         base=ROOT/'배포본/단계자료'/stage;book=[];work=[]
@@ -12,6 +13,7 @@ def prepare():
         for m,title in enumerate(MODULES):
             lesson=json.loads((ROOT/f'ERP/lessons/{m:02}.json').read_text())
             content=f'# {m:02}. {title}\n\n현재 공개 자료: {stage}. 이후 단계는 목차만 표시합니다.\n\n'
+            content+=''.join('## '+h+'\n\n'+b+'\n\n' for h,b in lesson.get('chapterIntro',[]))
             worksheet=f'# {m:02}. {title} - 수행 위치 기록\n\n문서 본문은 별도 양식에서 작성합니다. 이미 작성한 문서는 항목·버전으로 참조합니다.\n\n'
             for i,s in enumerate(lesson['guideSteps']):
                 content+=f'## {i+1}. {s["title"]}\n\n자료 단계: {s["stage"]}\n\n'
@@ -21,8 +23,9 @@ def prepare():
                     content+='이 단계의 설명과 예제는 해당 추가팩에서 공개됩니다.\n\n'
                 else:
                     for h,b in s['sections']:content+='### '+h+'\n\n'+b+'\n\n'
+                    content+=quiz_md(s,True)
                     content+='작성 양식: '+', '.join(s['downloads'])+'\n\n'
-                    worksheet+=f'## {s["title"]}\n\n문서·항목·버전: ____ / 근거 위치: ____ / 검토·수정 위치: ____ / 다음 사용처: ____\n\n'
+                    worksheet+=f'## {s["title"]}\n\n'+quiz_md(s,False)+'\n'.join(b for h,b in s['sections'] if h=='내 문서에 적용하고 다음 사람에게 넘기기')+'\n\n작성 양식: '+', '.join(s['downloads'])+f'\n\n문서·항목·버전: ____ / 근거 위치: ____ / 검토·수정 위치: ____ / 다음 사용처: ____\n\n'
             # Original exercise bodies include later review prompts; keep only coverage IDs here.
             lesson['exercises']=[{k:e[k] for k in ['id','name','output','stage']} for e in lesson['exercises']]
             lesson['situation']='설명을 읽고 해당 자료 단계에서 원천자료를 확인합니다.'

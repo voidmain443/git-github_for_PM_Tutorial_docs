@@ -70,3 +70,13 @@ Linux 글꼴: fonts-nanum 패키지. 그 밖의 환경에서는 NanumGothic.ttf 
 조작값은 저장·제출하지 않는다. 「현재 그림·계산표 내려받기」는 현재 조건·그림·계산표와 근거를 포함한 단독 HTML 파일을 만든다. 오프라인에서 열거나 가로 방향으로 인쇄할 수 있다. 전체 문서 본문은 원래 양식에서 이어 작성한다. 2·4·5·6·7·9단원의 추가 도구는 시각화 화면 아래의 확장안이며 아직 구현 범위에 포함하지 않는다.
 
 구현 원천은 `ERP/visual-workbook.html`, `.css`, `.mjs`와 `ERP/visual-model.mjs`다. 계산은 S06·S11 본문과 현재 SQLite 자료에서 도출한다. 입력 형식이 달라지면 오류를 표시하며 오래된 별도 수치를 사용하지 않는다. `npm run test:pages`는 일정 계산·여유 소진·주공정 변경·선행/지연·달력·EVM을 검증하고, 브라우저에서 시점 잠금·원천 불변·조작·HTML 내보내기·모바일·양식 링크를 확인한다.
+
+
+## 2026-09-24 웹 통합 교재 개정
+
+- 원고의 단원 도입과 69단계 심화 설명·확인 문제는 `tools/deep_lessons.py`에서 관리합니다. `reader_revision.py`가 웹 JSON, 교재·워크북 원고로 연결하며 `stage_materials.py`는 미래 단계 본문·확인문제를 제외합니다.
+- `ERP/study-workspace.js`는 단원 전체 읽기, 확인문제, 내장 시각화, 선택형 웹 양식을 제공합니다. 초안은 페이지 메모리 안에만 있고 다운로드·불러오기로 보관합니다. 서버 제출·학생 추적은 없습니다.
+- 시각화는 `visual-workbook.mjs`, `visual-motion.mjs`, `visual-extra.mjs`에서 제공하며 D3 7.9.0을 출처·해시·라이선스와 함께 로컬 배포합니다. 외부 CDN이 필요 없습니다.
+- 전체 흐름: `python3 tools/rebuild.py --pdf --package`, `python3 tools/build_pages.py`, `npm run test:pages`. 신규 계산 검증과 브라우저 통합 검증은 기존 GitHub Action에서 함께 실행합니다.
+- `pathway.html`은 Level 1 완료 조건과 후속 Level 2~4 목표를 설명합니다. 상세 파일럿·확장 규칙은 `00_설계/Level1_고도화_완료기준과_후속레벨.md`에 있습니다.
+- 웹 통합 시각화는 GitHub Pages 배포본에 제공됩니다. Python ERP 배포팩은 원천 조회·교재·작성 양식 경로를 지원하며 내장 시각화는 공개 웹 교재에서 사용합니다.

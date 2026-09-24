@@ -3,6 +3,6 @@
   "private": true,
   "version": "1.0.0",
   "description": "Browser checks for the learner-only GitHub Pages edition",
-  "scripts": {"test:pages": "node tools/visual_model_check.mjs && node tools/pages_check.cjs"},
+  "scripts": {"test:pages": "node tools/visual_model_check.mjs && node tools/visual_extra_model_check.mjs && node tools/pages_check.cjs"},
   "devDependencies": {"playwright": "1.62.1"}
 }

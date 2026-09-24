@@ -26,7 +26,7 @@ def package():
  student += list((ROOT/'02_원천문서/S0').glob('*'))+list((ROOT/'ERP').glob('*.csv'))
  student += list((ROOT/'ERP/lessons').glob('*.json'))
  student += [ROOT/'README_실행환경.md']
- student += [ROOT/'ERP/onboarding.js',ROOT/'ERP/app.js',ROOT/'ERP/guide.html',ROOT/'ERP/처음_사용하는_ERP.md']
+ student += [ROOT/'ERP/study-workspace.js',ROOT/'ERP/study-workspace.css',ROOT/'ERP/onboarding.js',ROOT/'ERP/app.js',ROOT/'ERP/guide.html',ROOT/'ERP/처음_사용하는_ERP.md']
  student += [ROOT/'README.md',ROOT/'ERP/server.py',ROOT/'ERP/index.html',ROOT/'ERP/learn.html',ROOT/'ERP/schema.sql',ROOT/'ERP/queries.sql',ROOT/'ERP/데이터사전_SAP대응.md',ROOT/'ERP/data/S0.sqlite3',ROOT/'배포본/PDF/Level1_교재.pdf',ROOT/'배포본/PDF/Level1_워크북.pdf']
  make('학습자_시작.zip',student,'# 시작팩\n\nS0 자료와 설명·예제·PDF만 포함합니다. 이후 단계는 목차만 보이며 추가팩을 받으면 열립니다. README의 실행 안내로 시작하세요. 강사용 전체 답안과 미래 DB는 포함하지 않았습니다.\n',release('S0'))
  for stage in [s for s in STAGES if s!='S0']:

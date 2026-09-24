@@ -73,6 +73,7 @@ async function run(){
  const slow=await page.evaluate(async()=>{try{await PMApp.api('/api/sql',{body:JSON.stringify({sql:'WITH RECURSIVE t(n) AS (SELECT 1 UNION ALL SELECT n+1 FROM t) SELECT SUM(n) FROM t'})});return false}catch(e){return e.message.includes('중단')}});
  check('slow SQL stops without freezing page',slow);check('worker recovers after timeout',(await page.evaluate(()=>PMApp.api('/api/meta'))).stage==='S4');
  await require('./visual_browser_check.cjs')(context,base,check,root);
+ await require('./study_browser_check.cjs')(context,base,check,root);
  check('no page exceptions',errors.length===0);check('no failed asset loads',badResponses.length===0);
  const publicFiles=JSON.parse(fs.readFileSync(path.join(site,'site-manifest.json'),'utf8')).files;
  check('teacher and private records absent',publicFiles.every(f=>!/(05_강사용|06_실습수행기록|강사_전체|완성문서)/.test(f.path)));

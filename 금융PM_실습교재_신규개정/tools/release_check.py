@@ -29,6 +29,8 @@ with tempfile.TemporaryDirectory(prefix='moapay-learner-') as td:
             try:get('/api/meta');break
             except (OSError,urllib.error.URLError):time.sleep(.1)
         else:raise RuntimeError('Isolated learner server did not start')
+        check('optional worksheet script packaged and served',b'PMStudy' in get('/study-workspace.js'))
+        check('optional worksheet styles packaged and served',b'study-panel' in get('/study-workspace.css'))
         check('uninstalled future stage refused',post('S0A')[0]==409)
         for stage in STAGES:
             if stage!='S0':
@@ -58,6 +60,6 @@ with tempfile.TemporaryDirectory(prefix='moapay-learner-') as td:
         try:server.wait(timeout=5)
         except subprocess.TimeoutExpired:server.kill();server.wait()
 
-report={'date':'2026-09-23','passed':sum(c['passed'] for c in checks),'total':len(checks),'scope':'Actual learner ZIPs extracted into an empty temporary directory; one server, seven stages. This is a technical check, not a novice learning pilot.','checks':checks}
+report={'date':'2026-09-24','passed':sum(c['passed'] for c in checks),'total':len(checks),'scope':'Actual learner ZIPs extracted into an empty temporary directory; one server, seven stages. This is a technical check, not a novice learning pilot.','checks':checks}
 (ROOT/'검증/읽기교재_독립배포검증.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
 print(f'{report["passed"]}/{report["total"]} isolated release checks passed')

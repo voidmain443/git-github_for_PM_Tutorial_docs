@@ -16,7 +16,7 @@ def shell(title,body,scripts=''):
 def href(value):
     if not value.startswith('/'):return value
     u=urlparse(value)
-    routes={'/':'erp.html','/learn':'learn.html','/guide':'guide.html','/onboarding.js':'onboarding.js','/app.js':'app.js'}
+    routes={'/':'erp.html','/learn':'learn.html','/guide':'guide.html','/onboarding.js':'onboarding.js','/app.js':'app.js','/study-workspace.js':'study-workspace.js','/study-workspace.css':'study-workspace.css'}
     if u.path=='/download':return 'templates/'+quote(parse_qs(u.query)['name'][0])
     if u.path not in routes:raise ValueError('Unhandled static route '+value)
     return routes[u.path]+('?' + u.query if u.query else '')
@@ -38,13 +38,15 @@ def build(out):
     def copy(source,name):
         p=out/name;p.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/source,p)
     for src,dst in [('ERP/index.html','erp.html'),('ERP/learn.html','learn.html')]:put(dst,page_html((ROOT/src).read_text()))
-    for f in ['app.js','onboarding.js','sqlite-worker.js']:copy('ERP/'+f,f)
-    for f in ['visual-workbook.css','visual-workbook.mjs','visual-model.mjs']:copy('ERP/'+f,f)
-    visual_scripts='<script>window.PM_SITE=true;</script><script src="app.js"></script><script type="module" src="visual-workbook.mjs"></script>'
-    put('visual.html',shell('시각화 워크북',(ROOT/'ERP/visual-workbook.html').read_text(),visual_scripts).replace('</style>', '</style><link rel="stylesheet" href="visual-workbook.css">',1))
-    for f in ['sql-wasm.js','sql-wasm.wasm','LICENSE.sql.js','provenance.json']:copy('ERP/vendor/'+f,'vendor/'+f)
+    for f in ['app.js','onboarding.js','sqlite-worker.js','study-workspace.js','study-workspace.css']:copy('ERP/'+f,f)
+    for f in ['visual-workbook.css','visual-workbook.mjs','visual-model.mjs','visual-motion.mjs','visual-extra.mjs','visual-extra.css']:copy('ERP/'+f,f)
+    visual_scripts='<script>window.PM_SITE=true;</script><script src="app.js"></script><script src="vendor/d3.min.js"></script><script type="module" src="visual-workbook.mjs"></script>'
+    put('visual.html',shell('시각화 워크북',(ROOT/'ERP/visual-workbook.html').read_text(),visual_scripts).replace('</style>', '</style><link rel="stylesheet" href="visual-workbook.css"><link rel="stylesheet" href="visual-extra.css">',1))
+    for f in ['sql-wasm.js','sql-wasm.wasm','LICENSE.sql.js','provenance.json','d3.min.js','LICENSE.d3','provenance.d3.json']:copy('ERP/vendor/'+f,'vendor/'+f)
     provenance=json.loads((out/'vendor/provenance.json').read_text())
     for name,digest in provenance['files'].items():assert hashlib.sha256((out/'vendor'/name).read_bytes()).hexdigest()==digest
+    d3_provenance=json.loads((out/'vendor/provenance.d3.json').read_text())
+    for name,digest in d3_provenance['files'].items():assert hashlib.sha256((out/'vendor'/name).read_bytes()).hexdigest()==digest
     for stage,base in prepare().items():
         copy(f'ERP/data/{stage}.sqlite3',f'data/{stage}.sqlite3')
         for p in (base/'ERP/lessons').glob('*.json'):copy(p.relative_to(ROOT),f'lessons/{stage}/{p.name}')
@@ -52,6 +54,7 @@ def build(out):
             f=base/f'배포본/PDF/Level1_{kind}.pdf'
             if not f.exists():raise FileNotFoundError('Run rebuild.py --pdf before publishing: '+str(f))
             copy(f.relative_to(ROOT),f'print/{stage}/{kind}.pdf')
+    put('standards.html',shell('PMI 표준과 이 교재의 적용',markdown_html((ROOT/'03_Level1_교재/표준을_읽는_방법.md').read_text())))
     templates=[]
     for p in sorted((ROOT/'04_Level1_워크북/양식').glob('*.md')):
         copy(p.relative_to(ROOT),'templates/'+p.name)
@@ -59,11 +62,13 @@ def build(out):
         put(preview,shell(p.stem,'<p><a href="../resources.html">자료실로 돌아가기</a></p><p>표를 복사해 문서 편집기에서 작성하거나 아래 원본을 내려받으세요. 작성한 파일은 자신의 작업 폴더에 보관합니다.</p><a class="button" download href="../templates/'+quote(p.name)+'">편집용 원본 내려받기</a>'+markdown_html(p.read_text())).replace('href="index.html"','href="../index.html"').replace('href="learn.html','href="../learn.html').replace('href="erp.html"','href="../erp.html"').replace('href="guide.html"','href="../guide.html"').replace('href="resources.html"','href="../resources.html"').replace('href="visual.html"','href="../visual.html"'))
     summaries=['회사·사람·정산 자료를 읽는 첫날','사업 필요와 PM 권한을 헌장으로','요청을 요구와 인수조건으로','작업·자원·선후관계로 일정 만들기','추정에서 예산·자금 계획까지','품질 기준과 위험 대응 준비','외주 선정과 협업 방식 정하기','계획 통합·승인·실행 중 관리','성과 해석과 변경 전후 연결','검수·인수·이관 후 종료하기']
     cards=''.join(f'<article class="card"><span class="number">UNIT {i:02}</span><h3>{title}</h3><p>{summaries[i]}</p><a href="learn.html?unit={i}">{i}단원 읽기 →</a></article>' for i,title in enumerate(MODULES))
-    body='''<section class="hero"><span class="eyebrow">LEVEL 1 / FINANCIAL PROJECT MANAGEMENT</span><h1>PM의 첫 업무를<br>자료에서 문서까지.</h1><p>여러분은 모아페이에 합류한 내부 PM 한지우입니다. 정산 담당자의 수작업을 줄이는 프로젝트를 맡아, 회사 자료를 읽고 헌장부터 종료보고까지 연결합니다.</p><div class="actions"><a class="button primary" href="learn.html?unit=0">0단원부터 시작하기 →</a><a class="button" href="guide.html">ERP 사용법 먼저 보기</a><a class="button" href="visual.html">시각화 워크북 열기</a></div><p class="muted">설치·로그인 없이 시작 · 10개 단원 · 49개 프로세스 · 69개 읽기 단계</p></section>
-<section aria-labelledby="start"><h2 id="start">처음에는 이 세 가지만 기억하세요</h2><div class="grid"><article class="card"><span class="number">01 / 교재</span><h3>먼저, 왜 하는지 읽기</h3><p>한 단계의 설명과 예제를 읽습니다. 용어를 모두 외운 뒤 시작할 필요는 없습니다.</p></article><article class="card"><span class="number">02 / ERP</span><h3>안내된 자료 한 건 찾기</h3><p>원천 문서 버튼 또는 메뉴·검색조건을 따라갑니다. 자료의 날짜·단위·담당자를 함께 확인합니다.</p></article><article class="card"><span class="number">03 / 내 문서</span><h3>근거를 연결해 작성하기</h3><p>양식을 내려받아 문서 편집기에서 작성합니다. 검토 의견에 따라 수정하고 다음 업무에 가져갑니다. 웹에 답을 입력하지 않습니다.</p></article></div></section>
+    body='''<section class="hero"><span class="eyebrow">LEVEL 1 / FINANCIAL PROJECT MANAGEMENT</span><h1>PM의 첫 업무를<br>자료에서 문서까지.</h1><p>여러분은 모아페이에 합류한 내부 PM 한지우입니다. 정산 담당자의 수작업을 줄이는 프로젝트를 맡아, 회사 자료를 읽고 헌장부터 종료보고까지 연결합니다.</p><div class="actions"><a class="button primary" href="learn.html?unit=0">0단원부터 시작하기 →</a><a class="button" href="guide.html">ERP 사용법 먼저 보기</a><a class="button" href="visual.html">시각화 워크북 열기</a></div><p class="muted">설치·로그인 없이 시작 · 10개 단원 · 49개 프로세스 · 69개 학습 단계 · 10개 시각화 실습</p></section>
+<section aria-labelledby="start"><h2 id="start">처음에는 이 세 가지만 기억하세요</h2><div class="grid"><article class="card"><span class="number">01 / 교재</span><h3>먼저, 개념과 판단을 읽기</h3><p>단원 전체 교재나 단계별 해설로 읽습니다. 개념·근거 해석·예제·확인 문제를 연결하고, 움직이는 실습에서 조건을 바꿔 봅니다.</p></article><article class="card"><span class="number">02 / ERP</span><h3>안내된 자료 한 건 찾기</h3><p>원천 문서 버튼 또는 메뉴·검색조건을 따라갑니다. 자료의 날짜·단위·담당자를 함께 확인합니다.</p></article><article class="card"><span class="number">03 / 내 문서</span><h3>근거를 연결해 작성하기</h3><p>교재 안의 표에서 작성하거나 양식을 내려받아 편집합니다. 검토 의견에 따라 수정하고 다음 업무에 가져갑니다. 입력·제출은 필수가 아니며, 초안은 직접 파일로 보관합니다.</p></article></div></section>
 <section><h2>학생이 따라가는 10개 단원</h2><p>착수 → 분야별 계획 → 통합·실행 → 성과·변경 → 검수·종료 순서입니다. 뒤에서 확인한 조건은 앞서 만든 계획에도 반영합니다.</p><div class="grid">'''+cards+'''</div></section>
 <section><h2>자료가 아직 없다면</h2><p>처음 조회 시점은 S0, 착수 전입니다. 승인된 기준선이나 실적이 비어 있는 것이 정상입니다. 교재에서 검토를 마친 뒤 상단의 자료 선택으로 다음 시점을 엽니다.</p><details><summary>초안·검토·승인은 어떻게 다른가요?</summary><p>초안은 PM이 작성한 제안입니다. 검토는 담당자가 근거와 조건을 확인하는 일입니다. 승인은 권한 있는 사람이 해당 버전을 결정하는 일입니다. 예제를 읽거나 다음 자료를 열었다고 내 문서가 자동 승인되는 것은 아닙니다.</p></details><details><summary>완성 답안과 개인정보는 어디에 있나요?</summary><p>이 사이트에는 학생 설명·부분 예제·빈 양식·가상 회사 자료를 제공합니다. 강사용 완성 답안과 개인 실습 기록은 배포하지 않습니다. 읽던 위치와 자료 선택만 이 브라우저에 저장됩니다.</p></details><details><summary>미래 자료가 잠겨 있는 이유는 무엇인가요?</summary><p>착수할 때 종료 결과를 먼저 보지 않도록 학습 순서를 나눴습니다. 공개 웹 교재의 자료 시점 선택은 학습 안내이며 접근 권한을 통제하는 기능은 아닙니다.</p></details></section>'''
+    body+='<section class="card"><h2>Level 1 다음에는 무엇을 배우나요?</h2><p>먼저 근거를 찾아 문서를 연결하는 독립 수행을 확인합니다. 이후 변경과 편차, 상충하는 주장과 협상, 복수 프로젝트의 사업 성과로 확장합니다.</p><a href="pathway.html">완료 기준과 Level 2·3·4 학습 경로 →</a></section>'
     put('index.html',shell('금융 프로젝트 PM 부트캠프',body))
+    put('pathway.html',shell('완료 기준과 다음 레벨',markdown_html((ROOT/'ERP/학습경로.md').read_text())))
     manual=(ROOT/'ERP/처음_사용하는_ERP.md').read_text()
     manual=manual[:manual.index('## 10.')]
     manual=manual.replace('# 모의 ERP를 처음 사용하는 학생에게\n', '')
@@ -81,7 +86,7 @@ def build(out):
     for p in sorted((ROOT/'01_회사자료').glob('*.md')):
         name='company/'+p.stem+'.html';company+=f'<li><a href="{quote(name)}">{html.escape(p.stem)}</a></li>'
         put(name,shell(p.stem,markdown_html(p.read_text())).replace('href="index.html"','href="../index.html"').replace('href="learn.html','href="../learn.html').replace('href="erp.html"','href="../erp.html"').replace('href="guide.html"','href="../guide.html"').replace('href="resources.html"','href="../resources.html"').replace('href="visual.html"','href="../visual.html"'))
-    body='<h1>학습 자료실</h1><p><a class="button" href="visual.html">시각화 워크북 · 흐름도와 간트차트 열기 →</a></p><p>현재 단계의 인쇄본과 빈 양식을 제공합니다. 문서 본문은 한 번 작성하고, 다음 단원에서 같은 문서의 버전을 이어 갑니다.</p><section class="card"><h2>현재 자료의 인쇄본</h2><p id="print-stage"></p><div id="print-links" class="actions"></div><p class="muted">미래 단계의 설명·예제는 해당 자료 시점의 인쇄본에서 열립니다. 시점은 교재 상단에서 바꿉니다.</p></section><h2>회사·용어 참고</h2><ul>'+company+'</ul><h2>편집할 문서 양식</h2><p>「양식 보기」에서 표를 읽고 복사하거나, Markdown 원본을 내려받아 사용하세요. 양식은 빈 문서이며 작성 예제는 해당 교재 단계에 있습니다.</p><div class="reading-table"><table><thead><tr><th>문서</th><th>브라우저로 보기</th><th>파일 보관</th></tr></thead><tbody>'+formrows+'</tbody></table></div>'
+    body='<h1>학습 자료실</h1><p><a class="button" href="visual.html">시각화 워크북 · 흐름도와 간트차트 열기 →</a></p><p>현재 단계의 인쇄본과 빈 양식을 제공합니다. 문서 본문은 한 번 작성하고, 다음 단원에서 같은 문서의 버전을 이어 갑니다.</p><section class="card"><h2>현재 자료의 인쇄본</h2><p id="print-stage"></p><div id="print-links" class="actions"></div><p class="muted">미래 단계의 설명·예제는 해당 자료 시점의 인쇄본에서 열립니다. 시점은 교재 상단에서 바꿉니다.</p></section><h2>PMI 표준과 학습 경로</h2><p><a href="standards.html">6판·8판을 이 교재에서 함께 읽는 방법</a> · <a href="pathway.html">완료 기준과 Level 2~4</a></p><h2>회사·용어 참고</h2><ul>'+company+'</ul><h2>편집할 문서 양식</h2><p>「양식 보기」에서 표를 읽고 복사하거나, Markdown 원본을 내려받아 사용하세요. 양식은 빈 문서이며 작성 예제는 해당 교재 단계에 있습니다.</p><div class="reading-table"><table><thead><tr><th>문서</th><th>브라우저로 보기</th><th>파일 보관</th></tr></thead><tbody>'+formrows+'</tbody></table></div>'
     scripts='<script>window.PM_SITE=true;</script><script src="app.js"></script><script>const stage=PMApp.currentStage();document.querySelector("#print-stage").textContent="현재 자료: "+stage;document.querySelector("#print-links").innerHTML=["교재","워크북"].map(k=>`<a class="button" href="print/${stage}/${encodeURIComponent(k)}.pdf" download>${k} PDF 내려받기</a>`).join("");</script>'
     put('resources.html',shell('학습 자료실',body,scripts))
     # Prefix-safe shared links on the original reader and ERP pages.
@@ -90,7 +95,7 @@ def build(out):
     put('404.html',shell('페이지를 찾을 수 없습니다','<h1>주소를 다시 확인해 주세요.</h1><p>이전 주소를 사용했을 수 있습니다. 브라우저의 뒤로 가기로 돌아오거나 교재 첫 화면에서 다시 시작하세요.</p><p><a href="./">교재 첫 화면으로</a></p>'))
     put('.nojekyll','')
     files=[{'path':str(p.relative_to(out)),'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in sorted(out.rglob('*')) if p.is_file()]
-    put('site-manifest.json',json.dumps({'edition':'2026-09-23-pages','stages':list(STAGES),'units':10,'processes':49,'files':files},ensure_ascii=False,indent=2))
+    put('site-manifest.json',json.dumps({'edition':'2026-09-24-interactive','stages':list(STAGES),'units':10,'processes':49,'files':files},ensure_ascii=False,indent=2))
     forbidden=['05_강사용','06_실습수행기록','완성문서','강사용_해설','모의헌장기록','강사_전체.zip']
     assert not any(any(x in f['path'] for x in forbidden) for f in files)
     print(f'Built learner Pages site: {len(files)} files, {sum(f["bytes"] for f in files):,} bytes -> {out}')

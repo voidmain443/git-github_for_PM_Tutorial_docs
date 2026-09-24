@@ -76,7 +76,7 @@ def add_erp_lookup(step):
 
 def current_reader_text(text):
     replacements={
-      '작성한 기록을 파일로 보관하려면 실습실의 「G00 메모 내려받기」와 상단 「학습 기록 내려받기」를 사용합니다.':'이 단계의 작성 양식에서 G00을 내려받아 자신의 작업 폴더에서 편집·보관하세요. 웹에는 별도로 작성하지 않습니다.',
+      '작성한 기록을 파일로 보관하려면 실습실의 「G00 메모 내려받기」와 상단 「학습 기록 내려받기」를 사용합니다.':'이 단계의 작성 양식에서 G00을 내려받아 편집하거나 웹의 선택형 표 작성 영역을 사용하세요. 파일로 보관하며 같은 내용을 중복 작성할 필요는 없습니다.',
       '모든 단계의 기록과 자기확인을 마친 뒤 「단원 확인·인계 기록 보관」을 누릅니다.':'검토한 문서와 근거를 자신의 작업 폴더에 보관한 뒤 「다음 단원」으로 이동합니다.',
     }
     for a,b in replacements.items():text=text.replace(a,b)
@@ -205,15 +205,23 @@ def update_templates():
         p=ROOT/'04_Level1_워크북/양식'/template(code)
         p.write_text(p.read_text()+'\n## '+title+'\n\n'+table(headers,[['']*len(headers)]*3))
 
+def quiz_md(step,include_explanation=False):
+    q=step.get('selfCheck')
+    if not q:return ''
+    text='\n\n### 생각을 확인하기\n\n'+q['question']+'\n\n'+'\n'.join(f"{i+1}. {option}" for i,option in enumerate(q['options']))+'\n\n먼저 선택한 이유를 자신의 말로 설명해 보세요.\n\n'
+    if include_explanation:text+='자기확인 해설: '+str(q['answer']+1)+'번. '+q['explanation']+'\n\n'
+    return text
+
 def apply_revision():
     assert set(CONTENT)=={p[0] for p in PROCESSES}
+    from deep_lessons import enrich_lesson
     update_templates()
     # Align 0-unit and ERP instructions with the reading UI, at the source level.
     manual=MANUAL
     a=manual.index('실습실은');b=manual.index('## 2.')
     manual=manual[:a]+'''학습 안내 /learn에서는 설명·조회 경로·예제를 읽습니다. ERP 기본 화면 /에서는 회사 자료를 조회합니다. 「원천 ERP 열기」로 새 탭을 열고, 조회 후 안내 탭으로 돌아오세요. 웹페이지에 답을 입력할 필요는 없습니다.
 
-문서를 직접 작성할 때는 해당 단계의 양식을 내려받아 자신의 작업 폴더에서 편집합니다. 원천 ERP는 바뀌지 않습니다. 문서 본문은 한 번 작성하고 워크북에는 사용한 문서·항목 위치만 남겨도 됩니다.
+문서를 직접 작성할 때는 해당 단계의 웹 표 작성 영역 또는 내려받은 양식을 사용합니다. 웹 초안은 페이지 메모리에만 있으므로 이동 전에 파일로 내려받고, 다음에 그 파일을 불러옵니다. 원천 ERP는 바뀌지 않습니다. 문서 본문은 한 번 작성하고 워크북에는 사용한 문서·항목 위치만 남겨도 됩니다.
 
 '''+manual[b:]
     manual=manual.replace('실습 기록이 안 보이면 같은 브라우저·주소·포트인지 확인하세요. 자동 저장은 현재 브라우저 주소에 연결됩니다. 다른 환경으로 옮길 때에는 JSON 기록을 내려받아 「기록 이어받기」로 불러옵니다. 내려받기와 CSV 내보내기는 각각 학습 기록과 ERP 조회 결과라는 서로 다른 파일입니다.',
@@ -250,6 +258,8 @@ def apply_revision():
                 steps.append(generic_step(exercises[pid],m))
             if m==8:steps.append(extra_step('change-approved','승인 결과에 따라 문서와 후속 점검을 함께 갱신하기','S3',['S12'],['4.6','5.6','6.6','7.4','10.3','11.7','13.4'],
                 'S2의 성과보고·대안 비교·권고안을 보존하고 S3를 엽니다. AP02의 승인 조건을 D06 결정란에 기록합니다. 승인된 R06을 WBS 1.7·시험 T06·작업 WO02와 연결하고 D09/D11/D14/D17/D18/D21/D23/D25/D31의 영향을 확인합니다. BL01은 보존하고 BL02를 새 버전으로 둡니다. 승인 원가기준선 128백만원과 관리예비비 12백만원, 종료 목표 1월 29일을 예측 EAC와 구분합니다. 기존 외주 CT01은 변경하지 않는 조건도 확인합니다. S12의 재시험·수신확인·참여 변화는 최초 기록을 덮어쓰지 않고 새 증거로 추가합니다.',['D06','D09','D11','D14','D17','D18','D21','D23','D25','D31']))
+        lesson['guideSteps']=steps
+        enrich_lesson(lesson,m)
         for i,s in enumerate(steps):
             s['sections']=[[h,current_reader_text(b)] for h,b in s['sections']]
             add_erp_lookup(s)
@@ -265,12 +275,13 @@ def apply_revision():
         lesson['readerHtml']='';lesson['reading']='설명과 예제를 한 단계씩 읽고 ERP에서 확인합니다. 문서는 양식을 내려받아 별도로 작성합니다.'
         intro=f'# {m:02}. {MODULES[m]}\n\n{lesson["situation"]}\n\n'
         intro+='이 단원은 설명 → 자료 조회 → 예제 → 직접 확인 → 검토·수정 → 다음 업무 순서로 진행합니다. 웹 입력은 필요하지 않습니다. 문서를 작성할 때는 양식을 내려받고 같은 문서의 버전을 이어 갑니다.\n\n'
+        intro+=''.join('## '+h+'\n\n'+b+'\n\n' for h,b in lesson['chapterIntro'])
         intro+=table(['순서','할 일','필요 자료'],[[i+1,s['title'],s['stage']] for i,s in enumerate(steps)])
         book=intro
         for i,s in enumerate(steps):
             book+=f'\n## {i+1}. {s["title"]}\n\n자료 단계: {s["stage"]}. 관련 프로세스: '+(', '.join(s['processes']) or '사전 준비')+'.\n\n'
             book+=' · '.join(f'[{sid} {DOC[sid][1]}](../02_원천문서/{DOC[sid][2]}/{sid}.md)' for sid in s['sources'])+'\n\n'
-            book+=sections_md(s)+'\n\n작성 양식: '+' · '.join(f'[{n}](../04_Level1_워크북/양식/{n})' for n in s['downloads'])+'\n'
+            book+=sections_md(s)+quiz_md(s,True)+'\n\n작성 양식: '+' · '.join(f'[{n}](../04_Level1_워크북/양식/{n})' for n in s['downloads'])+'\n'
         write(f'03_Level1_교재/{m:02}_{MODULES[m]}.md',book)
         path.write_text(json.dumps(lesson,ensure_ascii=False,indent=2))
         # No repeated copies of the same content across web, worksheet, and deliverable.
@@ -278,6 +289,9 @@ def apply_revision():
         for ex in lesson['exercises']:
             work+=f'## {CONTENT[ex["id"]][0]} ({ex["id"]})\n\n사용 문서: {ex["output"]}. 근거: '+', '.join(ex['inputs'])+'.\n\n'
             work+=f'확인할 수행: {CONTENT[ex["id"]][3]}\n\n검토: {CONTENT[ex["id"]][4]}\n\n'
+        work+='## 단계별 사고 연습과 문서 적용\n\n먼저 원천자료에서 사실을 확인하고, 다음 질문에 자신의 이유를 설명합니다. 웹의 해설 또는 교재의 자기확인 해설과 대조한 뒤 관련 문서를 보완하세요.\n\n'
+        for step in steps:
+            work+='### '+step['title']+' ('+step['stage']+')\n\n'+quiz_md(step,False)+'\n'.join(b for h,b in step['sections'] if h=='내 문서에 적용하고 다음 사람에게 넘기기')+'\n\n작성 양식: '+', '.join(step['downloads'])+'\n\n'
         work+='## 수행 위치와 검토 기록\n\n'+table(['활동·단계','문서ID·항목·버전','근거·계산 위치','검토·수정 위치','다음 사용처'],[['']*5 for _ in range(max(3,len(lesson['exercises'])))])
         work+='\n핵심 사실·권한·시점이 틀렸다면 해당 문서를 수정합니다. 이미 충족했다면 근거를 확인합니다. 근거 자료가 부족하면 학생의 추측으로 메우지 않고 자료 결함으로 기록합니다.\n'
         write(f'04_Level1_워크북/{m:02}_{MODULES[m]}.md',work)
@@ -306,6 +320,12 @@ def apply_revision():
                 fieldmap.append([code,field,'헌장 항목: 사실과 판단 구분',source,'4.1','헌장 해당 단계의 읽을 부분·예제·검토를 적용'])
             fieldmap.append([code,'사람과 문서 책임','사실: 역할·권한','S02 S03','13.1','D30에서 확인한 역할과 권한을 요약'])
     write('00_설계/양식_필드별_근거점검표.md','# 양식 필드별 근거 점검표\n\nD01~D31과 A01의 모든 표 열 및 헌장의 행별 작성 항목을 관련 원천·수행에 연결한 점검용 색인입니다. 한 항목에 여러 원천이 연결될 수 있으므로 학생 단계의 읽을 부분과 예제를 함께 사용합니다. 자동 추출은 모든 학생 해석의 타당성을 증명하지 않습니다.\n\n'+table(['문서','항목','작성 성격','관련 원천','수행','시점·점검'],fieldmap))
+    coverage=[]
+    for unit in range(10):
+        current=json.loads((ROOT/f'ERP/lessons/{unit:02}.json').read_text())
+        for ex in current['exercises']:
+            coverage.append([ex['id'],unit,ex['output'],' '.join(ex['inputs']),CONTENT[ex['id']][3],CONTENT[ex['id']][4],'해당 교재 단계의 인계 항목'])
+    write('00_설계/49개_실습_작성과_검토_연결.md','# 49개 실습 작성·검토 연결\n\n'+table(['프로세스','단원','출력','입력','구체적 작성행동','검토','후속'],coverage))
     write('README.md',README)
 
 PILOT='''# 입문자 파일럿 운영과 관찰지
@@ -329,7 +349,7 @@ PILOT='''# 입문자 파일럿 운영과 관찰지
 '''
 README='''# 모아페이 금융 프로젝트 PM 교재
 
-처음에는 학습 안내의 0단원에서 시작합니다. 웹은 설명과 ERP 조회 안내를 제공합니다. 문서는 해당 단계에서 양식을 내려받아 별도 작업 폴더에서 작성합니다. 웹 입력·제출은 요구하지 않습니다.
+처음에는 학습 안내의 0단원에서 시작합니다. 웹에서는 단원 전체 읽기·69단계 해설·확인 문제·10개 시각화 실습을 이어서 경험합니다. 웹의 표 또는 내려받은 양식에서 문서를 작성할 수 있으며 입력·제출은 필수가 아닙니다. 웹 초안은 페이지 메모리에만 있으므로 파일로 내보내 보관합니다. PDF는 같은 원고로 생성합니다.
 
 공개 웹 교재: https://voidmain443.github.io/git-github_for_PM_Tutorial_docs/
 
