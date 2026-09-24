@@ -1,0 +1,286 @@
+{
+  "capturedFrom": "local generated Pages",
+  "stage": "S0",
+  "viewport": {
+    "width": 1040,
+    "height": 640
+  },
+  "clips": [
+    {
+      "id": "read",
+      "gif": "read.gif",
+      "poster": "read.webp",
+      "durationMs": 11700,
+      "width": 1040,
+      "height": 640,
+      "frames": [
+        {
+          "atMs": 0,
+          "label": "0단원에서 본문을 먼저 읽습니다.",
+          "still": "read-01.webp",
+          "focus": {
+            "x": 166,
+            "y": 221
+          }
+        },
+        {
+          "atMs": 2300,
+          "label": "차례에서 필요한 설명으로 바로 이동할 수 있습니다.",
+          "still": "read-02.webp",
+          "focus": {
+            "x": 520,
+            "y": 158
+          }
+        },
+        {
+          "atMs": 4200,
+          "label": "ERP에서 무엇을 확인할지 질문을 먼저 정합니다.",
+          "still": "read-03.webp",
+          "focus": {
+            "x": 520,
+            "y": 320
+          }
+        },
+        {
+          "atMs": 7100,
+          "label": "본문을 읽은 뒤 단계별 실습을 시작합니다.",
+          "still": "read-04.webp",
+          "focus": {
+            "x": 248,
+            "y": 381
+          }
+        },
+        {
+          "atMs": 9000,
+          "label": "개념 → 근거·예제 → 작성·검토 순서로 진행합니다.",
+          "still": "read-05.webp",
+          "focus": {
+            "x": 667,
+            "y": 179
+          }
+        }
+      ],
+      "bytes": 284571,
+      "sha256": "0178018b9424a29af13e6e7bbf47257942e6ec65aca7c869810264d42838685e"
+    },
+    {
+      "id": "source",
+      "gif": "source.gif",
+      "poster": "source.webp",
+      "durationMs": 7400,
+      "width": 1040,
+      "height": 640,
+      "frames": [
+        {
+          "atMs": 0,
+          "label": "첫 실습에서 「근거·예제」를 누릅니다.",
+          "still": "source-01.webp",
+          "focus": {
+            "x": 667,
+            "y": 165
+          }
+        },
+        {
+          "atMs": 2100,
+          "label": "S01 원천 문서 읽기를 누릅니다.",
+          "still": "source-02.webp",
+          "focus": {
+            "x": 456,
+            "y": 322
+          }
+        },
+        {
+          "atMs": 4300,
+          "label": "문서 ID·제목·기준일을 확인하고 사업 필요를 읽습니다.",
+          "still": "source-03.webp",
+          "focus": {
+            "x": 669,
+            "y": 170
+          }
+        }
+      ],
+      "bytes": 194744,
+      "sha256": "6dc676d0be58713b7eb341b7fa5c41f7d816375a7af0fe51df64eb3dc7b5e212"
+    },
+    {
+      "id": "erp",
+      "gif": "erp.gif",
+      "poster": "erp.webp",
+      "durationMs": 14000,
+      "width": 1040,
+      "height": 640,
+      "frames": [
+        {
+          "atMs": 0,
+          "label": "「ST001 함께 조회」로 해당 업무의 ERP를 엽니다.",
+          "still": "erp-01.webp",
+          "focus": {
+            "x": 417,
+            "y": 376
+          }
+        },
+        {
+          "atMs": 2200,
+          "label": "실습 링크에는 조회 조건이 미리 채워져 있습니다.",
+          "still": "erp-02.webp",
+          "focus": {
+            "x": 632,
+            "y": 310
+          }
+        },
+        {
+          "atMs": 4800,
+          "label": "직접 조회할 때는 정산번호와 ST001을 입력합니다.",
+          "still": "erp-03.webp",
+          "focus": {
+            "x": 581,
+            "y": 312
+          }
+        },
+        {
+          "atMs": 6900,
+          "label": "「조회」를 눌러 현재 조건의 결과를 확인합니다.",
+          "still": "erp-04.webp",
+          "focus": {
+            "x": 774,
+            "y": 259
+          }
+        },
+        {
+          "atMs": 8400,
+          "label": "한 건의 지급예정액 222,440원을 확인합니다.",
+          "still": "erp-05.webp",
+          "focus": {
+            "x": 632,
+            "y": 407
+          }
+        },
+        {
+          "atMs": 11300,
+          "label": "정산번호를 누르면 상세와 연관 기록을 함께 봅니다.",
+          "still": "erp-06.webp",
+          "focus": {
+            "x": 520,
+            "y": 108
+          }
+        }
+      ],
+      "bytes": 310061,
+      "sha256": "6a4a4643d4452c8d6f39c27bbb3d0f88aad236ecbbba66655a866a0cd9960920"
+    },
+    {
+      "id": "write",
+      "gif": "write.gif",
+      "poster": "write.webp",
+      "durationMs": 12100,
+      "width": 1040,
+      "height": 640,
+      "frames": [
+        {
+          "atMs": 0,
+          "label": "파일 또는 웹 양식 중 편한 방법을 선택합니다.",
+          "still": "write-01.webp",
+          "focus": {
+            "x": 667,
+            "y": 318
+          }
+        },
+        {
+          "atMs": 2200,
+          "label": "G00을 선택하고 양식 열기를 누릅니다.",
+          "still": "write-02.webp",
+          "focus": {
+            "x": 805,
+            "y": 253
+          }
+        },
+        {
+          "atMs": 4300,
+          "label": "근거 대장에 확인한 사실 한 가지를 적습니다.",
+          "still": "write-03.webp",
+          "focus": {
+            "x": 724,
+            "y": 159
+          }
+        },
+        {
+          "atMs": 7400,
+          "label": "이동하기 전에 작성본을 파일로 보관합니다.",
+          "still": "write-04.webp",
+          "focus": {
+            "x": 439,
+            "y": 168
+          }
+        },
+        {
+          "atMs": 9600,
+          "label": "다운로드 요청 메시지와 내려받은 파일을 확인합니다.",
+          "still": "write-05.webp",
+          "focus": {
+            "x": 667,
+            "y": 238
+          }
+        }
+      ],
+      "bytes": 301716,
+      "sha256": "8060ad14a78c4e6e0d2fbd8685beb962cf80fe9304c6e5d95867968be075ff41"
+    },
+    {
+      "id": "review",
+      "gif": "review.gif",
+      "poster": "review.webp",
+      "durationMs": 14000,
+      "width": 1040,
+      "height": 640,
+      "frames": [
+        {
+          "atMs": 0,
+          "label": "박다은·최민석의 검토 질문을 초안에 적용합니다.",
+          "still": "review-01.webp",
+          "focus": {
+            "x": 520,
+            "y": 320
+          }
+        },
+        {
+          "atMs": 3100,
+          "label": "예시를 참고해 수정 전·후와 근거를 남깁니다.",
+          "still": "review-02.webp",
+          "focus": {
+            "x": 520,
+            "y": 320
+          }
+        },
+        {
+          "atMs": 6400,
+          "label": "검토 결과와 다음 단원에서 사용할 자료를 확인합니다.",
+          "still": "review-03.webp",
+          "focus": {
+            "x": 520,
+            "y": 320
+          }
+        },
+        {
+          "atMs": 8900,
+          "label": "G00 검토를 마치면 헌장 작성 단원으로 이어갑니다.",
+          "still": "review-04.webp",
+          "focus": {
+            "x": 882,
+            "y": 444
+          }
+        },
+        {
+          "atMs": 11100,
+          "label": "1단원에서 사업 필요·범위·권한을 헌장으로 연결합니다.",
+          "still": "review-05.webp",
+          "focus": {
+            "x": 166,
+            "y": 223
+          }
+        }
+      ],
+      "bytes": 289019,
+      "sha256": "67974163e0cc6b7049cfe1f441ccd9c281d47261411cc86ec222c4520ff1b5d2"
+    }
+  ]
+}

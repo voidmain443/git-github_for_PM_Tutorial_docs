@@ -3,6 +3,7 @@ __pycache__/
 .DS_Store
 node_modules/
 _site/
+tmp/home-tour-frames/
 검증/PDF검토/
 검증/*.png
 검증/*모의헌장기록.json

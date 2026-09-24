@@ -3,18 +3,19 @@ const $=s=>document.querySelector(s),esc=s=>String(s??'').replace(/[&<>"']/g,c=>
 const titles=['회사에 합류하기','프로젝트 착수','요구사항과 범위','일정과 자원','원가와 예산','품질과 리스크','조달과 협업','계획 통합과 실행','성과와 변경 통제','검수·이관·종료'];
 const stages={S0:'착수 전',S0A:'헌장 승인',S1:'분야 계획',S1A:'통합 승인·킥오프',S2:'실행·변경 분석',S3:'변경 승인',S4:'검수·종료'};
 const params=new URLSearchParams(location.search);
-let selected=Number(params.get('unit')||0),lesson,position={},requestId=0,view=params.get('view')==='practice'?'practice':'chapter',phase='concept';
+let selected=Number(params.get('unit')||0),lesson,position={},requestId=0,view=params.get('view')==='practice'?'practice':'chapter',phase=['concept','evidence','practice'].includes(params.get('phase'))?params.get('phase'):'concept',entryStep=params.get('step');
 if(!Number.isInteger(selected)||selected<0||selected>9)selected=0;
 try{position=JSON.parse(localStorage.getItem('moapay.pm.reader.positions')||'{}');if(!position||Array.isArray(position)||typeof position!=='object')position={};$('#legacy').hidden=!localStorage.getItem('moapay.pm.learning.v2')}catch(e){position={}}
 $('#unit').innerHTML=titles.map((t,i)=>`<option value="${i}">${i}. ${esc(t)}</option>`).join('');$('#unit').value=String(selected);
 const api=PMApp.api;
 function savePosition(){try{localStorage.setItem('moapay.pm.reader.positions',JSON.stringify(position))}catch(e){$('#notice').textContent='읽던 위치를 저장하지 못했습니다. 설명과 조회는 계속 이용할 수 있습니다.'}}
 function closeVisual(){const d=$('#study-simulation');if(d){d.open=false;$('#study-frame-slot')?.replaceChildren();}}
+function syncLocation(){const step=lesson?.guideSteps[position[selected]||0];history.replaceState(null,'',PMApp.href('/learn?unit='+selected+'&view='+view+(view==='practice'&&step?'&step='+encodeURIComponent(step.id)+'&phase='+phase:'')));}
 function setView(next,focus=false){
  view=next;$('#chapter-view').hidden=view!=='chapter';$('#practice-view').hidden=view!=='practice';
  document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===view));
  if(view!=='practice')closeVisual();
- history.replaceState(null,'',PMApp.href('/learn?unit='+selected+'&view='+view));
+ syncLocation();
  if(focus){const el=$(view==='chapter'?'#chapter-title':'#step-title');el.focus();el.scrollIntoView({block:'start'});}
 }
 function setPhase(next,focus=false){
@@ -22,6 +23,7 @@ function setPhase(next,focus=false){
  document.querySelectorAll('.step-phase-panel').forEach(p=>p.hidden=p.dataset.phasePanel!==phase);
  document.querySelectorAll('[data-phase]').forEach(b=>{const active=b.dataset.phase===phase;b.setAttribute('aria-selected',active);b.tabIndex=active?0:-1;});
  if(phase!=='evidence')closeVisual();
+ syncLocation();
  if(focus)$(`[data-phase="${phase}"]`).focus();
 }
 function go(index){position[selected]=Math.max(0,Math.min(index,lesson.guideSteps.length-1));savePosition();phase='concept';view='practice';render();$('#step-title').focus();$('#step-title').scrollIntoView({block:'start'});}
@@ -45,7 +47,7 @@ function render(){
  $('#chapter-to-practice').onclick=()=>go(0);$('#unit-prev').onclick=()=>open(selected-1);$('#unit-next').onclick=()=>open(selected+1);document.querySelector('[data-next-unit]')?.addEventListener('click',()=>open(selected+1));
  document.querySelectorAll('[data-source]').forEach(b=>b.onclick=async()=>{const stage=lesson.currentStage,step=s.id,unit=selected;try{const d=await api('/api/detail?menu=documents&id='+encodeURIComponent(b.dataset.source));if(!d.document)throw Error('현재 자료에 없습니다. 자료 단계와 검색조건을 확인하세요.');if(selected!==unit||lesson.currentStage!==stage||lesson.guideSteps[position[selected]||0].id!==step)return;const panel=$('#source-panel');panel.hidden=false;panel.innerHTML=`<button id="close-source">원천 문서 닫기</button><h3>${esc(d.document.doc_id+' '+d.document.title)}</h3><p class="meta">${esc(d.document.effective_date)} · ${esc(d.document.version)}</p><p>${esc(d.document.body)}</p>`;$('#close-source').onclick=()=>panel.hidden=true;panel.scrollIntoView({block:'start'})}catch(e){$('#notice').textContent=e.message}});
 }
-async function open(next){const id=++requestId;const target=Number.isInteger(next)?next:Number($('#unit').value);if(target<0||target>9)return;if(selected!==target){view='chapter';phase='concept';}selected=target;$('#unit').value=String(selected);$('#notice').textContent='';$('#lesson').textContent='설명을 읽고 있습니다…';try{const d=await api('/api/lesson?unit='+selected);if(id!==requestId)return;lesson=d;$('#stage-caption').textContent='현재 자료: '+d.currentStage+' · '+stages[d.currentStage];$('#stage').innerHTML=d.availableStages.map(s=>`<option value="${s}">${s} · ${esc(stages[s])}</option>`).join('');$('#stage').value=d.currentStage;render()}catch(e){if(id===requestId){$('#lesson').textContent='';$('#notice').textContent=e.message}}}
+async function open(next){const id=++requestId;const target=Number.isInteger(next)?next:Number($('#unit').value);if(target<0||target>9)return;if(selected!==target){view='chapter';phase='concept';}selected=target;$('#unit').value=String(selected);$('#notice').textContent='';$('#lesson').textContent='설명을 읽고 있습니다…';try{const d=await api('/api/lesson?unit='+selected);if(id!==requestId)return;lesson=d;let jump=false;if(entryStep){const i=d.guideSteps.findIndex(s=>s.id===entryStep);if(i>=0){position[selected]=i;view='practice';jump=true;}entryStep=null;}$('#stage-caption').textContent='현재 자료: '+d.currentStage+' · '+stages[d.currentStage];$('#stage').innerHTML=d.availableStages.map(s=>`<option value="${s}">${s} · ${esc(stages[s])}</option>`).join('');$('#stage').value=d.currentStage;render();if(jump){$('#step-title').focus();$('#step-title').scrollIntoView({block:'start'});}}catch(e){if(id===requestId){$('#lesson').textContent='';$('#notice').textContent=e.message}}}
 $('#open').onclick=()=>open();
 $('#change-stage').onclick=async()=>{const b=$('#change-stage');b.disabled=true;try{const d=await api('/api/stage',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({stage:$('#stage').value})});await open();$('#notice').textContent=d.message}catch(e){$('#notice').textContent=e.message}finally{b.disabled=false}};
 $('#legacy-export').onclick=()=>{const raw=localStorage.getItem('moapay.pm.learning.v2');if(!raw)return;const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([raw],{type:'application/json;charset=utf-8'}));a.download='이전_PM_학습기록.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000)};

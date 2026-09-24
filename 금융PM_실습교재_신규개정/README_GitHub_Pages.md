@@ -54,6 +54,24 @@ Linux 글꼴: fonts-nanum 패키지. 그 밖의 환경에서는 NanumGothic.ttf 
 
 참고: [GitHub Pages 배포 워크플로](https://docs.github.com/en/pages/getting-started-with-github-pages/using-custom-workflows-with-github-pages), [브라우저 SQLite sql.js](https://github.com/sql-js/sql.js).
 
+## 홈의 실제 화면 안내
+
+홈은 0단원의 본문 읽기 → S01 원천 열기 → ST001 ERP 조회 → G00 작성·내려받기 → 검토·인계 과정을 다섯 GIF로 보여 준다. 실제 S0 화면을 조작해 촬영한 안내이며 사용자의 자료 시점이나 작성본을 변경하지 않는다. 기본은 정지 화면이고 선택한 GIF만 명시적으로 재생한다. 한 컷씩 넘기기, 현재 컷 정지, 큰 화면 확인, 개별 GIF 내려받기도 가능하다. 화면을 벗어나거나 탭을 감추면 재생을 멈춘다.
+
+`ERP/home-tour.html`, `.css`, `.js`가 표시와 조작을 담당하며 `tools/home_tour.py`가 설명과 직접 실습 링크를 연결한다. `ERP/tour-media/manifest.json`에는 실제 프레임의 순서·설명·시간·파일과 GIF 해시를 기록한다. 공개 빌드는 그 목록에 있는 미디어만 복사하며 GIF 해시를 확인한다. 총 다섯 GIF는 약 1.38MB이며 모든 정지 컷·포스터를 포함해 약 2.86MB다. 초기 페이지에서는 GIF를 받지 않는다.
+
+화면의 버튼명이나 배치가 바뀌면 다음 순서로 다시 촬영한다. 캡처 환경에는 Playwright와 Chrome, 인코딩 환경에는 Pillow가 필요하다. 일반 배포 CI는 버전 관리된 파일을 사용하므로 캡처 의존성을 설치하지 않는다.
+
+```sh
+python3 tools/build_pages.py
+node tools/capture_home_tour.cjs
+python3 tools/encode_home_tour.py
+python3 tools/build_pages.py
+npm run test:pages
+```
+
+`PM_CHROME`으로 Chromium 실행 파일을 지정할 수 있다. 캡처는 별도 headless 브라우저의 빈 저장소에서 수행한다. 중간 PNG와 예시 다운로드는 `tmp/home-tour-frames/`에만 남으며 배포하지 않는다. 새 GIF의 강조 위치와 글자 가독성을 직접 확인하고 인코딩한 미디어를 함께 커밋한다. `learn.html?unit=0&view=practice&step=settlement&phase=evidence` 같은 링크는 저장된 읽기 위치와 관계없이 지정한 과업을 연다. 링크가 자료 시점을 자동으로 바꾸지는 않는다.
+
 ## 시각화 워크북
 
 각 단원의 핵심 실습 한 곳에 있는 「근거·예제」에서 선택해 열거나 상단 「시각화 워크북」으로 `visual.html`을 연다. 본문 읽기에는 시각화를 끼워 넣지 않는다. 실습의 그림은 선택 전에는 불러오지 않고 닫으면 실행 문서를 제거한다. 같은 브라우저에서 교재·ERP와 같은 자료 시점을 사용한다. 원천자료 → 그림에서 관계 확인 → 조건 비교 → 문서에 반영 순서로 진행한다.
