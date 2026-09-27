@@ -7,6 +7,7 @@ from onboarding import markdown_html
 from stage_materials import prepare
 from home_tour import build_tour
 from landing import render_landing,site_navigation,site_footer
+from learning_guide import render_guide
 
 STYLE='''*{box-sizing:border-box}body{margin:0;background:#f6f4ef;color:#26334d;font:17px/1.8 system-ui,sans-serif}a{color:#355d9e}a:focus-visible,button:focus-visible,select:focus-visible{outline:3px solid #466eae;outline-offset:4px}header{border-bottom:1px solid #1d3152;background:#1d3152}header a{color:#f8f5ef}header a:focus-visible{outline-color:#e4bd83}nav,main,footer{max-width:1120px;margin:auto;padding:22px}nav{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}nav a{text-decoration:none}nav .links{display:flex;gap:22px;flex-wrap:wrap}.hero{padding:45px 0 30px;max-width:800px}.eyebrow{font-size:13px;letter-spacing:.14em;color:#8c5a24}h1{font-size:clamp(30px,5vw,48px);line-height:1.3;letter-spacing:-.04em}h2{font-size:26px;margin-top:42px}h3{font-size:19px;margin:0 0 10px}.muted{color:#626d7f}.actions{display:flex;gap:12px;flex-wrap:wrap;margin:25px 0}.button{display:inline-block;border:1px solid #8391a9;background:white;border-radius:9px;padding:12px 20px;text-decoration:none}.button:hover{background:#ebf0f8}.primary{background:#355d9e;color:white;border-color:#355d9e}.primary:hover{background:#284a82;border-color:#284a82}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}.card{background:#fffefb;border:1px solid #d8dde5;border-radius:12px;padding:24px}.card a{font-weight:600}.number{font-size:13px;color:#8c5a24}details{border-top:1px solid #d8dde5;margin-top:16px;padding:16px 0}summary{cursor:pointer;font-weight:600}table{border-collapse:collapse;width:100%;font-size:15px}td,th{border:1px solid #ccd5e2;padding:10px;vertical-align:top;text-align:left}.reading-table{overflow-x:auto}select,button{font:inherit;padding:9px;border:1px solid #8391a9;border-radius:6px}footer{font-size:13px;color:#626d7f}.skip{position:absolute;top:-60px}.skip:focus{top:5px;background:white;padding:12px}h1,h2,h3{color:#172b4d}th{background:#ebf0f8}p{overflow-wrap:anywhere}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#edf2fa;border:1px solid #d8dde5;border-radius:8px;padding:18px;font:14px/1.8 ui-monospace,monospace}@media(max-width:560px){main,nav,footer{padding:18px}.hero{padding-top:20px}.card{padding:20px}}'''
 NAV='<a class="skip" href="#content">본문으로 바로가기</a><header><nav aria-label="주 메뉴"><a href="index.html"><strong>모아페이 · 금융 PM 실습</strong></a><div class="links"><a href="learn.html?unit=0">교재</a><a href="visual.html">시각화 워크북</a><a href="erp.html">ERP</a><a href="guide.html">사용 안내</a><a href="resources.html">자료실</a></div></nav></header>'
@@ -40,17 +41,15 @@ def build(out):
     def copy(source,name):
         p=out/name;p.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/source,p)
     for src,dst in [('ERP/index.html','erp.html'),('ERP/learn.html','learn.html')]:put(dst,page_html((ROOT/src).read_text()))
-    for f in ['app.js','onboarding.js','sqlite-worker.js','study-workspace.js','study-workspace.css','site-frame.css','site-frame.js','landing.css','landing.mjs','landing-scene.mjs']:copy('ERP/'+f,f)
+    for f in ['app.js','onboarding.js','sqlite-worker.js','study-workspace.js','study-workspace.css','site-frame.css','site-frame.js','landing.css','landing.mjs','outcome-model.mjs','learning-guide.css']:copy('ERP/'+f,f)
     for f in ['visual-workbook.css','visual-workbook.mjs','visual-model.mjs','visual-motion.mjs','visual-extra.mjs','visual-extra.css']:copy('ERP/'+f,f)
     visual_scripts='<script>window.PM_SITE=true;</script><script src="app.js"></script><script src="vendor/d3.min.js"></script><script type="module" src="visual-workbook.mjs"></script>'
     put('visual.html',shell('시각화 워크북',(ROOT/'ERP/visual-workbook.html').read_text(),visual_scripts).replace('</style>', '</style><link rel="stylesheet" href="visual-workbook.css"><link rel="stylesheet" href="visual-extra.css">',1))
-    for f in ['sql-wasm.js','sql-wasm.wasm','LICENSE.sql.js','provenance.json','d3.min.js','LICENSE.d3','provenance.d3.json','three.module.min.js','three.core.min.js','LICENSE.three','provenance.three.json']:copy('ERP/vendor/'+f,'vendor/'+f)
+    for f in ['sql-wasm.js','sql-wasm.wasm','LICENSE.sql.js','provenance.json','d3.min.js','LICENSE.d3','provenance.d3.json']:copy('ERP/vendor/'+f,'vendor/'+f)
     provenance=json.loads((out/'vendor/provenance.json').read_text())
     for name,digest in provenance['files'].items():assert hashlib.sha256((out/'vendor'/name).read_bytes()).hexdigest()==digest
     d3_provenance=json.loads((out/'vendor/provenance.d3.json').read_text())
     for name,digest in d3_provenance['files'].items():assert hashlib.sha256((out/'vendor'/name).read_bytes()).hexdigest()==digest
-    three_provenance=json.loads((out/'vendor/provenance.three.json').read_text())
-    for name,digest in three_provenance['files'].items():assert hashlib.sha256((out/'vendor'/name).read_bytes()).hexdigest()==digest
     for stage,base in prepare().items():
         copy(f'ERP/data/{stage}.sqlite3',f'data/{stage}.sqlite3')
         for p in (base/'ERP/lessons').glob('*.json'):copy(p.relative_to(ROOT),f'lessons/{stage}/{p.name}')
@@ -80,8 +79,7 @@ def build(out):
     manual=manual.replace('화면이 열리지 않으면 실습 서버가 실행 중인지 확인합니다. 파일 폴더만 열어 둔 상태로는 웹 화면이 열리지 않습니다. 실행 방법은 배포팩 README에 있습니다. 이미 다른 ERP 화면이 열리면 같은 주소의 /learn으로 돌아올 수 있습니다.','화면이 열리지 않으면 인터넷 연결과 주소를 확인한 뒤 새로고침하세요. 별도 서버 실행은 필요하지 않습니다. 위쪽 교재·ERP 메뉴로 다시 이동할 수 있습니다.')
     manual=manual.replace('읽던 위치는 이 브라우저에만 보존됩니다. 이전 버전에서 작성한 학습 기록은 삭제하지 않으며 「이전 작성 기록 내려받기」로 보관할 수 있습니다. 새 문서는 내려받은 양식에서 작성합니다.', '읽던 위치와 선택한 자료 시점은 이 브라우저에 보존됩니다. 다른 기기에서는 S0부터 열릴 수 있으니 먼저 자료 시점을 확인하세요. 작성한 문서는 사이트에 저장되지 않습니다. 자료실에서 내려받은 양식에 작성하고 자신의 작업 폴더에 보관하세요.')
     manual+='\n## 10. 공개 웹에서 자료 시점 바꾸기\n\n교재 상단의 자료 선택에서 S0 → S0A → S1 → S1A → S2 → S3 → S4 순서로 엽니다. 설치나 서버 재시작은 필요하지 않습니다. 먼저 해당 단계의 검토를 마칩니다. 선택은 이 브라우저에 저장되며 같은 사이트의 다른 탭도 갱신됩니다. 다른 학생의 시점은 바뀌지 않습니다. 공개 자료이므로 시점 선택은 접근 통제가 아닌 학습 순서 안내입니다.\n'
-    guide_start='<h1>ERP 첫 사용 안내</h1><p>교재에서 할 일을 읽고, ERP에서 자료를 확인한 뒤, 내려받은 양식에 문서를 작성합니다. 아래 버튼으로 필요한 화면을 여세요.</p><div class="actions"><a class="button primary" href="learn.html?unit=0">0단원부터 읽기 →</a><a class="button" href="erp.html" target="_blank" rel="noopener">ERP 새 탭으로 열기 ↗</a><a class="button" href="resources.html">작성 양식 찾기</a></div>'
-    put('guide.html',shell('ERP 첫 사용 안내',guide_start+markdown_html(manual)))
+    put('guide.html',shell('처음 사용하는 학생을 위한 학습 가이드',render_guide(markdown_html(manual))).replace('</style>','</style><link rel="stylesheet" href="learning-guide.css">',1))
     formrows=''.join(f'<tr><td>{html.escape(n)}</td><td><a href="{quote(preview)}">양식 보기</a></td><td><a download href="templates/{quote(n)}">원본 내려받기</a></td></tr>' for n,preview in templates)
     company=''
     for p in sorted((ROOT/'01_회사자료').glob('*.md')):
@@ -95,7 +93,7 @@ def build(out):
     # Their work surfaces keep their IDs and event handlers.
     for page in out.rglob('*.html'):
         relative=page.relative_to(out);prefix='../'*len(relative.parts[:-1]);name=relative.name
-        kind={'index.html':'home','learn.html':'classroom','erp.html':'erp','visual.html':'visual'}.get(name,'reference')
+        kind={'index.html':'home','learn.html':'classroom','erp.html':'erp','visual.html':'visual','guide.html':'guide'}.get(name,'reference')
         s=page.read_text(encoding='utf-8')
         s=s.replace('<html lang="ko">',f'<html lang="ko" class="pm-site pm-{kind}">',1)
         css=f'<link rel="stylesheet" href="{prefix}site-frame.css">'
@@ -112,7 +110,7 @@ def build(out):
         page.write_text(s,encoding='utf-8')
     put('.nojekyll','')
     files=[{'path':str(p.relative_to(out)),'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in sorted(out.rglob('*')) if p.is_file()]
-    put('site-manifest.json',json.dumps({'edition':'2026-09-27-learning-landing','stages':list(STAGES),'units':10,'processes':49,'files':files},ensure_ascii=False,indent=2))
+    put('site-manifest.json',json.dumps({'edition':'2026-09-27-output-studio','stages':list(STAGES),'units':10,'processes':49,'files':files},ensure_ascii=False,indent=2))
     forbidden=['05_강사용','06_실습수행기록','완성문서','강사용_해설','모의헌장기록','강사_전체.zip']
     assert not any(any(x in f['path'] for x in forbidden) for f in files)
     print(f'Built learner Pages site: {len(files)} files, {sum(f["bytes"] for f in files):,} bytes -> {out}')

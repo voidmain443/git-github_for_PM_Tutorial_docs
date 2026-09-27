@@ -20,7 +20,7 @@
           "still": "read-01.webp",
           "focus": {
             "x": 166,
-            "y": 221
+            "y": 222
           }
         },
         {
@@ -29,7 +29,7 @@
           "still": "read-02.webp",
           "focus": {
             "x": 520,
-            "y": 157
+            "y": 158
           }
         },
         {
@@ -47,7 +47,7 @@
           "still": "read-04.webp",
           "focus": {
             "x": 247,
-            "y": 245
+            "y": 250
           }
         },
         {
@@ -56,12 +56,12 @@
           "still": "read-05.webp",
           "focus": {
             "x": 667,
-            "y": 178
+            "y": 179
           }
         }
       ],
-      "bytes": 268013,
-      "sha256": "d90f1282b758bab231d2ed54a986e7bd99f008db63826c45e160868cb3d84f6b"
+      "bytes": 268996,
+      "sha256": "e115c74ec400396e512c91f938cac92acda1df97cbe5ae9f8324680632cf71df"
     },
     {
       "id": "source",
@@ -86,7 +86,7 @@
           "still": "source-02.webp",
           "focus": {
             "x": 455,
-            "y": 321
+            "y": 322
           }
         },
         {
@@ -99,8 +99,8 @@
           }
         }
       ],
-      "bytes": 190109,
-      "sha256": "1cd85ad308d99cffbdbcc3c3ee89f50a61b744232a4a9af928611428a5a22298"
+      "bytes": 190063,
+      "sha256": "76122f18497ba7d18680bd14ec4b840c30a4058f756c871b814d440977cca97b"
     },
     {
       "id": "erp",
@@ -116,7 +116,7 @@
           "still": "erp-01.webp",
           "focus": {
             "x": 415,
-            "y": 375
+            "y": 376
           }
         },
         {
@@ -125,7 +125,7 @@
           "still": "erp-02.webp",
           "focus": {
             "x": 632,
-            "y": 377
+            "y": 384
           }
         },
         {
@@ -134,7 +134,7 @@
           "still": "erp-03.webp",
           "focus": {
             "x": 577,
-            "y": 379
+            "y": 386
           }
         },
         {
@@ -143,7 +143,7 @@
           "still": "erp-04.webp",
           "focus": {
             "x": 778,
-            "y": 325
+            "y": 332
           }
         },
         {
@@ -152,7 +152,7 @@
           "still": "erp-05.webp",
           "focus": {
             "x": 632,
-            "y": 475
+            "y": 482
           }
         },
         {
@@ -165,8 +165,8 @@
           }
         }
       ],
-      "bytes": 285561,
-      "sha256": "b00dfb177f09778199cbd71ae52fdb867b1437408a51df79991550eae5ac03de"
+      "bytes": 285216,
+      "sha256": "988e036db0f6c481754a9690864d9aca01c1f1ec75e3854da805cdd936ec4c1f"
     },
     {
       "id": "write",
@@ -182,7 +182,7 @@
           "still": "write-01.webp",
           "focus": {
             "x": 667,
-            "y": 182
+            "y": 187
           }
         },
         {
@@ -191,7 +191,7 @@
           "still": "write-02.webp",
           "focus": {
             "x": 797,
-            "y": 252
+            "y": 253
           }
         },
         {
@@ -218,12 +218,12 @@
           "still": "write-05.webp",
           "focus": {
             "x": 667,
-            "y": 237
+            "y": 238
           }
         }
       ],
-      "bytes": 294738,
-      "sha256": "915b54dcac5a7a0f6e07d9f5a653ed765e1a0508604fb97ddf34ca5ff76d8366"
+      "bytes": 294692,
+      "sha256": "a580d0d2e18baef8df8cc7cd2b84e22540b994938f0227f03a60ffa5a9307fb4"
     },
     {
       "id": "review",
@@ -266,7 +266,7 @@
           "still": "review-04.webp",
           "focus": {
             "x": 883,
-            "y": 312
+            "y": 313
           }
         },
         {
@@ -275,12 +275,12 @@
           "still": "review-05.webp",
           "focus": {
             "x": 166,
-            "y": 223
+            "y": 224
           }
         }
       ],
-      "bytes": 274929,
-      "sha256": "cfd06811ad3453dce7bae9b66abb2f15e35ec3d6a1dad8e951cc64e8946c40f3"
+      "bytes": 272813,
+      "sha256": "eaf350bfc905842855a26efbd35b0618c711968796cb7934d39bc0729c72a11e"
     }
   ]
 }
