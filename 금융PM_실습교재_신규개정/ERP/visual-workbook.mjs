@@ -1,3 +1,4 @@
+import {mountWorkbookReport} from './workbook-report.mjs';
 import {EXTRA_MODULES,renderExtra} from './visual-extra.mjs';
 import {playback,schedulePlayback} from './visual-motion.mjs';
 import {readSchedule,schedule,workdayDate,earnedValue,readAlternatives} from './visual-model.mjs';
@@ -7,9 +8,9 @@ const stages={S0:'착수 전',S0A:'헌장 승인',S1:'분야 계획',S1A:'통합
 const modules={...EXTRA_MODULES,workflow:{unit:0,title:'정산 업무를 한 장의 흐름으로',stage:'S0'},charter:{unit:1,title:'헌장이 검토와 승인을 통과하는 과정',stage:'S0'},schedule:{unit:3,title:'선후관계가 간트차트가 되는 과정',stage:'S1'},change:{unit:8,title:'성과를 읽고 변경 대안을 비교하기',stage:'S2'}};
 let active=new URLSearchParams(location.search).get('lab')||'workflow',generation=0,currentStage='S0';
 if(!Object.hasOwn(modules,active))active='workflow';
-const embedded=new URLSearchParams(location.search).get('embed')==='1';let cleanup=null;
+const embedded=new URLSearchParams(location.search).get('embed')==='1';let cleanup=null,reportCleanup=null;
 if(embedded){document.body.classList.add('wb-embed');const observer=new ResizeObserver(()=>parent.postMessage({type:'pm-visual-height',height:document.querySelector('main').scrollHeight+20},location.origin));observer.observe(document.querySelector('main'));}
-window.addEventListener('pagehide',()=>cleanup?.());
+window.addEventListener('pagehide',()=>{cleanup?.();reportCleanup?.();});
 const money=n=>(n/1000000).toLocaleString('ko-KR',{maximumFractionDigits:2})+'백만원';
 const doc=id=>api('/api/detail?menu=documents&id='+id).then(d=>d.document);
 const query=async sql=>{const d=await api('/api/sql',{body:JSON.stringify({sql})});return d.rows.map(r=>Object.fromEntries(d.columns.map((c,i)=>[c,r[i]])));};
@@ -82,7 +83,7 @@ async function scheduleLab(){
  $('#scenario-c').onclick=()=>{reset();$('#duration-c').value=c.duration+5;show();};
  $('#scenario-d').onclick=()=>{reset();$('#duration-d').value=d.duration+5;show();};
  $('#scenario-lead').onclick=()=>{reset();$('#edge-lag').value=-3;show();};
- return ()=>motion?.();
+ const dispose=()=>motion?.();dispose.pause=()=>motion?.pause?.();return dispose;
 }
 async function change(){
  const [s10,s11,s12,performance,baselines]=await Promise.all([doc('S10'),doc('S11'),doc('S12'),query("SELECT SUM(pv) AS pv,SUM(ev) AS ev,SUM(ac) AS ac FROM performance WHERE status_date='2026-11-30'"),query('SELECT * FROM baseline ORDER BY version')]);
@@ -97,6 +98,7 @@ async function change(){
 
 }
 async function load(){
+ reportCleanup?.();reportCleanup=null;
  cleanup?.();cleanup=null;window.d3?.select('#wb-content').selectAll('*').interrupt();
  const token=++generation;$('#wb-error').textContent='';$('#wb-content').textContent='현재 시점의 원천자료를 읽고 있습니다…';$('#wb-download').disabled=true;$('#wb-print').disabled=true;
  document.querySelectorAll('[data-module]').forEach(b=>b.setAttribute('aria-current',b.dataset.module===active));
@@ -110,7 +112,7 @@ async function load(){
   }
   // Disable module changes while rendering, so an older request cannot replace a newer view.
   cleanup=EXTRA_MODULES[active]?await renderExtra(active,{api,doc,query,esc,money,intro,sources,prompt,metric,$,stage:currentStage}):await ({workflow,charter,schedule:scheduleLab,change}[active])();
-  if(token===generation){$('#wb-download').disabled=false;$('#wb-print').disabled=false;}
+  if(token===generation){$('#wb-download').disabled=false;$('#wb-print').disabled=false;reportCleanup=mountWorkbookReport($('#workbook-report'),{module:active,m:modules[active],meta,pause:()=>cleanup?.pause?.()});}
  }catch(e){if(token===generation){$('#wb-content').textContent='실습 자료를 열지 못했습니다.';$('#wb-error').textContent=e.message;}}
 }
 let busy=false;

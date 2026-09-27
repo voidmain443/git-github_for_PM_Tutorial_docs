@@ -17,7 +17,7 @@ export function playback(host,steps,choose,options={}){
  const visibility=()=>{if(document.hidden)stop();};const motion=()=>{stop();play.disabled=reduce.matches;if(reduce.matches)narration.textContent='동작 줄이기 설정: 한 단계씩 보기로 같은 설명을 확인하세요.';};
  document.addEventListener('visibilitychange',visibility);reduce.addEventListener('change',motion);show(0,false);motion();
  const dispose=()=>{disposed=true;stop();document.removeEventListener('visibilitychange',visibility);reduce.removeEventListener('change',motion);if(options.diagram)d3?.select(options.diagram).selectAll('*').interrupt();panel.remove();};
- dispose.select=index=>{stop();show(index);};return dispose;
+ dispose.select=index=>{stop();show(index);};dispose.pause=stop;return dispose;
 }
 export function schedulePlayback(model,result,lag){
  const byId=Object.fromEntries(result.activities.map(a=>[a.id,a]));

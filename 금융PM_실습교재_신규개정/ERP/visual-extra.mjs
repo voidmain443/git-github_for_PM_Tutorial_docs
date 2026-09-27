@@ -48,7 +48,7 @@ function player(h,id,labels,draw){
  const show=i=>{index=i;draw(i);buttonStates('data-'+id+'-step',i);h.$('#'+id+'-status').textContent=`${i+1}/${labels.length} · ${labels[i]}`;h.$('#'+id+'-next').disabled=i===labels.length-1;};
  h.$('#'+id+'-play').onclick=()=>{if(timer){stop();return;}if(index===labels.length-1)show(0);h.$('#'+id+'-play').textContent='일시 정지';timer=setInterval(()=>{if(index>=labels.length-1){stop();return;}show(index+1);if(index===labels.length-1)stop();},3600);};
  h.$('#'+id+'-next').onclick=()=>{stop();show(Math.min(labels.length-1,index+1));};h.$('#'+id+'-reset').onclick=()=>{stop();show(0);};
- document.querySelectorAll(`[data-${id}-step]`).forEach(b=>b.onclick=()=>{stop();show(Number(b.getAttribute('data-'+id+'-step')));});show(0);return ()=>{stop();cleanup();};
+ document.querySelectorAll(`[data-${id}-step]`).forEach(b=>b.onclick=()=>{stop();show(Number(b.getAttribute('data-'+id+'-step')));});show(0);const dispose=()=>{stop();cleanup();};dispose.pause=stop;return dispose;
 }
 function teachCycle(h,items,file){return h.prompt('그림에서 문서로: 조회 → 작성 → 검토 → 수정 → 인계',items,file);}
 

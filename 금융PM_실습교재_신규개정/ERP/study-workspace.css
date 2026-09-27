@@ -24,3 +24,45 @@
  .figure-connections li{margin:4px 0}.figure-connections span{color:#53627a}
 }
 @media print{.figure-mobile{display:none}.figure-desktop{display:block}}
+
+/* The result is the learner's own document, not an automatically completed answer. */
+#study-writing .study-export-help{font-size:13px;line-height:1.75;color:#596985;margin:10px 0}
+.study-document-tabs{display:flex;gap:0;border-bottom:1px solid #ccd7ee;margin:24px 0 0}
+.study-document-tabs button{flex:1;border:0;border-radius:0;border-bottom:3px solid transparent;background:transparent;color:#596985;padding:14px 10px;font-size:16px;font-weight:600;line-height:1.5}
+.study-document-tabs button[aria-selected=true]{border-bottom-color:#3056c9;color:#243c78;background:#edf1fc}
+.study-document-tabs button:focus-visible{outline:3px solid #3056c9;outline-offset:-3px}
+.study-document-tabs[hidden],#study-edit-panel[hidden],#study-document-panel[hidden]{display:none}
+#study-edit-panel{padding-top:16px}
+.study-document-caption{display:flex;justify-content:space-between;gap:24px;padding:18px 0;color:#596985}
+#study-writing .study-document-caption p{font-size:13px;line-height:1.7;margin:0;max-width:38em}
+#study-writing .study-document-caption strong{font-size:15px;color:#243c78}
+#study-writing .study-paper{font-family:"Apple SD Gothic Neo","Malgun Gothic",system-ui,sans-serif;max-width:860px;margin:0 auto 12px;padding:44px 36px;background:#fff;border:1px solid #dce3f1;border-top:4px solid #3056c9;box-shadow:0 10px 28px #1524470b;color:#152447;font-size:16px;line-height:1.85;overflow-wrap:anywhere;word-break:keep-all}
+#study-writing .study-paper h1{font-size:29px;line-height:1.45;letter-spacing:-.04em;margin:0 0 24px;padding-bottom:24px;border-bottom:2px solid #3056c9;color:#152447}
+#study-writing .study-paper h2{font-size:21px;line-height:1.6;margin:36px 0 16px;padding-bottom:10px;border:0;border-bottom:1px solid #dce3f1;color:#152447}
+#study-writing .study-paper h3{font-size:18px;line-height:1.65;margin:24px 0 12px;padding:0;border:0;color:#243c78}
+#study-writing .study-paper h4,#study-writing .study-paper h5,#study-writing .study-paper h6{font-size:16px;line-height:1.7;margin:20px 0 10px}
+#study-writing .study-paper p{font-size:inherit;line-height:inherit;margin:12px 0}
+#study-writing .study-paper .study-paper-control{font-size:14px;line-height:1.85;color:#4c5c7e;background:#f4f6fc;padding:12px 16px;border-left:3px solid #3056c9}
+#study-writing .study-paper-table{overflow:auto;max-width:100%;margin:20px 0}
+#study-writing .study-paper table{width:100%;border-collapse:collapse;font-size:14px;line-height:1.7;white-space:normal}
+#study-writing .study-paper th,#study-writing .study-paper td{border:1px solid #dce3f1;padding:12px;text-align:left;vertical-align:top;min-width:90px;overflow-wrap:anywhere}
+#study-writing .study-paper th{position:static;background:#edf1fc;color:#243c78;font-weight:700}
+#study-writing .study-paper tr:hover td{background:transparent}
+.study-paper-gap{display:inline;padding:1px 3px;background:#fff6d9;border-bottom:1px dashed #a27b26;color:#755a22;box-decoration-break:clone}
+#study-writing .study-paper ul,#study-writing .study-paper ol{padding-left:26px}
+#study-writing .study-paper li{margin:7px 0}
+#study-writing .study-paper blockquote{margin:20px 0;padding:10px 20px;border-left:3px solid #7f96d8;background:#f4f6fc}
+#study-writing .study-paper pre{background:#f4f6fc;padding:16px;white-space:pre-wrap;word-break:break-word;overflow:auto}
+#study-writing .study-paper code{font:13px/1.7 ui-monospace,monospace;white-space:pre-wrap}
+#study-writing .study-paper hr{border:0;border-top:1px solid #dce3f1;margin:28px 0}
+#study-writing .study-paper-empty{color:#657391}
+#study-writing .study-paper-table:focus-visible{outline:3px solid #3056c9;outline-offset:3px}
+@media(max-width:650px){
+ .study-document-caption{display:block;padding:16px 0}
+ #study-writing .study-document-caption p+p{margin-top:8px}
+ #study-writing .study-paper{padding:26px 18px;font-size:15px}
+ #study-writing .study-paper h1{font-size:24px}
+ #study-writing .study-paper h2{font-size:19px}
+ #study-writing .study-paper th,#study-writing .study-paper td{padding:9px;min-width:88px}
+ .study-document-tabs button{font-size:14px;padding:12px 8px}
+}

@@ -172,7 +172,7 @@
       "id": "write",
       "gif": "write.gif",
       "poster": "write.webp",
-      "durationMs": 12100,
+      "durationMs": 15100,
       "width": 1040,
       "height": 640,
       "frames": [
@@ -205,25 +205,34 @@
         },
         {
           "atMs": 7400,
-          "label": "이동하기 전에 작성본을 파일로 보관합니다.",
+          "label": "「문서 미리보기」에서 내가 쓴 근거를 문서 표로 확인합니다.",
           "still": "write-04.webp",
           "focus": {
-            "x": 439,
-            "y": 168
+            "x": 667,
+            "y": 370
           }
         },
         {
-          "atMs": 9600,
-          "label": "다운로드 요청 메시지와 내려받은 파일을 확인합니다.",
+          "atMs": 10400,
+          "label": "이동하기 전에 작성본을 파일로 보관합니다.",
           "still": "write-05.webp",
           "focus": {
+            "x": 439,
+            "y": 152
+          }
+        },
+        {
+          "atMs": 12600,
+          "label": "다운로드 요청 메시지와 내려받은 파일을 확인합니다.",
+          "still": "write-06.webp",
+          "focus": {
             "x": 667,
-            "y": 238
+            "y": 359
           }
         }
       ],
-      "bytes": 294692,
-      "sha256": "a580d0d2e18baef8df8cc7cd2b84e22540b994938f0227f03a60ffa5a9307fb4"
+      "bytes": 342219,
+      "sha256": "387a745009ebbca5955ee15ba12ec13a63f725129a3711e1436d635c9ed5a161"
     },
     {
       "id": "review",

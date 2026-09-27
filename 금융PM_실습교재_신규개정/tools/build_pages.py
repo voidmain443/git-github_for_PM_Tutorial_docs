@@ -42,9 +42,10 @@ def build(out):
         p=out/name;p.parent.mkdir(parents=True,exist_ok=True);shutil.copyfile(ROOT/source,p)
     for src,dst in [('ERP/index.html','erp.html'),('ERP/learn.html','learn.html')]:put(dst,page_html((ROOT/src).read_text()))
     for f in ['app.js','onboarding.js','sqlite-worker.js','study-workspace.js','study-workspace.css','site-frame.css','site-frame.js','landing.css','landing.mjs','outcome-model.mjs','learning-guide.css']:copy('ERP/'+f,f)
-    for f in ['visual-workbook.css','visual-workbook.mjs','visual-model.mjs','visual-motion.mjs','visual-extra.mjs','visual-extra.css']:copy('ERP/'+f,f)
+    for f in ['visual-workbook.css','visual-workbook.mjs','visual-model.mjs','visual-motion.mjs','visual-extra.mjs','visual-extra.css','pm-document.css','document-studio.mjs','document-examples.mjs','workbook-report.mjs']:copy('ERP/'+f,f)
     visual_scripts='<script>window.PM_SITE=true;</script><script src="app.js"></script><script src="vendor/d3.min.js"></script><script type="module" src="visual-workbook.mjs"></script>'
-    put('visual.html',shell('시각화 워크북',(ROOT/'ERP/visual-workbook.html').read_text(),visual_scripts).replace('</style>', '</style><link rel="stylesheet" href="visual-workbook.css"><link rel="stylesheet" href="visual-extra.css">',1))
+    put('visual.html',shell('시각화 워크북',(ROOT/'ERP/visual-workbook.html').read_text(),visual_scripts).replace('</style>', '</style><link rel="stylesheet" href="visual-workbook.css"><link rel="stylesheet" href="visual-extra.css"><link rel="stylesheet" href="pm-document.css">',1))
+    put('documents.html',shell('PM 문서 결과 비교',(ROOT/'ERP/document-studio.html').read_text(),'<script type="module" src="document-studio.mjs"></script>').replace('</style>','</style><link rel="stylesheet" href="pm-document.css">',1))
     for f in ['sql-wasm.js','sql-wasm.wasm','LICENSE.sql.js','provenance.json','d3.min.js','LICENSE.d3','provenance.d3.json']:copy('ERP/vendor/'+f,'vendor/'+f)
     provenance=json.loads((out/'vendor/provenance.json').read_text())
     for name,digest in provenance['files'].items():assert hashlib.sha256((out/'vendor'/name).read_bytes()).hexdigest()==digest
@@ -93,7 +94,7 @@ def build(out):
     # Their work surfaces keep their IDs and event handlers.
     for page in out.rglob('*.html'):
         relative=page.relative_to(out);prefix='../'*len(relative.parts[:-1]);name=relative.name
-        kind={'index.html':'home','learn.html':'classroom','erp.html':'erp','visual.html':'visual','guide.html':'guide'}.get(name,'reference')
+        kind={'index.html':'home','learn.html':'classroom','erp.html':'erp','visual.html':'visual','guide.html':'guide','documents.html':'documents'}.get(name,'reference')
         s=page.read_text(encoding='utf-8')
         s=s.replace('<html lang="ko">',f'<html lang="ko" class="pm-site pm-{kind}">',1)
         css=f'<link rel="stylesheet" href="{prefix}site-frame.css">'
@@ -110,7 +111,7 @@ def build(out):
         page.write_text(s,encoding='utf-8')
     put('.nojekyll','')
     files=[{'path':str(p.relative_to(out)),'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in sorted(out.rglob('*')) if p.is_file()]
-    put('site-manifest.json',json.dumps({'edition':'2026-09-27-output-studio','stages':list(STAGES),'units':10,'processes':49,'files':files},ensure_ascii=False,indent=2))
+    put('site-manifest.json',json.dumps({'edition':'2026-09-27-document-workbook','stages':list(STAGES),'units':10,'processes':49,'files':files},ensure_ascii=False,indent=2))
     forbidden=['05_강사용','06_실습수행기록','완성문서','강사용_해설','모의헌장기록','강사_전체.zip']
     assert not any(any(x in f['path'] for x in forbidden) for f in files)
     print(f'Built learner Pages site: {len(files)} files, {sum(f["bytes"] for f in files):,} bytes -> {out}')
