@@ -15,6 +15,7 @@ module.exports=async(context,base,check,root)=>{
  const source=()=>page.locator('#tour-screen').evaluate(image=>image.currentSrc||image.src);
  async function ready(){
   await page.locator('#home-tour').waitFor({state:'visible'});
+  await page.locator('#home-tour').scrollIntoViewIfNeeded();
   await page.waitForFunction(()=>{const image=document.querySelector('#tour-screen');return image?.complete&&image.naturalWidth>0&&document.querySelector('#home-tour-data')?.textContent.trim();});
  }
  async function stillReady(allowed){

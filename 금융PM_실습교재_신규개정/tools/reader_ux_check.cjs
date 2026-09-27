@@ -50,7 +50,7 @@ module.exports=async(context,base,check,root)=>{
   check('unit zero has six authored chapter sections',guide.sections.length===6&&guide.sections.every(s=>s.body&&s.html&&!s.locked));
   check('the whole chapter is readable without expanding a details element',await page.locator('#chapter-view .chapter-section:visible').count()===6);
   const chapterText=await page.locator('#chapter-view').innerText();
-  check('chapter shows its mission and six section titles',chapterText.includes(guide.mission)&&guide.sections.every(s=>chapterText.includes(s.title)));
+  check('unit introduction shows its mission once and chapter has six section titles',(await page.locator('#unit-intro').innerText()).includes(guide.mission)&&!chapterText.includes(guide.mission)&&guide.sections.every(s=>chapterText.includes(s.title)));
 
   await page.locator('#chapter-to-practice').click();await page.locator('#practice-view').waitFor({state:'visible'});
   check('practice replaces rather than duplicates chapter reading',await page.locator('#chapter-view').isHidden());
