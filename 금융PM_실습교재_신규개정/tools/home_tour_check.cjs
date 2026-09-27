@@ -125,6 +125,11 @@ module.exports=async(context,base,check,root)=>{
   const target=lesson.guideSteps.find(s=>s.id==='settlement');assert(target,'settlement guide task exists');
   check('tour deep link opens the requested task',(await page.locator('#step-title').innerText())===target.title);
   check('tour deep link brings its task heading into view',await page.locator('#step-title').evaluate(el=>{const r=el.getBoundingClientRect();return document.activeElement===el&&r.top>=0&&r.top<innerHeight;}));
+  check('reader heading keeps visible breathing room with fractional font layout',await page.locator('#step-title').evaluate(el=>{
+    const saved=el.style.marginTop;
+    try{return [32,32.25,32.5,32.75].every(margin=>{el.style.marginTop=margin+'px';el.scrollIntoView({block:'start'});const r=el.getBoundingClientRect();return r.top>=8&&r.top<innerHeight;});}
+    finally{el.style.marginTop=saved;el.scrollIntoView({block:'start'});}
+  }));
   check('tour deep link opens evidence in practice mode',await page.locator('#practice-view').isVisible()&&await page.locator('#chapter-view').isHidden()&&await page.locator('[data-phase="evidence"][role="tab"]').getAttribute('aria-selected')==='true');
   check('tour deep link shows only the requested phase',await page.locator('.step-phase-panel:visible').count()===1&&await page.locator('.step-phase-panel[data-phase-panel="evidence"]').isVisible());
   check('tour deep link has available source controls',await page.locator('[data-source]:visible').count()>0);

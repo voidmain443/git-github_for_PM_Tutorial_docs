@@ -642,6 +642,7 @@
     "tour viewing and playback do not change stage or browser storage",
     "tour deep link opens the requested task",
     "tour deep link brings its task heading into view",
+    "reader heading keeps visible breathing room with fractional font layout",
     "tour deep link opens evidence in practice mode",
     "tour deep link shows only the requested phase",
     "tour deep link has available source controls",
