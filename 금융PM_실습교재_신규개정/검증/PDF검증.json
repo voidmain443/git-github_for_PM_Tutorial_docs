@@ -1,104 +1,577 @@
 [
   {
     "file": "PDF/Level1_교재.pdf",
-    "pages": 192,
-    "characters": 230866,
-    "outside_page_content_bounds": 0
+    "pages": 214,
+    "characters": 243367,
+    "outside_page_content_bounds": 0,
+    "figures": [
+      {
+        "id": "u0-money",
+        "page": 6
+      },
+      {
+        "id": "u0-settlement-flow",
+        "page": 7
+      },
+      {
+        "id": "u1-evidence-map",
+        "page": 30
+      },
+      {
+        "id": "u1-charter-review",
+        "page": 32
+      },
+      {
+        "id": "u2-wbs-scope",
+        "page": 57
+      },
+      {
+        "id": "u2-r01-trace",
+        "page": 60
+      },
+      {
+        "id": "u3-effort-duration",
+        "page": 74
+      },
+      {
+        "id": "u3-fork-join",
+        "page": 76
+      },
+      {
+        "id": "u4-budget-structure",
+        "page": 96
+      },
+      {
+        "id": "u4-cost-payment",
+        "page": 99
+      },
+      {
+        "id": "u5-quality",
+        "page": 109
+      },
+      {
+        "id": "u5-risk",
+        "page": 111
+      },
+      {
+        "id": "u6-procurement",
+        "page": 127
+      },
+      {
+        "id": "u6-communication",
+        "page": 130
+      },
+      {
+        "id": "u7-execution",
+        "page": 143
+      },
+      {
+        "id": "u7-team-knowledge",
+        "page": 146
+      },
+      {
+        "id": "u8-earned-value",
+        "page": 172
+      },
+      {
+        "id": "u8-change-baseline",
+        "page": 174
+      },
+      {
+        "id": "u9-acceptance-close",
+        "page": 197
+      },
+      {
+        "id": "u9-benefit-handoff",
+        "page": 200
+      }
+    ]
   },
   {
     "file": "PDF/Level1_워크북.pdf",
     "pages": 91,
-    "characters": 54429,
-    "outside_page_content_bounds": 0
+    "characters": 54425,
+    "outside_page_content_bounds": 0,
+    "figures": []
   },
   {
     "file": "PDF/강사용_해설.pdf",
     "pages": 70,
-    "characters": 65808,
-    "outside_page_content_bounds": 0
+    "characters": 65804,
+    "outside_page_content_bounds": 0,
+    "figures": []
   },
   {
     "file": "단계자료/S2/배포본/PDF/Level1_교재.pdf",
-    "pages": 168,
-    "characters": 198310,
-    "outside_page_content_bounds": 0
+    "pages": 186,
+    "characters": 208676,
+    "outside_page_content_bounds": 0,
+    "figures": [
+      {
+        "id": "u0-money",
+        "page": 4
+      },
+      {
+        "id": "u0-settlement-flow",
+        "page": 6
+      },
+      {
+        "id": "u1-evidence-map",
+        "page": 27
+      },
+      {
+        "id": "u1-charter-review",
+        "page": 30
+      },
+      {
+        "id": "u2-wbs-scope",
+        "page": 53
+      },
+      {
+        "id": "u2-r01-trace",
+        "page": 56
+      },
+      {
+        "id": "u3-effort-duration",
+        "page": 68
+      },
+      {
+        "id": "u3-fork-join",
+        "page": 71
+      },
+      {
+        "id": "u4-budget-structure",
+        "page": 89
+      },
+      {
+        "id": "u4-cost-payment",
+        "page": 92
+      },
+      {
+        "id": "u5-quality",
+        "page": 102
+      },
+      {
+        "id": "u5-risk",
+        "page": 104
+      },
+      {
+        "id": "u6-procurement",
+        "page": 120
+      },
+      {
+        "id": "u6-communication",
+        "page": 122
+      },
+      {
+        "id": "u7-execution",
+        "page": 134
+      },
+      {
+        "id": "u7-team-knowledge",
+        "page": 137
+      },
+      {
+        "id": "u8-earned-value",
+        "page": 162
+      }
+    ]
   },
   {
     "file": "단계자료/S2/배포본/PDF/Level1_워크북.pdf",
-    "pages": 76,
-    "characters": 40906,
-    "outside_page_content_bounds": 0
+    "pages": 79,
+    "characters": 41308,
+    "outside_page_content_bounds": 0,
+    "figures": []
   },
   {
     "file": "단계자료/S3/배포본/PDF/Level1_교재.pdf",
-    "pages": 170,
-    "characters": 201672,
-    "outside_page_content_bounds": 0
+    "pages": 189,
+    "characters": 212752,
+    "outside_page_content_bounds": 0,
+    "figures": [
+      {
+        "id": "u0-money",
+        "page": 4
+      },
+      {
+        "id": "u0-settlement-flow",
+        "page": 6
+      },
+      {
+        "id": "u1-evidence-map",
+        "page": 27
+      },
+      {
+        "id": "u1-charter-review",
+        "page": 30
+      },
+      {
+        "id": "u2-wbs-scope",
+        "page": 53
+      },
+      {
+        "id": "u2-r01-trace",
+        "page": 56
+      },
+      {
+        "id": "u3-effort-duration",
+        "page": 68
+      },
+      {
+        "id": "u3-fork-join",
+        "page": 71
+      },
+      {
+        "id": "u4-budget-structure",
+        "page": 89
+      },
+      {
+        "id": "u4-cost-payment",
+        "page": 92
+      },
+      {
+        "id": "u5-quality",
+        "page": 102
+      },
+      {
+        "id": "u5-risk",
+        "page": 104
+      },
+      {
+        "id": "u6-procurement",
+        "page": 120
+      },
+      {
+        "id": "u6-communication",
+        "page": 122
+      },
+      {
+        "id": "u7-execution",
+        "page": 134
+      },
+      {
+        "id": "u7-team-knowledge",
+        "page": 137
+      },
+      {
+        "id": "u8-earned-value",
+        "page": 162
+      },
+      {
+        "id": "u8-change-baseline",
+        "page": 164
+      }
+    ]
   },
   {
     "file": "단계자료/S3/배포본/PDF/Level1_워크북.pdf",
-    "pages": 77,
-    "characters": 41507,
-    "outside_page_content_bounds": 0
+    "pages": 80,
+    "characters": 41909,
+    "outside_page_content_bounds": 0,
+    "figures": []
   },
   {
     "file": "단계자료/S4/배포본/PDF/Level1_교재.pdf",
-    "pages": 181,
-    "characters": 216719,
-    "outside_page_content_bounds": 0
+    "pages": 202,
+    "characters": 229201,
+    "outside_page_content_bounds": 0,
+    "figures": [
+      {
+        "id": "u0-money",
+        "page": 4
+      },
+      {
+        "id": "u0-settlement-flow",
+        "page": 6
+      },
+      {
+        "id": "u1-evidence-map",
+        "page": 27
+      },
+      {
+        "id": "u1-charter-review",
+        "page": 30
+      },
+      {
+        "id": "u2-wbs-scope",
+        "page": 53
+      },
+      {
+        "id": "u2-r01-trace",
+        "page": 56
+      },
+      {
+        "id": "u3-effort-duration",
+        "page": 68
+      },
+      {
+        "id": "u3-fork-join",
+        "page": 71
+      },
+      {
+        "id": "u4-budget-structure",
+        "page": 89
+      },
+      {
+        "id": "u4-cost-payment",
+        "page": 92
+      },
+      {
+        "id": "u5-quality",
+        "page": 102
+      },
+      {
+        "id": "u5-risk",
+        "page": 104
+      },
+      {
+        "id": "u6-procurement",
+        "page": 120
+      },
+      {
+        "id": "u6-communication",
+        "page": 122
+      },
+      {
+        "id": "u7-execution",
+        "page": 134
+      },
+      {
+        "id": "u7-team-knowledge",
+        "page": 137
+      },
+      {
+        "id": "u8-earned-value",
+        "page": 162
+      },
+      {
+        "id": "u8-change-baseline",
+        "page": 164
+      },
+      {
+        "id": "u9-acceptance-close",
+        "page": 186
+      },
+      {
+        "id": "u9-benefit-handoff",
+        "page": 189
+      }
+    ]
   },
   {
     "file": "단계자료/S4/배포본/PDF/Level1_워크북.pdf",
-    "pages": 78,
-    "characters": 43105,
-    "outside_page_content_bounds": 0
+    "pages": 81,
+    "characters": 43507,
+    "outside_page_content_bounds": 0,
+    "figures": []
   },
   {
     "file": "단계자료/S1A/배포본/PDF/Level1_교재.pdf",
-    "pages": 134,
-    "characters": 156948,
-    "outside_page_content_bounds": 0
+    "pages": 149,
+    "characters": 165959,
+    "outside_page_content_bounds": 0,
+    "figures": [
+      {
+        "id": "u0-money",
+        "page": 4
+      },
+      {
+        "id": "u0-settlement-flow",
+        "page": 6
+      },
+      {
+        "id": "u1-evidence-map",
+        "page": 27
+      },
+      {
+        "id": "u1-charter-review",
+        "page": 30
+      },
+      {
+        "id": "u2-wbs-scope",
+        "page": 53
+      },
+      {
+        "id": "u2-r01-trace",
+        "page": 56
+      },
+      {
+        "id": "u3-effort-duration",
+        "page": 68
+      },
+      {
+        "id": "u3-fork-join",
+        "page": 71
+      },
+      {
+        "id": "u4-budget-structure",
+        "page": 89
+      },
+      {
+        "id": "u4-cost-payment",
+        "page": 92
+      },
+      {
+        "id": "u5-quality",
+        "page": 102
+      },
+      {
+        "id": "u5-risk",
+        "page": 104
+      },
+      {
+        "id": "u6-procurement",
+        "page": 120
+      },
+      {
+        "id": "u6-communication",
+        "page": 122
+      },
+      {
+        "id": "u7-execution",
+        "page": 134
+      }
+    ]
   },
   {
     "file": "단계자료/S1A/배포본/PDF/Level1_워크북.pdf",
-    "pages": 70,
-    "characters": 34211,
-    "outside_page_content_bounds": 0
+    "pages": 73,
+    "characters": 34613,
+    "outside_page_content_bounds": 0,
+    "figures": []
   },
   {
     "file": "단계자료/S0A/배포본/PDF/Level1_교재.pdf",
-    "pages": 67,
-    "characters": 68794,
-    "outside_page_content_bounds": 0
+    "pages": 71,
+    "characters": 71184,
+    "outside_page_content_bounds": 0,
+    "figures": [
+      {
+        "id": "u0-money",
+        "page": 4
+      },
+      {
+        "id": "u0-settlement-flow",
+        "page": 6
+      },
+      {
+        "id": "u1-evidence-map",
+        "page": 27
+      },
+      {
+        "id": "u1-charter-review",
+        "page": 30
+      }
+    ]
   },
   {
     "file": "단계자료/S0A/배포본/PDF/Level1_워크북.pdf",
-    "pages": 61,
-    "characters": 23436,
-    "outside_page_content_bounds": 0
+    "pages": 64,
+    "characters": 23838,
+    "outside_page_content_bounds": 0,
+    "figures": []
   },
   {
     "file": "단계자료/S1/배포본/PDF/Level1_교재.pdf",
-    "pages": 131,
-    "characters": 152482,
-    "outside_page_content_bounds": 0
+    "pages": 145,
+    "characters": 160856,
+    "outside_page_content_bounds": 0,
+    "figures": [
+      {
+        "id": "u0-money",
+        "page": 4
+      },
+      {
+        "id": "u0-settlement-flow",
+        "page": 6
+      },
+      {
+        "id": "u1-evidence-map",
+        "page": 27
+      },
+      {
+        "id": "u1-charter-review",
+        "page": 30
+      },
+      {
+        "id": "u2-wbs-scope",
+        "page": 53
+      },
+      {
+        "id": "u2-r01-trace",
+        "page": 56
+      },
+      {
+        "id": "u3-effort-duration",
+        "page": 68
+      },
+      {
+        "id": "u3-fork-join",
+        "page": 71
+      },
+      {
+        "id": "u4-budget-structure",
+        "page": 89
+      },
+      {
+        "id": "u4-cost-payment",
+        "page": 92
+      },
+      {
+        "id": "u5-quality",
+        "page": 102
+      },
+      {
+        "id": "u5-risk",
+        "page": 104
+      },
+      {
+        "id": "u6-procurement",
+        "page": 120
+      },
+      {
+        "id": "u6-communication",
+        "page": 122
+      }
+    ]
   },
   {
     "file": "단계자료/S1/배포본/PDF/Level1_워크북.pdf",
-    "pages": 69,
-    "characters": 33402,
-    "outside_page_content_bounds": 0
+    "pages": 72,
+    "characters": 33804,
+    "outside_page_content_bounds": 0,
+    "figures": []
   },
   {
     "file": "단계자료/S0/배포본/PDF/Level1_교재.pdf",
-    "pages": 65,
-    "characters": 66048,
-    "outside_page_content_bounds": 0
+    "pages": 69,
+    "characters": 68419,
+    "outside_page_content_bounds": 0,
+    "figures": [
+      {
+        "id": "u0-money",
+        "page": 4
+      },
+      {
+        "id": "u0-settlement-flow",
+        "page": 6
+      },
+      {
+        "id": "u1-evidence-map",
+        "page": 27
+      },
+      {
+        "id": "u1-charter-review",
+        "page": 30
+      }
+    ]
   },
   {
     "file": "단계자료/S0/배포본/PDF/Level1_워크북.pdf",
-    "pages": 60,
-    "characters": 22945,
-    "outside_page_content_bounds": 0
+    "pages": 63,
+    "characters": 23347,
+    "outside_page_content_bounds": 0,
+    "figures": []
   }
 ]

@@ -4,11 +4,13 @@ import json,copy
 from build import ROOT,STAGES,MODULES
 
 def prepare():
+    from chapter_figures import export_figures
     from reader_revision import quiz_md
     from unit_reading import restrict_guide,guide_markdown
     results={}
     for stage in STAGES:
         base=ROOT/'배포본/단계자료'/stage;book=[];work=[]
+        export_figures(base,stage)
         def put(name,text):
             p=base/name;p.parent.mkdir(parents=True,exist_ok=True);p.write_text(text);return p
         for m,title in enumerate(MODULES):

@@ -1,6 +1,7 @@
 """Run the learner ZIPs in an empty directory, without source-tree imports."""
 from pathlib import Path
 import hashlib,json,socket,subprocess,sys,tempfile,time,urllib.request,urllib.error,zipfile
+from chapter_figures import all_figures
 
 ROOT=Path(__file__).resolve().parents[1]
 STAGES=['S0','S0A','S1','S1A','S2','S3','S4']
@@ -37,6 +38,9 @@ with tempfile.TemporaryDirectory(prefix='moapay-learner-') as td:
                 with zipfile.ZipFile(ROOT/f'배포본/학습자_{stage}_추가.zip') as z:z.extractall(base)
                 check(stage+' switches without restarting server',post(stage)[0]==200)
             check(stage+' database stage',json.loads(get('/api/meta'))['stage']==stage)
+            expected_figures={ident for ident,spec in all_figures().items() if spec['stage']<=stage}
+            actual_figures={p.stem for p in (base/'03_Level1_교재/그림').glob('*.svg')}
+            check(stage+' learner ZIP contains only released diagrams',actual_figures==expected_figures)
             check(stage+' guide served','웹페이지에 답을 입력할 필요는 없습니다' in get('/guide').decode())
             check(stage+' reader served','onboarding.js' in get('/learn?unit=0').decode())
             for unit in range(10):
@@ -62,6 +66,6 @@ with tempfile.TemporaryDirectory(prefix='moapay-learner-') as td:
         try:server.wait(timeout=5)
         except subprocess.TimeoutExpired:server.kill();server.wait()
 
-report={'date':'2026-09-24','passed':sum(c['passed'] for c in checks),'total':len(checks),'scope':'Actual learner ZIPs extracted into an empty temporary directory; one server, seven stages. This is a technical check, not a novice learning pilot.','checks':checks}
+report={'date':'2026-09-27','passed':sum(c['passed'] for c in checks),'total':len(checks),'scope':'Actual learner ZIPs extracted into an empty temporary directory; one server, seven stages, released diagrams only. This is a technical check, not a novice learning pilot.','checks':checks}
 (ROOT/'검증/읽기교재_독립배포검증.json').write_text(json.dumps(report,ensure_ascii=False,indent=2))
 print(f'{report["passed"]}/{report["total"]} isolated release checks passed')

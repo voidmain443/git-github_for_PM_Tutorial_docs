@@ -22,7 +22,7 @@ def package():
   return files
  student=[]
  for folder in ['01_회사자료','03_Level1_교재','04_Level1_워크북']:
-  student+=list((ROOT/folder).rglob('*'))
+  student+=[p for p in (ROOT/folder).rglob('*') if '그림' not in p.parts]
  student += list((ROOT/'02_원천문서/S0').glob('*'))+list((ROOT/'ERP').glob('*.csv'))
  student += list((ROOT/'ERP/lessons').glob('*.json'))
  student += [ROOT/'README_실행환경.md']

@@ -721,13 +721,99 @@
         "title": "합격할 조건과 잘못될 가능성을 나누어 생각하기",
         "stage": "S1",
         "body": "정유나는 시험을 준비하려고 하고 이현우는 외주 모듈이 계획대로 연결될지 걱정합니다. 둘 다 좋은 결과를 원하지만 PM에게 던지는 질문은 다릅니다. QA의 질문은 “어떤 증거가 있어야 맞게 만들었다고 할 수 있나요?”이고, 개발책임자의 질문은 “아직 생기지 않은 어떤 사건이 계획을 흔들 수 있나요?”입니다. 첫 질문은 품질의 기준을, 두 번째 질문은 리스크의 관리 방법을 요구합니다.\n\n품질계획은 기대결과와 확인 방법을 미리 정하는 일입니다. 품질 관리는 그 결과를 만들 절차가 작동하는지 점검하고 개선하는 일이며, 품질 통제는 실제 산출물을 검사하는 일입니다. 요구와 시험이 연결됐는지 매주 점검하는 것은 절차 관리이고, 지정 거래를 처리해 기대결과와 대조하는 것은 검사입니다. 계획을 적은 날에 실제 시험을 통과했다고 쓰지 않습니다.\n\n| 지금 묻는 질문 | 남길 문서 | 이 사례에서 확인할 내용 |\n|---|---|---|\n| 어떤 조건을 충족해야 하는가 | D18 품질계획·지표 | 요구별 합격조건·시험 방법·확인 담당 |\n| 어떤 불확실 사건을 대비하는가 | D25 리스크등록부 | 인터페이스 불일치·환경 지연의 원인과 영향 |\n| 실제 문제가 이미 생겼는가 | 실행 시 D03·D20 | 발생 사실·영향·조치·재확인 증거 |\n\n여기서 “불일치”라는 단어에 주의하세요. 거래 원천과 수신액 사이에 차이가 있다는 사실은 대사 기능이 찾아야 할 업무 대상일 수 있습니다. 기능이 그 차이를 놓치거나 잘못 분류하면 제품 결함입니다. 위험은 아직 발생하지 않은 사건이므로 이미 발견한 결함을 계속 미래 위험처럼 적어 두어서도 안 됩니다. 현재 상태를 구분해야 누구에게 어떤 조치를 요청할지 정할 수 있습니다.",
-        "html": "<p>정유나는 시험을 준비하려고 하고 이현우는 외주 모듈이 계획대로 연결될지 걱정합니다. 둘 다 좋은 결과를 원하지만 PM에게 던지는 질문은 다릅니다. QA의 질문은 “어떤 증거가 있어야 맞게 만들었다고 할 수 있나요?”이고, 개발책임자의 질문은 “아직 생기지 않은 어떤 사건이 계획을 흔들 수 있나요?”입니다. 첫 질문은 품질의 기준을, 두 번째 질문은 리스크의 관리 방법을 요구합니다.</p>\n<p>품질계획은 기대결과와 확인 방법을 미리 정하는 일입니다. 품질 관리는 그 결과를 만들 절차가 작동하는지 점검하고 개선하는 일이며, 품질 통제는 실제 산출물을 검사하는 일입니다. 요구와 시험이 연결됐는지 매주 점검하는 것은 절차 관리이고, 지정 거래를 처리해 기대결과와 대조하는 것은 검사입니다. 계획을 적은 날에 실제 시험을 통과했다고 쓰지 않습니다.</p>\n<div class=\"reading-table\"><table><tr><th>지금 묻는 질문</th><th>남길 문서</th><th>이 사례에서 확인할 내용</th></tr><tr><td>어떤 조건을 충족해야 하는가</td><td>D18 품질계획·지표</td><td>요구별 합격조건·시험 방법·확인 담당</td></tr><tr><td>어떤 불확실 사건을 대비하는가</td><td>D25 리스크등록부</td><td>인터페이스 불일치·환경 지연의 원인과 영향</td></tr><tr><td>실제 문제가 이미 생겼는가</td><td>실행 시 D03·D20</td><td>발생 사실·영향·조치·재확인 증거</td></tr></table></div>\n<p>여기서 “불일치”라는 단어에 주의하세요. 거래 원천과 수신액 사이에 차이가 있다는 사실은 대사 기능이 찾아야 할 업무 대상일 수 있습니다. 기능이 그 차이를 놓치거나 잘못 분류하면 제품 결함입니다. 위험은 아직 발생하지 않은 사건이므로 이미 발견한 결함을 계속 미래 위험처럼 적어 두어서도 안 됩니다. 현재 상태를 구분해야 누구에게 어떤 조치를 요청할지 정할 수 있습니다.</p>"
+        "figures": [
+          {
+            "id": "u5-quality",
+            "section": "u05-01",
+            "after": "계획을 적은 날에 실제 시험을 통과했다고 쓰지 않습니다.",
+            "stage": "S1",
+            "title": "절차 점검과 제품 검사는 다릅니다",
+            "lead": "품질계획에서 두 갈래의 확인을 설계합니다. 현업 인수에는 실제 결과를 검사한 증거가 필요합니다.",
+            "caption": "요구와 시험의 연결을 점검했다고 제품이 합격한 것은 아닙니다. 이 그림은 앞으로 수행할 확인 절차이며, S1에서는 시험 통과 수나 현업 인수 결과를 채우지 않습니다.",
+            "question": "D18의 한 요구를 골라, 절차가 작동하는지 보는 항목과 실제 결과를 검사하는 항목을 각각 적어 보세요. 검사 증거는 누구에게 넘기나요?",
+            "sources": [
+              "S02",
+              "S07",
+              "S18"
+            ],
+            "kind": "compare",
+            "nodes": [
+              {
+                "id": "q-plan",
+                "title": "품질계획 · D18",
+                "lines": [
+                  "무엇을 합격으로 볼까?",
+                  "기준·방법·담당·증거"
+                ],
+                "role": "work"
+              },
+              {
+                "id": "q-process",
+                "title": "절차 점검 · D19",
+                "lines": [
+                  "요구–설계–시험 연결 확인",
+                  "좋은 결과를 만드는 과정 점검"
+                ],
+                "role": "work"
+              },
+              {
+                "id": "q-test",
+                "title": "제품 검사 · D20",
+                "lines": [
+                  "기대결과와 실제결과 대조",
+                  "정유나가 시험 증거 확인"
+                ],
+                "role": "evidence"
+              },
+              {
+                "id": "q-accept",
+                "title": "현업 인수 · D12",
+                "lines": [
+                  "박다은이 수용 여부 판단",
+                  "검증과 인수 권한을 구분"
+                ],
+                "role": "decision"
+              }
+            ],
+            "edges": [
+              {
+                "from": "q-plan",
+                "to": "q-process",
+                "label": "만드는 과정"
+              },
+              {
+                "from": "q-plan",
+                "to": "q-test",
+                "label": "완성한 결과"
+              },
+              {
+                "from": "q-test",
+                "to": "q-accept",
+                "label": "검증 증거 인계"
+              }
+            ],
+            "rows": [
+              [
+                "q-plan"
+              ],
+              [
+                "q-process",
+                "q-test"
+              ],
+              [
+                "q-accept"
+              ]
+            ]
+          }
+        ],
+        "html": "<p>정유나는 시험을 준비하려고 하고 이현우는 외주 모듈이 계획대로 연결될지 걱정합니다. 둘 다 좋은 결과를 원하지만 PM에게 던지는 질문은 다릅니다. QA의 질문은 “어떤 증거가 있어야 맞게 만들었다고 할 수 있나요?”이고, 개발책임자의 질문은 “아직 생기지 않은 어떤 사건이 계획을 흔들 수 있나요?”입니다. 첫 질문은 품질의 기준을, 두 번째 질문은 리스크의 관리 방법을 요구합니다.</p>\n<p>품질계획은 기대결과와 확인 방법을 미리 정하는 일입니다. 품질 관리는 그 결과를 만들 절차가 작동하는지 점검하고 개선하는 일이며, 품질 통제는 실제 산출물을 검사하는 일입니다. 요구와 시험이 연결됐는지 매주 점검하는 것은 절차 관리이고, 지정 거래를 처리해 기대결과와 대조하는 것은 검사입니다. 계획을 적은 날에 실제 시험을 통과했다고 쓰지 않습니다.</p>\n<figure class=\"chapter-figure\" data-figure=\"u5-quality\" aria-labelledby=\"figure-u5-quality\"><h4 id=\"figure-u5-quality\">절차 점검과 제품 검사는 다릅니다</h4><p class=\"figure-lead\">품질계획에서 두 갈래의 확인을 설계합니다. 현업 인수에는 실제 결과를 검사한 증거가 필요합니다.</p><div class=\"figure-desktop\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 840 641\" role=\"img\" aria-labelledby=\"u5-quality-title u5-quality-desc\" lang=\"ko\"><title id=\"u5-quality-title\">절차 점검과 제품 검사는 다릅니다</title><desc id=\"u5-quality-desc\">품질계획 · D18：무엇을 합격으로 볼까?、기준·방법·담당·증거。 절차 점검 · D19：요구–설계–시험 연결 확인、좋은 결과를 만드는 과정 점검。 제품 검사 · D20：기대결과와 실제결과 대조、정유나가 시험 증거 확인。 현업 인수 · D12：박다은이 수용 여부 판단、검증과 인수 권한을 구분。품질계획 · D18 → 절차 점검 · D19：만드는 과정。 품질계획 · D18 → 제품 검사 · D20：완성한 결과。 제품 검사 · D20 → 현업 인수 · D12：검증 증거 인계。</desc><defs><marker id=\"u5-quality-arrow\" markerWidth=\"7\" markerHeight=\"7\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6\" fill=\"#53627a\"/></marker></defs><polyline points=\"420.0,175 420.0,221.0 248.0,221.0 248.0,267\" fill=\"none\" stroke=\"#53627a\" stroke-width=\"1.7\" marker-end=\"url(#u5-quality-arrow)\"/><polyline points=\"420.0,175 420.0,221.0 592.0,221.0 592.0,267\" fill=\"none\" stroke=\"#53627a\" stroke-width=\"1.7\" marker-end=\"url(#u5-quality-arrow)\"/><polyline points=\"592.0,386 592.0,432.0 420.0,432.0 420.0,478\" fill=\"none\" stroke=\"#53627a\" stroke-width=\"1.7\" marker-end=\"url(#u5-quality-arrow)\"/><rect x=\"270.0\" y=\"56\" width=\"300\" height=\"119\" rx=\"4\" fill=\"#fffefb\" stroke=\"#64728a\" stroke-width=\"1.5\"/><text x=\"286.0\" y=\"87\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"start\" fill=\"#26334d\">품질계획 · D18</text><text x=\"286.0\" y=\"122\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">무엇을 합격으로 볼까?</text><text x=\"286.0\" y=\"147\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">기준·방법·담당·증거</text><rect x=\"98.0\" y=\"267\" width=\"300\" height=\"119\" rx=\"4\" fill=\"#fffefb\" stroke=\"#64728a\" stroke-width=\"1.5\"/><text x=\"114.0\" y=\"298\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"start\" fill=\"#26334d\">절차 점검 · D19</text><text x=\"114.0\" y=\"333\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">요구–설계–시험 연결 확인</text><text x=\"114.0\" y=\"358\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">좋은 결과를 만드는 과정 점검</text><rect x=\"442.0\" y=\"267\" width=\"300\" height=\"119\" rx=\"4\" fill=\"#edf2fa\" stroke=\"#355d9e\" stroke-width=\"1.5\"/><text x=\"458.0\" y=\"298\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"start\" fill=\"#26334d\">제품 검사 · D20</text><text x=\"458.0\" y=\"333\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">기대결과와 실제결과 대조</text><text x=\"458.0\" y=\"358\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">정유나가 시험 증거 확인</text><rect x=\"270.0\" y=\"478\" width=\"300\" height=\"119\" rx=\"4\" fill=\"#fbf0df\" stroke=\"#916323\" stroke-width=\"1.5\"/><text x=\"286.0\" y=\"509\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"start\" fill=\"#26334d\">현업 인수 · D12</text><text x=\"286.0\" y=\"544\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">박다은이 수용 여부 판단</text><text x=\"286.0\" y=\"569\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">검증과 인수 권한을 구분</text><rect x=\"200.075\" y=\"194.0\" width=\"95.85\" height=\"21\" fill=\"#fffefb\"/><text x=\"248.0\" y=\"210.0\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"15\" font-weight=\"normal\" text-anchor=\"middle\" fill=\"#53627a\">만드는 과정</text><rect x=\"544.075\" y=\"194.0\" width=\"95.85\" height=\"21\" fill=\"#fffefb\"/><text x=\"592.0\" y=\"210.0\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"15\" font-weight=\"normal\" text-anchor=\"middle\" fill=\"#53627a\">완성한 결과</text><rect x=\"360.15\" y=\"405.0\" width=\"119.69999999999999\" height=\"21\" fill=\"#fffefb\"/><text x=\"420.0\" y=\"421.0\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"15\" font-weight=\"normal\" text-anchor=\"middle\" fill=\"#53627a\">검증 증거 인계</text></svg></div><div class=\"figure-mobile\"><div class=\"figure-node figure-node-work\"><strong>품질계획 · D18</strong><div>무엇을 합격으로 볼까?<br>기준·방법·담당·증거</div><ul class=\"figure-connections\"><li>→ 절차 점검 · D19 <span>(만드는 과정)</span></li><li>→ 제품 검사 · D20 <span>(완성한 결과)</span></li></ul></div><div class=\"figure-node figure-node-work\"><strong>절차 점검 · D19</strong><div>요구–설계–시험 연결 확인<br>좋은 결과를 만드는 과정 점검</div></div><div class=\"figure-node figure-node-evidence\"><strong>제품 검사 · D20</strong><div>기대결과와 실제결과 대조<br>정유나가 시험 증거 확인</div><ul class=\"figure-connections\"><li>→ 현업 인수 · D12 <span>(검증 증거 인계)</span></li></ul></div><div class=\"figure-node figure-node-decision\"><strong>현업 인수 · D12</strong><div>박다은이 수용 여부 판단<br>검증과 인수 권한을 구분</div></div></div><figcaption><p>요구와 시험의 연결을 점검했다고 제품이 합격한 것은 아닙니다. 이 그림은 앞으로 수행할 확인 절차이며, S1에서는 시험 통과 수나 현업 인수 결과를 채우지 않습니다.</p><p class=\"figure-question\"><strong>내 문서에서 확인하기</strong><br>D18의 한 요구를 골라, 절차가 작동하는지 보는 항목과 실제 결과를 검사하는 항목을 각각 적어 보세요. 검사 증거는 누구에게 넘기나요?</p><p class=\"figure-source\">근거: S02 · S07 · S18 · S1 자료를 설명한 교육용 도식</p></figcaption></figure>\n<div class=\"reading-table\"><table><tr><th>지금 묻는 질문</th><th>남길 문서</th><th>이 사례에서 확인할 내용</th></tr><tr><td>어떤 조건을 충족해야 하는가</td><td>D18 품질계획·지표</td><td>요구별 합격조건·시험 방법·확인 담당</td></tr><tr><td>어떤 불확실 사건을 대비하는가</td><td>D25 리스크등록부</td><td>인터페이스 불일치·환경 지연의 원인과 영향</td></tr><tr><td>실제 문제가 이미 생겼는가</td><td>실행 시 D03·D20</td><td>발생 사실·영향·조치·재확인 증거</td></tr></table></div>\n<p>여기서 “불일치”라는 단어에 주의하세요. 거래 원천과 수신액 사이에 차이가 있다는 사실은 대사 기능이 찾아야 할 업무 대상일 수 있습니다. 기능이 그 차이를 놓치거나 잘못 분류하면 제품 결함입니다. 위험은 아직 발생하지 않은 사건이므로 이미 발견한 결함을 계속 미래 위험처럼 적어 두어서도 안 됩니다. 현재 상태를 구분해야 누구에게 어떤 조치를 요청할지 정할 수 있습니다.</p>"
       },
       {
         "id": "u05-02",
         "title": "요구·시험 설계·위험 원문을 순서대로 읽기",
         "stage": "S1",
         "body": "먼저 자신의 D09에서 요구 ID와 인수조건을 읽고, D10의 포함·제외 범위를 확인합니다. 그런 다음 자료조회에서 문서 S03, S18, S07, S19를 차례로 찾으세요. S03은 필요한 결과를, S18은 시험을 어떻게 설계할지, S07은 품질 기준과 위험 수치를, S19는 대응과 예비비를 운영할 조건을 제공합니다. 자료 하나만 보고 품질계획과 위험계획을 모두 채우려고 하지 않습니다.\n\n| 읽을 위치 | 밑줄 그을 사실 | 내 문서에 옮길 위치 |\n|---|---|---|\n| S18의 T04·T05 설계 | 허용·차단 기대결과, 운영자의 독립 수행 | D18 측정대상·방법·증거 |\n| S07의 K01·K02 문단 | 확률, 비용·일정 영향, 책임자 | D25 최초 평가와 D26 계산 입력 |\n| S07의 정성 척도 문단 | 실제 확률×영향등급, 동점 처리 | D24 평가 규칙 |\n| S19의 리스크 운영 문단 | 예방조치 포함 비용, 사용·재평가 절차 | D25 대응과 D17 예비비 검토 |\n\nERP에서 요구추적을 열면 요구와 WBS의 연결을 확인할 수 있습니다. 거래 대사의 불일치 행은 검사에 사용할 표본의 성격을 이해하는 데 도움이 됩니다. 그러나 계획 시점에는 새 제품의 최종 시험 결과가 아직 없습니다. 조회 결과가 없다는 이유로 시험을 생략하지 말고, 앞으로 만들어야 할 증거의 종류를 D18에 적습니다.\n\n자료를 읽으며 “확인된 사실”과 “내가 정해야 할 판단”을 구분하세요. K01의 최초 확률은 제공된 사실입니다. 어느 위험부터 점검할지, 어떤 잔여 노출을 보고할지는 회사의 평가 규칙을 적용한 판단입니다. 판단 옆에는 S07의 문단과 계산식을 남겨 다른 사람이 재현할 수 있게 합니다. S19의 예방조치 성공 여부는 현재 미확정이므로 잔여 확률을 미리 낮춰 적지 않습니다.",
+        "figures": [],
         "html": "<p>먼저 자신의 D09에서 요구 ID와 인수조건을 읽고, D10의 포함·제외 범위를 확인합니다. 그런 다음 자료조회에서 문서 S03, S18, S07, S19를 차례로 찾으세요. S03은 필요한 결과를, S18은 시험을 어떻게 설계할지, S07은 품질 기준과 위험 수치를, S19는 대응과 예비비를 운영할 조건을 제공합니다. 자료 하나만 보고 품질계획과 위험계획을 모두 채우려고 하지 않습니다.</p>\n<div class=\"reading-table\"><table><tr><th>읽을 위치</th><th>밑줄 그을 사실</th><th>내 문서에 옮길 위치</th></tr><tr><td>S18의 T04·T05 설계</td><td>허용·차단 기대결과, 운영자의 독립 수행</td><td>D18 측정대상·방법·증거</td></tr><tr><td>S07의 K01·K02 문단</td><td>확률, 비용·일정 영향, 책임자</td><td>D25 최초 평가와 D26 계산 입력</td></tr><tr><td>S07의 정성 척도 문단</td><td>실제 확률×영향등급, 동점 처리</td><td>D24 평가 규칙</td></tr><tr><td>S19의 리스크 운영 문단</td><td>예방조치 포함 비용, 사용·재평가 절차</td><td>D25 대응과 D17 예비비 검토</td></tr></table></div>\n<p>ERP에서 요구추적을 열면 요구와 WBS의 연결을 확인할 수 있습니다. 거래 대사의 불일치 행은 검사에 사용할 표본의 성격을 이해하는 데 도움이 됩니다. 그러나 계획 시점에는 새 제품의 최종 시험 결과가 아직 없습니다. 조회 결과가 없다는 이유로 시험을 생략하지 말고, 앞으로 만들어야 할 증거의 종류를 D18에 적습니다.</p>\n<p>자료를 읽으며 “확인된 사실”과 “내가 정해야 할 판단”을 구분하세요. K01의 최초 확률은 제공된 사실입니다. 어느 위험부터 점검할지, 어떤 잔여 노출을 보고할지는 회사의 평가 규칙을 적용한 판단입니다. 판단 옆에는 S07의 문단과 계산식을 남겨 다른 사람이 재현할 수 있게 합니다. S19의 예방조치 성공 여부는 현재 미확정이므로 잔여 확률을 미리 낮춰 적지 않습니다.</p>"
       },
       {
@@ -735,13 +821,136 @@
         "title": "K01 한 항목을 원문에서 관리 가능한 기록으로 바꾸기",
         "stage": "S1",
         "body": "부분 예제로 K01을 작성해 봅니다. S07의 “외주 인터페이스 불일치”를 D25 제목에 옮긴 뒤, 무엇을 관찰하고 누가 대응하는지 덧붙입니다. “외주 때문에 일정이 늦어질 수 있다”만 쓰면 발생 여부를 판단하기 어렵습니다. 인터페이스 표본검증에서 필드·단위·형식이 맞는지 확인한다는 관찰 대상까지 연결해야 실행 담당자가 움직일 수 있습니다.\n\n| K01의 한 항목 | 부분 작성 예시 | 근거 또는 주의 |\n|---|---|---|\n| 불확실 사건 | 외주 인터페이스가 내부 연계 조건과 불일치할 가능성 | S07, 아직 발생 확정 아님 |\n| 최초 평가 | 확률 0.30, 비용영향 10백만원, 일정영향 5일 | 단위와 최초 평가 시점을 보존 |\n| 정성 계산 | 0.30×중 등급 2=0.60 | 우선순위 점수이며 금액 아님 |\n| 대응·책임 | 구현 전 표본검증, 이현우 책임 | 기존 설계 예산에 포함, S19 확인 |\n\n이 위험의 기대금액은 확률에 비용영향을 곱해서 해석합니다. 영향등급 2를 비용 2백만원처럼 사용하면 안 됩니다. D26의 전체 분석에서는 두 위험이 독립이라는 S07의 가정을 먼저 씁니다. “둘 다 미발생”, “K01만”, “K02만”, “동시 발생”은 서로 겹치지 않는 네 경우입니다. 한 위험만 발생하는 경우에는 다른 위험이 발생하지 않을 확률도 곱해야 합니다.\n\n계산 결과를 적기 전에 네 경우의 확률 합이 1인지 확인하세요. 기대손실은 가능한 손실의 가중평균이지 실제로 반드시 나갈 돈이 아닙니다. 손실이 예비비 이하인 경우의 확률을 따로 더하면 “평균보다 예비비가 큰가”와 “어떤 경우까지 감당하는가”가 다른 질문임을 알 수 있습니다. 여기서는 K01 기록만 예로 보였으므로 K02의 등급·정성 순위와 네 경우의 실제 계산은 직접 완성합니다.",
-        "html": "<p>부분 예제로 K01을 작성해 봅니다. S07의 “외주 인터페이스 불일치”를 D25 제목에 옮긴 뒤, 무엇을 관찰하고 누가 대응하는지 덧붙입니다. “외주 때문에 일정이 늦어질 수 있다”만 쓰면 발생 여부를 판단하기 어렵습니다. 인터페이스 표본검증에서 필드·단위·형식이 맞는지 확인한다는 관찰 대상까지 연결해야 실행 담당자가 움직일 수 있습니다.</p>\n<div class=\"reading-table\"><table><tr><th>K01의 한 항목</th><th>부분 작성 예시</th><th>근거 또는 주의</th></tr><tr><td>불확실 사건</td><td>외주 인터페이스가 내부 연계 조건과 불일치할 가능성</td><td>S07, 아직 발생 확정 아님</td></tr><tr><td>최초 평가</td><td>확률 0.30, 비용영향 10백만원, 일정영향 5일</td><td>단위와 최초 평가 시점을 보존</td></tr><tr><td>정성 계산</td><td>0.30×중 등급 2=0.60</td><td>우선순위 점수이며 금액 아님</td></tr><tr><td>대응·책임</td><td>구현 전 표본검증, 이현우 책임</td><td>기존 설계 예산에 포함, S19 확인</td></tr></table></div>\n<p>이 위험의 기대금액은 확률에 비용영향을 곱해서 해석합니다. 영향등급 2를 비용 2백만원처럼 사용하면 안 됩니다. D26의 전체 분석에서는 두 위험이 독립이라는 S07의 가정을 먼저 씁니다. “둘 다 미발생”, “K01만”, “K02만”, “동시 발생”은 서로 겹치지 않는 네 경우입니다. 한 위험만 발생하는 경우에는 다른 위험이 발생하지 않을 확률도 곱해야 합니다.</p>\n<p>계산 결과를 적기 전에 네 경우의 확률 합이 1인지 확인하세요. 기대손실은 가능한 손실의 가중평균이지 실제로 반드시 나갈 돈이 아닙니다. 손실이 예비비 이하인 경우의 확률을 따로 더하면 “평균보다 예비비가 큰가”와 “어떤 경우까지 감당하는가”가 다른 질문임을 알 수 있습니다. 여기서는 K01 기록만 예로 보였으므로 K02의 등급·정성 순위와 네 경우의 실제 계산은 직접 완성합니다.</p>"
+        "figures": [
+          {
+            "id": "u5-risk",
+            "section": "u05-03",
+            "after": "한 위험만 발생하는 경우에는 다른 위험이 발생하지 않을 확률도 곱해야 합니다.",
+            "stage": "S1",
+            "title": "위험 분석을 대응 업무로 연결하기",
+            "lead": "같은 위험을 우선순위와 손실 규모라는 두 질문으로 분석한 뒤, 실제 담당자가 수행할 조치로 바꿉니다.",
+            "caption": "정성 점수와 기대손실은 단위가 다릅니다. S07의 독립 가정으로 네 경우를 계산하되 평균이 모든 손실을 보장하지는 않습니다. 실행 후 재평가하며, 이미 발생한 사건은 이슈로 기록합니다.",
+            "question": "D25의 K02에서 정성 순위의 근거와 D26의 금액 분석을 나누어 쓰세요. 그 판단이 D14·D17의 어느 항목을 다시 보게 하나요?",
+            "sources": [
+              "S07",
+              "S19"
+            ],
+            "kind": "network",
+            "nodes": [
+              {
+                "id": "r-event",
+                "title": "위험 식별 · D25",
+                "lines": [
+                  "원인 → 불확실 사건 → 영향",
+                  "확률·영향·책임을 기록"
+                ],
+                "role": "evidence"
+              },
+              {
+                "id": "r-rank",
+                "title": "정성 분석",
+                "lines": [
+                  "확률 × 영향등급",
+                  "먼저 점검할 순위 결정"
+                ],
+                "role": "decision"
+              },
+              {
+                "id": "r-amount",
+                "title": "정량 분석 · D26",
+                "lines": [
+                  "독립 가정의 네 경우",
+                  "확률 × 손실 금액을 합산",
+                  "평균과 최대손실을 구분"
+                ],
+                "role": "work"
+              },
+              {
+                "id": "r-response",
+                "title": "대응 계획",
+                "lines": [
+                  "책임·발생 신호·예방조치",
+                  "일정·예산 반영 여부 검토"
+                ],
+                "role": "work"
+              },
+              {
+                "id": "r-monitor",
+                "title": "실행 후 재평가",
+                "lines": [
+                  "실행 증거로 잔여 위험 확인",
+                  "최초 평가도 함께 보존"
+                ],
+                "role": "work"
+              },
+              {
+                "id": "r-issue",
+                "title": "발생한 사건은 이슈",
+                "lines": [
+                  "발생 사실·영향·조치",
+                  "D03에서 담당·기한 추적"
+                ],
+                "role": "result"
+              }
+            ],
+            "edges": [
+              {
+                "from": "r-event",
+                "to": "r-rank",
+                "label": "무엇부터 볼까"
+              },
+              {
+                "from": "r-event",
+                "to": "r-amount",
+                "label": "노출은 얼마일까"
+              },
+              {
+                "from": "r-rank",
+                "to": "r-response",
+                "label": "우선순위"
+              },
+              {
+                "from": "r-amount",
+                "to": "r-response",
+                "label": "예비비 근거"
+              },
+              {
+                "from": "r-response",
+                "to": "r-monitor",
+                "label": "실행 증거 수신 후"
+              },
+              {
+                "from": "r-monitor",
+                "to": "r-issue",
+                "label": "발생이 확인되면"
+              }
+            ],
+            "rows": [
+              [
+                "r-event"
+              ],
+              [
+                "r-rank",
+                "r-amount"
+              ],
+              [
+                "r-response"
+              ],
+              [
+                "r-monitor",
+                "r-issue"
+              ]
+            ]
+          }
+        ],
+        "html": "<p>부분 예제로 K01을 작성해 봅니다. S07의 “외주 인터페이스 불일치”를 D25 제목에 옮긴 뒤, 무엇을 관찰하고 누가 대응하는지 덧붙입니다. “외주 때문에 일정이 늦어질 수 있다”만 쓰면 발생 여부를 판단하기 어렵습니다. 인터페이스 표본검증에서 필드·단위·형식이 맞는지 확인한다는 관찰 대상까지 연결해야 실행 담당자가 움직일 수 있습니다.</p>\n<div class=\"reading-table\"><table><tr><th>K01의 한 항목</th><th>부분 작성 예시</th><th>근거 또는 주의</th></tr><tr><td>불확실 사건</td><td>외주 인터페이스가 내부 연계 조건과 불일치할 가능성</td><td>S07, 아직 발생 확정 아님</td></tr><tr><td>최초 평가</td><td>확률 0.30, 비용영향 10백만원, 일정영향 5일</td><td>단위와 최초 평가 시점을 보존</td></tr><tr><td>정성 계산</td><td>0.30×중 등급 2=0.60</td><td>우선순위 점수이며 금액 아님</td></tr><tr><td>대응·책임</td><td>구현 전 표본검증, 이현우 책임</td><td>기존 설계 예산에 포함, S19 확인</td></tr></table></div>\n<p>이 위험의 기대금액은 확률에 비용영향을 곱해서 해석합니다. 영향등급 2를 비용 2백만원처럼 사용하면 안 됩니다. D26의 전체 분석에서는 두 위험이 독립이라는 S07의 가정을 먼저 씁니다. “둘 다 미발생”, “K01만”, “K02만”, “동시 발생”은 서로 겹치지 않는 네 경우입니다. 한 위험만 발생하는 경우에는 다른 위험이 발생하지 않을 확률도 곱해야 합니다.</p>\n<figure class=\"chapter-figure\" data-figure=\"u5-risk\" aria-labelledby=\"figure-u5-risk\"><h4 id=\"figure-u5-risk\">위험 분석을 대응 업무로 연결하기</h4><p class=\"figure-lead\">같은 위험을 우선순위와 손실 규모라는 두 질문으로 분석한 뒤, 실제 담당자가 수행할 조치로 바꿉니다.</p><div class=\"figure-desktop\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 840 921\" role=\"img\" aria-labelledby=\"u5-risk-title u5-risk-desc\" lang=\"ko\"><title id=\"u5-risk-title\">위험 분석을 대응 업무로 연결하기</title><desc id=\"u5-risk-desc\">위험 식별 · D25：원인 → 불확실 사건 → 영향、확률·영향·책임을 기록。 정성 분석：확률 × 영향등급、먼저 점검할 순위 결정。 정량 분석 · D26：독립 가정의 네 경우、확률 × 손실 금액을 합산、평균과 최대손실을 구분。 대응 계획：책임·발생 신호·예방조치、일정·예산 반영 여부 검토。 실행 후 재평가：실행 증거로 잔여 위험 확인、최초 평가도 함께 보존。 발생한 사건은 이슈：발생 사실·영향·조치、D03에서 담당·기한 추적。위험 식별 · D25 → 정성 분석：무엇부터 볼까。 위험 식별 · D25 → 정량 분석 · D26：노출은 얼마일까。 정성 분석 → 대응 계획：우선순위。 정량 분석 · D26 → 대응 계획：예비비 근거。 대응 계획 → 실행 후 재평가：실행 증거 수신 후。 실행 후 재평가 → 발생한 사건은 이슈：발생이 확인되면。</desc><defs><marker id=\"u5-risk-arrow\" markerWidth=\"7\" markerHeight=\"7\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6\" fill=\"#53627a\"/></marker></defs><polyline points=\"420.0,175 420.0,221.0 248.0,221.0 248.0,267\" fill=\"none\" stroke=\"#53627a\" stroke-width=\"1.7\" marker-end=\"url(#u5-risk-arrow)\"/><polyline points=\"420.0,175 420.0,221.0 592.0,221.0 592.0,267\" fill=\"none\" stroke=\"#53627a\" stroke-width=\"1.7\" marker-end=\"url(#u5-risk-arrow)\"/><polyline points=\"248.0,411 248.0,457.0 420.0,457.0 420.0,503\" fill=\"none\" stroke=\"#53627a\" stroke-width=\"1.7\" marker-end=\"url(#u5-risk-arrow)\"/><polyline points=\"592.0,411 592.0,457.0 420.0,457.0 420.0,503\" fill=\"none\" stroke=\"#53627a\" stroke-width=\"1.7\" marker-end=\"url(#u5-risk-arrow)\"/><polyline points=\"420.0,622 420.0,690.0 248.0,690.0 248.0,758\" fill=\"none\" stroke=\"#53627a\" stroke-width=\"1.7\" marker-end=\"url(#u5-risk-arrow)\"/><polyline points=\"398.0,817.5 442.0,817.5\" fill=\"none\" stroke=\"#53627a\" stroke-width=\"1.7\" marker-end=\"url(#u5-risk-arrow)\"/><rect x=\"270.0\" y=\"56\" width=\"300\" height=\"119\" rx=\"4\" fill=\"#edf2fa\" stroke=\"#355d9e\" stroke-width=\"1.5\"/><text x=\"286.0\" y=\"87\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"start\" fill=\"#26334d\">위험 식별 · D25</text><text x=\"286.0\" y=\"122\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">원인 → 불확실 사건 → 영향</text><text x=\"286.0\" y=\"147\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">확률·영향·책임을 기록</text><rect x=\"98.0\" y=\"267\" width=\"300\" height=\"144\" rx=\"4\" fill=\"#fbf0df\" stroke=\"#916323\" stroke-width=\"1.5\"/><text x=\"114.0\" y=\"298\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"start\" fill=\"#26334d\">정성 분석</text><text x=\"114.0\" y=\"333\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">확률 × 영향등급</text><text x=\"114.0\" y=\"358\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">먼저 점검할 순위 결정</text><rect x=\"442.0\" y=\"267\" width=\"300\" height=\"144\" rx=\"4\" fill=\"#fffefb\" stroke=\"#64728a\" stroke-width=\"1.5\"/><text x=\"458.0\" y=\"298\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"start\" fill=\"#26334d\">정량 분석 · D26</text><text x=\"458.0\" y=\"333\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">독립 가정의 네 경우</text><text x=\"458.0\" y=\"358\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">확률 × 손실 금액을 합산</text><text x=\"458.0\" y=\"383\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">평균과 최대손실을 구분</text><rect x=\"270.0\" y=\"503\" width=\"300\" height=\"119\" rx=\"4\" fill=\"#fffefb\" stroke=\"#64728a\" stroke-width=\"1.5\"/><text x=\"286.0\" y=\"534\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"start\" fill=\"#26334d\">대응 계획</text><text x=\"286.0\" y=\"569\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">책임·발생 신호·예방조치</text><text x=\"286.0\" y=\"594\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">일정·예산 반영 여부 검토</text><rect x=\"98.0\" y=\"758\" width=\"300\" height=\"119\" rx=\"4\" fill=\"#fffefb\" stroke=\"#64728a\" stroke-width=\"1.5\"/><text x=\"114.0\" y=\"789\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"start\" fill=\"#26334d\">실행 후 재평가</text><text x=\"114.0\" y=\"824\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">실행 증거로 잔여 위험 확인</text><text x=\"114.0\" y=\"849\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">최초 평가도 함께 보존</text><rect x=\"442.0\" y=\"758\" width=\"300\" height=\"119\" rx=\"4\" fill=\"#eaf4ef\" stroke=\"#3f705e\" stroke-width=\"1.5\"/><text x=\"458.0\" y=\"789\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"start\" fill=\"#26334d\">발생한 사건은 이슈</text><text x=\"458.0\" y=\"824\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">발생 사실·영향·조치</text><text x=\"458.0\" y=\"849\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">D03에서 담당·기한 추적</text><rect x=\"192.575\" y=\"194.0\" width=\"110.85\" height=\"21\" fill=\"#fffefb\"/><text x=\"248.0\" y=\"210.0\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"15\" font-weight=\"normal\" text-anchor=\"middle\" fill=\"#53627a\">무엇부터 볼까</text><rect x=\"529.075\" y=\"194.0\" width=\"125.85\" height=\"21\" fill=\"#fffefb\"/><text x=\"592.0\" y=\"210.0\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"15\" font-weight=\"normal\" text-anchor=\"middle\" fill=\"#53627a\">노출은 얼마일까</text><rect x=\"212.0\" y=\"430.0\" width=\"72\" height=\"21\" fill=\"#fffefb\"/><text x=\"248.0\" y=\"446.0\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"15\" font-weight=\"normal\" text-anchor=\"middle\" fill=\"#53627a\">우선순위</text><rect x=\"544.075\" y=\"430.0\" width=\"95.85\" height=\"21\" fill=\"#fffefb\"/><text x=\"592.0\" y=\"446.0\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"15\" font-weight=\"normal\" text-anchor=\"middle\" fill=\"#53627a\">예비비 근거</text><rect x=\"176.22500000000002\" y=\"663.0\" width=\"143.54999999999998\" height=\"21\" fill=\"#fffefb\"/><text x=\"248.0\" y=\"679.0\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"15\" font-weight=\"normal\" text-anchor=\"middle\" fill=\"#53627a\">실행 증거 수신 후</text><rect x=\"357.075\" y=\"723\" width=\"125.85\" height=\"21\" fill=\"#fffefb\"/><text x=\"420.0\" y=\"739\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"15\" font-weight=\"normal\" text-anchor=\"middle\" fill=\"#53627a\">발생이 확인되면</text></svg></div><div class=\"figure-mobile\"><div class=\"figure-node figure-node-evidence\"><strong>위험 식별 · D25</strong><div>원인 → 불확실 사건 → 영향<br>확률·영향·책임을 기록</div><ul class=\"figure-connections\"><li>→ 정성 분석 <span>(무엇부터 볼까)</span></li><li>→ 정량 분석 · D26 <span>(노출은 얼마일까)</span></li></ul></div><div class=\"figure-node figure-node-decision\"><strong>정성 분석</strong><div>확률 × 영향등급<br>먼저 점검할 순위 결정</div><ul class=\"figure-connections\"><li>→ 대응 계획 <span>(우선순위)</span></li></ul></div><div class=\"figure-node figure-node-work\"><strong>정량 분석 · D26</strong><div>독립 가정의 네 경우<br>확률 × 손실 금액을 합산<br>평균과 최대손실을 구분</div><ul class=\"figure-connections\"><li>→ 대응 계획 <span>(예비비 근거)</span></li></ul></div><div class=\"figure-node figure-node-work\"><strong>대응 계획</strong><div>책임·발생 신호·예방조치<br>일정·예산 반영 여부 검토</div><ul class=\"figure-connections\"><li>→ 실행 후 재평가 <span>(실행 증거 수신 후)</span></li></ul></div><div class=\"figure-node figure-node-work\"><strong>실행 후 재평가</strong><div>실행 증거로 잔여 위험 확인<br>최초 평가도 함께 보존</div><ul class=\"figure-connections\"><li>→ 발생한 사건은 이슈 <span>(발생이 확인되면)</span></li></ul></div><div class=\"figure-node figure-node-result\"><strong>발생한 사건은 이슈</strong><div>발생 사실·영향·조치<br>D03에서 담당·기한 추적</div></div></div><figcaption><p>정성 점수와 기대손실은 단위가 다릅니다. S07의 독립 가정으로 네 경우를 계산하되 평균이 모든 손실을 보장하지는 않습니다. 실행 후 재평가하며, 이미 발생한 사건은 이슈로 기록합니다.</p><p class=\"figure-question\"><strong>내 문서에서 확인하기</strong><br>D25의 K02에서 정성 순위의 근거와 D26의 금액 분석을 나누어 쓰세요. 그 판단이 D14·D17의 어느 항목을 다시 보게 하나요?</p><p class=\"figure-source\">근거: S07 · S19 · S1 자료를 설명한 교육용 도식</p></figcaption></figure>\n<p>계산 결과를 적기 전에 네 경우의 확률 합이 1인지 확인하세요. 기대손실은 가능한 손실의 가중평균이지 실제로 반드시 나갈 돈이 아닙니다. 손실이 예비비 이하인 경우의 확률을 따로 더하면 “평균보다 예비비가 큰가”와 “어떤 경우까지 감당하는가”가 다른 질문임을 알 수 있습니다. 여기서는 K01 기록만 예로 보였으므로 K02의 등급·정성 순위와 네 경우의 실제 계산은 직접 완성합니다.</p>"
       },
       {
         "id": "u05-04",
         "title": "QA·개발·재무의 질문을 받아 초안을 검토하기",
         "stage": "S1",
         "body": "다음 대화는 원천자료의 새로운 회신이 아니라, S07·S18·S19를 적용하는 교육용 검토 상황 예시입니다. 자기 초안에서 같은 문제가 있는지 찾고, 없다면 어느 문장과 근거가 이미 충족하는지 답해 보세요. 검토 의견을 받았다는 이유만으로 모든 문장을 수정하거나 승인란에 이름을 넣지는 않습니다.\n\n| 검토 역할 | 교육용 질문 | 학생이 확인하고 답할 내용 |\n|---|---|---|\n| 정유나·QA | “예외가 없어야 합격인가요, 예외 정보를 갖춰야 합격인가요?” | D09의 R03와 D18의 측정 대상을 대조 |\n| 이현우·개발 | “대응 작업은 누가 수행하고 실패 신호를 어디에 남기나요?” | K01 책임·표본검증·이슈 전환 위치 |\n| 최민석·재무 | “예비비면 모든 손실을 감당한다는 근거가 있나요?” | 네 경우의 손실과 예비비 초과 가능성 |\n\nQA에게는 결과 수치만 답하지 말고 측정 방법을 보여 줍니다. R04의 권한 시험이라면 누가 어떤 접근을 시도하고 기대결과가 허용인지 차단인지, 변경로그에서 어떤 필드를 확인할지를 찾아야 합니다. 운영자가 교육에 참석했다는 기록은 R05의 독립 수행 증거를 대신하지 못합니다. D18에 시험 방법과 증거를 적고 D09의 요구 ID를 붙이세요.\n\n재무에게는 D26의 산식과 가정을 설명합니다. 정성 점수가 같은 위험은 S07의 일정 영향 규칙으로 우선순위를 정하되, 그것이 손실 총액을 바꾸는 계산은 아닙니다. 개발 담당자에게는 예방조치의 일정·공수가 기존 계획에 포함됐는지 질문합니다. 검토 기록에는 질문, 확인한 원천, 수정할 문서·항목, 후속 확인자를 남겨 다음 사람이 같은 질문을 반복하지 않게 합니다.",
+        "figures": [],
         "html": "<p>다음 대화는 원천자료의 새로운 회신이 아니라, S07·S18·S19를 적용하는 교육용 검토 상황 예시입니다. 자기 초안에서 같은 문제가 있는지 찾고, 없다면 어느 문장과 근거가 이미 충족하는지 답해 보세요. 검토 의견을 받았다는 이유만으로 모든 문장을 수정하거나 승인란에 이름을 넣지는 않습니다.</p>\n<div class=\"reading-table\"><table><tr><th>검토 역할</th><th>교육용 질문</th><th>학생이 확인하고 답할 내용</th></tr><tr><td>정유나·QA</td><td>“예외가 없어야 합격인가요, 예외 정보를 갖춰야 합격인가요?”</td><td>D09의 R03와 D18의 측정 대상을 대조</td></tr><tr><td>이현우·개발</td><td>“대응 작업은 누가 수행하고 실패 신호를 어디에 남기나요?”</td><td>K01 책임·표본검증·이슈 전환 위치</td></tr><tr><td>최민석·재무</td><td>“예비비면 모든 손실을 감당한다는 근거가 있나요?”</td><td>네 경우의 손실과 예비비 초과 가능성</td></tr></table></div>\n<p>QA에게는 결과 수치만 답하지 말고 측정 방법을 보여 줍니다. R04의 권한 시험이라면 누가 어떤 접근을 시도하고 기대결과가 허용인지 차단인지, 변경로그에서 어떤 필드를 확인할지를 찾아야 합니다. 운영자가 교육에 참석했다는 기록은 R05의 독립 수행 증거를 대신하지 못합니다. D18에 시험 방법과 증거를 적고 D09의 요구 ID를 붙이세요.</p>\n<p>재무에게는 D26의 산식과 가정을 설명합니다. 정성 점수가 같은 위험은 S07의 일정 영향 규칙으로 우선순위를 정하되, 그것이 손실 총액을 바꾸는 계산은 아닙니다. 개발 담당자에게는 예방조치의 일정·공수가 기존 계획에 포함됐는지 질문합니다. 검토 기록에는 질문, 확인한 원천, 수정할 문서·항목, 후속 확인자를 남겨 다음 사람이 같은 질문을 반복하지 않게 합니다.</p>"
       },
       {
@@ -749,6 +958,7 @@
         "title": "예비비와 예방조치에 대한 과도한 확신을 수정하기",
         "stage": "S1",
         "body": "검토를 마쳤다면 수정 전후를 나란히 남깁니다. 단순히 단어를 다듬는 것이 아니라 무엇을 사실로 알고 무엇을 아직 판단하지 못했는지 문장의 상태를 바꾸는 작업입니다. 계획 단계에서 위험을 분석했다는 사실은 대응이 성공했다는 사실과 다릅니다. PM은 발생 신호와 확인 시점을 정할 수 있지만 아직 없는 실행 결과를 만들어서는 안 됩니다.\n\n| 수정 전 문장 | 수정 방향 | 함께 갱신할 곳 |\n|---|---|---|\n| “예비비가 기대손실보다 크므로 모든 위험을 감당한다.” | 평균과 개별 시나리오를 나누고 초과 가능한 경우를 설명 | D26 판단, D17 예비비 근거 |\n| “예방조치를 계획했으므로 위험을 종료한다.” | 최초 위험을 유지하고 실행 증거 수신 후 재평가 | D25 상태·재평가 계획 |\n| “예비비는 PM이 필요할 때 자유롭게 전용한다.” | 위험 ID·금액·잔여액 확인과 승인 경로를 명시 | D24 운영 규칙, D16 원가 규칙 |\n\nS19에서 예방조치의 공수는 기존 설계·QA 업무에 포함됩니다. 별도 비용으로 다시 더하기 전에 D15의 포함 범위를 대조해야 합니다. 우발예비비 사용 시에는 PM과 재무가 위험 ID·사용액·잔여액을 확인하고, 기준선 변경이 필요하면 스폰서 승인을 받습니다. 관리예비비 전용도 스폰서 승인 후 기준선에 반영하는 일입니다. 위험 책임자가 있다는 사실만으로 그 사람이 예산 변경권한까지 갖지는 않습니다.\n\n수정한 D18은 정유나와 해당 요구 책임자가 시험 가능성을 확인하고, D25·D26은 기술·재무 조건과 맞춰 검토합니다. 이 검토는 아직 통합 기준선 승인이 아닙니다. S1에서는 “검토 반영본”으로 보관하고 승인 상태를 구분합니다. 이후 실행 중 실제 결함이나 위험 사건이 발생하면 원래 평가를 지우지 않고 발생 사실과 조치 이력을 추가합니다.",
+        "figures": [],
         "html": "<p>검토를 마쳤다면 수정 전후를 나란히 남깁니다. 단순히 단어를 다듬는 것이 아니라 무엇을 사실로 알고 무엇을 아직 판단하지 못했는지 문장의 상태를 바꾸는 작업입니다. 계획 단계에서 위험을 분석했다는 사실은 대응이 성공했다는 사실과 다릅니다. PM은 발생 신호와 확인 시점을 정할 수 있지만 아직 없는 실행 결과를 만들어서는 안 됩니다.</p>\n<div class=\"reading-table\"><table><tr><th>수정 전 문장</th><th>수정 방향</th><th>함께 갱신할 곳</th></tr><tr><td>“예비비가 기대손실보다 크므로 모든 위험을 감당한다.”</td><td>평균과 개별 시나리오를 나누고 초과 가능한 경우를 설명</td><td>D26 판단, D17 예비비 근거</td></tr><tr><td>“예방조치를 계획했으므로 위험을 종료한다.”</td><td>최초 위험을 유지하고 실행 증거 수신 후 재평가</td><td>D25 상태·재평가 계획</td></tr><tr><td>“예비비는 PM이 필요할 때 자유롭게 전용한다.”</td><td>위험 ID·금액·잔여액 확인과 승인 경로를 명시</td><td>D24 운영 규칙, D16 원가 규칙</td></tr></table></div>\n<p>S19에서 예방조치의 공수는 기존 설계·QA 업무에 포함됩니다. 별도 비용으로 다시 더하기 전에 D15의 포함 범위를 대조해야 합니다. 우발예비비 사용 시에는 PM과 재무가 위험 ID·사용액·잔여액을 확인하고, 기준선 변경이 필요하면 스폰서 승인을 받습니다. 관리예비비 전용도 스폰서 승인 후 기준선에 반영하는 일입니다. 위험 책임자가 있다는 사실만으로 그 사람이 예산 변경권한까지 갖지는 않습니다.</p>\n<p>수정한 D18은 정유나와 해당 요구 책임자가 시험 가능성을 확인하고, D25·D26은 기술·재무 조건과 맞춰 검토합니다. 이 검토는 아직 통합 기준선 승인이 아닙니다. S1에서는 “검토 반영본”으로 보관하고 승인 상태를 구분합니다. 이후 실행 중 실제 결함이나 위험 사건이 발생하면 원래 평가를 지우지 않고 발생 사실과 조치 이력을 추가합니다.</p>"
       },
       {
@@ -756,6 +966,7 @@
         "title": "나머지 항목을 독립 작성하고 일정·예산으로 돌려보내기",
         "stage": "S1",
         "body": "이제 예제를 덮고 K02와 나머지 품질 항목을 직접 작성하세요. 도움 없이 쓸 수 있어야 할 내용은 숫자의 암기가 아니라 그 숫자를 어디서 가져오고 어떤 판단에 쓰는지입니다. K02의 정성 점수와 K01의 점수가 같다면 회사의 동점 규칙을 적용한 이유까지 적습니다. D26에서는 모든 경우의 확률과 손실, 기대금액, 예비비 초과 여부를 표로 남기고 독립 가정이 달라지면 결론도 달라질 수 있음을 설명합니다.\n\n| 제출 전에 스스로 확인할 질문 | 확인할 문서 | 다음 업무 |\n|---|---|---|\n| 요구별 방법·담당·합격조건·증거가 있는가 | D18, D09 | 실행 중 점검과 최종 시험 |\n| 위험마다 책임·발생 신호·조치·재평가가 있는가 | D24·D25 | 작업지시와 잔여 위험 점검 |\n| 확률과 등급·원 단위와 백만원을 구분했는가 | D26 | 재무 검토 |\n| 대응이 기존 일정·원가에 포함되는가 | D14·D15·D17 | 분야 계획 통합 |\n\nD18에서 하나의 요구를 선택해 동료에게 시험을 부탁한다고 상상해 보세요. 그 사람이 추가 설명 없이 측정 대상을 찾아 기대결과와 대조할 수 있어야 합니다. 다만 실제 제품이 아직 없으므로 결과와 서명은 채우지 않습니다. 리스크에서는 어떤 사건을 보면 다음 담당자에게 보고해야 하는지 설명할 수 있어야 합니다.\n\n인계 메모에는 문서 ID와 버전, 검토자, 남은 확인 항목, 일정·예산에 되돌려 보낸 변경점을 씁니다. 3·4단원 초안으로 돌아가 대응 포함 여부를 대조한 뒤 6단원의 조달·협업 조건을 읽습니다. 품질과 위험 계획은 여기서 보관만 하고 끝나는 문서가 아닙니다. 계약의 검수 조건, 실행의 작업지시, 변경의 영향 분석, 종료의 인수 근거에서 계속 사용됩니다.",
+        "figures": [],
         "html": "<p>이제 예제를 덮고 K02와 나머지 품질 항목을 직접 작성하세요. 도움 없이 쓸 수 있어야 할 내용은 숫자의 암기가 아니라 그 숫자를 어디서 가져오고 어떤 판단에 쓰는지입니다. K02의 정성 점수와 K01의 점수가 같다면 회사의 동점 규칙을 적용한 이유까지 적습니다. D26에서는 모든 경우의 확률과 손실, 기대금액, 예비비 초과 여부를 표로 남기고 독립 가정이 달라지면 결론도 달라질 수 있음을 설명합니다.</p>\n<div class=\"reading-table\"><table><tr><th>제출 전에 스스로 확인할 질문</th><th>확인할 문서</th><th>다음 업무</th></tr><tr><td>요구별 방법·담당·합격조건·증거가 있는가</td><td>D18, D09</td><td>실행 중 점검과 최종 시험</td></tr><tr><td>위험마다 책임·발생 신호·조치·재평가가 있는가</td><td>D24·D25</td><td>작업지시와 잔여 위험 점검</td></tr><tr><td>확률과 등급·원 단위와 백만원을 구분했는가</td><td>D26</td><td>재무 검토</td></tr><tr><td>대응이 기존 일정·원가에 포함되는가</td><td>D14·D15·D17</td><td>분야 계획 통합</td></tr></table></div>\n<p>D18에서 하나의 요구를 선택해 동료에게 시험을 부탁한다고 상상해 보세요. 그 사람이 추가 설명 없이 측정 대상을 찾아 기대결과와 대조할 수 있어야 합니다. 다만 실제 제품이 아직 없으므로 결과와 서명은 채우지 않습니다. 리스크에서는 어떤 사건을 보면 다음 담당자에게 보고해야 하는지 설명할 수 있어야 합니다.</p>\n<p>인계 메모에는 문서 ID와 버전, 검토자, 남은 확인 항목, 일정·예산에 되돌려 보낸 변경점을 씁니다. 3·4단원 초안으로 돌아가 대응 포함 여부를 대조한 뒤 6단원의 조달·협업 조건을 읽습니다. 품질과 위험 계획은 여기서 보관만 하고 끝나는 문서가 아닙니다. 계약의 검수 조건, 실행의 작업지시, 변경의 영향 분석, 종료의 인수 근거에서 계속 사용됩니다.</p>"
       }
     ],

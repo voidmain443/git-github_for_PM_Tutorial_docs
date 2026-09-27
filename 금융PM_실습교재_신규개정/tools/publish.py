@@ -23,6 +23,8 @@ S={
  'h3':ParagraphStyle('h3',fontName='Korean',fontSize=11,leading=18,wordWrap='CJK',spaceBefore=12,spaceAfter=7,textColor=colors.HexColor('#355d9e'),keepWithNext=True),
  'cell':ParagraphStyle('cell',fontName='Korean',fontSize=8,leading=12,wordWrap='CJK'),
  'small':ParagraphStyle('small',fontName='Korean',fontSize=9,leading=14,wordWrap='CJK',spaceAfter=6),
+ 'figure':ParagraphStyle('figure',fontName='Korean',fontSize=9,leading=14,wordWrap='CJK',spaceAfter=6,textColor=colors.HexColor('#253b4d')),
+ 'figurehead':ParagraphStyle('figurehead',fontName='Korean',fontSize=11,leading=17,wordWrap='CJK',spaceAfter=7,textColor=colors.HexColor('#1d3152')),
 }
 def clean(s):
  s=re.sub(r'\[([^]]+)\]\([^)]+\)',r'\1',s)
@@ -32,7 +34,7 @@ def footer(c,doc):
  c.setStrokeColor(colors.HexColor('#cddbdc'));c.line(48,42,547,42)
  c.setFont('Korean',8);c.setFillColor(colors.HexColor('#607888'));c.drawString(48,29,'모아페이 · 금융 프로젝트 PM 실습 · Level 1');c.drawRightString(547,29,str(doc.page))
 def make(source,target,title,subtitle):
- story=[Spacer(1,95),Paragraph('MOAPAY / PM BOOTCAMP',S['small']),Paragraph(title,S['h1']),Paragraph(subtitle,S['body']),Spacer(1,25),Paragraph('49개 프로세스 · 하나의 프로젝트 · 근거에서 승인까지',S['h2']),Paragraph('독립 신규개정판 / 심화 설명·시각화 연계 개정 2026-09-24 / 가상회사 교육자료',S['body']),PageBreak()]
+ story=[Spacer(1,95),Paragraph('MOAPAY / PM BOOTCAMP',S['small']),Paragraph(title,S['h1']),Paragraph(subtitle,S['body']),Spacer(1,25),Paragraph('49개 프로세스 · 하나의 프로젝트 · 근거에서 승인까지',S['h2']),Paragraph('독립 신규개정판 / 본문 설명 그림 개정 2026-09-27 / 가상회사 교육자료',S['body']),PageBreak()]
  text=(ROOT/source).read_text();lines=text.splitlines();i=0
  headings=[x[2:] for x in lines if x.startswith('# ')]
  story += [Paragraph('차례',S['h1'])]+[Paragraph(h,S['small']) for h in headings]+[PageBreak()]
@@ -40,6 +42,27 @@ def make(source,target,title,subtitle):
  while i<len(lines):
   line=lines[i].strip()
   if not line:i+=1;continue
+  if line.startswith('#### 그림. '):
+   from chapter_figures import all_figures,pdf_drawing
+   end=i+1
+   while end<len(lines) and not (' / 교육용 도식' in lines[end]):end+=1
+   assert end<len(lines),'Figure must include its source caption'
+   match=re.search(r'/그림/([\w-]+)\.svg','\n'.join(lines[i:end+1]));assert match
+   spec=all_figures()[match[1]]
+   before=[Paragraph(clean('그림. '+spec['title']),S['figurehead']),Paragraph(clean(spec['lead']),S['figure'])]
+   after=[Paragraph(clean(spec['caption']),S['figure']),Paragraph('내 문서에서 확인하기: '+clean(spec['question']),S['figure']),Paragraph(clean('근거: '+' · '.join(spec['sources'])+' / '+spec['stage']+' / 교육용 도식'),S['small'])]
+   drawing=pdf_drawing(spec)
+   prose_height=sum(p.wrap(499,1000)[1]+p.getSpaceBefore()+p.getSpaceAfter() for p in before+after)
+   if drawing.height+prose_height>708:drawing=pdf_drawing(spec,width=499*(708-prose_height)/drawing.height)
+   drawing.hAlign='CENTER'
+   story.append(KeepTogether(before+[drawing]+after));i=end+1;continue
+  figure=re.fullmatch(r'!\[([^]]+)\]\(\.\./03_Level1_교재/그림/([\w-]+)\.svg\)',line)
+  if figure:
+   from chapter_figures import all_figures,pdf_drawing
+   story.extend([pdf_drawing(all_figures()[figure[2]]),Spacer(1,8)])
+   i+=1;continue
+  if line.startswith('#### '):
+   story.append(Paragraph(clean(line[5:]),S['h3']));i+=1;continue
   if line.startswith('# '):
    if not first:story.append(PageBreak())
    first=False;exercises=0;story.append(Paragraph(clean(line[2:]),S['h1']));i+=1;continue

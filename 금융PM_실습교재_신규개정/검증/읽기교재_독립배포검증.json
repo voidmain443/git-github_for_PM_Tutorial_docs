@@ -1,8 +1,8 @@
 {
-  "date": "2026-09-24",
-  "passed": 951,
-  "total": 951,
-  "scope": "Actual learner ZIPs extracted into an empty temporary directory; one server, seven stages. This is a technical check, not a novice learning pilot.",
+  "date": "2026-09-27",
+  "passed": 958,
+  "total": 958,
+  "scope": "Actual learner ZIPs extracted into an empty temporary directory; one server, seven stages, released diagrams only. This is a technical check, not a novice learning pilot.",
   "checks": [
     {
       "name": "starter contains only S0 database",
@@ -26,6 +26,10 @@
     },
     {
       "name": "S0 database stage",
+      "passed": true
+    },
+    {
+      "name": "S0 learner ZIP contains only released diagrams",
       "passed": true
     },
     {
@@ -569,6 +573,10 @@
       "passed": true
     },
     {
+      "name": "S0A learner ZIP contains only released diagrams",
+      "passed": true
+    },
+    {
       "name": "S0A guide served",
       "passed": true
     },
@@ -1106,6 +1114,10 @@
     },
     {
       "name": "S1 database stage",
+      "passed": true
+    },
+    {
+      "name": "S1 learner ZIP contains only released diagrams",
       "passed": true
     },
     {
@@ -1649,6 +1661,10 @@
       "passed": true
     },
     {
+      "name": "S1A learner ZIP contains only released diagrams",
+      "passed": true
+    },
+    {
       "name": "S1A guide served",
       "passed": true
     },
@@ -2186,6 +2202,10 @@
     },
     {
       "name": "S2 database stage",
+      "passed": true
+    },
+    {
+      "name": "S2 learner ZIP contains only released diagrams",
       "passed": true
     },
     {
@@ -2729,6 +2749,10 @@
       "passed": true
     },
     {
+      "name": "S3 learner ZIP contains only released diagrams",
+      "passed": true
+    },
+    {
       "name": "S3 guide served",
       "passed": true
     },
@@ -3266,6 +3290,10 @@
     },
     {
       "name": "S4 database stage",
+      "passed": true
+    },
+    {
+      "name": "S4 learner ZIP contains only released diagrams",
       "passed": true
     },
     {

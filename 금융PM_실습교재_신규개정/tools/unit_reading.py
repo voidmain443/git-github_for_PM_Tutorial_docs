@@ -26,6 +26,7 @@ def reading_blocks(step):
     return {key:markdown_html('\n\n'.join(parts)) for key,parts in buckets.items()}
 
 def attach_unit(lesson,unit):
+    from chapter_figures import figures_for,insert_figures
     from unit_lessons_early import UNITS as early
     from unit_lessons_late import UNITS as late
     units={**early,**late}
@@ -34,7 +35,9 @@ def attach_unit(lesson,unit):
     assert len(guide['sections'])==6
     for section in guide['sections']:
         section['title']=re.sub(r'^\d+\.\s*','',section['title'])
-        section['html']=markdown_html(section['body'])
+        section['figures']=[f for f in figures_for(unit) if f['section']==section['id']]
+        assert all(f['stage']==section['stage'] for f in section['figures'])
+        section['html']=insert_figures(section['body'],section['figures'],html=True)
     lesson['unitGuide']=guide
     ident,lab,purpose=VISUALS[unit]
     selected=next(step for step in lesson['guideSteps'] if step['id']==ident)
@@ -45,12 +48,13 @@ def attach_unit(lesson,unit):
     selected['visualAid']={'lab':lab,'purpose':purpose}
 
 def guide_markdown(guide):
+    from chapter_figures import insert_figures
     text='## 단원 본문: 업무를 차례로 이해하기\n\n'+guide['mission']+'\n\n'
     text+='가져올 것: '+' / '.join(guide['prerequisites'])+'\n\n'
     text+='마치면 할 수 있는 일: '+' / '.join(guide['outcomes'])+'\n\n'
     for i,section in enumerate(guide['sections'],1):
         text+=f"### {i}. {section['title']} ({section['stage']})\n\n"
-        text+=('이 설명은 해당 자료 시점에서 공개됩니다.' if section.get('locked') else section['body'])+'\n\n'
+        text+=('이 설명은 해당 자료 시점에서 공개됩니다.' if section.get('locked') else insert_figures(section['body'],section.get('figures',[])))+'\n\n'
     return text+'다음 업무: '+guide['handoff']+'\n\n'
 
 def restrict_guide(guide,stage):

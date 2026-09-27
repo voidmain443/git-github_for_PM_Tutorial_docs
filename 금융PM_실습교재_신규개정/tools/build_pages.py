@@ -99,7 +99,7 @@ def build(out):
     put('404.html',shell('페이지를 찾을 수 없습니다','<h1>주소를 다시 확인해 주세요.</h1><p>이전 주소를 사용했을 수 있습니다. 브라우저의 뒤로 가기로 돌아오거나 교재 첫 화면에서 다시 시작하세요.</p><p><a href="./">교재 첫 화면으로</a></p>'))
     put('.nojekyll','')
     files=[{'path':str(p.relative_to(out)),'bytes':p.stat().st_size,'sha256':hashlib.sha256(p.read_bytes()).hexdigest()} for p in sorted(out.rglob('*')) if p.is_file()]
-    put('site-manifest.json',json.dumps({'edition':'2026-09-24-guided-tour','stages':list(STAGES),'units':10,'processes':49,'files':files},ensure_ascii=False,indent=2))
+    put('site-manifest.json',json.dumps({'edition':'2026-09-27-chapter-figures','stages':list(STAGES),'units':10,'processes':49,'files':files},ensure_ascii=False,indent=2))
     forbidden=['05_강사용','06_실습수행기록','완성문서','강사용_해설','모의헌장기록','강사_전체.zip']
     assert not any(any(x in f['path'] for x in forbidden) for f in files)
     print(f'Built learner Pages site: {len(files)} files, {sum(f["bytes"] for f in files):,} bytes -> {out}')

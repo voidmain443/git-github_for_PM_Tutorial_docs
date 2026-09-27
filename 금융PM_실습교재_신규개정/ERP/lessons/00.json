@@ -751,6 +751,7 @@
         "title": "자료를 받았을 때, 먼저 무엇을 알아야 할까요",
         "stage": "S0",
         "body": "여러분은 모아페이의 내부 PM 한지우입니다. 회사에 처음 입사한 사람이 아니라, 정산 업무 개선 프로젝트를 새로 맡은 사람입니다. 기존 결제·정산 서비스는 계속 운영되고 있습니다. 따라서 첫 과제는 서비스를 처음부터 상상해 설계하는 것이 아니라, 현재 무엇이 운영되고 있고 그중 어떤 불편을 바꾸려는지 이해하는 것입니다.\n\nS01에서 윤서진은 매일 파일을 대조하는 데 걸리는 시간과 예외 처리 이력의 문제를 설명합니다. 여기서 곧바로 “자동화 프로그램을 만들면 된다”고 결론내리면 아직 중요한 질문이 남습니다. 누가 사용하는 프로그램인지, 어떤 자료를 비교하는지, 금액이 다른 것이 왜 생기는지, 누구에게 결과를 확인받아야 하는지 모르기 때문입니다. 이 질문들을 해결할 입력은 이미 회사 자료와 ERP에 준비되어 있습니다.\n\n이번 단원에서 만드는 G00은 업무 파악 메모입니다. 프로젝트를 승인하는 문서가 아니며 모든 정보를 베끼는 조사 보고서도 아닙니다. 다음 헌장 작성에 필요한 사실과 자료 위치를 정리합니다. 처음에는 짧은 문장으로 시작해도 됩니다. 대신 “어느 자료를 보고 썼는가”와 “그 사실을 어떻게 이해했는가”가 보여야 합니다.\n\n| 처음 떠올릴 질문 | 찾아갈 자료 | 지금 결정하지 않을 것 |\n|---|---|---|\n| 회사가 이번에 개선하려는 업무는 무엇인가 | S01 사업제안 | 새 기능의 상세 설계 |\n| 누가 업무·비용·인수를 확인하는가 | S02, 조직·담당자 | 모든 사람에게 동일한 승인권 부여 |\n| 자료가 들어와 어떻게 정산되는가 | S05 업무절차 | 아직 근거 없는 공수와 일정 |\n| 화면의 금액은 누구의 돈인가 | 정산 상세, S04 | 회사 현금을 프로젝트 예산으로 배정 |\n\n학습을 시작할 때는 화면의 자료 단계가 S0인지 먼저 확인합니다. 이 표시는 지금 볼 수 있는 회사 사실의 시점을 정합니다. 실제 오늘 날짜와 가상 회사의 자료 기준일은 다릅니다. 나중에 공개되는 실행 결과를 지금 알고 있는 사실처럼 쓰면 계획과 실제를 구분할 수 없게 됩니다.\n\n이 단원에서는 메뉴를 전부 익히려고 하지 마세요. 먼저 사업제안을 읽고, 사람을 찾고, 업무 흐름을 읽은 뒤 정산 한 건을 확인합니다. 조회가 목적이 아니라 질문에 답하는 것이 목적입니다. 한 질문을 해결할 때마다 잠깐 교재로 돌아와 그 결과의 뜻을 설명해 보는 편이 다음 내용을 이해하는 데 도움이 됩니다.",
+        "figures": [],
         "html": "<p>여러분은 모아페이의 내부 PM 한지우입니다. 회사에 처음 입사한 사람이 아니라, 정산 업무 개선 프로젝트를 새로 맡은 사람입니다. 기존 결제·정산 서비스는 계속 운영되고 있습니다. 따라서 첫 과제는 서비스를 처음부터 상상해 설계하는 것이 아니라, 현재 무엇이 운영되고 있고 그중 어떤 불편을 바꾸려는지 이해하는 것입니다.</p>\n<p>S01에서 윤서진은 매일 파일을 대조하는 데 걸리는 시간과 예외 처리 이력의 문제를 설명합니다. 여기서 곧바로 “자동화 프로그램을 만들면 된다”고 결론내리면 아직 중요한 질문이 남습니다. 누가 사용하는 프로그램인지, 어떤 자료를 비교하는지, 금액이 다른 것이 왜 생기는지, 누구에게 결과를 확인받아야 하는지 모르기 때문입니다. 이 질문들을 해결할 입력은 이미 회사 자료와 ERP에 준비되어 있습니다.</p>\n<p>이번 단원에서 만드는 G00은 업무 파악 메모입니다. 프로젝트를 승인하는 문서가 아니며 모든 정보를 베끼는 조사 보고서도 아닙니다. 다음 헌장 작성에 필요한 사실과 자료 위치를 정리합니다. 처음에는 짧은 문장으로 시작해도 됩니다. 대신 “어느 자료를 보고 썼는가”와 “그 사실을 어떻게 이해했는가”가 보여야 합니다.</p>\n<div class=\"reading-table\"><table><tr><th>처음 떠올릴 질문</th><th>찾아갈 자료</th><th>지금 결정하지 않을 것</th></tr><tr><td>회사가 이번에 개선하려는 업무는 무엇인가</td><td>S01 사업제안</td><td>새 기능의 상세 설계</td></tr><tr><td>누가 업무·비용·인수를 확인하는가</td><td>S02, 조직·담당자</td><td>모든 사람에게 동일한 승인권 부여</td></tr><tr><td>자료가 들어와 어떻게 정산되는가</td><td>S05 업무절차</td><td>아직 근거 없는 공수와 일정</td></tr><tr><td>화면의 금액은 누구의 돈인가</td><td>정산 상세, S04</td><td>회사 현금을 프로젝트 예산으로 배정</td></tr></table></div>\n<p>학습을 시작할 때는 화면의 자료 단계가 S0인지 먼저 확인합니다. 이 표시는 지금 볼 수 있는 회사 사실의 시점을 정합니다. 실제 오늘 날짜와 가상 회사의 자료 기준일은 다릅니다. 나중에 공개되는 실행 결과를 지금 알고 있는 사실처럼 쓰면 계획과 실제를 구분할 수 없게 됩니다.</p>\n<p>이 단원에서는 메뉴를 전부 익히려고 하지 마세요. 먼저 사업제안을 읽고, 사람을 찾고, 업무 흐름을 읽은 뒤 정산 한 건을 확인합니다. 조회가 목적이 아니라 질문에 답하는 것이 목적입니다. 한 질문을 해결할 때마다 잠깐 교재로 돌아와 그 결과의 뜻을 설명해 보는 편이 다음 내용을 이해하는 데 도움이 됩니다.</p>"
       },
       {
@@ -758,20 +759,204 @@
         "title": "정산·대사·회계와 PM의 역할을 구분합니다",
         "stage": "S0",
         "body": "정산(Settlement)은 거래금액에서 취소·수수료·조정을 반영해 가맹점에 지급할 금액을 계산하는 업무입니다. 대사(Reconciliation)는 그 계산 결과와 다른 곳에서 받은 자료를 비교하는 업무입니다. 둘은 이어지지만 같은 일은 아닙니다. 올바른 규칙으로 계산했어도 수신 파일에 수기 변경이 있으면 차이가 생길 수 있습니다. 대사 기능은 그 차이를 정확히 드러내야 합니다.\n\n따라서 “불일치가 있다”는 사실을 읽자마자 프로그램 오류라고 판단하면 안 됩니다. 먼저 같은 거래를 비교했는지, 계산액과 수신액의 기준이 같은지, 차이의 사유가 기록되어 있는지 봅니다. 이 회사의 업무 개선은 모든 거래를 억지로 일치로 만드는 것이 아니라 필요한 차이를 찾고 담당자와 처리 이력을 연결하는 일을 포함합니다.\n\n돈을 읽을 때도 같은 구분이 필요합니다. 고객이 결제한 거래 원금 전체가 모아페이의 매출은 아닙니다. 가맹점에 귀속되는 금액과 회사의 계약상 수수료가 섞여 있기 때문입니다. S04는 회사 수익이 수수료라는 점을 설명합니다. 회사의 현금 잔액이 얼마인지와 이번 프로젝트에 얼마를 사용할 수 있는지도 별개의 질문입니다.\n\n| 구분 | 답하려는 질문 | 혼동하면 생기는 오류 |\n|---|---|---|\n| 가맹점 지급예정액 | 이 가맹점에 얼마를 줄 예정인가 | 정산금을 회사 매출로 기록 |\n| 회사 현금 잔액 | 특정 시점에 회사가 보유한 현금은 얼마인가 | 잔액 전부를 프로젝트 예산으로 사용 |\n| 프로젝트 자금 한도 | 이번 사업의 계획을 어느 범위에서 검토하는가 | 한도를 실제 지출 또는 상세 승인 기준선으로 표시 |\n\nPM은 이 모든 숫자를 직접 만든 원저자가 아닙니다. 정산 규칙과 인수조건은 운영에게, 회계의 의미는 재무에게, 구현 가능성은 개발에게, 시험의 증거는 QA에게 확인합니다. 중요한 것은 각 전문 정보를 같은 목표로 연결하는 능력입니다. S02에서 업무 인수·보안 검토·프로젝트 승인 권한을 나눠 읽는 이유도 여기에 있습니다.\n\n한 가지 더 구분할 것은 시간입니다. S05의 120분은 팀의 하루 대사 경과시간입니다. 세 사람의 실제 투입시간을 모두 더한 공수라고 자동 해석하지 않습니다. 여러 사람이 동시에 일하는 경우 경과시간과 사람 시간의 합은 달라집니다. 이후 목표와 편익을 작성할 때 이 구분이 필요하므로 지금 정확한 말로 익혀 둡니다.",
-        "html": "<p>정산(Settlement)은 거래금액에서 취소·수수료·조정을 반영해 가맹점에 지급할 금액을 계산하는 업무입니다. 대사(Reconciliation)는 그 계산 결과와 다른 곳에서 받은 자료를 비교하는 업무입니다. 둘은 이어지지만 같은 일은 아닙니다. 올바른 규칙으로 계산했어도 수신 파일에 수기 변경이 있으면 차이가 생길 수 있습니다. 대사 기능은 그 차이를 정확히 드러내야 합니다.</p>\n<p>따라서 “불일치가 있다”는 사실을 읽자마자 프로그램 오류라고 판단하면 안 됩니다. 먼저 같은 거래를 비교했는지, 계산액과 수신액의 기준이 같은지, 차이의 사유가 기록되어 있는지 봅니다. 이 회사의 업무 개선은 모든 거래를 억지로 일치로 만드는 것이 아니라 필요한 차이를 찾고 담당자와 처리 이력을 연결하는 일을 포함합니다.</p>\n<p>돈을 읽을 때도 같은 구분이 필요합니다. 고객이 결제한 거래 원금 전체가 모아페이의 매출은 아닙니다. 가맹점에 귀속되는 금액과 회사의 계약상 수수료가 섞여 있기 때문입니다. S04는 회사 수익이 수수료라는 점을 설명합니다. 회사의 현금 잔액이 얼마인지와 이번 프로젝트에 얼마를 사용할 수 있는지도 별개의 질문입니다.</p>\n<div class=\"reading-table\"><table><tr><th>구분</th><th>답하려는 질문</th><th>혼동하면 생기는 오류</th></tr><tr><td>가맹점 지급예정액</td><td>이 가맹점에 얼마를 줄 예정인가</td><td>정산금을 회사 매출로 기록</td></tr><tr><td>회사 현금 잔액</td><td>특정 시점에 회사가 보유한 현금은 얼마인가</td><td>잔액 전부를 프로젝트 예산으로 사용</td></tr><tr><td>프로젝트 자금 한도</td><td>이번 사업의 계획을 어느 범위에서 검토하는가</td><td>한도를 실제 지출 또는 상세 승인 기준선으로 표시</td></tr></table></div>\n<p>PM은 이 모든 숫자를 직접 만든 원저자가 아닙니다. 정산 규칙과 인수조건은 운영에게, 회계의 의미는 재무에게, 구현 가능성은 개발에게, 시험의 증거는 QA에게 확인합니다. 중요한 것은 각 전문 정보를 같은 목표로 연결하는 능력입니다. S02에서 업무 인수·보안 검토·프로젝트 승인 권한을 나눠 읽는 이유도 여기에 있습니다.</p>\n<p>한 가지 더 구분할 것은 시간입니다. S05의 120분은 팀의 하루 대사 경과시간입니다. 세 사람의 실제 투입시간을 모두 더한 공수라고 자동 해석하지 않습니다. 여러 사람이 동시에 일하는 경우 경과시간과 사람 시간의 합은 달라집니다. 이후 목표와 편익을 작성할 때 이 구분이 필요하므로 지금 정확한 말로 익혀 둡니다.</p>"
+        "figures": [
+          {
+            "id": "u0-money",
+            "section": "u0-concepts",
+            "after": "회사의 현금 잔액이 얼마인지와 이번 프로젝트에 얼마를 사용할 수 있는지도 별개의 질문입니다.",
+            "stage": "S0",
+            "title": "같은 원화라도 답하는 질문이 다릅니다",
+            "lead": "금액을 보기 전에 누구의 돈이며 어떤 결정을 위한 값인지 나눕니다. 아래 화살표는 돈의 이동이 아니라 읽을 질문의 분류입니다.",
+            "caption": "가맹점 지급예정액은 운영의 정산 대상, 회사 현금은 특정 시점의 회사 잔액, 프로젝트 자금 한도는 계획을 검토할 경계입니다. 세 숫자를 합치거나 회사 현금 전체를 프로젝트에 배정하면 금액의 의미와 사용 권한이 달라집니다.",
+            "question": "G00에 조회한 금액 하나를 골라 주인·기준일·관리 목적을 적어 보세요. 어느 갈래의 질문에 답하는 값인가요?",
+            "sources": [
+              "S01",
+              "S04",
+              "S05",
+              "S17"
+            ],
+            "kind": "compare",
+            "nodes": [
+              {
+                "id": "question",
+                "title": "어떤 돈을 읽는가",
+                "lines": [
+                  "같은 원 단위여도 의미는 다름",
+                  "주인·시점·목적부터 확인"
+                ],
+                "role": "decision"
+              },
+              {
+                "id": "merchant",
+                "title": "가맹점 지급예정액",
+                "lines": [
+                  "가맹점에 지급할 예정액",
+                  "운영의 정산 업무에서 확인",
+                  "회사 매출과 구분"
+                ],
+                "role": "evidence"
+              },
+              {
+                "id": "company",
+                "title": "회사 현금",
+                "lines": [
+                  "특정 시점의 회사 전체 잔액",
+                  "재무 자료에서 확인",
+                  "프로젝트 배정액과 구분"
+                ],
+                "role": "evidence"
+              },
+              {
+                "id": "project",
+                "title": "프로젝트 자금 한도",
+                "lines": [
+                  "이번 사업의 투자 경계",
+                  "스폰서의 조건으로 확인",
+                  "상세 기준선은 별도 승인"
+                ],
+                "role": "decision"
+              }
+            ],
+            "edges": [
+              {
+                "from": "question",
+                "to": "merchant",
+                "label": "얼마를 지급할까"
+              },
+              {
+                "from": "question",
+                "to": "company",
+                "label": "얼마를 보유했나"
+              },
+              {
+                "from": "question",
+                "to": "project",
+                "label": "어디까지 계획할까"
+              }
+            ],
+            "rows": [
+              [
+                "question"
+              ],
+              [
+                "merchant",
+                "company",
+                "project"
+              ]
+            ]
+          }
+        ],
+        "html": "<p>정산(Settlement)은 거래금액에서 취소·수수료·조정을 반영해 가맹점에 지급할 금액을 계산하는 업무입니다. 대사(Reconciliation)는 그 계산 결과와 다른 곳에서 받은 자료를 비교하는 업무입니다. 둘은 이어지지만 같은 일은 아닙니다. 올바른 규칙으로 계산했어도 수신 파일에 수기 변경이 있으면 차이가 생길 수 있습니다. 대사 기능은 그 차이를 정확히 드러내야 합니다.</p>\n<p>따라서 “불일치가 있다”는 사실을 읽자마자 프로그램 오류라고 판단하면 안 됩니다. 먼저 같은 거래를 비교했는지, 계산액과 수신액의 기준이 같은지, 차이의 사유가 기록되어 있는지 봅니다. 이 회사의 업무 개선은 모든 거래를 억지로 일치로 만드는 것이 아니라 필요한 차이를 찾고 담당자와 처리 이력을 연결하는 일을 포함합니다.</p>\n<p>돈을 읽을 때도 같은 구분이 필요합니다. 고객이 결제한 거래 원금 전체가 모아페이의 매출은 아닙니다. 가맹점에 귀속되는 금액과 회사의 계약상 수수료가 섞여 있기 때문입니다. S04는 회사 수익이 수수료라는 점을 설명합니다. 회사의 현금 잔액이 얼마인지와 이번 프로젝트에 얼마를 사용할 수 있는지도 별개의 질문입니다.</p>\n<figure class=\"chapter-figure\" data-figure=\"u0-money\" aria-labelledby=\"figure-u0-money\"><h4 id=\"figure-u0-money\">같은 원화라도 답하는 질문이 다릅니다</h4><p class=\"figure-lead\">금액을 보기 전에 누구의 돈이며 어떤 결정을 위한 값인지 나눕니다. 아래 화살표는 돈의 이동이 아니라 읽을 질문의 분류입니다.</p><div class=\"figure-desktop\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 840 557\" role=\"img\" aria-labelledby=\"u0-money-title u0-money-desc\" lang=\"ko\"><title id=\"u0-money-title\">같은 원화라도 답하는 질문이 다릅니다</title><desc id=\"u0-money-desc\">어떤 돈을 읽는가：같은 원 단위여도 의미는 다름、주인·시점·목적부터 확인。 가맹점 지급예정액：가맹점에 지급할 예정액、운영의 정산 업무에서 확인、회사 매출과 구분。 회사 현금：특정 시점의 회사 전체 잔액、재무 자료에서 확인、프로젝트 배정액과 구분。 프로젝트 자금 한도：이번 사업의 투자 경계、스폰서의 조건으로 확인、상세 기준선은 별도 승인。어떤 돈을 읽는가 → 가맹점 지급예정액：얼마를 지급할까。 어떤 돈을 읽는가 → 회사 현금：얼마를 보유했나。 어떤 돈을 읽는가 → 프로젝트 자금 한도：어디까지 계획할까。</desc><defs><marker id=\"u0-money-arrow\" markerWidth=\"7\" markerHeight=\"7\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6\" fill=\"#53627a\"/></marker></defs><polyline points=\"420.0,175 420.0,221.0 161.33333333333331,221.0 161.33333333333331,267\" fill=\"none\" stroke=\"#53627a\" stroke-width=\"1.7\" marker-end=\"url(#u0-money-arrow)\"/><polyline points=\"420.0,175 420.0,221.0 419.99999999999994,221.0 419.99999999999994,267\" fill=\"none\" stroke=\"#53627a\" stroke-width=\"1.7\" marker-end=\"url(#u0-money-arrow)\"/><polyline points=\"420.0,175 420.0,221.0 678.6666666666666,221.0 678.6666666666666,267\" fill=\"none\" stroke=\"#53627a\" stroke-width=\"1.7\" marker-end=\"url(#u0-money-arrow)\"/><rect x=\"270.0\" y=\"56\" width=\"300\" height=\"119\" rx=\"4\" fill=\"#fbf0df\" stroke=\"#916323\" stroke-width=\"1.5\"/><text x=\"286.0\" y=\"87\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"start\" fill=\"#26334d\">어떤 돈을 읽는가</text><text x=\"286.0\" y=\"122\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">같은 원 단위여도 의미는 다름</text><text x=\"286.0\" y=\"147\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">주인·시점·목적부터 확인</text><rect x=\"54.0\" y=\"267\" width=\"214.66666666666666\" height=\"246\" rx=\"4\" fill=\"#edf2fa\" stroke=\"#355d9e\" stroke-width=\"1.5\"/><text x=\"70.0\" y=\"298\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"start\" fill=\"#26334d\">가맹점 지급예정액</text><text x=\"70.0\" y=\"333\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">가맹점에 지급할</text><text x=\"70.0\" y=\"358\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">예정액</text><text x=\"70.0\" y=\"383\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">운영의 정산 업무에서</text><text x=\"70.0\" y=\"408\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\"> 확인</text><text x=\"70.0\" y=\"433\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">회사 매출과 구분</text><rect x=\"312.66666666666663\" y=\"267\" width=\"214.66666666666666\" height=\"246\" rx=\"4\" fill=\"#edf2fa\" stroke=\"#355d9e\" stroke-width=\"1.5\"/><text x=\"328.66666666666663\" y=\"298\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"start\" fill=\"#26334d\">회사 현금</text><text x=\"328.66666666666663\" y=\"333\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">특정 시점의 회사</text><text x=\"328.66666666666663\" y=\"358\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">전체 잔액</text><text x=\"328.66666666666663\" y=\"383\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">재무 자료에서 확인</text><text x=\"328.66666666666663\" y=\"408\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">프로젝트 배정액과</text><text x=\"328.66666666666663\" y=\"433\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">구분</text><rect x=\"571.3333333333333\" y=\"267\" width=\"214.66666666666666\" height=\"246\" rx=\"4\" fill=\"#fbf0df\" stroke=\"#916323\" stroke-width=\"1.5\"/><text x=\"587.3333333333333\" y=\"298\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"start\" fill=\"#26334d\">프로젝트 자금</text><text x=\"587.3333333333333\" y=\"325\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"start\" fill=\"#26334d\">한도</text><text x=\"587.3333333333333\" y=\"360\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">이번 사업의 투자</text><text x=\"587.3333333333333\" y=\"385\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">경계</text><text x=\"587.3333333333333\" y=\"410\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">스폰서의 조건으로</text><text x=\"587.3333333333333\" y=\"435\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">확인</text><text x=\"587.3333333333333\" y=\"460\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">상세 기준선은 별도</text><text x=\"587.3333333333333\" y=\"485\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">승인</text><rect x=\"98.40833333333332\" y=\"194.0\" width=\"125.85\" height=\"21\" fill=\"#fffefb\"/><text x=\"161.33333333333331\" y=\"210.0\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"15\" font-weight=\"normal\" text-anchor=\"middle\" fill=\"#53627a\">얼마를 지급할까</text><rect x=\"357.07499999999993\" y=\"194.0\" width=\"125.85\" height=\"21\" fill=\"#fffefb\"/><text x=\"419.99999999999994\" y=\"210.0\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"15\" font-weight=\"normal\" text-anchor=\"middle\" fill=\"#53627a\">얼마를 보유했나</text><rect x=\"608.2416666666667\" y=\"194.0\" width=\"140.85\" height=\"21\" fill=\"#fffefb\"/><text x=\"678.6666666666666\" y=\"210.0\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"15\" font-weight=\"normal\" text-anchor=\"middle\" fill=\"#53627a\">어디까지 계획할까</text></svg></div><div class=\"figure-mobile\"><div class=\"figure-node figure-node-decision\"><strong>어떤 돈을 읽는가</strong><div>같은 원 단위여도 의미는 다름<br>주인·시점·목적부터 확인</div><ul class=\"figure-connections\"><li>→ 가맹점 지급예정액 <span>(얼마를 지급할까)</span></li><li>→ 회사 현금 <span>(얼마를 보유했나)</span></li><li>→ 프로젝트 자금 한도 <span>(어디까지 계획할까)</span></li></ul></div><div class=\"figure-node figure-node-evidence\"><strong>가맹점 지급예정액</strong><div>가맹점에 지급할 예정액<br>운영의 정산 업무에서 확인<br>회사 매출과 구분</div></div><div class=\"figure-node figure-node-evidence\"><strong>회사 현금</strong><div>특정 시점의 회사 전체 잔액<br>재무 자료에서 확인<br>프로젝트 배정액과 구분</div></div><div class=\"figure-node figure-node-decision\"><strong>프로젝트 자금 한도</strong><div>이번 사업의 투자 경계<br>스폰서의 조건으로 확인<br>상세 기준선은 별도 승인</div></div></div><figcaption><p>가맹점 지급예정액은 운영의 정산 대상, 회사 현금은 특정 시점의 회사 잔액, 프로젝트 자금 한도는 계획을 검토할 경계입니다. 세 숫자를 합치거나 회사 현금 전체를 프로젝트에 배정하면 금액의 의미와 사용 권한이 달라집니다.</p><p class=\"figure-question\"><strong>내 문서에서 확인하기</strong><br>G00에 조회한 금액 하나를 골라 주인·기준일·관리 목적을 적어 보세요. 어느 갈래의 질문에 답하는 값인가요?</p><p class=\"figure-source\">근거: S01 · S04 · S05 · S17 · S0 자료를 설명한 교육용 도식</p></figcaption></figure>\n<div class=\"reading-table\"><table><tr><th>구분</th><th>답하려는 질문</th><th>혼동하면 생기는 오류</th></tr><tr><td>가맹점 지급예정액</td><td>이 가맹점에 얼마를 줄 예정인가</td><td>정산금을 회사 매출로 기록</td></tr><tr><td>회사 현금 잔액</td><td>특정 시점에 회사가 보유한 현금은 얼마인가</td><td>잔액 전부를 프로젝트 예산으로 사용</td></tr><tr><td>프로젝트 자금 한도</td><td>이번 사업의 계획을 어느 범위에서 검토하는가</td><td>한도를 실제 지출 또는 상세 승인 기준선으로 표시</td></tr></table></div>\n<p>PM은 이 모든 숫자를 직접 만든 원저자가 아닙니다. 정산 규칙과 인수조건은 운영에게, 회계의 의미는 재무에게, 구현 가능성은 개발에게, 시험의 증거는 QA에게 확인합니다. 중요한 것은 각 전문 정보를 같은 목표로 연결하는 능력입니다. S02에서 업무 인수·보안 검토·프로젝트 승인 권한을 나눠 읽는 이유도 여기에 있습니다.</p>\n<p>한 가지 더 구분할 것은 시간입니다. S05의 120분은 팀의 하루 대사 경과시간입니다. 세 사람의 실제 투입시간을 모두 더한 공수라고 자동 해석하지 않습니다. 여러 사람이 동시에 일하는 경우 경과시간과 사람 시간의 합은 달라집니다. 이후 목표와 편익을 작성할 때 이 구분이 필요하므로 지금 정확한 말로 익혀 둡니다.</p>"
       },
       {
         "id": "u0-reading",
         "title": "ERP는 메뉴 이름보다 질문 순서대로 사용합니다",
         "stage": "S0",
         "body": "먼저 원천 문서 메뉴에서 검색조건을 초기화하고 S01을 조회합니다. 목록에서 문서 ID를 눌러 상세를 엽니다. 제목·작성자·버전·공개 단계를 확인한 뒤 본문에서 요청자와 개선 대상을 찾습니다. 제목에 “사업제안”이라고 적혀 있다는 사실만으로 학생이 만드는 헌장이 승인된 것은 아닙니다. 원천자료와 내가 작성할 산출물의 상태를 나눠 읽습니다.\n\n다음에는 조직·담당자 메뉴에서 박다은을 찾습니다. 사람 ID, 역할, 권한, 관심사를 확인하고 S02와 대조합니다. 이름만 메모하지 말고 이 사람에게 확인할 질문을 하나 만드세요. 예를 들어 정산 운영책임자에게는 업무 절차와 인수조건을, 최민석에게는 회사 현금과 프로젝트 비용 집계의 차이를 확인할 수 있습니다. 질문이 구체적일수록 다음 문서의 어떤 항목을 채울지 분명해집니다.\n\nS05를 읽을 때는 시간 옆의 동사를 따라갑니다. 거래파일 수신→취소 확인→수수료 계산→지급예정 대조→예외 전달의 순서를 읽고 각 단계가 다음 단계에 넘기는 정보를 생각합니다. 흐름도를 그린다면 지금은 이 다섯 단계를 이해하기 위한 보조 수단으로만 사용합니다. 그림을 조작하지 않아도 글로 같은 순서를 설명할 수 있어야 합니다.\n\n| 조회 목적 | 메뉴와 조건 | 목록 뒤에 읽을 상세 |\n|---|---|---|\n| 정산 계산 한 건 확인 | 가맹점 정산, 정산번호=ST001 | 구성 거래와 조정의 근거 |\n| 차이가 있는 거래 확인 | 거래 대사, 판정=불일치 | 계산액·수신액·사유·담당자 |\n| 회사 현금 확인 | 회계 전표, 계정번호=100000 | 해당 전표의 다른 계정과 거래 의미 |\n\n검색어는 포함 검색이고 “정확히 일치”는 특정 값만 찾는 조건입니다. “일치”를 검색어로 쓰면 “불일치”라는 글자도 포함될 수 있으므로 분류를 고를 때는 정확히 일치를 사용합니다. 새로운 조회를 시작할 때 이전 조건을 지우지 않으면 뜻밖의 0건이 나올 수 있습니다. 이때는 자료 단계→메뉴→초기화→조건 항목→조건값 순서로 확인하세요.\n\n조회 근거에는 자료 단계·메뉴·조건·행 ID·단위·해석을 남깁니다. 화면에 보이는 첫 페이지의 줄 수와 전체 검색 건수도 구분합니다. SQL은 같은 결과를 다른 방식으로 확인하고 싶은 사람을 위한 선택 경로입니다. SQL을 몰라도 이 단원과 다음 헌장 실습을 완수할 수 있습니다.",
-        "html": "<p>먼저 원천 문서 메뉴에서 검색조건을 초기화하고 S01을 조회합니다. 목록에서 문서 ID를 눌러 상세를 엽니다. 제목·작성자·버전·공개 단계를 확인한 뒤 본문에서 요청자와 개선 대상을 찾습니다. 제목에 “사업제안”이라고 적혀 있다는 사실만으로 학생이 만드는 헌장이 승인된 것은 아닙니다. 원천자료와 내가 작성할 산출물의 상태를 나눠 읽습니다.</p>\n<p>다음에는 조직·담당자 메뉴에서 박다은을 찾습니다. 사람 ID, 역할, 권한, 관심사를 확인하고 S02와 대조합니다. 이름만 메모하지 말고 이 사람에게 확인할 질문을 하나 만드세요. 예를 들어 정산 운영책임자에게는 업무 절차와 인수조건을, 최민석에게는 회사 현금과 프로젝트 비용 집계의 차이를 확인할 수 있습니다. 질문이 구체적일수록 다음 문서의 어떤 항목을 채울지 분명해집니다.</p>\n<p>S05를 읽을 때는 시간 옆의 동사를 따라갑니다. 거래파일 수신→취소 확인→수수료 계산→지급예정 대조→예외 전달의 순서를 읽고 각 단계가 다음 단계에 넘기는 정보를 생각합니다. 흐름도를 그린다면 지금은 이 다섯 단계를 이해하기 위한 보조 수단으로만 사용합니다. 그림을 조작하지 않아도 글로 같은 순서를 설명할 수 있어야 합니다.</p>\n<div class=\"reading-table\"><table><tr><th>조회 목적</th><th>메뉴와 조건</th><th>목록 뒤에 읽을 상세</th></tr><tr><td>정산 계산 한 건 확인</td><td>가맹점 정산, 정산번호=ST001</td><td>구성 거래와 조정의 근거</td></tr><tr><td>차이가 있는 거래 확인</td><td>거래 대사, 판정=불일치</td><td>계산액·수신액·사유·담당자</td></tr><tr><td>회사 현금 확인</td><td>회계 전표, 계정번호=100000</td><td>해당 전표의 다른 계정과 거래 의미</td></tr></table></div>\n<p>검색어는 포함 검색이고 “정확히 일치”는 특정 값만 찾는 조건입니다. “일치”를 검색어로 쓰면 “불일치”라는 글자도 포함될 수 있으므로 분류를 고를 때는 정확히 일치를 사용합니다. 새로운 조회를 시작할 때 이전 조건을 지우지 않으면 뜻밖의 0건이 나올 수 있습니다. 이때는 자료 단계→메뉴→초기화→조건 항목→조건값 순서로 확인하세요.</p>\n<p>조회 근거에는 자료 단계·메뉴·조건·행 ID·단위·해석을 남깁니다. 화면에 보이는 첫 페이지의 줄 수와 전체 검색 건수도 구분합니다. SQL은 같은 결과를 다른 방식으로 확인하고 싶은 사람을 위한 선택 경로입니다. SQL을 몰라도 이 단원과 다음 헌장 실습을 완수할 수 있습니다.</p>"
+        "figures": [
+          {
+            "id": "u0-settlement-flow",
+            "section": "u0-reading",
+            "after": "S05를 읽을 때는 시간 옆의 동사를 따라갑니다.",
+            "stage": "S0",
+            "title": "정산 자료는 계산을 거쳐 비교와 후속 처리로 갑니다",
+            "lead": "S05의 하루 업무를 읽는 순서입니다. 각 화살표에서 다음 단계가 받아야 할 자료를 생각해 보세요.",
+            "caption": "지급예정액을 계산하는 일과 다른 자료에 대조하는 일은 이어지지만 다른 업무입니다. 대사에서 발견한 불일치는 사유와 담당자를 확인할 대상이며 그 자체가 프로그램 결함이라는 뜻은 아닙니다. 09:00~11:00은 팀 경과시간으로 읽습니다.",
+            "question": "G00 업무흐름에서 한 화살표를 골라 넘길 정보와 확인할 담당자를 붙이세요. 취소 확인을 빠뜨리면 어느 뒤 단계의 판단이 달라질까요?",
+            "sources": [
+              "S05"
+            ],
+            "kind": "flow",
+            "nodes": [
+              {
+                "id": "receive",
+                "title": "거래파일 수신",
+                "lines": [
+                  "09:00",
+                  "정산할 거래 자료를 받음"
+                ],
+                "role": "evidence"
+              },
+              {
+                "id": "cancel",
+                "title": "취소 확인",
+                "lines": [
+                  "09:20",
+                  "계산에 반영할 취소 확인"
+                ],
+                "role": "work"
+              },
+              {
+                "id": "fee",
+                "title": "수수료 계산",
+                "lines": [
+                  "09:40",
+                  "지급예정액 계산에 반영"
+                ],
+                "role": "work"
+              },
+              {
+                "id": "match",
+                "title": "지급예정 대조",
+                "lines": [
+                  "10:20",
+                  "은행 자료와 금액을 비교"
+                ],
+                "role": "decision"
+              },
+              {
+                "id": "exception",
+                "title": "예외 전달",
+                "lines": [
+                  "11:00",
+                  "차이의 사유·담당을 연결"
+                ],
+                "role": "result"
+              }
+            ],
+            "edges": [
+              {
+                "from": "receive",
+                "to": "cancel",
+                "label": "거래 자료"
+              },
+              {
+                "from": "cancel",
+                "to": "fee",
+                "label": "취소 반영"
+              },
+              {
+                "from": "fee",
+                "to": "match",
+                "label": "계산 결과"
+              },
+              {
+                "from": "match",
+                "to": "exception",
+                "label": "확인할 차이"
+              }
+            ],
+            "rows": [
+              [
+                "receive",
+                "cancel",
+                "fee"
+              ],
+              [
+                "match",
+                "exception"
+              ]
+            ]
+          }
+        ],
+        "html": "<p>먼저 원천 문서 메뉴에서 검색조건을 초기화하고 S01을 조회합니다. 목록에서 문서 ID를 눌러 상세를 엽니다. 제목·작성자·버전·공개 단계를 확인한 뒤 본문에서 요청자와 개선 대상을 찾습니다. 제목에 “사업제안”이라고 적혀 있다는 사실만으로 학생이 만드는 헌장이 승인된 것은 아닙니다. 원천자료와 내가 작성할 산출물의 상태를 나눠 읽습니다.</p>\n<p>다음에는 조직·담당자 메뉴에서 박다은을 찾습니다. 사람 ID, 역할, 권한, 관심사를 확인하고 S02와 대조합니다. 이름만 메모하지 말고 이 사람에게 확인할 질문을 하나 만드세요. 예를 들어 정산 운영책임자에게는 업무 절차와 인수조건을, 최민석에게는 회사 현금과 프로젝트 비용 집계의 차이를 확인할 수 있습니다. 질문이 구체적일수록 다음 문서의 어떤 항목을 채울지 분명해집니다.</p>\n<p>S05를 읽을 때는 시간 옆의 동사를 따라갑니다. 거래파일 수신→취소 확인→수수료 계산→지급예정 대조→예외 전달의 순서를 읽고 각 단계가 다음 단계에 넘기는 정보를 생각합니다. 흐름도를 그린다면 지금은 이 다섯 단계를 이해하기 위한 보조 수단으로만 사용합니다. 그림을 조작하지 않아도 글로 같은 순서를 설명할 수 있어야 합니다.</p>\n<figure class=\"chapter-figure\" data-figure=\"u0-settlement-flow\" aria-labelledby=\"figure-u0-settlement-flow\"><h4 id=\"figure-u0-settlement-flow\">정산 자료는 계산을 거쳐 비교와 후속 처리로 갑니다</h4><p class=\"figure-lead\">S05의 하루 업무를 읽는 순서입니다. 각 화살표에서 다음 단계가 받아야 할 자료를 생각해 보세요.</p><div class=\"figure-desktop\"><svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 840 543\" role=\"img\" aria-labelledby=\"u0-settlement-flow-title u0-settlement-flow-desc\" lang=\"ko\"><title id=\"u0-settlement-flow-title\">정산 자료는 계산을 거쳐 비교와 후속 처리로 갑니다</title><desc id=\"u0-settlement-flow-desc\">거래파일 수신：09:00、정산할 거래 자료를 받음。 취소 확인：09:20、계산에 반영할 취소 확인。 수수료 계산：09:40、지급예정액 계산에 반영。 지급예정 대조：10:20、은행 자료와 금액을 비교。 예외 전달：11:00、차이의 사유·담당을 연결。거래파일 수신 → 취소 확인：거래 자료。 취소 확인 → 수수료 계산：취소 반영。 수수료 계산 → 지급예정 대조：계산 결과。 지급예정 대조 → 예외 전달：확인할 차이。</desc><defs><marker id=\"u0-settlement-flow-arrow\" markerWidth=\"7\" markerHeight=\"7\" refX=\"6\" refY=\"3\" orient=\"auto\"><path d=\"M0,0 L6,3 L0,6\" fill=\"#53627a\"/></marker></defs><polyline points=\"268.66666666666663,172.0 312.66666666666663,172.0\" fill=\"none\" stroke=\"#53627a\" stroke-width=\"1.7\" marker-end=\"url(#u0-settlement-flow-arrow)\"/><polyline points=\"527.3333333333333,172.0 571.3333333333333,172.0\" fill=\"none\" stroke=\"#53627a\" stroke-width=\"1.7\" marker-end=\"url(#u0-settlement-flow-arrow)\"/><polyline points=\"678.6666666666666,244 678.6666666666666,312.0 248.0,312.0 248.0,380\" fill=\"none\" stroke=\"#53627a\" stroke-width=\"1.7\" marker-end=\"url(#u0-settlement-flow-arrow)\"/><polyline points=\"398.0,439.5 442.0,439.5\" fill=\"none\" stroke=\"#53627a\" stroke-width=\"1.7\" marker-end=\"url(#u0-settlement-flow-arrow)\"/><rect x=\"54.0\" y=\"100\" width=\"214.66666666666666\" height=\"144\" rx=\"4\" fill=\"#edf2fa\" stroke=\"#355d9e\" stroke-width=\"1.5\"/><text x=\"70.0\" y=\"131\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"start\" fill=\"#26334d\">거래파일 수신</text><text x=\"70.0\" y=\"166\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">09:00</text><text x=\"70.0\" y=\"191\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">정산할 거래 자료를</text><text x=\"70.0\" y=\"216\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">받음</text><rect x=\"312.66666666666663\" y=\"100\" width=\"214.66666666666666\" height=\"144\" rx=\"4\" fill=\"#fffefb\" stroke=\"#64728a\" stroke-width=\"1.5\"/><text x=\"328.66666666666663\" y=\"131\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"start\" fill=\"#26334d\">취소 확인</text><text x=\"328.66666666666663\" y=\"166\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">09:20</text><text x=\"328.66666666666663\" y=\"191\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">계산에 반영할 취소</text><text x=\"328.66666666666663\" y=\"216\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">확인</text><rect x=\"571.3333333333333\" y=\"100\" width=\"214.66666666666666\" height=\"144\" rx=\"4\" fill=\"#fffefb\" stroke=\"#64728a\" stroke-width=\"1.5\"/><text x=\"587.3333333333333\" y=\"131\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"start\" fill=\"#26334d\">수수료 계산</text><text x=\"587.3333333333333\" y=\"166\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">09:40</text><text x=\"587.3333333333333\" y=\"191\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">지급예정액 계산에</text><text x=\"587.3333333333333\" y=\"216\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">반영</text><rect x=\"98.0\" y=\"380\" width=\"300\" height=\"119\" rx=\"4\" fill=\"#fbf0df\" stroke=\"#916323\" stroke-width=\"1.5\"/><text x=\"114.0\" y=\"411\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"start\" fill=\"#26334d\">지급예정 대조</text><text x=\"114.0\" y=\"446\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">10:20</text><text x=\"114.0\" y=\"471\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">은행 자료와 금액을 비교</text><rect x=\"442.0\" y=\"380\" width=\"300\" height=\"119\" rx=\"4\" fill=\"#eaf4ef\" stroke=\"#3f705e\" stroke-width=\"1.5\"/><text x=\"458.0\" y=\"411\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"20\" font-weight=\"bold\" text-anchor=\"start\" fill=\"#26334d\">예외 전달</text><text x=\"458.0\" y=\"446\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">11:00</text><text x=\"458.0\" y=\"471\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"17\" font-weight=\"normal\" text-anchor=\"start\" fill=\"#53627a\">차이의 사유·담당을 연결</text><rect x=\"250.24166666666662\" y=\"65\" width=\"80.85\" height=\"21\" fill=\"#fffefb\"/><text x=\"290.66666666666663\" y=\"81\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"15\" font-weight=\"normal\" text-anchor=\"middle\" fill=\"#53627a\">거래 자료</text><rect x=\"508.90833333333325\" y=\"65\" width=\"80.85\" height=\"21\" fill=\"#fffefb\"/><text x=\"549.3333333333333\" y=\"81\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"15\" font-weight=\"normal\" text-anchor=\"middle\" fill=\"#53627a\">취소 반영</text><rect x=\"207.575\" y=\"285.0\" width=\"80.85\" height=\"21\" fill=\"#fffefb\"/><text x=\"248.0\" y=\"301.0\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"15\" font-weight=\"normal\" text-anchor=\"middle\" fill=\"#53627a\">계산 결과</text><rect x=\"372.075\" y=\"345\" width=\"95.85\" height=\"21\" fill=\"#fffefb\"/><text x=\"420.0\" y=\"361\" font-family=\"NanumGothic, Apple SD Gothic Neo, sans-serif\" font-size=\"15\" font-weight=\"normal\" text-anchor=\"middle\" fill=\"#53627a\">확인할 차이</text></svg></div><div class=\"figure-mobile\"><div class=\"figure-node figure-node-evidence\"><strong>거래파일 수신</strong><div>09:00<br>정산할 거래 자료를 받음</div><ul class=\"figure-connections\"><li>→ 취소 확인 <span>(거래 자료)</span></li></ul></div><div class=\"figure-node figure-node-work\"><strong>취소 확인</strong><div>09:20<br>계산에 반영할 취소 확인</div><ul class=\"figure-connections\"><li>→ 수수료 계산 <span>(취소 반영)</span></li></ul></div><div class=\"figure-node figure-node-work\"><strong>수수료 계산</strong><div>09:40<br>지급예정액 계산에 반영</div><ul class=\"figure-connections\"><li>→ 지급예정 대조 <span>(계산 결과)</span></li></ul></div><div class=\"figure-node figure-node-decision\"><strong>지급예정 대조</strong><div>10:20<br>은행 자료와 금액을 비교</div><ul class=\"figure-connections\"><li>→ 예외 전달 <span>(확인할 차이)</span></li></ul></div><div class=\"figure-node figure-node-result\"><strong>예외 전달</strong><div>11:00<br>차이의 사유·담당을 연결</div></div></div><figcaption><p>지급예정액을 계산하는 일과 다른 자료에 대조하는 일은 이어지지만 다른 업무입니다. 대사에서 발견한 불일치는 사유와 담당자를 확인할 대상이며 그 자체가 프로그램 결함이라는 뜻은 아닙니다. 09:00~11:00은 팀 경과시간으로 읽습니다.</p><p class=\"figure-question\"><strong>내 문서에서 확인하기</strong><br>G00 업무흐름에서 한 화살표를 골라 넘길 정보와 확인할 담당자를 붙이세요. 취소 확인을 빠뜨리면 어느 뒤 단계의 판단이 달라질까요?</p><p class=\"figure-source\">근거: S05 · S0 자료를 설명한 교육용 도식</p></figcaption></figure>\n<div class=\"reading-table\"><table><tr><th>조회 목적</th><th>메뉴와 조건</th><th>목록 뒤에 읽을 상세</th></tr><tr><td>정산 계산 한 건 확인</td><td>가맹점 정산, 정산번호=ST001</td><td>구성 거래와 조정의 근거</td></tr><tr><td>차이가 있는 거래 확인</td><td>거래 대사, 판정=불일치</td><td>계산액·수신액·사유·담당자</td></tr><tr><td>회사 현금 확인</td><td>회계 전표, 계정번호=100000</td><td>해당 전표의 다른 계정과 거래 의미</td></tr></table></div>\n<p>검색어는 포함 검색이고 “정확히 일치”는 특정 값만 찾는 조건입니다. “일치”를 검색어로 쓰면 “불일치”라는 글자도 포함될 수 있으므로 분류를 고를 때는 정확히 일치를 사용합니다. 새로운 조회를 시작할 때 이전 조건을 지우지 않으면 뜻밖의 0건이 나올 수 있습니다. 이때는 자료 단계→메뉴→초기화→조건 항목→조건값 순서로 확인하세요.</p>\n<p>조회 근거에는 자료 단계·메뉴·조건·행 ID·단위·해석을 남깁니다. 화면에 보이는 첫 페이지의 줄 수와 전체 검색 건수도 구분합니다. SQL은 같은 결과를 다른 방식으로 확인하고 싶은 사람을 위한 선택 경로입니다. SQL을 몰라도 이 단원과 다음 헌장 실습을 완수할 수 있습니다.</p>"
       },
       {
         "id": "u0-example",
         "title": "정산 한 건을 읽고 G00의 한 문단을 씁니다",
         "stage": "S0",
         "body": "이번에는 G00 전체를 완성하는 대신 “정산 조회에서 이해한 내용” 한 항목만 함께 작성합니다. ERP에서 ST001을 찾으면 거래금액 241,000원, 취소 13,000원, 수수료 4,560원, 조정 −1,000원, 지급예정액 222,440원을 읽을 수 있습니다. 먼저 이 숫자가 원 단위이며 한 정산 배치의 요약이라는 점을 확인합니다.\n\n계산은 241,000−13,000−4,560+(−1,000)=222,440입니다. 조정이 음수이므로 지급예정액을 줄입니다. 음수가 이상해 보인다고 절댓값으로 바꾸지 마세요. S05는 이 조정이 전기 과지급을 이번 지급에서 차감하는 내부 승인조정이라고 설명합니다. 거래별 수수료는 이 조정 때문에 다시 계산되는 것이 아닙니다.\n\n| 문장에 담을 내용 | 사실과 해석의 구분 |\n|---|---|\n| ST001 지급예정액은 222,440원이다 | ERP에서 확인한 사실 |\n| 조정 −1,000원은 전기 과지급 차감이다 | S05에서 확인한 업무 근거 |\n| 이 금액은 가맹점 지급예정액이며 회사의 프로젝트 예산이 아니다 | 자료의 성격을 연결한 해석 |\n| 다음에는 다른 배치도 같은 산식으로 확인한다 | 학습자가 수행할 후속 행동 |\n\n부분 초안은 다음처럼 시작할 수 있습니다. “ST001은 거래·취소·수수료·조정을 반영한 정산 배치이며 지급예정액은 222,440원이다. 조정의 부호는 S05의 과지급 차감 사유와 일치한다. 이 금액은 가맹점 지급예정액으로 이해하며 프로젝트 원가에 합산하지 않는다.” 여기에는 조회한 숫자, 원천의 이유, PM의 해석이 차례로 들어 있습니다.\n\n다음으로 ST002를 직접 찾아 같은 방식으로 계산합니다. 이 두 번째 배치의 값은 위 문장에서 숫자만 바꿔 추측하지 말고 실제 화면에서 읽으세요. 배치 상세의 거래를 펼쳐 볼 수 있지만 배치 합계에 그 거래 합계를 다시 더해서는 안 됩니다. 목록과 상세는 같은 돈을 다른 수준에서 보여 주므로 서로 대조할 대상입니다.\n\n현금도 같은 방식으로 의미를 붙여 읽습니다. S0 현금계정의 기초 400백만원에 회수 280백만원을 더하고 지급 240백만원을 빼면 440백만원입니다. 이는 S04의 회사 잔액을 확인한 것이며 프로젝트에 배정된 금액을 구한 것이 아닙니다. 숫자가 맞았다는 확인 다음에 그 숫자가 답하는 질문까지 써야 PM의 메모가 됩니다.",
+        "figures": [],
         "html": "<p>이번에는 G00 전체를 완성하는 대신 “정산 조회에서 이해한 내용” 한 항목만 함께 작성합니다. ERP에서 ST001을 찾으면 거래금액 241,000원, 취소 13,000원, 수수료 4,560원, 조정 −1,000원, 지급예정액 222,440원을 읽을 수 있습니다. 먼저 이 숫자가 원 단위이며 한 정산 배치의 요약이라는 점을 확인합니다.</p>\n<p>계산은 241,000−13,000−4,560+(−1,000)=222,440입니다. 조정이 음수이므로 지급예정액을 줄입니다. 음수가 이상해 보인다고 절댓값으로 바꾸지 마세요. S05는 이 조정이 전기 과지급을 이번 지급에서 차감하는 내부 승인조정이라고 설명합니다. 거래별 수수료는 이 조정 때문에 다시 계산되는 것이 아닙니다.</p>\n<div class=\"reading-table\"><table><tr><th>문장에 담을 내용</th><th>사실과 해석의 구분</th></tr><tr><td>ST001 지급예정액은 222,440원이다</td><td>ERP에서 확인한 사실</td></tr><tr><td>조정 −1,000원은 전기 과지급 차감이다</td><td>S05에서 확인한 업무 근거</td></tr><tr><td>이 금액은 가맹점 지급예정액이며 회사의 프로젝트 예산이 아니다</td><td>자료의 성격을 연결한 해석</td></tr><tr><td>다음에는 다른 배치도 같은 산식으로 확인한다</td><td>학습자가 수행할 후속 행동</td></tr></table></div>\n<p>부분 초안은 다음처럼 시작할 수 있습니다. “ST001은 거래·취소·수수료·조정을 반영한 정산 배치이며 지급예정액은 222,440원이다. 조정의 부호는 S05의 과지급 차감 사유와 일치한다. 이 금액은 가맹점 지급예정액으로 이해하며 프로젝트 원가에 합산하지 않는다.” 여기에는 조회한 숫자, 원천의 이유, PM의 해석이 차례로 들어 있습니다.</p>\n<p>다음으로 ST002를 직접 찾아 같은 방식으로 계산합니다. 이 두 번째 배치의 값은 위 문장에서 숫자만 바꿔 추측하지 말고 실제 화면에서 읽으세요. 배치 상세의 거래를 펼쳐 볼 수 있지만 배치 합계에 그 거래 합계를 다시 더해서는 안 됩니다. 목록과 상세는 같은 돈을 다른 수준에서 보여 주므로 서로 대조할 대상입니다.</p>\n<p>현금도 같은 방식으로 의미를 붙여 읽습니다. S0 현금계정의 기초 400백만원에 회수 280백만원을 더하고 지급 240백만원을 빼면 440백만원입니다. 이는 S04의 회사 잔액을 확인한 것이며 프로젝트에 배정된 금액을 구한 것이 아닙니다. 숫자가 맞았다는 확인 다음에 그 숫자가 답하는 질문까지 써야 PM의 메모가 됩니다.</p>"
       },
       {
@@ -779,6 +964,7 @@
         "title": "운영·재무의 관점으로 초안을 고칩니다",
         "stage": "S0",
         "body": "다음은 실제로 새 회신이 도착했다는 설정이 아니라, 제공된 원천자료를 기준으로 학생의 초안을 읽어 보는 교육용 검토 상황입니다. 개인 학습에서는 두 역할의 질문을 스스로 적용하고, 수업에서는 다른 학습자가 그 역할로 읽어 줄 수 있습니다. 아래 오류를 일부러 만들 필요는 없습니다. 이미 조건을 충족했다면 해당 문단과 근거를 확인하면 됩니다.\n\n운영 역할은 업무 흐름과 인수의 뜻을 봅니다. “불일치 거래가 있으므로 시스템 오류”라는 문장이 있다면 계산 차이 자체와 분류 기능의 정확성을 나눠야 합니다. ERP의 계산액·수신액·차이·사유를 다시 읽고, 차이를 발견했으며 확인 책임이 연결된 상태인지 설명합니다. 원천에서 확인되지 않은 결함이나 조정 승인을 새로 만들어 적지 않습니다.\n\n재무 역할은 돈의 주인·기간·단위를 봅니다. “회사 현금 440백만원으로 프로젝트를 진행한다”라는 문장은 잔액과 사용 권한을 합쳤습니다. 회사 현금은 S04, 프로젝트 자금 조건은 S01과 S17에서 따로 확인합니다. 금액이 맞아도 의미를 잘못 연결하면 그 뒤의 헌장과 예산이 틀어집니다.\n\n| 검토할 표현 | 수정 방향 | 다시 열 근거 |\n|---|---|---|\n| 대사 불일치는 모두 개발 결함이다 | 실제 차이와 기능의 분류 판정을 나눈다 | 대사 상세·예외 사유 |\n| 회사 현금이 전부 프로젝트 예산이다 | 회사 잔액과 사업 자금 한도를 분리한다 | S04, S01, S17 |\n| 120분은 세 사람 공수의 합이다 | 팀 경과시간과 개인 투입시간을 구분한다 | S05, S17 |\n\n수정 전 문장을 보존한 뒤 수정본에는 뜻이 어떻게 달라졌는지 씁니다. 예를 들어 “현금 440백만원을 사용할 수 있다”를 “440백만원은 9월 30일 회사 현금 잔액이며, 프로젝트 자금 한도와 상세 기준선 승인은 별도로 확인한다”로 바꾸면 금액을 고치지 않고도 잘못된 권한 해석을 바로잡습니다.\n\nG00 v0.1과 v0.2를 구분하되 파일을 여러 개 만드는 행위 자체를 목표로 삼지는 마세요. 다른 사람이 검토 의견→수정 위치→근거를 따라갈 수 있으면 됩니다. 업무 파악 메모의 검토 완료는 사업 승인과 다릅니다. 이 단원에는 스폰서의 새 승인번호를 기록하지 않습니다.",
+        "figures": [],
         "html": "<p>다음은 실제로 새 회신이 도착했다는 설정이 아니라, 제공된 원천자료를 기준으로 학생의 초안을 읽어 보는 교육용 검토 상황입니다. 개인 학습에서는 두 역할의 질문을 스스로 적용하고, 수업에서는 다른 학습자가 그 역할로 읽어 줄 수 있습니다. 아래 오류를 일부러 만들 필요는 없습니다. 이미 조건을 충족했다면 해당 문단과 근거를 확인하면 됩니다.</p>\n<p>운영 역할은 업무 흐름과 인수의 뜻을 봅니다. “불일치 거래가 있으므로 시스템 오류”라는 문장이 있다면 계산 차이 자체와 분류 기능의 정확성을 나눠야 합니다. ERP의 계산액·수신액·차이·사유를 다시 읽고, 차이를 발견했으며 확인 책임이 연결된 상태인지 설명합니다. 원천에서 확인되지 않은 결함이나 조정 승인을 새로 만들어 적지 않습니다.</p>\n<p>재무 역할은 돈의 주인·기간·단위를 봅니다. “회사 현금 440백만원으로 프로젝트를 진행한다”라는 문장은 잔액과 사용 권한을 합쳤습니다. 회사 현금은 S04, 프로젝트 자금 조건은 S01과 S17에서 따로 확인합니다. 금액이 맞아도 의미를 잘못 연결하면 그 뒤의 헌장과 예산이 틀어집니다.</p>\n<div class=\"reading-table\"><table><tr><th>검토할 표현</th><th>수정 방향</th><th>다시 열 근거</th></tr><tr><td>대사 불일치는 모두 개발 결함이다</td><td>실제 차이와 기능의 분류 판정을 나눈다</td><td>대사 상세·예외 사유</td></tr><tr><td>회사 현금이 전부 프로젝트 예산이다</td><td>회사 잔액과 사업 자금 한도를 분리한다</td><td>S04, S01, S17</td></tr><tr><td>120분은 세 사람 공수의 합이다</td><td>팀 경과시간과 개인 투입시간을 구분한다</td><td>S05, S17</td></tr></table></div>\n<p>수정 전 문장을 보존한 뒤 수정본에는 뜻이 어떻게 달라졌는지 씁니다. 예를 들어 “현금 440백만원을 사용할 수 있다”를 “440백만원은 9월 30일 회사 현금 잔액이며, 프로젝트 자금 한도와 상세 기준선 승인은 별도로 확인한다”로 바꾸면 금액을 고치지 않고도 잘못된 권한 해석을 바로잡습니다.</p>\n<p>G00 v0.1과 v0.2를 구분하되 파일을 여러 개 만드는 행위 자체를 목표로 삼지는 마세요. 다른 사람이 검토 의견→수정 위치→근거를 따라갈 수 있으면 됩니다. 업무 파악 메모의 검토 완료는 사업 승인과 다릅니다. 이 단원에는 스폰서의 새 승인번호를 기록하지 않습니다.</p>"
       },
       {
@@ -786,6 +972,7 @@
         "title": "도움 없이 다시 조회하고 헌장 작성에 넘깁니다",
         "stage": "S0",
         "body": "이제 예시에서 사용하지 않은 ST002와 TX002001을 직접 읽습니다. 먼저 어떤 질문에 답하려는지 쓰고 메뉴와 필터를 정하세요. 정산에서는 지급예정액의 산식과 돈의 의미를, 대사에서는 차이의 방향·판정·담당·사유를 설명합니다. 계산이 막히면 단위와 조정 부호를, 조회가 막히면 초기화와 자료 단계를 먼저 확인합니다.\n\nG00에 모을 내용은 회사 소개의 모든 문장이 아닙니다. 맡은 업무, 주요 사람과 질문, 현재 업무흐름, 정산·대사에서 이해한 것, 세 종류의 돈, 헌장에 가져갈 자료 위치를 이어 씁니다. 이 여섯 부분은 다음 PM이 질문에 답할 수 있도록 구성한 순서입니다. 원천에서 확인한 사실에는 ID를 붙이고 자신의 해석과 후속 행동에는 그 성격을 드러냅니다.\n\n| 스스로 설명할 질문 | 완료를 확인할 증거 |\n|---|---|\n| 이번 사업은 어떤 기존 업무를 개선하는가 | S01에 근거한 목적 문장 |\n| 왜 불일치가 있다고 모두 결함은 아닌가 | 직접 조회한 한 거래의 비교와 사유 |\n| 회사 현금과 프로젝트 자금은 왜 다른가 | 주인·기간·관리 목적을 나눈 설명 |\n| 누가 업무 인수와 사업 승인을 판단하는가 | S02의 역할 구분 |\n| 같은 사실을 다시 찾을 수 있는가 | 메뉴·조건·행 ID 또는 문서 위치 |\n\n마지막에는 자료를 잠깐 닫고 “내가 맡은 일은 무엇이며 무엇을 아직 결정하지 않았는가”를 말해 보세요. 회사가 무엇을 하는지는 알지만 개선 이유를 설명하지 못하면 S01로, 금액은 계산했지만 의미가 불명확하면 S04와 상세 자료로 돌아갑니다. 이때 다시 읽는 것은 실패가 아니라 앞으로 잘못된 약속을 쓰지 않기 위한 확인입니다.\n\n다음 단원에서는 G00의 사업 필요를 D01 헌장에, 사람과 질문을 D30 이해관계자 등록부에, 확인해야 할 전제를 A01 가정 로그에 연결합니다. G00 문장을 통째로 복사하기보다 각각 어떤 결정을 돕는 정보인지 판단해 옮깁니다. 아직 상세 일정이나 실행 실적을 만들지 않습니다.\n\n단원을 마친 기준은 화면을 몇 번 열었는지나 메모가 몇 장인지가 아닙니다. 필요한 사실을 스스로 찾고, 그 사실이 의미하는 바를 설명하며, 검토 후 잘못된 연결을 고칠 수 있으면 됩니다. 웹의 학습 기록에 같은 내용을 다시 입력할 필요 없이 자신의 문서와 근거를 보관한 뒤 헌장 단원으로 이동합니다.",
+        "figures": [],
         "html": "<p>이제 예시에서 사용하지 않은 ST002와 TX002001을 직접 읽습니다. 먼저 어떤 질문에 답하려는지 쓰고 메뉴와 필터를 정하세요. 정산에서는 지급예정액의 산식과 돈의 의미를, 대사에서는 차이의 방향·판정·담당·사유를 설명합니다. 계산이 막히면 단위와 조정 부호를, 조회가 막히면 초기화와 자료 단계를 먼저 확인합니다.</p>\n<p>G00에 모을 내용은 회사 소개의 모든 문장이 아닙니다. 맡은 업무, 주요 사람과 질문, 현재 업무흐름, 정산·대사에서 이해한 것, 세 종류의 돈, 헌장에 가져갈 자료 위치를 이어 씁니다. 이 여섯 부분은 다음 PM이 질문에 답할 수 있도록 구성한 순서입니다. 원천에서 확인한 사실에는 ID를 붙이고 자신의 해석과 후속 행동에는 그 성격을 드러냅니다.</p>\n<div class=\"reading-table\"><table><tr><th>스스로 설명할 질문</th><th>완료를 확인할 증거</th></tr><tr><td>이번 사업은 어떤 기존 업무를 개선하는가</td><td>S01에 근거한 목적 문장</td></tr><tr><td>왜 불일치가 있다고 모두 결함은 아닌가</td><td>직접 조회한 한 거래의 비교와 사유</td></tr><tr><td>회사 현금과 프로젝트 자금은 왜 다른가</td><td>주인·기간·관리 목적을 나눈 설명</td></tr><tr><td>누가 업무 인수와 사업 승인을 판단하는가</td><td>S02의 역할 구분</td></tr><tr><td>같은 사실을 다시 찾을 수 있는가</td><td>메뉴·조건·행 ID 또는 문서 위치</td></tr></table></div>\n<p>마지막에는 자료를 잠깐 닫고 “내가 맡은 일은 무엇이며 무엇을 아직 결정하지 않았는가”를 말해 보세요. 회사가 무엇을 하는지는 알지만 개선 이유를 설명하지 못하면 S01로, 금액은 계산했지만 의미가 불명확하면 S04와 상세 자료로 돌아갑니다. 이때 다시 읽는 것은 실패가 아니라 앞으로 잘못된 약속을 쓰지 않기 위한 확인입니다.</p>\n<p>다음 단원에서는 G00의 사업 필요를 D01 헌장에, 사람과 질문을 D30 이해관계자 등록부에, 확인해야 할 전제를 A01 가정 로그에 연결합니다. G00 문장을 통째로 복사하기보다 각각 어떤 결정을 돕는 정보인지 판단해 옮깁니다. 아직 상세 일정이나 실행 실적을 만들지 않습니다.</p>\n<p>단원을 마친 기준은 화면을 몇 번 열었는지나 메모가 몇 장인지가 아닙니다. 필요한 사실을 스스로 찾고, 그 사실이 의미하는 바를 설명하며, 검토 후 잘못된 연결을 고칠 수 있으면 됩니다. 웹의 학습 기록에 같은 내용을 다시 입력할 필요 없이 자신의 문서와 근거를 보관한 뒤 헌장 단원으로 이동합니다.</p>"
       }
     ],

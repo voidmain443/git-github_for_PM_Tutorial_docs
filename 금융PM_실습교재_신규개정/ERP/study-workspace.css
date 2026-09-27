@@ -3,3 +3,23 @@
 .chapter-reader p,.chapter-reader li,.chapter-section>h3,.step-phase-panel p,.step-phase-panel li{word-break:keep-all;overflow-wrap:break-word}
 .chapter-section td,.chapter-section th{word-break:keep-all;overflow-wrap:anywhere}
 .unit-direction{display:flex;justify-content:space-between;align-items:center;gap:14px;flex-wrap:wrap}.unit-direction nav{display:flex;gap:8px}.unit-direction button{font-size:14px;padding:6px 10px}.eyebrow{font-size:12px;letter-spacing:.1em;color:#805321}.reader-view{display:flex;gap:8px;margin:22px 0 8px}.reader-view button{flex:1;max-width:230px}.reader-view [aria-pressed=true]{background:#355d9e;color:#fff}.chapter-reader{max-width:900px;margin:24px auto}.chapter-reader>h2{margin-top:0}.chapter-reader p{line-height:1.95;margin:16px 0;overflow-wrap:anywhere}.chapter-reader li{margin:8px 0}.chapter-brief{display:grid;grid-template-columns:1fr 1fr;gap:24px;border-bottom:1px solid #d8dde5;padding-bottom:20px}.chapter-brief h3{margin-top:12px}.chapter-brief ul{padding-left:22px;font-size:15px}.chapter-toc{display:grid;gap:8px;padding:22px 0}.chapter-toc a{font-size:15px;text-decoration:none}.chapter-section{scroll-margin-top:20px;padding:28px 0;border-top:1px solid #ccd5e2}.chapter-section>h3{font-size:24px;line-height:1.6;margin:8px 0 24px}.chapter-section h4{font-size:18px;margin-top:30px}.chapter-section table{font-size:15px;line-height:1.8}.chapter-handoff{background:#edf2fa;border-radius:10px;padding:22px;margin-top:26px}.chapter-handoff h3{margin-top:0}.release-notice{background:#f1f4f8;padding:18px;border-left:3px solid #8391a9;border-radius:6px}.release-notice p{font-size:15px}.phase-tabs{display:flex;gap:6px;border-bottom:1px solid #ccd5e2;padding-bottom:14px;margin:22px 0}.phase-tabs button{flex:1;font-size:15px;padding:10px 6px}.phase-tabs [aria-selected=true]{border-color:#355d9e;background:#e8effb;font-weight:700}.step-phase-panel{padding-top:4px}.step-phase-panel>button[data-continue]{margin-top:20px}.step-phase-panel .study-panel{margin-top:24px}#study-quiz h3{border:0;padding-top:0}#unit-intro h2{margin:8px 0}.chapter-section .reading-table{margin:22px 0}#study-frame{min-height:600px}@media(max-width:650px){.chapter-brief{grid-template-columns:1fr;gap:0}.chapter-section>h3{font-size:21px}.chapter-reader{padding:20px}.phase-tabs button{font-size:13px}.chapter-section{padding:24px 0}.reader-view button{font-size:15px}.chapter-handoff{padding:18px}}@media print{#unit-intro,.outline,.phase-tabs,.paging,[data-continue],#reader-view{display:none!important}.chapter-reader{max-width:none;border:0}.release-notice button,.chapter-handoff button{display:none!important}}
+
+/* In-context textbook diagrams: a quiet working-paper surface, no autoplay. */
+.chapter-reader .chapter-figure{margin:30px 0 34px;padding:24px 0 16px;border-top:2px solid #64728a;border-bottom:1px solid #d8dde5;break-inside:avoid}
+.chapter-reader .chapter-figure h4{font-size:20px;line-height:1.65;margin:0 0 10px;color:#1d3152;word-break:keep-all}
+.chapter-reader .chapter-figure .figure-lead{font-size:16px;margin:8px 0 0;line-height:1.8}
+.figure-desktop svg{display:block;width:100%;height:auto;overflow:visible}
+.figure-mobile{display:none}
+.chapter-reader .chapter-figure figcaption p{font-size:15px;line-height:1.85;margin:12px 0}
+.chapter-reader .chapter-figure .figure-question{padding:12px 16px;border-left:3px solid #916323;background:#fbf0df}
+.chapter-reader .chapter-figure .figure-source{font-size:13px;color:#626d7f}
+@media(max-width:640px){
+ .chapter-reader .chapter-figure{margin:26px 0;padding:20px 0 12px}
+ .figure-desktop{display:none}.figure-mobile{display:grid;gap:12px;margin:20px 0}
+ .figure-node{border:1px solid #aab7ca;border-left:3px solid #64728a;padding:14px 16px;font-size:16px;line-height:1.75;overflow-wrap:anywhere;background:#fffefb}
+ .figure-node strong{display:block;color:#26334d;font-size:17px;margin-bottom:5px}
+ .figure-node-evidence{background:#edf2fa;border-left-color:#355d9e}.figure-node-decision{background:#fbf0df;border-left-color:#916323}.figure-node-result{background:#eaf4ef;border-left-color:#3f705e}
+ .figure-node ul.figure-connections{list-style:none;margin:10px 0 0;padding:9px 0 0;border-top:1px solid #ccd5e2;font-size:14px}
+ .figure-connections li{margin:4px 0}.figure-connections span{color:#53627a}
+}
+@media print{.figure-mobile{display:none}.figure-desktop{display:block}}
