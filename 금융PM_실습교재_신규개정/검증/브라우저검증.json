@@ -1,0 +1,15 @@
+{
+  "passed": true,
+  "checks": [
+    "21 source documents",
+    "480 rows",
+    "12 mismatch filter",
+    "procurement related payments",
+    "SQL actual115M",
+    "write SQL rejected",
+    "CSV download",
+    "document detail",
+    "760px layout",
+    "zero JS errors"
+  ]
+}

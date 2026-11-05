@@ -62,6 +62,7 @@
 % ---- 안내문 · 빈칸 ----
 \newcommand{\guide}[1]{\textcolor{guide}{\small #1}\par}   % 항목 안내문(문단으로 끝난다 — 뒤의 표가 같은 문단에 붙지 않게)
 \newcommand{\g}[1]{\textcolor{guide}{\scriptsize #1}}               % 표 안 안내문
+\newcommand{\hint}[1]{\ifwbblank\textcolor{guide}{\small ▷ 찾을 곳 — #1}\par\fi} % 빈 템플릿에만 찍히는 '찾을 곳' 한 줄(값 없이 정본 §·워크북 항목만) — 03_서술규약 예시 F
 \newcommand{\blankarea}[1]{\vspace*{#1}}
 \newcommand{\lines}[2]{% #1 줄 수, #2 줄 간격
   \begingroup\parindent0pt\foreach \i in {1,...,#1}{\rule{0pt}{#2}\hrulefill\par}\endgroup}

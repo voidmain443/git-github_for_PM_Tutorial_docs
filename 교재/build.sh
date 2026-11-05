@@ -164,6 +164,12 @@ build_book() {
     local log="$ROOT/build/log_${md%.md}.txt"
     if pandoc "$md" -o "$pdf" "${PANDOC_COMMON[@]}" -H "$hdr" "$@" > "$log" 2>&1; then
       grep -v "accessing absolute\|^note: downloading\|Language 'Korean'\|^(fontspec)\|Object @page" "$log" || true
+      # 글리프 게이트: 폰트에 없는 글자(이모지 등)는 ☒로 인쇄되므로 실패로 처리한다(공통/03_서술규약.md §1-6 허용 목록만 쓴다)
+      if grep -q "could not represent character" "$log"; then
+        grep -o 'could not represent character "[^"]*"' "$log" | sort | uniq -c | sort -rn | head -10
+        echo "  FAIL  $dir/$md — 위 글자는 Apple SD Gothic Neo에 없다. md에서 지우거나 허용 글리프로 바꾼다(전체 로그: $log)"
+        exit 1
+      fi
       echo "  ok  $dir/$pdf  ($(pdfinfo "$pdf" | awk '/^Pages/{print $2}') 쪽)"
     else
       cat "$log"
@@ -211,6 +217,8 @@ build_books() {
     # 안내·색인은 짧아서 '##' 을 장으로 올리지 않는다(장마다 새 쪽이 되어 쪽수만 늘어난다)
     build_book "공통" "00_학습안내.md" "학습 안내" "프로젝트 매니지먼트 4일 특강 · 수강생 안내"
     build_book "공통" "02_용어약어색인.md" "용어·약어·문서 ID 색인" "프로젝트 매니지먼트 4일 특강 · 공용 색인"
+    build_book "공통" "03_서술규약.md" "서술 규약 — 채우는 사람이 먼저 읽는 블록" "프로젝트 매니지먼트 4일 특강 · 제작 규약(강사·저자용)"
+    build_book "공통" "04_보조강사_응대표_Day1.md" "보조강사 응대표 · Day1" "프로젝트 매니지먼트 4일 특강 · 강사·보조강사용"
     # 사례 한 장(책받침): 단독 LaTeX → A4 가로 2쪽
     ( cd "$ROOT/공통/src" && tectonic --chatter minimal 01_사례_한장.tex > "$ROOT/build/log_01_사례_한장.txt" 2>&1 \
         && mv -f 01_사례_한장.pdf ../01_사례_한장.pdf && echo "  ok  공통/01_사례_한장.pdf (2 쪽)" \

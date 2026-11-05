@@ -1,0 +1,36 @@
+{
+  "date": "2026-09-22",
+  "scope": "current S0 interface inspection; no learner record changed",
+  "units": [
+    {
+      "unit": 0,
+      "visibleTextareas": 0,
+      "allTextareas": 0,
+      "stepButtons": 8,
+      "downloads": [
+        "G00 작성용 초안 내려받기",
+        "Q00 자료조회 작성용 초안 내려받기"
+      ],
+      "notice": ""
+    },
+    {
+      "unit": 1,
+      "visibleTextareas": 0,
+      "allTextareas": 22,
+      "stepButtons": 0,
+      "downloads": [
+        "D01 헌장.md 내려받기",
+        "D30 이해관계자등록부.md 내려받기"
+      ],
+      "notice": ""
+    },
+    {
+      "unit": 2,
+      "visibleTextareas": 0,
+      "allTextareas": 0,
+      "stepButtons": 0,
+      "downloads": [],
+      "notice": "이 단원은 S1 자료팩부터 진행합니다. 현재 S0입니다."
+    }
+  ]
+}

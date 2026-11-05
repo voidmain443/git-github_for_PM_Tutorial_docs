@@ -1,0 +1,23 @@
+{
+  "passed": true,
+  "checks": [
+    "no note form or completion gate",
+    "all eight steps accessible",
+    "example visible without disclosure",
+    "read next step 2",
+    "read next step 3",
+    "read next step 4",
+    "read next step 5",
+    "read next step 6",
+    "read next step 7",
+    "read next step 8",
+    "charter handoff link",
+    "reading position retained",
+    "previous notes preserved",
+    "ERP query shortcut retained",
+    "mobile no overflow",
+    "other unit preserved",
+    "browser errors absent"
+  ],
+  "scope": "Reading navigation, saved data preservation and mobile layout; not learner effectiveness"
+}

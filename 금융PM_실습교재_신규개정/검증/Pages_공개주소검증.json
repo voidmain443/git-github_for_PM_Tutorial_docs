@@ -1,0 +1,24 @@
+{
+  "checkedAt": "2026-09-24T03:11:34.700Z",
+  "url": "https://voidmain443.github.io/git-github_for_PM_Tutorial_docs/",
+  "passed": true,
+  "checks": [
+    "public homepage responds",
+    "public reader begins at S0",
+    "public source document opens",
+    "public ERP computes settlement",
+    "public browser SQL returns twelve exceptions",
+    "public SQL remains read-only",
+    "public CSV download",
+    "public Korean template download",
+    "future worked examples withheld in initial lesson",
+    "final quality step opens",
+    "public print stage follows selection",
+    "public PDF available",
+    "public PDF available",
+    "public form preview opens",
+    "public manifest excludes instructor material",
+    "no browser exceptions"
+  ],
+  "errors": []
+}
